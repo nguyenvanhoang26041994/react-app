@@ -1,0 +1,43 @@
+@import '../../style/variables.scss';
+
+.rc-modal {
+  position: relative;
+  font-size: $font-size;
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 25em;
+  min-height: 10em;
+  border-radius: $border-radius;
+  background-color: #ffffff;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  color: $text-color;
+}
+
+.rc-modal__close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rc-modal__title {
+  color: #ffffff;
+  font-weight: 500;
+  background-color: darken($primary, 10%);
+}
+
+.rc-modal__content {
+  flex-grow: 1;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.rc-modal__title,
+.rc-modal__content,
+.rc-modal__footer {
+  padding: 1.125em;
+}

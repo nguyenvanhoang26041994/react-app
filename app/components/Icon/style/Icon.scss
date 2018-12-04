@@ -1,0 +1,13 @@
+@import '../../style/variables.scss';
+
+.rc-icon {
+  font-size: 1em;
+}
+
+.rc-icon--small {
+  font-size: $font-size-for-small;
+}
+
+.rc-icon--large {
+  font-size: $font-size-for-large;
+}

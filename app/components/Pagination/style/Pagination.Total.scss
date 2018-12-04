@@ -1,0 +1,15 @@
+@import '../../style/variables.scss';
+
+.rc-pagination-total {
+  font-size: $font-size;
+  color: $text-color;
+  height: 1.75em;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5em;
+  padding-right: 1.5em;
+
+  &:hover {
+    color: $primary;
+  }
+}

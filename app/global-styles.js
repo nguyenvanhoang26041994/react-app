@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
+import './components/style';
+
 const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 14px;
+  }
+
   html,
   body {
     height: 100%;
@@ -8,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: 'Lora', serif; */
   }
 
   body.fontLoaded {
@@ -16,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    background-color: #fafafa;
+    background-color: whitesmoke;
     min-height: 100%;
     min-width: 100%;
   }

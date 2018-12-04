@@ -1,0 +1,21 @@
+@import '../../style/variables.scss';
+
+.rc-textarea {
+  font-size: $font-size;
+  outline: none;
+  border: 0.0625em solid $border-color;
+  border-radius: $border-radius;
+  padding: 0.5em;
+  box-sizing: border-box;
+  min-height: $height;
+  color: $text-color;
+
+  &:hover,
+  &:focus {
+    border-color: $primary;
+  }
+
+  &:focus {
+    box-shadow: $box-shadow-for-primary;
+  }
+}

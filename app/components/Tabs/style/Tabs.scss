@@ -1,0 +1,63 @@
+@import '../../style/variables.scss';
+
+.rc-tabs {
+  font-size: $font-size;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+.rc-tabs__navigation {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 2.5em;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.rc-tabs__content {
+  display: none;
+  padding: 0.5em;
+  background-color: white;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
+.rc-tabs__content--active {
+  display: block;
+}
+
+.rc-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  height: 100%;
+  background-color: transparent;
+  color: $text-color;
+  cursor: pointer;
+
+  &:hover:not(&--disabled) {
+    color: $primary;
+  }
+
+  > .rc-icon + span,
+  > span + .rc-icon {
+    margin-left: 0.5em;
+  }
+}
+
+.rc-tab--active {
+  background-color: white;
+  color: $primary;
+  font-weight: 500;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.rc-tab--disabled {
+  color: $text-color-when-disabled;
+  cursor: not-allowed;
+}

@@ -1,0 +1,22 @@
+@import '../../style/variables.scss';
+// @import '../../style/animate/fadeInDown.css';
+
+.rc-wrapped-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-index-modal;
+
+  .rc-modal {
+    top: 5em;
+    max-height: calc(100vh - 10em);
+    max-width: calc(100vw - 5em);
+    animation: fadeInDown 0.25s ease-out;
+  }
+}

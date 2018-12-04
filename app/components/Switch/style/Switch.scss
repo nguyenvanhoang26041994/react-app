@@ -1,0 +1,63 @@
+@import '../../style/variables.scss';
+
+$size: 1.5em;
+$color: $primary;
+
+$border-width: 0.0625em;
+
+.rc-switch {
+  font-size: $font-size;
+  position: relative;
+  display: inline-block;
+  width: $size * 2;
+  height: $size;
+}
+
+.rc-switch--small {
+  font-size: $font-size-for-small;
+}
+
+.rc-switch--large {
+  font-size: $font-size-for-large;
+}
+
+.rc-switch__switch {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #cccccc;
+  border-radius: 10em;
+  box-shadow: 0 0 0 $border-width * 2 #cccccc;
+  transition: 0.3s;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    background-color: white;
+    border-radius: 10em;
+    transition: 0.3s;
+  }
+}
+
+.rc-switch__input-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .rc-switch__switch {
+    background-color: $color;
+    box-shadow: 0 0 0 $border-width * 2 $color;
+    &:before {
+      transform: translateX(100%);
+    }
+  }
+
+  &:disabled + .rc-switch__switch {
+    cursor: not-allowed;
+  }
+}

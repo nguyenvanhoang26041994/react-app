@@ -1,0 +1,156 @@
+@import '../../style/variables.scss';
+// @import '../../style/animate/fadeIn.css';
+
+$background-color: #f5f5f5;
+$font-size: 0.875rem;
+$size-arrow: 0.5em;
+
+.rc-popconfirm {
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 0.25rem;
+  padding: 1em;
+  position: relative;
+  font-size: $font-size;
+  width: max-content;
+  max-width: 50em;
+  min-width: 17em;
+  min-height: $font-size * 2;
+  z-index: $z-index-popconfirm;
+  color: $text-color;
+  background-color: $background-color;
+  box-shadow: $box-shadow;
+  animation: fadeIn 0.125s ease-in;
+
+  &:before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    width: $size-arrow;
+    height: $size-arrow;
+    border: $size-arrow solid $background-color;
+  }
+}
+
+.rc-popconfirm__message {
+  margin-bottom: 1em;
+}
+
+.rc-popconfirm__message__icon {
+  color: $warning;
+  margin-right: 0.5em;
+}
+
+.rc-popconfirm--top,
+.rc-popconfirm--top-left,
+.rc-popconfirm--top-right {
+  transform: translateY(-$size-arrow);
+
+  &:before {
+    border-color: $background-color transparent transparent transparent;
+    top: 100%;
+  }
+}
+
+.rc-popconfirm--bottom,
+.rc-popconfirm--bottom-left,
+.rc-popconfirm--bottom-right {
+  transform: translateY($size-arrow);
+
+  &:before {
+    border-color: transparent transparent $background-color transparent;
+    bottom: 100%;
+  }
+}
+
+.rc-popconfirm--left,
+.rc-popconfirm--left-top,
+.rc-popconfirm--left-bottom {
+  transform: translateX(-$size-arrow);
+
+  &:before {
+    border-color: transparent transparent transparent $background-color;
+    right: 0;
+  }
+}
+
+.rc-popconfirm--right,
+.rc-popconfirm--right-top,
+.rc-popconfirm--right-bottom {
+  transform: translateX($size-arrow);
+}
+
+.rc-popconfirm--top,
+.rc-popconfirm--bottom {
+  &:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.rc-popconfirm--top-left,
+.rc-popconfirm--bottom-left {
+  &:before {
+    left: 0;
+    transform: translateX(50%);
+  }
+}
+
+.rc-popconfirm--top-right,
+.rc-popconfirm--bottom-right {
+  &:before {
+    left: 100%;
+    transform: translateX(-150%);
+  }
+}
+
+.rc-popconfirm--left {
+  &:before {
+    top: 50%;
+    transform: translate(100%, -$size-arrow);
+  }
+}
+
+.rc-popconfirm--left-top {
+  &:before {
+    top: 0;
+    transform: translate(100%, $size-arrow / 2);
+  }
+}
+
+.rc-popconfirm--left-bottom {
+  &:before {
+    bottom: 0;
+    transform: translate(100%, -$size-arrow / 2);
+  }
+}
+
+.rc-popconfirm--right,
+.rc-popconfirm--right-top,
+.rc-popconfirm--right-bottom  {
+  &:before {
+    left: 0;
+    border-color: transparent $background-color transparent transparent;
+  }
+}
+
+.rc-popconfirm--right {
+  &:before {
+    top: 50%;
+    transform: translate(-100%, -$size-arrow);
+  }
+}
+
+.rc-popconfirm--right-top {
+  &:before {
+    top: 0;
+    transform: translate(-100%, $size-arrow / 2);
+  }
+}
+
+.rc-popconfirm--right-bottom {
+  &:before {
+    bottom: 0;
+    transform: translate(-100%, -$size-arrow / 2);
+  }
+}

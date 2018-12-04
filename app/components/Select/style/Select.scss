@@ -1,0 +1,122 @@
+@import '../../style/variables.scss';
+
+.rc-select-native {
+  min-height: $height;
+  height: auto;
+  padding-right: 0.5em;
+}
+
+.rc-select,
+.rc-select-native {
+  font-size: $font-size;
+  display: inline-block;
+}
+
+.rc-select:not(.rc-select-native) {
+  position: relative;
+  white-space: nowrap;
+}
+
+.rc-select-native,
+.rc-select .rc-select__button {
+  touch-action: manipulation;
+  outline: none;
+  background-color: white;
+  border: 0.0625em solid $border-color;
+  color: $text-color;
+  border-radius: 0.25em;
+  padding-left: 0.5em;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+    border-color: $primary;
+  }
+
+  &:focus {
+    box-shadow: $box-shadow-for-primary;
+  }
+}
+
+.rc-select .rc-select__button {
+  position: relative;
+  padding-right: 2em;
+  font-size: 1em;
+  height: $height;
+  display: flex;
+  align-items: center;
+}
+
+.rc-select-native--small,
+.rc-select--small {
+  font-size: $font-size-for-small;
+}
+
+.rc-select-native--large,
+.rc-select--large {
+  font-size: $font-size-for-large;
+}
+
+.rc-select--disabled:not(.rc-select-native) {
+  cursor: not-allowed;
+
+  .rc-select__button {
+    pointer-events: none;
+  }
+}
+
+.rc-select--disabled .rc-select__button,
+.rc-select--disabled .rc-select__button:hover,
+.rc-select-native:disabled {
+  cursor: not-allowed;
+  border-color: $border-color-when-disabled;
+  color: $text-color-when-disabled;
+}
+
+.rc-select__dropdown-icon {
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: 0.75em;
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+
+
+.rc-select__options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.25em);
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  border: 0.0625em solid $border-color;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+  overflow: scroll;
+  max-height: 30rem;
+  border-radius: $border-radius;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.rc-select--dropdown-visible {
+  .rc-select__button {
+    color: $primary;
+    border-color: $primary;
+    box-shadow: $box-shadow-for-primary;
+  }
+
+  .rc-select__dropdown-icon {
+    transform: rotate(-90deg);
+  }
+
+  .rc-select__options {
+    display: block;
+    min-width: 100%;
+    width: max-content;
+  }
+}

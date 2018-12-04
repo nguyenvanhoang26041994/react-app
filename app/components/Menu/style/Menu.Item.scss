@@ -1,0 +1,34 @@
+@import '../../style/variables.scss';
+
+$padding: 1em;
+
+.rc-menu-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-height: 2.875em;
+  padding: 0 $padding;
+  background-color: #2d3447;
+  text-decoration: none;
+  cursor: pointer;;
+  user-select: none;
+  color: hsla(0, 0%, 100%, 0.65);
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.rc-menu-item__icon {
+  box-sizing: border-box;
+  width: 2em;
+  display: flex;
+  align-items: center;
+}
+
+.rc-menu-item--active {
+  background-color: $primary;
+  color: #ffffff;
+  // border-right: 0.125em solid $primary;
+  transition: background-color 0.5s, color 0.5s;
+}

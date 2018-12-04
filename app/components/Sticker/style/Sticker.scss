@@ -1,0 +1,14 @@
+@import '../../style/variables.scss';
+
+.rc-root-sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.rc-sticker {
+  width: max-content;
+  position: absolute;
+}

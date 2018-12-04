@@ -1,0 +1,8 @@
+@import '../../style/variables.scss';
+
+.rc-menu {
+  font-size: $font-size;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: transparent;
+}

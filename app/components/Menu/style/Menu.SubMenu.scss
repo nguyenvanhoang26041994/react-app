@@ -1,0 +1,41 @@
+@import '../../style/variables.scss';
+// @import '../../style/animate/fadeInDown.css';
+// @import '../../style/animate//fadeInUp.css';
+
+.rc-submenu {
+  > .rc-submenu__menu {
+    display: none;
+
+    > .rc-menu-item:not(.rc-menu-item--active),
+    > .rc-menu-groupitem .rc-menu-item:not(.rc-menu-item--active) {
+      background-color: #1b1f2a;
+    }
+  }
+}
+
+.rc-menu-item.rc-submenu__title {
+  position: relative;
+
+  &:before {
+    content: "❯";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    transition: 0.3s;
+  }
+}
+
+.rc-submenu.rc-submenu--active {
+  > .rc-submenu__menu {
+    display: flex;
+  }
+
+  > .rc-menu-item.rc-submenu__title {
+    color: #ffffff;
+  
+    &:before {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+}

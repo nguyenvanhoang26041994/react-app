@@ -1,0 +1,111 @@
+@import '../../style/variables.scss';
+// @import '../../style/animate/bounceInDown.css';
+// @import '../../style/animate/bounceInUp.css';
+// @import '../../style/animate/bounceInLeft.css';
+// @import '../../style/animate/bounceInRight.css';
+
+$anywhere-spacing: 20px;
+$duration: 0.25s;
+$margin: 0.25em;
+
+.rc-alert-anywhere {
+  display: flex;
+  flex-flow: column-reverse wrap;
+  position: fixed;
+
+  .rc-alert {
+    box-shadow: $box-shadow;
+    margin-top: $margin;
+    margin-bottom: $margin;
+    z-index: $z-index-alert;
+  }
+}
+
+.rc-alert-anywhere--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rc-alert-anywhere--top,
+.rc-alert-anywhere--bottom {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rc-alert-anywhere--top {
+  top: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--bottom {
+  bottom: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--left,
+.rc-alert-anywhere--right {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rc-alert-anywhere--left {
+  left: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--right {
+  right: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--bottom-left,
+.rc-alert-anywhere--left-bottom {
+  bottom: $anywhere-spacing;
+  left: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--bottom-right,
+.rc-alert-anywhere--right-bottom {
+  bottom: $anywhere-spacing;
+  right: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--top-left,
+.rc-alert-anywhere--left-top {
+  top: $anywhere-spacing;
+  left: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--top-right,
+.rc-alert-anywhere--right-top {
+  top: $anywhere-spacing;
+  right: $anywhere-spacing;
+}
+
+.rc-alert-anywhere--top,
+.rc-alert-anywhere--center {
+  .rc-alert {
+    animation: bounceInDown $duration ease-in;
+  }
+}
+
+.rc-alert-anywhere--bottom .rc-alert {
+  animation: bounceInUp $duration ease-in;
+}
+
+.rc-alert-anywhere--left,
+.rc-alert-anywhere--left-top,
+.rc-alert-anywhere--top-left,
+.rc-alert-anywhere--left-bottom,
+.rc-alert-anywhere--bottom-left {
+  .rc-alert {
+    animation: bounceInLeft $duration ease-in;
+  }
+}
+
+.rc-alert-anywhere--right,
+.rc-alert-anywhere--top-right,
+.rc-alert-anywhere--right-top,
+.rc-alert-anywhere--bottom-right,
+.rc-alert-anywhere--right-bottom {
+  .rc-alert {
+    animation: bounceInRight $duration ease-in;
+  }
+}

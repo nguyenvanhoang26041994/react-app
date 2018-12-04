@@ -1,0 +1,42 @@
+@import '../../style/variables.scss';
+
+.rc-native-input,
+input[type=date].rc-native-input,
+input[type=datetime-local].rc-native-input,
+input[type=email].rc-native-input,
+input[type=number].rc-native-input,
+input[type=password].rc-native-input,
+input[type=search].rc-native-input,
+input[type=tel].rc-native-input,
+input[type=text].rc-native-input,
+input[type=time].rc-native-input,
+input[type=url].rc-native-input {
+  font-size: $font-size;
+  outline: none;
+  border: 0.0625em solid $border-color;
+  border-radius: $border-radius;
+  height: $height;
+  box-sizing: border-box;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display: flex;
+  align-items: center;
+  color: $text-color;
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: $box-shadow-for-primary;
+  }
+
+  &--small {
+    font-size: $font-size-for-small;
+  }
+
+  &--large {
+    font-size: $font-size-for-large;
+  }
+}

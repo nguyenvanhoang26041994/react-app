@@ -1,18 +1,19 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.7.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "react-components",
+  "version": "0.0.1",
+  "description": "Flexible React Components",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/nguyenvanhoang26041994/react-components.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8.10.0"
   },
-  "author": "Max Stoiber",
+  "author": "Hoang Nguyen",
   "license": "MIT",
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -77,8 +78,8 @@
     "lodash": "4.17.11",
     "minimist": "1.2.0",
     "prop-types": "15.6.2",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
     "react-helmet": "5.2.0",
     "react-intl": "2.7.2",
     "react-redux": "5.0.7",
@@ -87,7 +88,6 @@
     "redux-immutable": "4.0.0",
     "redux-saga": "0.16.2",
     "reselect": "4.0.0",
-    "sanitize.css": "4.1.0",
     "styled-components": "4.0.2",
     "warning": "4.0.2"
   },

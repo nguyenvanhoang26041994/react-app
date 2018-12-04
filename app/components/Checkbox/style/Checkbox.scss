@@ -1,0 +1,75 @@
+@import '../../style/variables.scss';
+
+/* Just change the size if you want make it biger or smaller */
+$size: 1.35em;
+$color: $primary;
+
+$perfect-number: 3.5;
+$perfect-number2: $size / 1.35;
+$border-width: 0.125 * $perfect-number2;
+
+.rc-checkbox {
+  font-size: $font-size;
+  position: relative;
+  display: flex;
+  width: $size;
+  height: $size;
+}
+
+.rc-checkbox__checkbox {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  border-collapse: separate;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: $color;
+  }
+
+  &:before {
+    display: table;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg) translate(100%, -25%);
+    position: absolute;
+    box-sizing: border-box;
+    content: "";
+    width: $size / $perfect-number;
+    height: ($size / $perfect-number) * 2;
+    border: $border-width solid white;
+    border-top: 0;
+    border-left: 0;
+    transition: 0.3s;
+    opacity: 0;
+  }
+}
+
+.rc-checkbox__input-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .rc-checkbox__checkbox {
+    border-color: $color;
+    background-color: $color;
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:disabled + .rc-checkbox__checkbox {
+    cursor: not-allowed;
+    border-color: $border-color;
+    background-color: $border-color;
+
+    &:before {
+      border-color: border-color;
+    }
+  }
+}

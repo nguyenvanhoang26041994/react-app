@@ -1,0 +1,41 @@
+@import '../../style/variables.scss';
+
+$background-color-for-hover: lighten($primary, 40%);
+
+.rc-select-option {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.75em;
+  background-color: white;
+  color: $text-color;
+  padding: 0.25em 0.5em;
+
+  &:hover {
+    background-color: $background-color-for-hover;
+  }
+}
+
+.rc-select-option--disabled {
+  cursor: not-allowed;
+  background-color: white;
+  color: $text-color-when-disabled;
+
+  &:hover {
+    background-color: white;
+    color: $text-color-when-disabled;
+  }
+}
+
+.rc-select-option--selected {
+  background-color: $background-color-for-hover;
+
+  &:after {
+    content: "✓";
+    position: absolute;
+    right: 0.25em;
+  }
+}
