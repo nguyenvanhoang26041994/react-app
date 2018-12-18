@@ -1,6 +1,6 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Modal, Button, Text, Switch } from '../../../components/core';
+import { Modal, Button, Text, Switch } from '../../components/core';
 
 class Demo extends React.Component {
   state = {

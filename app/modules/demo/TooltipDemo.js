@@ -1,9 +1,9 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Popconfirm, Button, Grid } from '../../../components/core';
-import { withPopconfirm } from '../../../components/HOC';
+import { Tooltip, Button, Grid } from '../../components/core';
+import { withTooltip } from '../../components/HOC';
 
-const ButtonEnhance = withPopconfirm(Button);
+const ButtonEnhance = withTooltip(Button);
 
 class Demo extends React.Component {
   state = { value: '' };
@@ -22,127 +22,106 @@ class Demo extends React.Component {
         <Grid className="p-8">
           <ButtonEnhance
             color="success"
-            popconfirmProps={{
-              title: 'Flat Popconfirm!',
-              onOK: () => console.log('onOK'),
-              onCancel: () => console.log('onCancel'),
-            }}
+            tooltipProps={{ title: 'Flat tooltip!' }}
           >
-            withPopconfirm Button
+            withTooltip Button
           </ButtonEnhance>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
-            placement="top"
-            title="The sticker i want follow you!"
-            onOK={() => console.log('onOK')}
-            onCancel={() => console.log('onCancel')}
-          >
+          <Tooltip placement="top" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               top
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm placement="bottom" title="The sticker i want follow you!">
+          <Tooltip placement="bottom" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               bottom
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm placement="left" title="The sticker i want follow you!">
+          <Tooltip placement="left" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               left
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm placement="right" title="The sticker i want follow you!">
+          <Tooltip placement="right" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               right
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
-            placement="top-left"
-            title="The sticker i want follow you!"
-          >
+          <Tooltip placement="top-left" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               top-left
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
-            placement="top-right"
-            title="The sticker i want follow you!"
-          >
+          <Tooltip placement="top-right" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               top-right
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
+          <Tooltip
             placement="bottom-left"
             title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-left
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
+          <Tooltip
             placement="bottom-right"
             title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-right
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
-            placement="left-top"
-            title="The sticker i want follow you!"
-          >
+          <Tooltip placement="left-top" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               left-top
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
+          <Tooltip
             placement="left-bottom"
             title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               left-bottom
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
-            placement="right-top"
-            title="The sticker i want follow you!"
-          >
+          <Tooltip placement="right-top" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               right-top
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid className="p-8">
-          <Popconfirm
+          <Tooltip
             placement="right-bottom"
             title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               right-bottom
             </Button>
-          </Popconfirm>
+          </Tooltip>
         </Grid>
         <Grid style={{ height: '1000px' }} />
       </Grid>

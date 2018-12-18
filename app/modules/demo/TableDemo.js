@@ -7,7 +7,7 @@ import {
   Grid,
   Switch,
   Icon,
-} from '../../../components/core';
+} from '../../components/core';
 
 const data = [
   {

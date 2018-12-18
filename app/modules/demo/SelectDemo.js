@@ -1,6 +1,6 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Button, Select } from '../../../components/core';
+import { Button, Select } from '../../components/core';
 
 class Demo extends React.Component {
   options = [

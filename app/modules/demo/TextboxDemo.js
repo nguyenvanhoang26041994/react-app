@@ -6,7 +6,7 @@ import {
   Textarea,
   Grid,
   Tag,
-} from '../../../components/core';
+} from '../../components/core';
 
 class Demo extends React.Component {
   state = { value: '' };

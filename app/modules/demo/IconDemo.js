@@ -1,6 +1,6 @@
 import React from 'react';
 import fp from 'lodash/fp';
-import { Icon } from '../../../components/core';
+import { Icon } from '../../components/core';
 
 const icons = [
   'flag',

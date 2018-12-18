@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Radio, Switch } from '../../../components/core';
+import { Checkbox, Radio, Switch } from '../../components/core';
 
 class Demo extends React.Component {
   state = { checked: false };

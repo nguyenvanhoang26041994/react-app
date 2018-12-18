@@ -5,6 +5,7 @@ import cn from 'classnames';
 
 // import '../style/utilities/flexbox';
 // import '../style/utilities/spacing.css';
+// import '../style/utilities/box-sizing.css';
 // import '../style/utilities/sizing/width.scss';
 import './style/Grid.scss';
 
@@ -67,15 +68,26 @@ export const selfs = Object.freeze({
   stretch: 'self-stretch',
 });
 export const margins = Object.freeze({
-  0: 'm-0',
-  1: 'm-1',
-  2: 'm-2',
-  3: 'm-3',
-  4: 'm-4',
-  5: 'm-5',
-  6: 'm-6',
-  7: 'm-7',
-  8: 'm-8',
+  0: 'mx-0',
+  1: 'mx-1',
+  2: 'mx-2',
+  3: 'mx-3',
+  4: 'mx-4',
+  5: 'mx-5',
+  6: 'mx-6',
+  7: 'mx-7',
+  8: 'mx-8',
+});
+export const paddings = Object.freeze({
+  0: 'px-0',
+  1: 'px-1',
+  2: 'px-2',
+  3: 'px-3',
+  4: 'px-4',
+  5: 'px-5',
+  6: 'px-6',
+  7: 'px-7',
+  8: 'px-8',
 });
 export const spans = Object.freeze({
   '1/2': 'w-1/2',
@@ -168,6 +180,7 @@ const Grid = ({
   grow,
   noGrow,
   margin,
+  padding,
   shrink,
   noShrink,
   flex,
@@ -181,7 +194,7 @@ const Grid = ({
   <div
     {...otherProps}
     className={cn(
-      'flex',
+      'flex border-box',
       getDirection({ row, col, reverse }),
       justifys[justify],
       listItems[items],
@@ -189,6 +202,7 @@ const Grid = ({
       selfs[self],
       flexs[flex],
       margins[margin],
+      paddings[padding],
       spans[span],
       getResponsiveAll({ sm, md, lg, xl }),
       {
@@ -226,6 +240,25 @@ Grid.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   margin: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+  ]),
+  padding: PropTypes.oneOf([
     0,
     1,
     2,

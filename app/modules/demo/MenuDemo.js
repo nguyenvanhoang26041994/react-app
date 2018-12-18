@@ -1,6 +1,6 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Grid, Menu, Icon } from '../../../components/core';
+import { Grid, Menu, Icon } from '../../components/core';
 
 class Demo extends React.Component {
   state = {};

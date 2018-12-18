@@ -5,3 +5,4 @@ import './spacing.css';
 import './text-alignment.css';
 import './vertical-alignment.css';
 import './visibility.css';
+import './box-sizing.css';

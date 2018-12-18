@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Button, Dropdown } from '../../../components/core';
+import { Grid, Button, Dropdown } from '../../components/core';
 
 class Demo extends React.Component {
   state = {};

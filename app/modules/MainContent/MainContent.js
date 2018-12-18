@@ -1,29 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
-import AlertDemo from './demos/AlertDemo';
-import AvatarDemo from './demos/AvatarDemo';
-import ButtonDemo from './demos/ButtonDemo';
-import CheckboxDemo from './demos/CheckboxDemo';
-import DropdownDemo from './demos/DropdownDemo';
-import IconDemo from './demos/IconDemo';
-import MenuDemo from './demos/MenuDemo';
-import ModalDemo from './demos/ModalDemo';
-import PaginationDemo from './demos/PaginationDemo';
-import PopconfirmDemo from './demos/PopconfirmDemo';
-import SelectDemo from './demos/SelectDemo';
-import StickerDemo from './demos/StickerDemo';
-import TableDemo from './demos/TableDemo';
-import TextboxDemo from './demos/TextboxDemo';
-import TooltipDemo from './demos/TooltipDemo';
-import NotFoundPage from '../NotFoundPage/Loadable';
+import AlertDemo from '../demo/AlertDemo';
+import AvatarDemo from '../demo/AvatarDemo';
+import ButtonDemo from '../demo/ButtonDemo';
+import CheckboxDemo from '../demo/CheckboxDemo';
+import DropdownDemo from '../demo/DropdownDemo';
+import IconDemo from '../demo/IconDemo';
+import MenuDemo from '../demo/MenuDemo';
+import ModalDemo from '../demo/ModalDemo';
+import PaginationDemo from '../demo/PaginationDemo';
+import PopconfirmDemo from '../demo/PopconfirmDemo';
+import SelectDemo from '../demo/SelectDemo';
+import StickerDemo from '../demo/StickerDemo';
+import TableDemo from '../demo/TableDemo';
+import TextboxDemo from '../demo/TextboxDemo';
+import TooltipDemo from '../demo/TooltipDemo';
+import NotFoundPage from '../../containers/NotFoundPage/Loadable';
+
+import { Grid } from '../../components/core';
 
 export default class MainContent extends React.Component {
   state = {};
 
   render() {
+    const { className } = this.props;
+
     return (
-      <div className="p-5">
+      <Grid col className={className}>
         <Switch>
           <Route exact path="/document/Alert" component={AlertDemo} />
           <Route exact path="/document/Avatar" component={AvatarDemo} />
@@ -46,7 +51,12 @@ export default class MainContent extends React.Component {
           <Route exact path="/document/Menu" component={MenuDemo} />
           <Route component={NotFoundPage} />
         </Switch>
-      </div>
+      </Grid>
     );
   }
 }
+
+MainContent.propTypes = {
+  className: PropTypes.string,
+};
+MainContent.defualtProps = {};

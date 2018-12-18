@@ -1,6 +1,9 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Sticker, Button, Grid } from '../../../components/core';
+import { Popconfirm, Button, Grid } from '../../components/core';
+import { withPopconfirm } from '../../components/HOC';
+
+const ButtonEnhance = withPopconfirm(Button);
 
 class Demo extends React.Component {
   state = { value: '' };
@@ -17,112 +20,129 @@ class Demo extends React.Component {
     return (
       <Grid col items="center">
         <Grid className="p-8">
-          <Sticker placement="top" sticker="The sticker i want follow you!">
+          <ButtonEnhance
+            color="success"
+            popconfirmProps={{
+              title: 'Flat Popconfirm!',
+              onOK: () => console.log('onOK'),
+              onCancel: () => console.log('onCancel'),
+            }}
+          >
+            withPopconfirm Button
+          </ButtonEnhance>
+        </Grid>
+        <Grid className="p-8">
+          <Popconfirm
+            placement="top"
+            title="The sticker i want follow you!"
+            onOK={() => console.log('onOK')}
+            onCancel={() => console.log('onCancel')}
+          >
             <Button size="large" color="primary">
               top
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker placement="bottom" sticker="The sticker i want follow you!">
+          <Popconfirm placement="bottom" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               bottom
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker placement="left" sticker="The sticker i want follow you!">
+          <Popconfirm placement="left" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               left
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker placement="right" sticker="The sticker i want follow you!">
+          <Popconfirm placement="right" title="The sticker i want follow you!">
             <Button size="large" color="primary">
               right
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="top-left"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               top-left
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="top-right"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               top-right
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="bottom-left"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-left
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="bottom-right"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-right
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="left-top"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               left-top
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="left-bottom"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               left-bottom
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="right-top"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               right-top
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid className="p-8">
-          <Sticker
+          <Popconfirm
             placement="right-bottom"
-            sticker="The sticker i want follow you!"
+            title="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               right-bottom
             </Button>
-          </Sticker>
+          </Popconfirm>
         </Grid>
         <Grid style={{ height: '1000px' }} />
       </Grid>

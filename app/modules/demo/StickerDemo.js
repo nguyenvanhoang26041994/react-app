@@ -1,9 +1,6 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
-import { Tooltip, Button, Grid } from '../../../components/core';
-import { withTooltip } from '../../../components/HOC';
-
-const ButtonEnhance = withTooltip(Button);
+import { Sticker, Button, Grid } from '../../components/core';
 
 class Demo extends React.Component {
   state = { value: '' };
@@ -20,108 +17,112 @@ class Demo extends React.Component {
     return (
       <Grid col items="center">
         <Grid className="p-8">
-          <ButtonEnhance
-            color="success"
-            tooltipProps={{ title: 'Flat tooltip!' }}
-          >
-            withTooltip Button
-          </ButtonEnhance>
-        </Grid>
-        <Grid className="p-8">
-          <Tooltip placement="top" title="The sticker i want follow you!">
+          <Sticker placement="top" sticker="The sticker i want follow you!">
             <Button size="large" color="primary">
               top
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="bottom" title="The sticker i want follow you!">
+          <Sticker placement="bottom" sticker="The sticker i want follow you!">
             <Button size="large" color="primary">
               bottom
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="left" title="The sticker i want follow you!">
+          <Sticker placement="left" sticker="The sticker i want follow you!">
             <Button size="large" color="primary">
               left
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="right" title="The sticker i want follow you!">
+          <Sticker placement="right" sticker="The sticker i want follow you!">
             <Button size="large" color="primary">
               right
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="top-left" title="The sticker i want follow you!">
+          <Sticker
+            placement="top-left"
+            sticker="The sticker i want follow you!"
+          >
             <Button size="large" color="primary">
               top-left
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="top-right" title="The sticker i want follow you!">
+          <Sticker
+            placement="top-right"
+            sticker="The sticker i want follow you!"
+          >
             <Button size="large" color="primary">
               top-right
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip
+          <Sticker
             placement="bottom-left"
-            title="The sticker i want follow you!"
+            sticker="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-left
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip
+          <Sticker
             placement="bottom-right"
-            title="The sticker i want follow you!"
+            sticker="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               bottom-right
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="left-top" title="The sticker i want follow you!">
+          <Sticker
+            placement="left-top"
+            sticker="The sticker i want follow you!"
+          >
             <Button size="large" color="primary">
               left-top
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip
+          <Sticker
             placement="left-bottom"
-            title="The sticker i want follow you!"
+            sticker="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               left-bottom
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip placement="right-top" title="The sticker i want follow you!">
+          <Sticker
+            placement="right-top"
+            sticker="The sticker i want follow you!"
+          >
             <Button size="large" color="primary">
               right-top
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid className="p-8">
-          <Tooltip
+          <Sticker
             placement="right-bottom"
-            title="The sticker i want follow you!"
+            sticker="The sticker i want follow you!"
           >
             <Button size="large" color="primary">
               right-bottom
             </Button>
-          </Tooltip>
+          </Sticker>
         </Grid>
         <Grid style={{ height: '1000px' }} />
       </Grid>

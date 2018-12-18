@@ -13,12 +13,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  body {
-    /* font-family: 'Lora', serif; */
-  }
-
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   #app {

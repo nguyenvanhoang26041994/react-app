@@ -1,7 +1,7 @@
 /* eslint-disable no-console, no-alert */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Pagination } from '../../../components/core';
+import { Pagination } from '../../components/core';
 
 class Demo extends React.Component {
   state = {

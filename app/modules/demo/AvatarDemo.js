@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Icon } from '../../../components/core';
+import { Avatar, Icon } from '../../components/core';
 
 class Demo extends React.Component {
   state = {};

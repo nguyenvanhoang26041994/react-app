@@ -1,7 +1,11 @@
 import React from 'react';
-import { Icon } from '../../components/core';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { omit } from 'lodash/fp';
+import { withRouter } from 'react-router-dom';
+import { Menu, Icon, Grid } from '../../components/core';
 
-export default [
+const globalMenus = [
   {
     key: 'group-general',
     isSubMenu: true,
@@ -114,3 +118,67 @@ export default [
     ],
   },
 ];
+
+const Wrapper = styled(Grid)`
+  .__logo {
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1;
+    position: sticky;
+    top: 0;
+  }
+
+  .__menu {
+    width: 100%;
+  }
+`;
+
+const renderMenu = menus =>
+  menus.map(menu => {
+    if (menu.isSubMenu) {
+      const { children, ...otherProps } = omit(['isSubMenu', 'isGroupItem'])(
+        menu,
+      );
+      return (
+        <Menu.SubMenu {...otherProps}>{renderMenu(children)}</Menu.SubMenu>
+      );
+    }
+
+    if (menu.isGroupItem) {
+      const { children, ...otherProps } = omit(['isSubMenu', 'isGroupItem'])(
+        menu,
+      );
+      return (
+        <Menu.GroupItem {...otherProps}>{renderMenu(children)}</Menu.GroupItem>
+      );
+    }
+
+    return <Menu.Item {...menu} />;
+  });
+
+class GlobalMenu extends React.Component {
+  state = {};
+
+  handleChangeLocation = activeKey =>
+    this.props.history.push(`/document/${activeKey}`);
+
+  render() {
+    const { className } = this.props;
+
+    return (
+      <Wrapper col className={className}>
+        <Grid className="__logo" span="full" />
+        <Menu onClick={this.handleChangeLocation} className="__menu">
+          {renderMenu(globalMenus)}
+        </Menu>
+      </Wrapper>
+    );
+  }
+}
+
+GlobalMenu.propTypes = {
+  history: PropTypes.object,
+  className: PropTypes.string,
+};
+GlobalMenu.defaultProps = {};
+
+export default withRouter(GlobalMenu);

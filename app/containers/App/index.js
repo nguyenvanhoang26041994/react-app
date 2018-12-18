@@ -11,7 +11,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import DocumentPage from 'containers/DocumentPage/Loadable';
+import MainLayout from '../../modules/MainLayout';
 
 import GlobalStyle from '../../global-styles';
 
@@ -20,7 +20,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={() => <Redirect to="/document/" />} />
-        <Route exact path="/document/*" component={DocumentPage} />
+        <Route exact path="/document/*" component={MainLayout} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
