@@ -13,8 +13,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import MainLayout from '../../modules/MainLayout';
 
-import GlobalStyle from '../../global-styles';
-
 export default function App() {
   return (
     <div>
@@ -23,7 +21,6 @@ export default function App() {
         <Route exact path="/document/*" component={MainLayout} />
         <Route component={NotFoundPage} />
       </Switch>
-      <GlobalStyle />
     </div>
   );
 }
