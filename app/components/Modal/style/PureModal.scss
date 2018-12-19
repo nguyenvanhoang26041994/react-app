@@ -30,6 +30,7 @@
 .rc-modal__content {
   flex-grow: 1;
   overflow: scroll;
+  box-sizing: border-box;
 
   &::-webkit-scrollbar {
     display: none;

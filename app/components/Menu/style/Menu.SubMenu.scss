@@ -3,6 +3,7 @@
 // @import '../../style/animate//fadeInUp.css';
 
 .rc-submenu {
+  position: relative;
   > .rc-submenu__menu {
     display: none;
 
@@ -26,7 +27,7 @@
   }
 }
 
-.rc-submenu.rc-submenu--active {
+.rc-submenu--active {
   > .rc-submenu__menu {
     display: flex;
   }
@@ -37,5 +38,13 @@
     &:before {
       transform: translateY(-50%) rotate(90deg);
     }
+  }
+}
+
+.rc-submenu--split {
+  > .rc-submenu__menu {
+    position: absolute;
+    left: 100%;
+    top: 0;
   }
 }

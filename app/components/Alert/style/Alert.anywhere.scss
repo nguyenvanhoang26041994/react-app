@@ -12,12 +12,12 @@ $margin: 0.25em;
   display: flex;
   flex-flow: column-reverse wrap;
   position: fixed;
+  z-index: $z-index-alert;
 
   .rc-alert {
     box-shadow: $box-shadow;
     margin-top: $margin;
     margin-bottom: $margin;
-    z-index: $z-index-alert;
   }
 }
 

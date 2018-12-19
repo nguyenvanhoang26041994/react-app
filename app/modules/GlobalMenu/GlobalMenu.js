@@ -9,6 +9,8 @@ const globalMenus = [
   {
     key: 'group-general',
     isSubMenu: true,
+    mode: 'split',
+    defaultShow: false,
     title: 'General',
     children: [
       { key: 'Button', children: 'Button', icon: <Icon icon="hand-pointer" /> },

@@ -8,5 +8,5 @@ Alert.warning = anywhere('warning');
 Alert.error = anywhere('error');
 
 Alert.clean = clean;
-window.Alert = Alert;
+
 export default Alert;

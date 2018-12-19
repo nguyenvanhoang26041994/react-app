@@ -6,6 +6,11 @@ import cn from 'classnames';
 import Menu from './Menu';
 import './style/Menu.SubMenu.scss';
 
+export const modes = Object.freeze({
+  inline: 'rc-submenu--inline',
+  split: 'rc-submenu--split',
+});
+
 class SubMenu extends React.Component {
   state = { show: this.props.show || this.props.defaultShow };
 
@@ -18,12 +23,13 @@ class SubMenu extends React.Component {
   onChangeShow = () => this.setState(prevState => ({ show: !prevState.show }));
 
   render() {
-    const { className, title, elmKey, ...otherProps } = this.props;
+    const { className, title, mode, elmKey, ...otherProps } = this.props;
 
     return (
       <li
         className={cn(
           'rc-submenu',
+          modes[mode],
           { 'rc-submenu--active': this.state.show },
           className,
         )}
@@ -46,10 +52,12 @@ SubMenu.propTypes = {
   title: PropTypes.node,
   onChangeActivekey: PropTypes.func,
   defaultShow: PropTypes.bool,
+  mode: PropTypes.oneOf(['inline', 'split']),
 };
 SubMenu.defaultProps = {
   defaultShow: true,
   onChangeActivekey: f => f,
+  mode: 'inline',
 };
 
 export default SubMenu;
