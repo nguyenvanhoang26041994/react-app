@@ -11,7 +11,7 @@ const MenuItem = ({
   icon,
   children,
   activeKey,
-  onClick,
+  onChangeActivekey,
   ...otherProps
 }) => (
   <li
@@ -20,7 +20,7 @@ const MenuItem = ({
       { 'rc-menu-item--active': elmKey === activeKey },
       className,
     )}
-    onClick={() => onClick(elmKey)}
+    onClick={() => onChangeActivekey(elmKey)}
     {...otherProps}
   >
     {icon && <span className="rc-menu-item__icon">{icon}</span>}
@@ -31,8 +31,11 @@ const MenuItem = ({
 MenuItem.displayName = 'Menu.Item';
 MenuItem.propTypes = {
   className: PropTypes.string,
+  onChangeActivekey: PropTypes.func,
   icon: PropTypes.any,
 };
-MenuItem.defaultProps = {};
+MenuItem.defaultProps = {
+  onChangeActivekey: f => f,
+};
 
 export default MenuItem;

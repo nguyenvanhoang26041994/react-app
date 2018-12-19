@@ -15,8 +15,10 @@ export default class Menu extends React.Component {
     }
   }
 
-  onClick = (activeKey, other) =>
-    this.setState({ activeKey }, () => this.props.onClick(activeKey, other));
+  onChangeActivekey = (activeKey, other) =>
+    this.setState({ activeKey }, () =>
+      this.props.onChangeActivekey(activeKey, other),
+    );
 
   render() {
     const { className, children, style } = this.props;
@@ -30,7 +32,8 @@ export default class Menu extends React.Component {
           }
 
           return React.cloneElement(elm, {
-            onClick: (elmKey, other) => this.onClick(elmKey, other),
+            onChangeActivekey: (elmKey, other) =>
+              this.onChangeActivekey(elmKey, other),
             activeKey,
             elmKey: elm.key,
           });
@@ -43,10 +46,10 @@ export default class Menu extends React.Component {
 Menu.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  onClick: PropTypes.func,
+  onChangeActivekey: PropTypes.func,
   activeKey: PropTypes.string,
   style: PropTypes.object,
 };
 Menu.defaultProps = {
-  onClick: f => f,
+  onChangeActivekey: f => f,
 };

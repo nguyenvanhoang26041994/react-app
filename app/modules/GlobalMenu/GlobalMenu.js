@@ -169,7 +169,7 @@ class GlobalMenu extends React.Component {
     return (
       <Wrapper col className={className}>
         <Grid className="__logo" span="full" />
-        <Menu onClick={this.handleChangeLocation} className="__menu">
+        <Menu onChangeActivekey={this.handleChangeLocation} className="__menu">
           {renderMenu(globalMenus)}
         </Menu>
       </Wrapper>
