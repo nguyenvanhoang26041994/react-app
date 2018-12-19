@@ -1,0 +1,1 @@
+export { defualt } from './Badge';
