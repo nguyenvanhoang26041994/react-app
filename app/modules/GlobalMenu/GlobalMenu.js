@@ -120,6 +120,8 @@ const globalMenus = [
 ];
 
 const Wrapper = styled(Grid)`
+  background-color: rgba(0, 0, 0, 0.95);
+
   .__logo {
     background-color: rgba(0, 0, 0, 0.95);
     z-index: 1;
