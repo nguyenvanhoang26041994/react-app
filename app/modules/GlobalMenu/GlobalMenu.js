@@ -9,7 +9,6 @@ const globalMenus = [
   {
     key: 'group-general',
     isSubMenu: true,
-    mode: 'split',
     defaultShow: false,
     title: 'General',
     children: [
@@ -35,6 +34,11 @@ const globalMenus = [
         key: 'Pagination',
         children: 'Pagination',
         icon: <Icon icon="columns" />,
+      },
+      {
+        key: 'Dropdown',
+        children: 'Dropdown',
+        icon: <Icon icon="angle-right" />,
       },
     ],
   },
@@ -122,10 +126,10 @@ const globalMenus = [
 ];
 
 const Wrapper = styled(Grid)`
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: #ffffff;
 
   .__logo {
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: whitesmoke;
     z-index: 1;
     position: sticky;
     top: 0;

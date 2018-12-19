@@ -7,6 +7,7 @@ import './style/Menu.scss';
 export default class Menu extends React.Component {
   state = {
     activeKey: this.props.activeKey || null,
+    visiable: true,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -16,11 +17,18 @@ export default class Menu extends React.Component {
   }
 
   onChangeActivekey = (activeKey, other) =>
-    this.setState({ activeKey }, () =>
-      this.props.onChangeActivekey(activeKey, other),
-    );
+    this.setState({ activeKey }, () => {
+      this.props.onChangeActivekey(activeKey, other);
+
+      // callback function, just used for some case like Dropdown
+      this.props.callback(activeKey, other);
+    });
 
   render() {
+    if (!this.state.visiable) {
+      return null;
+    }
+
     const { className, children, style } = this.props;
     const { activeKey } = this.state;
 
@@ -47,9 +55,11 @@ Menu.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   onChangeActivekey: PropTypes.func,
+  callback: PropTypes.func,
   activeKey: PropTypes.string,
   style: PropTypes.object,
 };
 Menu.defaultProps = {
   onChangeActivekey: f => f,
+  callback: f => f,
 };

@@ -2,20 +2,18 @@
 // @import '../../style/animate/fadeInDown.css';
 // @import '../../style/animate//fadeInUp.css';
 
+$spacing: 0.25rem;
+
 .rc-submenu {
   position: relative;
   > .rc-submenu__menu {
     display: none;
-
-    > .rc-menu-item:not(.rc-menu-item--active),
-    > .rc-menu-groupitem .rc-menu-item:not(.rc-menu-item--active) {
-      background-color: #1b1f2a;
-    }
   }
 }
 
 .rc-menu-item.rc-submenu__title {
   position: relative;
+  font-weight: 600;
 
   &:before {
     content: "❯";
@@ -33,7 +31,7 @@
   }
 
   > .rc-menu-item.rc-submenu__title {
-    color: #ffffff;
+    color: $text-color;;
   
     &:before {
       transform: translateY(-50%) rotate(90deg);
@@ -46,5 +44,6 @@
     position: absolute;
     left: 100%;
     top: 0;
+    margin-left: $spacing;
   }
 }

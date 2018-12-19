@@ -1,11 +1,139 @@
 @import '../../style/variables.scss';
 
+$size-arrow: 0.5em;
+$background-color: #ffffff;
+$spacing: 0.25rem;
+
 .rc-dropdown {
-  display: none;
-  position: absolute;
-  z-index: $z-index-dropdown;
   box-shadow: $box-shadow;
-  border-radius: 0.25rem;
-  background-color: white;
-  padding: 0.25rem 0.5em;
+  animation: fadeIn 0.125s ease-in;
+  box-sizing: border-box;
+  z-index: $z-index-dropdown;
+
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   box-sizing: border-box;
+  //   width: $size-arrow;
+  //   height: $size-arrow;
+  //   border: $size-arrow solid $background-color;
+  // }
 }
+
+.rc-dropdown--top,
+.rc-dropdown--top-left,
+.rc-dropdown--top-right {
+  // transform: translateY(-$size-arrow);
+  margin-bottom: $spacing;
+
+  // &:before:not(.rc-dropdown) {
+  //   border-color: $background-color transparent transparent transparent;
+  //   top: 100%;
+  // }
+}
+
+.rc-dropdown--bottom,
+.rc-dropdown--bottom-left,
+.rc-dropdown--bottom-right {
+  // transform: translateY($size-arrow);
+  margin-top: $spacing;
+
+  // &:before {
+  //   border-color: transparent transparent $background-color transparent;
+  //   bottom: 100%;
+  // }
+}
+
+.rc-dropdown--left,
+.rc-dropdown--left-top,
+.rc-dropdown--left-bottom {
+  // transform: translateX(-$size-arrow);
+  margin-right: $spacing;
+
+  // &:before {
+  //   border-color: transparent transparent transparent $background-color;
+  //   right: 0;
+  // }
+}
+
+.rc-dropdown--right,
+.rc-dropdown--right-top,
+.rc-dropdown--right-bottom {
+  // transform: translateX($size-arrow);
+  margin-left: $spacing;
+}
+
+// .rc-dropdown--top,
+// .rc-dropdown--bottom {
+//   &:before {
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
+// }
+
+// .rc-dropdown--top-left,
+// .rc-dropdown--bottom-left {
+//   &:before {
+//     left: 0;
+//     transform: translateX(50%);
+//   }
+// }
+
+// .rc-dropdown--top-right,
+// .rc-dropdown--bottom-right {
+//   &:before {
+//     left: 100%;
+//     transform: translateX(-150%);
+//   }
+// }
+
+// .rc-dropdown--left {
+//   &:before {
+//     top: 50%;
+//     transform: translate(100%, -$size-arrow);
+//   }
+// }
+
+// .rc-dropdown--left-top {
+//   &:before {
+//     top: 0;
+//     transform: translate(100%, $size-arrow / 2);
+//   }
+// }
+
+// .rc-dropdown--left-bottom {
+//   &:before {
+//     bottom: 0;
+//     transform: translate(100%, -$size-arrow / 2);
+//   }
+// }
+
+// .rc-dropdown--right,
+// .rc-dropdown--right-top,
+// .rc-dropdown--right-bottom  {
+//   &:before {
+//     left: 0;
+//     border-color: transparent $background-color transparent transparent;
+//   }
+// }
+
+// .rc-dropdown--right {
+//   &:before {
+//     top: 50%;
+//     transform: translate(-100%, -$size-arrow);
+//   }
+// }
+
+// .rc-dropdown--right-top {
+//   &:before {
+//     top: 0;
+//     transform: translate(-100%, $size-arrow / 2);
+//   }
+// }
+
+// .rc-dropdown--right-bottom {
+//   &:before {
+//     bottom: 0;
+//     transform: translate(-100%, -$size-arrow / 2);
+//   }
+// }

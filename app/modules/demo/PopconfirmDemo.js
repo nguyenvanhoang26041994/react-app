@@ -6,11 +6,9 @@ import { withPopconfirm } from '../../components/HOC';
 const ButtonEnhance = withPopconfirm(Button);
 
 class Demo extends React.Component {
-  state = { value: '' };
+  state = {};
 
   textRef = React.createRef();
-
-  onChange = event => this.setState({ value: event.target.value });
 
   onButtonClick = () => {
     console.log(this.textRef);

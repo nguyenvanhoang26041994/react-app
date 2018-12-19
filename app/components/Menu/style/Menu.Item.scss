@@ -1,6 +1,7 @@
 @import '../../style/variables.scss';
 
 $padding: 1em;
+$background-color-for-hover: lighten($primary, 40%);
 
 .rc-menu-item {
   display: flex;
@@ -8,14 +9,15 @@ $padding: 1em;
   align-items: center;
   min-height: 2.875em;
   padding: 0 $padding;
-  background-color: #2d3447;
+  background-color: #ffffff;
   text-decoration: none;
   cursor: pointer;;
   user-select: none;
-  color: hsla(0, 0%, 100%, 0.65);
+  white-space: nowrap;
+  color: $text-color;
 
-  &:hover {
-    color: #ffffff;
+  &:hover:not(.rc-menu-item--active):not(.rc-menu-groupitem__title):not(.rc-submenu__title) {
+    background-color: $background-color-for-hover;
   }
 }
 
@@ -29,6 +31,5 @@ $padding: 1em;
 .rc-menu-item--active {
   background-color: $primary;
   color: #ffffff;
-  // border-right: 0.125em solid $primary;
   transition: background-color 0.5s, color 0.5s;
 }

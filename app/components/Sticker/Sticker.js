@@ -206,12 +206,20 @@ export default class Sticker extends React.Component {
       return this.props.children;
     }
 
-    const { children, overlay, className, placement } = this.props;
+    const {
+      children,
+      overlay,
+      className,
+      placement,
+      ...otherProps
+    } = this.props;
+
     return (
       <React.Fragment>
         {children}
         <Portal node={stickerRenderNode}>
           <div
+            {...otherProps}
             style={this.state.style}
             className={cn('rc-sticker', placements[placement], className)}
           >

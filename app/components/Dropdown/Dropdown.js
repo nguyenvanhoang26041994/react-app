@@ -1,28 +1,17 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import cn from 'classnames';
 
-import Portal from '../Portal';
-import { canUseDOM } from '../utils';
+import Sticker from '../Sticker';
 
 import './style/Dropdown.scss';
 
-let dropdownRenderNode = null;
-
-if (canUseDOM) {
-  dropdownRenderNode = document.getElementsByTagName('body')[0]; // eslint-disable-line prefer-destructuring
-}
-
-export const triggers = Object.freeze({
-  hover: 'rc-dropdown--hover',
-  click: 'rc-dropdown--click',
-});
-export const placements = Object.freeze({
+const placements = Object.freeze({
   top: 'rc-dropdown--top',
-  right: 'rc-dropdown--right',
   bottom: 'rc-dropdown--bottom',
   left: 'rc-dropdown--left',
+  right: 'rc-dropdown--right',
   'top-left': 'rc-dropdown--top-left',
   'left-top': 'rc-dropdown--left-top',
   'top-right': 'rc-dropdown--top-right',
@@ -33,76 +22,69 @@ export const placements = Object.freeze({
   'right-bottom': 'rc-dropdown--right-bottom',
 });
 
-export const getPlacementStyle = (placement, { offsetTop, offsetLeft }) => {
-  switch (placement) {
-    case 'bottom':
-      return {
-        top: offsetTop,
-        left: offsetLeft,
-      };
-    default:
-      return {};
-  }
-};
+export default class Dropdown extends React.Component {
+  state = { visible: false };
 
-export default class Dropdown extends React.PureComponent {
-  childrenDOM = null;
-
-  state = {
-    style: {},
-  };
+  dropdownRef = React.createRef();
 
   componentDidMount() {
-    this.setPosition();
+    document.addEventListener('click', this.handleClickOutside, true);
   }
 
-  setPosition = () => {
-    const { offsetTop, offsetLeft } = ReactDOM.findDOMNode(this); // eslint-disable-line react/no-find-dom-node
+  shouldComponentUpdate() {
+    return true;
+  }
 
-    this.setState({
-      style: getPlacementStyle(this.props.placement, {
-        offsetTop,
-        offsetLeft,
-      }),
-    });
-  };
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClickOutside, true);
+  }
 
-  render() {
-    if (!canUseDOM) {
-      return null;
+  handleClickOutside = event => {
+    if (
+      this.dropdownRef.current &&
+      this.dropdownRef.current.contains(event.target)
+    ) {
+      return false;
     }
 
-    const { className, overlay, placement, trigger, children } = this.props;
+    return this.setState({ visible: false });
+  };
+
+  onChangeVisible = e => this.setState({ visible: e.target.value });
+
+  onUnVisible = () => this.setState({ visible: false });
+
+  render() {
+    const { className, children, overlay, placement } = this.props;
 
     return (
-      <React.Fragment>
-        {children}
-        <Portal node={dropdownRenderNode}>
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%' }}>
-            <div
-              className={cn(
-                'rc-dropdown',
-                placements[placement],
-                triggers[trigger],
-                className,
-              )}
-              style={this.state.style}
-            >
-              {overlay}
-            </div>
+      <Sticker
+        visible={this.state.visible}
+        onChangeVisible={this.onChangeVisible}
+        // onClick={this.onUnVisible}
+        placement={placement}
+        overlay={
+          <div
+            ref={this.dropdownRef}
+            className={cn('rc-dropdown', placements[placement], className)}
+          >
+            {overlay}
           </div>
-        </Portal>
-      </React.Fragment>
+        }
+        trigger="click"
+      >
+        {children}
+      </Sticker>
     );
   }
 }
 
+Dropdown.displayName = 'Dropdown';
 Dropdown.propTypes = {
+  placement: PropTypes.oneOf(Object.keys(placements)),
   className: PropTypes.string,
   children: PropTypes.node,
   overlay: PropTypes.node,
-  placement: PropTypes.oneOf(Object.keys(placements)),
-  trigger: PropTypes.array, // ['hover', 'click', 'contextMenu']
 };
 Dropdown.defaultProps = {
   placement: 'bottom',

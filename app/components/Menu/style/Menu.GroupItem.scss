@@ -1,17 +1,9 @@
 @import '../../style/variables.scss';
 
-.rc-menu-groupitem {
-
-}
-
 .rc-menu-item.rc-menu-groupitem__title {
-  cursor: initial;
-  color: hsla(0, 0%, 100%, 0.65);
+  cursor: pointer;
+  color: $text-color;
   font-style: italic;
-
-  &:hover {
-    color: hsla(0, 0%, 100%, 0.65);
-  }
 }
 
 .rc-menu-groupitem__menu-item {
