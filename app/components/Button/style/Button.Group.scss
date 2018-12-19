@@ -10,6 +10,11 @@
     margin-right: 0;
   }
 
+  > .rc-button:not(:last-child),
+  > .rc-button-link:not(:last-child) .rc-button{
+    border-right-width: 0;
+  }
+
   > .rc-button:first-child,
   > .rc-button-link:first-child .rc-button {
     border-top-left-radius: $border-radius;

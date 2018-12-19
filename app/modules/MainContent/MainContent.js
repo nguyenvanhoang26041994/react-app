@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import AlertDemo from '../demo/AlertDemo';
 import AvatarDemo from '../demo/AvatarDemo';
-import ButtonDemo from '../demo/ButtonDemo';
+import ButtonDemo from '../demo/button-demo';
 import CheckboxDemo from '../demo/CheckboxDemo';
 import DropdownDemo from '../demo/DropdownDemo';
 import IconDemo from '../demo/IconDemo';
