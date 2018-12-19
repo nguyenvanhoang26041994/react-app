@@ -31,8 +31,6 @@ $spacing: 0.25rem;
   }
 
   > .rc-menu-item.rc-submenu__title {
-    color: $text-color;;
-  
     &:before {
       transform: translateY(-50%) rotate(90deg);
     }

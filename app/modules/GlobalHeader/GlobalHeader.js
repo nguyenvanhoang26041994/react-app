@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import styled from 'styled-components';
 import { Grid, Avatar, Icon } from '../../components/core';
 
@@ -9,7 +10,7 @@ const Wapper = styled(Grid)`
   top: 0;
   z-index: 1;
 
-  .__bars {
+  .global-header__bars {
     font-size: 1.35rem;
     position: absolute;
     left: 0;
@@ -29,9 +30,9 @@ export default class GlobalHeader extends React.Component {
         span="full"
         items="center"
         justify="end"
-        className={className}
+        className={cn('global-header', className)}
       >
-        <Icon icon="bars" className="__bars" />
+        <Icon icon="bars" className="global-header__bars" />
         <Avatar
           size="large"
           src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"

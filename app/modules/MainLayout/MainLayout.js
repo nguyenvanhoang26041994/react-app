@@ -14,7 +14,7 @@ const styles = {
 };
 
 const Wrapper = styled(Grid)`
-  > .__global-menu {
+  .main-layout__global-menu {
     min-width: ${styles['menu-width']};
     width: ${styles['menu-width']};
     z-index: 2;
@@ -26,23 +26,23 @@ const Wrapper = styled(Grid)`
     &::-webkit-scrollbar {
       display: none;
     }
-
-    > .__logo {
-      height: ${styles['header-height']};
-      min-height: ${styles['header-height']};
-    }
   }
 
-  .__main__global-header {
+  .global-menu__logo {
+    height: ${styles['header-height']};
+    min-height: ${styles['header-height']};
+  }
+
+  .main-layout__global-header {
     height: ${styles['header-height']};
     padding: 0 1rem 0 ${styles['menu-width']};
 
-    > .__bars {
+    .global-header__bars {
       padding-left: calc(${styles['menu-width']} + 1rem);
     }
   }
 
-  .__main__main-content {
+  .main-layout__content {
     padding: 1rem 1rem 1rem calc(${styles['menu-width']} + 1rem);
   }
 `;
@@ -52,11 +52,11 @@ export default class MainLayout extends React.Component {
 
   render() {
     return (
-      <Wrapper row span="full">
-        <GlobalMenu className="__global-menu" />
+      <Wrapper row span="full" className="main-layout">
+        <GlobalMenu className="main-layout__global-menu" />
         <Grid col flex="auto">
-          <GlobalHeader className="__main__global-header" />
-          <MainContent className="__main__main-content" />
+          <GlobalHeader className="main-layout__global-header" />
+          <MainContent className="main-layout__content" />
           <GlobalFooter />
         </Grid>
       </Wrapper>

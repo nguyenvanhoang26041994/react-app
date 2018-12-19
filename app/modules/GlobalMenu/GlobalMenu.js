@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { omit } from 'lodash/fp';
+import cn from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { Menu, Icon, Grid } from '../../components/core';
 
@@ -9,7 +10,6 @@ const globalMenus = [
   {
     key: 'group-general',
     isSubMenu: true,
-    defaultShow: false,
     title: 'General',
     children: [
       { key: 'Button', children: 'Button', icon: <Icon icon="hand-pointer" /> },
@@ -110,7 +110,7 @@ const globalMenus = [
   },
   {
     key: 'group-other',
-    isSubMenu: true,
+    isGroupItem: true,
     title: 'Other',
     children: [
       { key: 'Portal', children: 'Portal', icon: <Icon icon="fire" /> },
@@ -127,16 +127,41 @@ const globalMenus = [
 
 const Wrapper = styled(Grid)`
   background-color: #ffffff;
+`;
 
-  .__logo {
-    background-color: whitesmoke;
-    z-index: 1;
-    position: sticky;
-    top: 0;
+const LogoWrapper = styled(Grid)`
+  background-color: #1b1f29;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+`;
+
+const StyledMenu = styled(Menu)`
+  width: 100%;
+
+  .rc-menu-item {
+    background-color: #2d3446;
+    color: rgb(120, 129, 149);
+
+    &:hover:not(.rc-menu-item--active):not(.rc-menu-groupitem__title):not(.rc-submenu__title) {
+      background-color: #1b1f29;
+      color: #ffffff;
+    }
+
+    &.rc-submenu__title:hover {
+      color: #ffffff;
+    }
   }
 
-  .__menu {
-    width: 100%;
+  .rc-menu-item--active {
+    background-color: #1b1f29;
+    color: #ffffff;
+  }
+
+  .rc-submenu__menu {
+    > .rc-menu-item:not(.rc-menu-item--active) {
+      background-color: #1f2430;
+    }
   }
 `;
 
@@ -173,11 +198,11 @@ class GlobalMenu extends React.Component {
     const { className } = this.props;
 
     return (
-      <Wrapper col className={className}>
-        <Grid className="__logo" span="full" />
-        <Menu onChangeActivekey={this.handleChangeLocation} className="__menu">
+      <Wrapper col className={cn('global-menu', className)}>
+        <LogoWrapper className="global-menu__logo" span="full" />
+        <StyledMenu onChangeActivekey={this.handleChangeLocation}>
           {renderMenu(globalMenus)}
-        </Menu>
+        </StyledMenu>
       </Wrapper>
     );
   }
