@@ -943,6 +943,12 @@ const IconBox = styled(Grid)`
   }
 `;
 
+const StickyGrid = styled(Grid)`
+  position: sticky;
+  top: 7rem;
+  z-index: 1;
+`;
+
 export default class IconDemo extends React.Component {
   state = { search: '' };
 
@@ -962,13 +968,13 @@ export default class IconDemo extends React.Component {
         style={{ fontSize: '32px', backgroundColor: '#ffffff' }}
         flex="auto"
       >
-        <Grid span="full">
+        <StickyGrid span="full">
           <Input
             className="m-8 w-full"
             htmlType="search"
             onChange={this.onChangeSearch}
           />
-        </Grid>
+        </StickyGrid>
         <Grid row wrap flex="auto">
           {fp.compose(
             fp.map(icon => (
