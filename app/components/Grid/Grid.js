@@ -89,7 +89,8 @@ export const paddings = Object.freeze({
   7: 'px-7',
   8: 'px-8',
 });
-export const spans = Object.freeze({
+
+export const widths = Object.freeze({
   '1/2': 'w-1/2',
   '6/12': 'w-6/12',
   '1/3': 'w-1/3',
@@ -140,20 +141,20 @@ export const getResponsive = (
     shrink,
     noShrink,
     flex,
-    span,
+    width,
   },
   query,
 ) => {
   const directionClass = getDirection({ row, col, reverse });
 
   return cn(
+    flexs[flex] ? `${query}${flexs[flex]}` : null,
     directionClass ? `${query}${directionClass}` : null,
     justifys[justify] ? `${query}${justifys[justify]}` : null,
     listItems[items] ? `${query}${listItems[items]}` : null,
     contents[content] ? `${query}${contents[content]}` : null,
     selfs[self] ? `${query}${selfs[self]}` : null,
-    flexs[flex] ? `${query}${flexs[flex]}` : null,
-    spans[span] ? `${query}${spans[span]}` : null,
+    widths[width] ? `${query}${widths[width]}` : null,
     {
       [wraps.true]: wrap === true ? `${query}${wraps.true}` : null,
       [wraps.false]: nowrap === true ? `${query}${wraps.false}` : null,
@@ -184,7 +185,7 @@ const Grid = ({
   shrink,
   noShrink,
   flex,
-  span,
+  width,
   sm,
   md,
   lg,
@@ -195,15 +196,15 @@ const Grid = ({
     {...otherProps}
     className={cn(
       'border-box flex',
+      flexs[flex],
       getDirection({ row, col, reverse }),
       justifys[justify],
       listItems[items],
       contents[content],
       selfs[self],
-      flexs[flex],
+      widths[width],
       margins[margin],
       paddings[padding],
-      spans[span],
       getResponsiveAll({ sm, md, lg, xl }),
       {
         [wraps.true]: wrap === true,
@@ -231,7 +232,7 @@ const responsivePropTypes = Object.freeze({
   flex: PropTypes.oneOf(['initial', 'auto', 'none', '1', 1]),
   justify: PropTypes.oneOf(Object.keys(justifys)),
   items: PropTypes.oneOf(Object.keys(listItems)),
-  span: PropTypes.oneOf(Object.keys(spans)),
+  width: PropTypes.oneOf(Object.keys(widths)),
 });
 
 Grid.displayName = 'Grid';
@@ -283,6 +284,7 @@ Grid.propTypes = {
   xl: PropTypes.shape(responsivePropTypes),
 };
 Grid.defaultProps = {
+  flex: 'auto', // eslint-disable-line react/default-props-match-prop-types
   sm: {},
   md: {},
   lg: {},

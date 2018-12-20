@@ -968,7 +968,7 @@ export default class IconDemo extends React.Component {
         style={{ fontSize: '32px', backgroundColor: '#ffffff' }}
         flex="auto"
       >
-        <StickyGrid span="full">
+        <StickyGrid width="full">
           <Input
             className="m-8 w-full"
             htmlType="search"

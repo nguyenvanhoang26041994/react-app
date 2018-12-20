@@ -48,7 +48,7 @@ const ExampleBox = ({
   code,
   ...otherProps
 }) => (
-  <Wrapper col flex="auto" className={cn('p-2', className)} {...otherProps}>
+  <Wrapper col className={cn('p-2', className)} {...otherProps}>
     <Title>{title}</Title>
     <Box col className="mb-8">
       {children && <div className="flex py-8">{children}</div>}

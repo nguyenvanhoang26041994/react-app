@@ -217,7 +217,7 @@ class Demo extends React.Component {
     return (
       <div>
         <div className="flex mb-2 p-5">
-          <Grid col span="full">
+          <Grid col width="full">
             <Table
               columns={this.columns}
               data={data}

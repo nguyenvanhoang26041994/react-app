@@ -25,12 +25,12 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <Grid col wrap flex="auto" justify="space-between">
+      <Grid col wrap flex="auto">
         <ExampleBox col title="Basic used" className="mb-5" link={links.basic} code={`<Button color="primary|success|error warning" disabled=true|false {...otherProps} />`}>
           <BasicDemo />
         </ExampleBox>
         <ExampleBox title="Size" className="mb-5" link={links.size} code={`<Button size="small|large" {...otherProps} />`}>
-          <div className="flex items-baseline">
+          <div className="flex items-end">
             <SizeDemo />
           </div>
         </ExampleBox>

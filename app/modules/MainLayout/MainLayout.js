@@ -52,7 +52,7 @@ export default class MainLayout extends React.Component {
 
   render() {
     return (
-      <Wrapper row span="full" className="main-layout">
+      <Wrapper row width="full" className="main-layout">
         <GlobalMenu className="main-layout__global-menu" />
         <Grid col flex="auto">
           <GlobalHeader className="main-layout__global-header" />

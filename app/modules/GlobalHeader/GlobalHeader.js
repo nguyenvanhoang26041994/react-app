@@ -27,7 +27,7 @@ export default class GlobalHeader extends React.Component {
     return (
       <Wapper
         row
-        span="full"
+        width="full"
         items="center"
         justify="end"
         className={cn('global-header', className)}

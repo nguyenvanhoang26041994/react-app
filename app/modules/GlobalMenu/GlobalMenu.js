@@ -199,7 +199,7 @@ class GlobalMenu extends React.Component {
 
     return (
       <Wrapper col className={cn('global-menu', className)}>
-        <LogoWrapper className="global-menu__logo" span="full" />
+        <LogoWrapper className="global-menu__logo" width="full" />
         <StyledMenu onChangeActivekey={this.handleChangeLocation}>
           {renderMenu(globalMenus)}
         </StyledMenu>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Grid } from '../../components/core';
 
 const GlobalFooter = ({ className }) => (
-  <Grid span="full" className={cn('global-footer', className)} />
+  <Grid width="full" className={cn('global-footer', className)} />
 );
 
 GlobalFooter.displayName = 'GlobalFooter';
