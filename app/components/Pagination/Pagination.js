@@ -7,13 +7,17 @@ import { isValid, calculatePage } from './utils';
 import './style/Pagination.scss';
 
 export default class Pagination extends React.PureComponent {
-  isHasCurrent = 'current' in this.props;
+  isHasPage = 'page' in this.props;
+
+  isHasPageSize = 'pageSize' in this.props;
 
   state = {
-    current: this.isHasCurrent ? this.props.current : this.props.defaultCurrent,
+    page: this.isHasPage ? this.props.page : this.props.defaultPage,
     pageCount: calculatePage({
       total: this.props.total,
-      pageSize: this.props.pageSize,
+      pageSize: this.isHasPageSize
+        ? this.props.pageSize
+        : this.props.defaultPageSize,
     }),
   };
 
@@ -21,50 +25,56 @@ export default class Pagination extends React.PureComponent {
     const newState = {};
     newState.pageCount = calculatePage({
       total: nextProps.total,
-      pageSize: nextProps.pageSize,
+      pageSize: this.isHasPageSize
+        ? nextProps.pageSize
+        : nextProps.defaultPageSize,
     });
 
-    if (isValid({ pageCount: newState.pageCount, page: nextProps.current })) {
-      newState.current = nextProps.current;
+    if (isValid({ pageCount: newState.pageCount, page: nextProps.page })) {
+      newState.page = nextProps.page;
     }
 
     this.setState(newState);
   }
 
-  handlePageChange = (event, current) => {
+  handlePageChange = (event, page) => {
     const { pageCount } = this.state;
 
-    if (!isValid({ pageCount, page: current })) {
+    if (!isValid({ pageCount, page })) {
       return false;
     }
-    return this.props.onChange(event, { ...this.state, page: current });
+
+    if (!this.isHasPage) {
+      this.setState({ page });
+    }
+
+    return this.props.onChange(event, { ...this.state, page });
   };
 
-  prev = event => this.handlePageChange(event, this.state.current - 1);
+  prev = event => this.handlePageChange(event, this.state.page - 1);
 
-  next = event => this.handlePageChange(event, this.state.current + 1);
+  next = event => this.handlePageChange(event, this.state.page + 1);
 
   jumpNext = event =>
-    this.handlePageChange(event, this.state.current + this.props.max);
+    this.handlePageChange(event, this.state.page + this.props.max);
 
   jumpPrev = event =>
-    this.handlePageChange(event, this.state.current - this.props.max);
+    this.handlePageChange(event, this.state.page - this.props.max);
 
-  isShowJumpPrev = () =>
-    this.state.current - Math.floor(this.props.max / 2) > 3;
+  isShowJumpPrev = () => this.state.page - Math.floor(this.props.max / 2) > 3;
 
   isShowJumpNext = () => {
     const { max } = this.props;
-    const { current, pageCount } = this.state;
+    const { page, pageCount } = this.state;
 
-    return current + Math.floor(max / 2) < pageCount - 2;
+    return page + Math.floor(max / 2) < pageCount - 2;
   };
 
   start = () => {
     const { max } = this.props;
-    const { current, pageCount } = this.state;
+    const { page, pageCount } = this.state;
 
-    let start = current - Math.floor(max / 2);
+    let start = page - Math.floor(max / 2);
 
     if (start <= 3) {
       return 2;
@@ -78,9 +88,9 @@ export default class Pagination extends React.PureComponent {
 
   end = () => {
     const { max } = this.props;
-    const { current, pageCount } = this.state;
+    const { page, pageCount } = this.state;
 
-    let end = current + Math.floor(max / 2);
+    let end = page + Math.floor(max / 2);
 
     if (end >= pageCount - 2) {
       end = pageCount - 1;
@@ -138,11 +148,11 @@ export default class Pagination extends React.PureComponent {
   };
 
   render() {
-    const { current, pageCount } = this.state;
+    const { page, pageCount } = this.state;
     const { renderItem, className } = this.props;
 
-    const prevDisabled = current <= 1 || current > pageCount;
-    const nextDisabled = current >= pageCount || current < 1;
+    const prevDisabled = page <= 1 || page > pageCount;
+    const nextDisabled = page >= pageCount || page < 1;
 
     const items = this.renderItems();
 
@@ -160,7 +170,7 @@ export default class Pagination extends React.PureComponent {
           const itemProps = {
             key: item,
             className: cn(`rc-pagination__item rc-pagination__item--${item}`, {
-              'rc-pagination__item--active': current === item,
+              'rc-pagination__item--active': page === item,
             }),
             onClick: event => this.handlePageChange(event, item),
             children: renderItem(item),
@@ -189,8 +199,8 @@ export default class Pagination extends React.PureComponent {
 Pagination.propTypes = {
   className: PropTypes.string,
   renderItem: PropTypes.func,
-  current: PropTypes.number,
-  defaultCurrent: PropTypes.number,
+  page: PropTypes.number,
+  defaultPage: PropTypes.number,
   pageSize: PropTypes.number,
   defaultPageSize: PropTypes.number,
   total: PropTypes.number,
@@ -198,8 +208,8 @@ Pagination.propTypes = {
   onChange: PropTypes.func,
 };
 Pagination.defaultProps = {
-  defaultCurrent: 1,
-  pageSize: 10,
+  defaultPage: 1,
+  defaultPageSize: 10,
   total: 0,
   max: 5,
   onChange: f => f,

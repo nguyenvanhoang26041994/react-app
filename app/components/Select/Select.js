@@ -84,7 +84,7 @@ class Select extends React.PureComponent {
           className="rc-select__button"
           onClick={this.dropdown}
         >
-          <span>{optionsObj[value].children}</span>
+          <span>{optionsObj[value] && optionsObj[value].children}</span>
           <span className="rc-select__dropdown-icon">❯</span>
         </button>
         <div className="rc-select__options">

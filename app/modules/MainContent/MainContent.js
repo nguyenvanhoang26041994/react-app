@@ -11,7 +11,7 @@ import CheckboxDemo from '../demo/CheckboxDemo';
 import DropdownDemo from '../demo/DropdownDemo';
 import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/ModalDemo';
-import PaginationDemo from '../demo/PaginationDemo';
+import PaginationDemo from '../demo/pagination-demo';
 import PopconfirmDemo from '../demo/PopconfirmDemo';
 import SelectDemo from '../demo/SelectDemo';
 import StickerDemo from '../demo/StickerDemo';
