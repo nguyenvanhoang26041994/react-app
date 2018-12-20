@@ -8,6 +8,11 @@ body {
   width: 100%;
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar  {
+  display: none;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
