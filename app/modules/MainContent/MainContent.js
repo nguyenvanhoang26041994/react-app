@@ -6,7 +6,7 @@ import ButtonDemo from '../demo/button-demo';
 import IconDemo from '../demo/icon-demo';
 import GridDemo from '../demo/grid-demo';
 import AlertDemo from '../demo/AlertDemo';
-import AvatarDemo from '../demo/AvatarDemo';
+import AvatarDemo from '../demo/avatar-demo';
 import CheckboxDemo from '../demo/checkbox-demo';
 import SwitchDemo from '../demo/switch-demo';
 import RadioDemo from '../demo/radio-demo';
