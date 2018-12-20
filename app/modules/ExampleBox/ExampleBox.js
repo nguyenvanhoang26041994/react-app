@@ -12,7 +12,7 @@ const Wrapper = styled(Grid)`
   transition: 0.3s ease-in;
 
   &:hover {
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15); */
   }
 `;
 
@@ -39,12 +39,14 @@ const CodeIcon = styled(Icon)`
   }
 `;
 
-const ExampleBox = ({ className, children, title, ...otherProps }) => (
+const ExampleBox = ({ className, children, title, link, ...otherProps }) => (
   <Wrapper col flex="auto" className={cn('p-2', className)} {...otherProps}>
     <Title>{title}</Title>
     <Box items="end">{children}</Box>
     <Footer justify="end">
-      <CodeIcon icon="file-code" />
+      <a href={link} target="_blank">
+        <CodeIcon icon="file-code" />
+      </a>
     </Footer>
   </Wrapper>
 );
@@ -54,6 +56,7 @@ ExampleBox.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   title: PropTypes.node,
+  link: PropTypes.string,
 };
 ExampleBox.defaultProps = {};
 

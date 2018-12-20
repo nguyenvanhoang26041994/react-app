@@ -7,7 +7,7 @@ import AvatarDemo from '../demo/AvatarDemo';
 import ButtonDemo from '../demo/button-demo';
 import CheckboxDemo from '../demo/CheckboxDemo';
 import DropdownDemo from '../demo/DropdownDemo';
-import IconDemo from '../demo/IconDemo';
+import IconDemo from '../demo/icon-demo';
 import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/ModalDemo';
 import PaginationDemo from '../demo/PaginationDemo';

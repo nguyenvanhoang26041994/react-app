@@ -132,7 +132,7 @@ Table.propTypes = {
       index: PropTypes.string,
       render: PropTypes.func,
     }),
-  ).isRequired,
+  ),
   data: PropTypes.array,
   // page: PropTypes.number,
   // pageSize: PropTypes.number,
@@ -143,6 +143,7 @@ Table.propTypes = {
   vertical: PropTypes.oneOf(['middle', 'top', 'bottom']),
 };
 Table.defaultProps = {
+  columns: [],
   data: [],
   // page: 1,
   // pageSize: 10000, // large enought
