@@ -19,7 +19,7 @@ const GroupButton = ({ className, children, ...otherProps }) => (
   </div>
 );
 
-GroupButton.displayName = 'GroupButton';
+GroupButton.displayName = 'Button.Group';
 GroupButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

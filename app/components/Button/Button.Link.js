@@ -20,7 +20,7 @@ const LinkButton = ({
   </a>
 );
 
-LinkButton.displayName = 'LinkButton';
+LinkButton.displayName = 'Button.Link';
 LinkButton.propTypes = {
   className: PropTypes.string,
   linkClass: PropTypes.string,
