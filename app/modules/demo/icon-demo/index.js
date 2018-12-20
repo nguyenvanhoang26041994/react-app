@@ -8,6 +8,7 @@ import {
   Text,
   InputNative as Input,
 } from '../../../components/core';
+import ExampleBox from '../../ExampleBox';
 
 const icons = [
   'ad',
@@ -968,13 +969,33 @@ export default class IconDemo extends React.Component {
         style={{ fontSize: '32px', backgroundColor: '#ffffff' }}
         flex="auto"
       >
-        <StickyGrid width="full">
+        <StickyGrid col width="full">
           <Input
             className="m-8 w-full"
             htmlType="search"
             onChange={this.onChangeSearch}
           />
         </StickyGrid>
+        <ExampleBox
+          col
+          title="Icon"
+          className="p-5"
+          style={{ fontSize: '1rem' }}
+          code={`
+Basic used
+...
+<Icon icon="ad" />
+
+
+Icon.displayName = 'Icon';
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(sizes)),
+};
+Icon.defaultProps = {};
+          `}
+        />
         <Grid row wrap flex="auto">
           {fp.compose(
             fp.map(icon => (

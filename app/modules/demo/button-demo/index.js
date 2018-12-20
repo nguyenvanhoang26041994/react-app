@@ -61,7 +61,8 @@ class Demo extends React.Component {
         </ExampleBox>
         <ExampleBox
           col
-          title="Button" className="mb-5"
+          title="Button"
+          className="mb-5"
           code={`
 export const sizes = Object.freeze({
   small: 'rc-button--small',
@@ -96,7 +97,8 @@ export default Button;
         />
         <ExampleBox
           col
-          title="Button.Group" className="mb-5"
+          title="Button.Group"
+          className="mb-5"
           code={`
 GroupButton.displayName = 'GroupButton';
 GroupButton.propTypes = {
@@ -110,7 +112,8 @@ export default GroupButton;
         />
         <ExampleBox
           col
-          title="Button.Link" className="mb-5"
+          title="Button.Link"
+          className="mb-5"
           code={`
 LinkButton.displayName = 'LinkButton';
 LinkButton.propTypes = {

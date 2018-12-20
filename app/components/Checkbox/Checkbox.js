@@ -18,7 +18,7 @@ const Checkbox = ({ className, size, checkboxRef, ...otherProps }) => (
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.propTypes = {
-  checkboxRef: PropTypes.array,
+  checkboxRef: PropTypes.any,
   className: PropTypes.string,
   onChange: PropTypes.func,
 };

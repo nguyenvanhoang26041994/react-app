@@ -23,7 +23,7 @@ const Radio = ({ className, size, radioRef, ...otherProps }) => (
 
 Radio.displayName = 'Radio';
 Radio.propTypes = {
-  radioRef: PropTypes.array,
+  radioRef: PropTypes.any,
   size: PropTypes.oneOf(Object.keys(sizes)),
   className: PropTypes.string,
   onChange: PropTypes.func,

@@ -7,7 +7,9 @@ import IconDemo from '../demo/icon-demo';
 import GridDemo from '../demo/grid-demo';
 import AlertDemo from '../demo/AlertDemo';
 import AvatarDemo from '../demo/AvatarDemo';
-import CheckboxDemo from '../demo/CheckboxDemo';
+import CheckboxDemo from '../demo/checkbox-demo';
+import SwitchDemo from '../demo/switch-demo';
+import RadioDemo from '../demo/radio-demo';
 import DropdownDemo from '../demo/DropdownDemo';
 import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/ModalDemo';
@@ -36,8 +38,8 @@ export default class MainContent extends React.Component {
           <Route exact path="/document/Avatar" component={AvatarDemo} />
           <Route exact path="/document/Button" component={ButtonDemo} />
           <Route exact path="/document/Checkbox" component={CheckboxDemo} />
-          <Route exact path="/document/Radio" component={CheckboxDemo} />
-          <Route exact path="/document/Switch" component={CheckboxDemo} />
+          <Route exact path="/document/Radio" component={RadioDemo} />
+          <Route exact path="/document/Switch" component={SwitchDemo} />
           <Route exact path="/document/Dropdown" component={DropdownDemo} />
           <Route exact path="/document/Icon" component={IconDemo} />
           <Route exact path="/document/Modal" component={ModalDemo} />

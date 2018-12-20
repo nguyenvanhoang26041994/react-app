@@ -105,7 +105,8 @@ export default class Demo extends React.Component {
         </ExampleBox>
         <ExampleBox
           col
-          title="Pagination" className="mb-5"
+          title="Pagination"
+          className="mb-5"
           code={`
 Pagination.propTypes = {
   className: PropTypes.string,
@@ -131,7 +132,8 @@ Pagination.defaultProps = {
 
         <ExampleBox
           col
-          title="Pagination.Options" className="mb-5"
+          title="Pagination.Options"
+          className="mb-5"
           code={`
 Options.displayName = 'Pagination.Options';
 Options.propTypes = {
@@ -146,8 +148,15 @@ Options.defaultProps = {
 
         <ExampleBox
           col
-          title="Pagination.Total" className="mb-5"
+          title="Pagination.Total"
+          className="mb-5"
           code={`
+const defaultRender = ({ total, from, to }) => ( // eslint-disable-line
+  <div className={cn('rc-pagination-total')}>
+    {from} - {to} of {total} records
+  </div>
+);
+
 Total.displayName = 'Pagination.Total';
 Total.propTypes = {
   className: PropTypes.string,

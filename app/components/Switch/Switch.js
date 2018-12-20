@@ -23,7 +23,7 @@ const Switch = ({ className, size, switchRef, ...otherProps }) => (
 
 Switch.displayName = 'Switch';
 Switch.propTypes = {
-  switchRef: PropTypes.array,
+  switchRef: PropTypes.any,
   size: PropTypes.oneOf(Object.keys(sizes)),
   className: PropTypes.string,
   onChange: PropTypes.func,
