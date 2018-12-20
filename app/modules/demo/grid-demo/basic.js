@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '../../../components/core';
-import CodeDemo from '../../CodeDemo';
+import CodeGuide from '../../CodeGuide';
 
 export default () => (
   <div>
@@ -9,7 +9,7 @@ export default () => (
       have own css styling. You should to known how to make layout by flex-box
       first. Grid just provide the esasy way to pass utillities class
     </p>
-    <CodeDemo code={`<Grid />`}>
+    <CodeGuide code={`<Grid />`}>
       <Grid
         style={{
           backgroundColor: 'dodgerblue',
@@ -20,8 +20,8 @@ export default () => (
       >
         <span>.border-box.flex</span>
       </Grid>
-    </CodeDemo>
-    <CodeDemo code={`<Grid row />`}>
+    </CodeGuide>
+    <CodeGuide code={`<Grid row />`}>
       <Grid
         row
         style={{
@@ -33,8 +33,8 @@ export default () => (
       >
         <span>.border-box.flex.flex-row</span>
       </Grid>
-    </CodeDemo>
-    <CodeDemo code={`<Grid col />`}>
+    </CodeGuide>
+    <CodeGuide code={`<Grid col />`}>
       <Grid
         col
         style={{
@@ -46,6 +46,6 @@ export default () => (
       >
         <span>.border-box.flex.flex-col</span>
       </Grid>
-    </CodeDemo>
+    </CodeGuide>
   </div>
 );

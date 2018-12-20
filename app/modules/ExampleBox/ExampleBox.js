@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { Grid, Icon, Text } from '../../components/core';
+import CodeGuide from '../CodeGuide';
 
 const Wrapper = styled(Grid)`
   min-width: 30rem;
@@ -21,11 +22,11 @@ const Title = styled(Text.H3)`
 `;
 
 const Box = styled(Grid)`
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 const Footer = styled(Grid)`
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-top: 1rem;
 `;
 
@@ -39,14 +40,26 @@ const CodeIcon = styled(Icon)`
   }
 `;
 
-const ExampleBox = ({ className, children, title, link, ...otherProps }) => (
+const ExampleBox = ({
+  className,
+  children,
+  title,
+  link,
+  code,
+  ...otherProps
+}) => (
   <Wrapper col flex="auto" className={cn('p-2', className)} {...otherProps}>
     <Title>{title}</Title>
-    <Box items="end">{children}</Box>
+    <Box col className="mb-8">
+      {children && <div className="flex py-8">{children}</div>}
+      {code && <CodeGuide code={code} />}
+    </Box>
     <Footer justify="end">
-      <a href={link} target="_blank">
-        <CodeIcon icon="file-code" />
-      </a>
+      {link && (
+        <a href={link} target="_blank">
+          <CodeIcon icon="file-code" />
+        </a>
+      )}
     </Footer>
   </Wrapper>
 );
@@ -57,6 +70,7 @@ ExampleBox.propTypes = {
   children: PropTypes.node,
   title: PropTypes.node,
   link: PropTypes.string,
+  code: PropTypes.string,
 };
 ExampleBox.defaultProps = {};
 
