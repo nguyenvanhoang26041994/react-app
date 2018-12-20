@@ -76,7 +76,7 @@ export class AlertAnywhere extends React.Component {
       return null;
     }
 
-    const { className, placement, style, renderJSNode, ...otherProps } = omit([
+    const { className, placement, renderJSNode, ...otherProps } = omit([
       'onClose',
       'topLeftStackNode',
       'topStackNode',
@@ -95,7 +95,6 @@ export class AlertAnywhere extends React.Component {
       <Portal node={stackNode} unmountCallback={this.unmountPortalCallback}>
         <Alert
           className={className}
-          style={{ width: '300px', ...style }}
           {...otherProps}
           onClose={this.closeAlert}
         />
