@@ -8,8 +8,6 @@ export default class Demo extends React.Component {
 
   changePageSize = pageSize => this.setState({ pageSize });
 
-  onChangePageSize = (e, data) => this.setState({ pageSize: data.pageSize });
-
   render() {
     const { page, pageSize, total } = this.state;
 

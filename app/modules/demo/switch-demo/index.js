@@ -5,6 +5,7 @@ import { Grid } from '../../../components/core';
 import ExampleBox from '../../ExampleBox';
 
 import BasicDemo from './basic';
+import SizeDemo from './size';
 
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
@@ -22,14 +23,25 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox col title="Basic used" className="mb-5" link={links.basic} code={`<Switch /> <Switch defaultChecked /> <Switch checked onChange={e => console.log(e.target.checked)} />`}>
+        <ExampleBox title="Basic used" className="mb-5" link={links.basic} code={`<Switch /> <Switch defaultChecked /> <Switch checked onChange={e => console.log(e.target.checked)} />`}>
           <BasicDemo />
         </ExampleBox>
+        <ExampleBox title="Size" className="mb-5" link={links.basic} code={`<Switch size="small|large" />`}>
+          <div className="flex items-end">
+            <SizeDemo />
+          </div>
+        </ExampleBox>
         <ExampleBox
-          col
           title="Switch"
           className="mb-5"
           code={`
+export const sizes = Object.freeze({
+  small: 'rc-switch--small',
+  large: 'rc-switch--large',
+});
+
+...code
+
 Switch.displayName = 'Switch';
 Switch.propTypes = {
   switchRef: PropTypes.any,
