@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
+import ButtonDemo from '../demo/button-demo';
+import IconDemo from '../demo/icon-demo';
+import GridDemo from '../demo/grid-demo';
 import AlertDemo from '../demo/AlertDemo';
 import AvatarDemo from '../demo/AvatarDemo';
-import ButtonDemo from '../demo/button-demo';
 import CheckboxDemo from '../demo/CheckboxDemo';
 import DropdownDemo from '../demo/DropdownDemo';
-import IconDemo from '../demo/icon-demo';
 import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/ModalDemo';
 import PaginationDemo from '../demo/PaginationDemo';
@@ -30,6 +31,7 @@ export default class MainContent extends React.Component {
     return (
       <Grid col className={className}>
         <Switch>
+          <Route exact path="/document/Grid" component={GridDemo} />
           <Route exact path="/document/Alert" component={AlertDemo} />
           <Route exact path="/document/Avatar" component={AvatarDemo} />
           <Route exact path="/document/Button" component={ButtonDemo} />

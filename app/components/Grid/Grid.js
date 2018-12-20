@@ -194,7 +194,7 @@ const Grid = ({
   <div
     {...otherProps}
     className={cn(
-      'flex border-box',
+      'border-box flex',
       getDirection({ row, col, reverse }),
       justifys[justify],
       listItems[items],
