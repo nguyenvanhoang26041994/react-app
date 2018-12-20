@@ -11,10 +11,16 @@ $background-color-for-success: lighten($success, 30%);
   display: flex;
   flex-flow: row nowrap;
   align-items: baseline;
-  padding: 1em 2em 1em 1em;
+  padding: 1em 1.75em 1em 1.75em;
   border: none;
   border-radius: $border-radius;
   color: $text-color;
+
+  &:hover {
+    .rc-alert__closable-icon {
+      display: block;
+    }
+  }
 }
 
 .rc-alert__icon {
@@ -31,6 +37,7 @@ $background-color-for-success: lighten($success, 30%);
 }
 
 .rc-alert__closable-icon {
+  display: none;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.45);
   position: absolute;
@@ -73,7 +80,7 @@ $background-color-for-success: lighten($success, 30%);
 
 .rc-alert--with-description {
   flex-direction: column;
-  padding-left: 4em;
+  padding-left: 3.5em;
 
   &.rc-alert--with-no-icon {
     padding-left: 1em;
