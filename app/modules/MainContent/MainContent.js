@@ -19,7 +19,7 @@ import SelectDemo from '../demo/SelectDemo';
 import StickerDemo from '../demo/StickerDemo';
 import TableDemo from '../demo/TableDemo';
 import TextboxDemo from '../demo/TextboxDemo';
-import TooltipDemo from '../demo/TooltipDemo';
+import TooltipDemo from '../demo/tooltip-demo';
 import NotFoundPage from '../../containers/NotFoundPage/Loadable';
 
 import { Grid } from '../../components/core';

@@ -284,7 +284,6 @@ Grid.propTypes = {
   xl: PropTypes.shape(responsivePropTypes),
 };
 Grid.defaultProps = {
-  flex: 'auto', // eslint-disable-line react/default-props-match-prop-types
   sm: {},
   md: {},
   lg: {},

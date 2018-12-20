@@ -241,5 +241,6 @@ Sticker.propTypes = {
   onChangeVisible: PropTypes.func,
 };
 Sticker.defaultProps = {
+  visible: false,
   onChangeVisible: f => f,
 };

@@ -6,7 +6,7 @@ import Sticker from '../Sticker';
 
 import './style/Tooltip.scss';
 
-const placements = Object.freeze({
+export const placements = Object.freeze({
   top: 'rc-tooltip--top',
   bottom: 'rc-tooltip--bottom',
   left: 'rc-tooltip--left',
