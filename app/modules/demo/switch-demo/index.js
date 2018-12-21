@@ -7,11 +7,9 @@ import ExampleBox from '../../ExampleBox';
 import BasicDemo from './basic';
 import SizeDemo from './size';
 
-const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
-
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/switch-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/switch-demo/size.js`,
+  basic: 'app/modules/demo/switch-demo/basic.js',
+  size: 'app/modules/demo/switch-demo/size.js',
 };
 
 class Demo extends React.Component {
@@ -28,29 +26,6 @@ class Demo extends React.Component {
             <SizeDemo />
           </div>
         </ExampleBox>
-        <ExampleBox
-          title="Switch"
-          className="mb-5"
-          code={`
-export const sizes = Object.freeze({
-  small: 'rc-switch--small',
-  large: 'rc-switch--large',
-});
-
-...code
-
-Switch.displayName = 'Switch';
-Switch.propTypes = {
-  switchRef: PropTypes.any,
-  size: PropTypes.oneOf(Object.keys(sizes)),
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-};
-Switch.defaultProps = {
-  onChange: f => f,
-};
-          `}
-        />
       </Grid>
     );
   }

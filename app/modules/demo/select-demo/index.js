@@ -6,10 +6,8 @@ import ExampleBox from '../../ExampleBox';
 
 import NativeDemo from './native';
 
-const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
-
 const links = {
-  native: `${repo}/blob/master/app/modules/demo/select-demo/native.js`,
+  native: 'app/modules/demo/select-demo/native.js',
 };
 
 class Demo extends React.Component {
@@ -21,10 +19,6 @@ class Demo extends React.Component {
         <ExampleBox flex="auto" title="Select native" className="mb-5" link={links.native}>
           <NativeDemo />
         </ExampleBox>
-        <ExampleBox
-          title="Select.Native"
-          className="mb-5"
-        />
       </Grid>
     );
   }

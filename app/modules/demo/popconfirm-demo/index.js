@@ -9,13 +9,11 @@ import HOCDemo from './hoc';
 import CustomizeButtonDemo from './customize-button';
 import OnEventDemo from './on-event';
 
-const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
-
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/popconfirm-demo/basic.js`,
-  hoc: `${repo}/blob/master/app/modules/demo/popconfirm-demo/hoc.js`,
-  'customize-button': `${repo}/blob/master/app/modules/demo/popconfirm-demo/customize-button.js`,
-  'on-event': `${repo}/blob/master/app/modules/demo/popconfirm-demo/on-event.js`,
+  basic: 'app/modules/demo/popconfirm-demo/basic.js',
+  hoc: 'app/modules/demo/popconfirm-demo/hoc.js',
+  'customize-button': 'app/modules/demo/popconfirm-demo/customize-button.js',
+  'on-event': 'app/modules/demo/popconfirm-demo/on-event.js',
 };
 
 class Demo extends React.Component {
@@ -35,10 +33,7 @@ class Demo extends React.Component {
           title="Flat with HOC"
           className="mb-5"
           link={links.hoc}
-          code={`
-const ButtonEnhance = Popconfirm.withPopconfirm(Button);
-<ButtonEnhance popconfirmProps={ title: ..., placement: ... } />
-        `}>
+        >
           <HOCDemo />
         </ExampleBox>
         <ExampleBox
@@ -55,45 +50,6 @@ const ButtonEnhance = Popconfirm.withPopconfirm(Button);
         >
           <OnEventDemo />
         </ExampleBox>
-        <ExampleBox
-          title="Tooltip"
-          className="mb-5"
-          code={`
-const placements = Object.freeze({
-  top: 'rc-popconfirm--top',
-  bottom: 'rc-popconfirm--bottom',
-  left: 'rc-popconfirm--left',
-  right: 'rc-popconfirm--right',
-  'top-left': 'rc-popconfirm--top-left',
-  'left-top': 'rc-popconfirm--left-top',
-  'top-right': 'rc-popconfirm--top-right',
-  'right-top': 'rc-popconfirm--right-top',
-  'bottom-left': 'rc-popconfirm--bottom-left',
-  'left-bottom': 'rc-popconfirm--left-bottom',
-  'bottom-right': 'rc-popconfirm--bottom-right',
-  'right-bottom': 'rc-popconfirm--right-bottom',
-});
-
-Popconfirm.displayName = 'Popconfirm';
-Popconfirm.propTypes = {
-  placement: PropTypes.oneOf(Object.keys(placements)),
-  className: PropTypes.string,
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  children: PropTypes.node,
-  cancelText: PropTypes.node,
-  okText: PropTypes.node,
-  onOK: PropTypes.func,
-  onCancel: PropTypes.func,
-};
-Popconfirm.defaultProps = {
-  placement: 'top',
-  cancelText: 'Cancel',
-  okText: 'OK',
-  onOK: () => true,
-  onCancel: () => true,
-};
-          `}
-        />
       </Grid>
     );
   }

@@ -12,16 +12,14 @@ import OnCancelDemo from './on-cancel';
 import CustomizeButtonDemo from './customize-button';
 import PureModalDemo from './pure-modal';
 
-const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
-
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/modal-demo/basic.js`,
-  controlled: `${repo}/blob/master/app/modules/demo/modal-demo/controlled.js`,
-  'any-where': `${repo}/blob/master/app/modules/demo/modal-demo/any-where.js`,
-  'on-ok': `${repo}/blob/master/app/modules/demo/modal-demo/on-ok.js`,
-  'on-cancel': `${repo}/blob/master/app/modules/demo/modal-demo/on-cancel.js`,
-  'customize-button': `${repo}/blob/master/app/modules/demo/modal-demo/customize-button.js`,
-  'pure-modal': `${repo}/blob/master/app/modules/demo/modal-demo/pure-modal.js`,
+  basic: 'app/modules/demo/modal-demo/basic.js',
+  controlled: 'app/modules/demo/modal-demo/controlled.js',
+  'any-where': 'app/modules/demo/modal-demo/any-where.js',
+  'on-ok': 'app/modules/demo/modal-demo/on-ok.js',
+  'on-cancel': 'app/modules/demo/modal-demo/on-cancel.js',
+  'customize-button': 'app/modules/demo/modal-demo/customize-button.js',
+  'pure-modal': 'app/modules/demo/modal-demo/pure-modal.js',
 };
 
 class Demo extends React.Component {
@@ -72,37 +70,6 @@ class Demo extends React.Component {
           link={links['pure-modal']}>
           <PureModalDemo />
         </ExampleBox>
-        <ExampleBox
-          title="Modal"
-          className="mb-5"
-          code={`
-Modal.displayName = 'Modal';
-Modal.propTypes = {
-  defaultOpen: PropTypes.bool,
-  cancelText: PropTypes.string,
-  okText: PropTypes.string,
-  hideCancel: PropTypes.bool,
-  hideOK: PropTypes.bool,
-  onClose: PropTypes.func,
-  onOK: PropTypes.func,
-  onCancel: PropTypes.func,
-  propsCancel: PropTypes.object,
-  propsOK: PropTypes.object,
-  footer: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
-  renderJSNode: PropTypes.any,
-};
-Modal.defaultProps = {
-  defaultOpen: true,
-  cancelText: 'Cancel',
-  okText: 'OK',
-  propsCancel: {},
-  propsOK: {},
-  onClose: f => f,
-  onOK: () => true,
-  onCancel: () => true,
-};   
-          `}
-        />
       </Grid>
     );
   }

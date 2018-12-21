@@ -3,8 +3,13 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { Grid, Icon, Text } from '../../components/core';
+import request from '../../utils/request';
+import b64DecodeUnicode from '../../utils/b64DecodeUnicode';
+import { Grid, Icon, Text, Alert } from '../../components/core';
 import CodeGuide from '../CodeGuide';
+
+const githubAPI =
+  'https://api.github.com/repos/nguyenvanhoang26041994/react-components/contents';
 
 const Wrapper = styled(Grid)`
   min-width: 30rem;
@@ -40,29 +45,54 @@ const CodeIcon = styled(Icon)`
   }
 `;
 
-const ExampleBox = ({
-  className,
-  children,
-  title,
-  link,
-  code,
-  ...otherProps
-}) => (
-  <Wrapper {...otherProps} col className={cn('p-2', className)}>
-    <Title>{title}</Title>
-    <Box col className="mb-8">
-      {children && <div className="flex py-8">{children}</div>}
-      {code && <CodeGuide code={code} />}
-    </Box>
-    <Footer justify="end">
-      {link && (
-        <a href={link} target="_blank">
-          <CodeIcon icon="file-code" />
-        </a>
-      )}
-    </Footer>
-  </Wrapper>
-);
+class ExampleBox extends React.Component {
+  state = { code: '' };
+
+  componentDidMount() {
+    this.fetchCodeFromGithub(this.props.link);
+  }
+
+  fetchCodeFromGithub = link =>
+    request
+      .get(`${githubAPI}${link}`, {})
+      .then(({ json }) =>
+        this.setState({ code: b64DecodeUnicode(json.content) }),
+      )
+      .catch(() =>
+        Alert.error({
+          message: 'Fetch code from github error',
+          duration: 1000,
+        }),
+      );
+
+  render() {
+    const {
+      className,
+      children,
+      title,
+      link,
+      code,
+      ...otherProps
+    } = this.props;
+
+    return (
+      <Wrapper {...otherProps} col className={cn('p-2', className)}>
+        <Title>{title}</Title>
+        <Box col className="mb-8">
+          {children && <div className="flex py-8">{children}</div>}
+          <CodeGuide code={this.state.code} />
+        </Box>
+        <Footer justify="end">
+          {link && (
+            <a href={link} target="_blank">
+              <CodeIcon icon="file-code" />
+            </a>
+          )}
+        </Footer>
+      </Wrapper>
+    );
+  }
+}
 
 ExampleBox.displayName = 'ExampleBox';
 ExampleBox.propTypes = {
