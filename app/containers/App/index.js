@@ -11,7 +11,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import MainLayout from '../../modules/MainLayout';
+import MainLayout from '../../modules/MainLayout/Loadable';
 
 export default function App() {
   return (

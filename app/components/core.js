@@ -8,6 +8,7 @@ export { default as Dropdown } from './Dropdown';
 export { default as Portal } from './Portal';
 export { default as Text } from './Text';
 export { default as Textarea } from './Textarea';
+export { default as TextareaNative } from './Textarea/Textarea.Native';
 export { default as Tooltip } from './Tooltip';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';

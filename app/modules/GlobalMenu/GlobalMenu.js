@@ -31,7 +31,6 @@ const globalMenus = [
       { key: 'Radio', children: 'Radio', icon: <Icon icon="circle" /> },
       { key: 'Select', children: 'Select', icon: <Icon icon="bolt" /> },
       { key: 'Switch', children: 'Switch', icon: <Icon icon="toggle-on" /> },
-      { key: 'Textarea', children: 'Textarea', icon: <Icon icon="expand" /> },
       { key: 'Avatar', children: 'Avatar', icon: <Icon icon="user-tie" /> },
       {
         key: 'Tooltip',
