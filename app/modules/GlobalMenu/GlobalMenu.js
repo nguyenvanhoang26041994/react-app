@@ -50,11 +50,6 @@ const globalMenus = [
       { key: 'Portal', children: 'Portal', icon: <Icon icon="fire" /> },
       { key: 'Divider', children: 'Divider', icon: <Icon icon="heart" /> },
       { key: 'Text', children: 'Text', icon: <Icon icon="font" /> },
-      {
-        key: 'Sticker',
-        children: 'Sticker',
-        icon: <Icon icon="sticky-note" />,
-      },
     ],
   },
   {

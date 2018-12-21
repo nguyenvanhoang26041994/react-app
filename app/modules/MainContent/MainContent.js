@@ -16,7 +16,6 @@ import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';
 import PopconfirmDemo from '../demo/PopconfirmDemo';
 import SelectDemo from '../demo/SelectDemo';
-import StickerDemo from '../demo/StickerDemo';
 import TableDemo from '../demo/TableDemo';
 import TextboxDemo from '../demo/TextboxDemo';
 import TooltipDemo from '../demo/tooltip-demo';
@@ -46,7 +45,6 @@ export default class MainContent extends React.Component {
           <Route exact path="/document/Pagination" component={PaginationDemo} />
           <Route exact path="/document/Popconfirm" component={PopconfirmDemo} />
           <Route exact path="/document/Select" component={SelectDemo} />
-          <Route exact path="/document/Sticker" component={StickerDemo} />
           <Route exact path="/document/Table" component={TableDemo} />
           <Route exact path="/document/Textbox" component={TextboxDemo} />
           <Route exact path="/document/Input" component={TextboxDemo} />

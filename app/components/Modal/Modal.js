@@ -102,6 +102,8 @@ class Modal extends React.PureComponent {
       ...otherProps
     } = this.props;
 
+    console.log(this.props);
+
     const cnOK = propsOK.className;
     const otherPropsOK = omit('className')(propsOK);
 

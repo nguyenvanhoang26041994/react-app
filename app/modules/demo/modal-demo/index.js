@@ -7,6 +7,9 @@ import ExampleBox from '../../ExampleBox';
 import BasicDemo from './basic';
 import ControlledDemo from './controlled';
 import AnywhereDemo from './any-where';
+import OnOKDemo from './on-ok';
+import OnCancelDemo from './on-cancel';
+import CustomizeButtonDemo from './customize-button';
 
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
@@ -14,6 +17,9 @@ const links = {
   basic: `${repo}/blob/master/app/modules/demo/modal-demo/basic.js`,
   controlled: `${repo}/blob/master/app/modules/demo/modal-demo/controlled.js`,
   'any-where': `${repo}/blob/master/app/modules/demo/modal-demo/any-where.js`,
+  'on-ok': `${repo}/blob/master/app/modules/demo/modal-demo/on-ok.js`,
+  'on-cancel': `${repo}/blob/master/app/modules/demo/modal-demo/on-cancel.js`,
+  'customize-button': `${repo}/blob/master/app/modules/demo/modal-demo/customize-button.js`,
 };
 
 class Demo extends React.Component {
@@ -31,8 +37,26 @@ class Demo extends React.Component {
         <ExampleBox
           title="Controlled Modal"
           className="mb-5"
-          link={links.basic}>
+          link={links['customize-button']}>
           <ControlledDemo />
+        </ExampleBox>
+        <ExampleBox
+          title="Customize Button"
+          className="mb-5"
+          link={links.basic}>
+          <CustomizeButtonDemo />
+        </ExampleBox>
+        <ExampleBox
+          title="onOK"
+          className="mb-5"
+          link={links['on-ok']}>
+          <OnOKDemo />
+        </ExampleBox>
+        <ExampleBox
+          title="onCancel"
+          className="mb-5"
+          link={links['on-cancel']}>
+          <OnCancelDemo />
         </ExampleBox>
         <ExampleBox
           title="Anywhere on you app"
