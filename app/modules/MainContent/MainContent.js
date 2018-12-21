@@ -14,7 +14,7 @@ import DropdownDemo from '../demo/DropdownDemo';
 import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';
-import PopconfirmDemo from '../demo/PopconfirmDemo';
+import PopconfirmDemo from '../demo/popconfirm-demo';
 import SelectDemo from '../demo/SelectDemo';
 import TableDemo from '../demo/TableDemo';
 import TextboxDemo from '../demo/TextboxDemo';

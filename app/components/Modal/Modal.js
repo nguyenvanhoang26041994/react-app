@@ -102,8 +102,6 @@ class Modal extends React.PureComponent {
       ...otherProps
     } = this.props;
 
-    console.log(this.props);
-
     const cnOK = propsOK.className;
     const otherPropsOK = omit('className')(propsOK);
 
@@ -150,8 +148,8 @@ Modal.displayName = 'Modal';
 Modal.propTypes = {
   open: PropTypes.bool,
   defaultOpen: PropTypes.bool,
-  cancelText: PropTypes.string,
-  okText: PropTypes.string,
+  cancelText: PropTypes.node,
+  okText: PropTypes.node,
   hideCancel: PropTypes.bool,
   hideOK: PropTypes.bool,
   onClose: PropTypes.func,

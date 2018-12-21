@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { omit } from 'lodash/fp';
 
 import Sticker from '../Sticker';
 import Icon from '../Icon';
@@ -66,8 +67,13 @@ export default class Popconfirm extends React.Component {
       title,
       cancelText,
       okText,
+      propsCancel,
+      propsOK,
       placement,
     } = this.props;
+
+    const cnOK = propsOK.className;
+    const otherPropsOK = omit('className')(propsOK);
 
     return (
       <Sticker
@@ -84,14 +90,15 @@ export default class Popconfirm extends React.Component {
               {title}
             </div>
             <div className="flex justify-end items-center">
-              <Button size="small" onClick={this.onCancel}>
+              <Button size="small" onClick={this.onCancel} {...propsCancel}>
                 {cancelText}
               </Button>
               <Button
                 size="small"
                 color="primary"
                 onClick={this.onOK}
-                className="ml-2"
+                className={cn('ml-2', cnOK)}
+                {...otherPropsOK}
               >
                 {okText}
               </Button>
@@ -112,15 +119,19 @@ Popconfirm.propTypes = {
   className: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.node,
-  cancelText: PropTypes.string,
-  okText: PropTypes.string,
+  cancelText: PropTypes.node,
+  okText: PropTypes.node,
   onOK: PropTypes.func,
+  propsCancel: PropTypes.object,
+  propsOK: PropTypes.object,
   onCancel: PropTypes.func,
 };
 Popconfirm.defaultProps = {
   placement: 'top',
   cancelText: 'Cancel',
   okText: 'OK',
+  propsCancel: {},
+  propsOK: {},
   onOK: () => true,
   onCancel: () => true,
 };
