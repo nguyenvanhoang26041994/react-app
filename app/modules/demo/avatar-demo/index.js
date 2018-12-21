@@ -11,11 +11,9 @@ import ShapeDemo from './shape';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/avatar-demo/basic.js`,
+  size: `${repo}/blob/master/app/modules/demo/avatar-demo/size.js`,
+  shape: `${repo}/blob/master/app/modules/demo/avatar-demo/shape.js`,
 };
 
 class Demo extends React.Component {
@@ -34,7 +32,7 @@ class Demo extends React.Component {
         <ExampleBox
           title="Size"
           className="mb-5"
-          link={links.basic}
+          link={links.size}
         >
           <div className="flex items-end">
             <SizeDemo />
@@ -43,7 +41,7 @@ class Demo extends React.Component {
         <ExampleBox
           title="Shape"
           className="mb-5"
-          link={links.basic}
+          link={links.shape}
         >
           <ShapeDemo />
         </ExampleBox>

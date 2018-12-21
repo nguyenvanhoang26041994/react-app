@@ -13,11 +13,11 @@ import CloseDemo from './close';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/alert-demo/basic.js`,
+  'any-where': `${repo}/blob/master/app/modules/demo/alert-demo/any-where.js`,
+  description: `${repo}/blob/master/app/modules/demo/alert-demo/description.js`,
+  duration: `${repo}/blob/master/app/modules/demo/alert-demo/duration.js`,
+  close: `${repo}/blob/master/app/modules/demo/alert-demo/close.js`,
 };
 
 class Demo extends React.Component {
@@ -35,25 +35,25 @@ class Demo extends React.Component {
         <ExampleBox
           title="With description"
           className="mb-5"
-          link={links.basic}>
+          link={links.description}>
           <DescriptionDemo />
         </ExampleBox>
         <ExampleBox
           title="Closable"
           className="mb-5"
-          link={links.basic}>
+          link={links.close}>
           <CloseDemo />
         </ExampleBox>
         <ExampleBox
           title="Duration"
           className="mb-5"
-          link={links.basic}>
+          link={links.duration}>
           <DurationDemo />
         </ExampleBox>
         <ExampleBox
           title="Alert call any where on you app"
           className="mb-5"
-          link={links.basic}>
+          link={links['any-where']}>
           <AnywhereDemo />
         </ExampleBox>
         <ExampleBox

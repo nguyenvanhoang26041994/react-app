@@ -11,11 +11,9 @@ import AnywhereDemo from './any-where';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/modal-demo/basic.js`,
+  controlled: `${repo}/blob/master/app/modules/demo/modal-demo/controlled.js`,
+  'any-where': `${repo}/blob/master/app/modules/demo/modal-demo/any-where.js`,
 };
 
 class Demo extends React.Component {

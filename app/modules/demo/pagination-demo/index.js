@@ -16,11 +16,14 @@ import FullFeatureDemo from './full-feature';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/pagination-demo/basic.js`,
+  'default-page': `${repo}/blob/master/app/modules/demo/pagination-demo/default-page.js`,
+  'default-page-size': `${repo}/blob/master/app/modules/demo/pagination-demo/default-page-size.js`,
+  'page-size': `${repo}/blob/master/app/modules/demo/pagination-demo/page-size.js`,
+  page: `${repo}/blob/master/app/modules/demo/pagination-demo/page.js`,
+  max: `${repo}/blob/master/app/modules/demo/pagination-demo/max.js`,
+  'render-item': `${repo}/blob/master/app/modules/demo/pagination-demo/render-item.js`,
+  'full-feature': `${repo}/blob/master/app/modules/demo/pagination-demo/full-feature.js`,
 };
 
 class Demo extends React.Component {
@@ -32,32 +35,32 @@ class Demo extends React.Component {
         <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
-        <ExampleBox title="Max" className="mb-5" link={links.basic}>
+        <ExampleBox title="Max" className="mb-5" link={links.max}>
           <MaxDemo />
         </ExampleBox>
-        <ExampleBox title="Default page" className="mb-5" link={links.basic}>
+        <ExampleBox title="Default page" className="mb-5" link={links['default-page']}>
           <DefaultPage />
         </ExampleBox>
-        <ExampleBox title="Default page size" className="mb-5" link={links.basic}>
+        <ExampleBox title="Default page size" className="mb-5" link={links['default-page-size']}>
           <DefaultPageSize />
         </ExampleBox>
-        <ExampleBox title="Page size" className="mb-5" link={links.basic}>
+        <ExampleBox title="Page size" className="mb-5" link={links['page-size']}>
           <PageSizeDemo />
         </ExampleBox>
-        <ExampleBox title="Page" className="mb-5" link={links.basic}>
+        <ExampleBox title="Page" className="mb-5" link={links.page}>
           <PageDemo />
         </ExampleBox>
         <ExampleBox
           title="Render Item"
           className="mb-5"
-          link={links.basic}
+          link={links['render-item']}
         >
           <RenderItemDemo />
         </ExampleBox>
         <ExampleBox
           title="Full Feature"
           className="mb-5"
-          link={links.basic}
+          link={links['full-feature']}
         >
           <FullFeatureDemo />
         </ExampleBox>

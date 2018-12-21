@@ -10,11 +10,8 @@ import SizeDemo from './size';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/switch-demo/basic.js`,
+  size: `${repo}/blob/master/app/modules/demo/switch-demo/size.js`,
 };
 
 class Demo extends React.Component {
@@ -26,7 +23,7 @@ class Demo extends React.Component {
         <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
-        <ExampleBox title="Size" className="mb-5">
+        <ExampleBox title="Size" className="mb-5" link={links.size}>
           <div className="flex items-end">
             <SizeDemo />
           </div>

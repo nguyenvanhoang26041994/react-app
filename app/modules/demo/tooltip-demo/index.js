@@ -10,11 +10,8 @@ import HOCDemo from './hoc';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/button-demo/basic.js`,
-  size: `${repo}/blob/master/app/modules/demo/button-demo/size.js`,
-  ghost: `${repo}/blob/master/app/modules/demo/button-demo/ghost.js`,
-  group: `${repo}/blob/master/app/modules/demo/button-demo/group.js`,
-  link: `${repo}/blob/master/app/modules/demo/button-demo/link.js`,
+  basic: `${repo}/blob/master/app/modules/demo/tooltip-demo/basic.js`,
+  hoc: `${repo}/blob/master/app/modules/demo/tooltip-demo/hoc.js`,
 };
 
 class Demo extends React.Component {
@@ -33,7 +30,7 @@ class Demo extends React.Component {
         <ExampleBox
           title="Flat with HOC"
           className="mb-5"
-          link={links.basic}
+          link={links.hoc}
           code={`
 const ButtonEnhance = Tooltip.withTooltip(Button);
 <ButtonEnhance tooltipProps={ title: ..., placement: ... } />
