@@ -13,10 +13,11 @@ $spacing: 0.25rem;
 
 .rc-menu-item.rc-submenu__title {
   position: relative;
-  font-weight: 600;
+  font-style: italic;
 
   &:before {
     content: "❯";
+    font-style: normal;
     position: absolute;
     top: 50%;
     right: 1em;

@@ -8,27 +8,13 @@ import { Menu, Icon, Grid } from '../../components/core';
 
 const globalMenus = [
   {
-    key: 'group-general',
-    isSubMenu: true,
-    title: 'General',
+    key: 'group-core',
+    isGroupItem: true,
+    title: 'UI Core',
     children: [
       { key: 'Button', children: 'Button', icon: <Icon icon="hand-pointer" /> },
       { key: 'Icon', children: 'Icon', icon: <Icon icon="eye" /> },
-    ],
-  },
-  {
-    key: 'group-layout',
-    isSubMenu: true,
-    title: 'Layout',
-    children: [
       { key: 'Grid', children: 'Grid', icon: <Icon icon="grip-horizontal" /> },
-    ],
-  },
-  {
-    key: 'group-navigation',
-    isSubMenu: true,
-    title: 'Navigation',
-    children: [
       { key: 'Menu', children: 'Menu', icon: <Icon icon="bars" /> },
       {
         key: 'Pagination',
@@ -40,65 +26,20 @@ const globalMenus = [
         children: 'Dropdown',
         icon: <Icon icon="angle-right" />,
       },
-    ],
-  },
-  {
-    key: 'group-data-entry',
-    isSubMenu: true,
-    title: 'Data Entry',
-    children: [
       { key: 'Checkbox', children: 'Checkbox', icon: <Icon icon="check" /> },
-      {
-        key: 'Input',
-        children: 'Input',
-        icon: <Icon icon="keyboard" />,
-      },
-      {
-        key: 'Radio',
-        children: 'Radio',
-        icon: <Icon icon="circle" />,
-      },
-      {
-        key: 'Select',
-        children: 'Select',
-        icon: <Icon icon="bolt" />,
-      },
-      {
-        key: 'Switch',
-        children: 'Switch',
-        icon: <Icon icon="toggle-on" />,
-      },
+      { key: 'Input', children: 'Input', icon: <Icon icon="keyboard" /> },
+      { key: 'Radio', children: 'Radio', icon: <Icon icon="circle" /> },
+      { key: 'Select', children: 'Select', icon: <Icon icon="bolt" /> },
+      { key: 'Switch', children: 'Switch', icon: <Icon icon="toggle-on" /> },
       { key: 'Textarea', children: 'Textarea', icon: <Icon icon="expand" /> },
-    ],
-  },
-  {
-    key: 'group-data-display',
-    isSubMenu: true,
-    title: 'Data Display',
-    children: [
       { key: 'Avatar', children: 'Avatar', icon: <Icon icon="user-tie" /> },
       {
         key: 'Tooltip',
         children: 'Tooltip',
         icon: <Icon icon="comment-alt" />,
       },
-      {
-        key: 'Table',
-        children: 'Table',
-        icon: <Icon icon="table" />,
-      },
-      {
-        key: 'Tabs',
-        children: 'Tabs',
-        icon: <Icon icon="tasks" />,
-      },
-    ],
-  },
-  {
-    key: 'group-message',
-    isSubMenu: true,
-    title: 'Feedback',
-    children: [
+      { key: 'Table', children: 'Table', icon: <Icon icon="table" /> },
+      { key: 'Tabs', children: 'Tabs', icon: <Icon icon="tasks" /> },
       { key: 'Alert', children: 'Alert', icon: <Icon icon="bell" /> },
       { key: 'Modal', children: 'Modal', icon: <Icon icon="box" /> },
       {
@@ -106,13 +47,6 @@ const globalMenus = [
         children: 'Popconfirm',
         icon: <Icon icon="toolbox" />,
       },
-    ],
-  },
-  {
-    key: 'group-other',
-    isGroupItem: true,
-    title: 'Other',
-    children: [
       { key: 'Portal', children: 'Portal', icon: <Icon icon="fire" /> },
       { key: 'Divider', children: 'Divider', icon: <Icon icon="heart" /> },
       { key: 'Text', children: 'Text', icon: <Icon icon="font" /> },
@@ -121,6 +55,31 @@ const globalMenus = [
         children: 'Sticker',
         icon: <Icon icon="sticky-note" />,
       },
+    ],
+  },
+  {
+    key: 'group-advanced',
+    isGroupItem: true,
+    title: 'UI Advanced',
+    children: [
+      {
+        key: 'login-form',
+        children: 'Login Form',
+        icon: <Icon icon="sign-in-alt" />,
+      },
+    ],
+  },
+  {
+    key: 'collection',
+    isSubMenu: true,
+    title: '3rd package UI',
+    defaultShow: false,
+    children: [
+      { key: 'key-1', children: 'UI-1', icon: <Icon icon="ad" /> },
+      { key: 'key-2', children: 'UI-2', icon: <Icon icon="ad" /> },
+      { key: 'key-3', children: 'UI-3', icon: <Icon icon="ad" /> },
+      { key: 'key-4', children: 'UI-4', icon: <Icon icon="ad" /> },
+      { key: 'key-5', children: 'UI-5', icon: <Icon icon="ad" /> },
     ],
   },
 ];
