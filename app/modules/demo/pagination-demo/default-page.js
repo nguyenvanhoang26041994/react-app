@@ -5,6 +5,6 @@ export default () => (
   <Pagination
     total={1000}
     defaultPage={10}
-    onChange={(e, data) => console.log(data)}
+    onChangePage={e => console.log(e)}
   />
 );

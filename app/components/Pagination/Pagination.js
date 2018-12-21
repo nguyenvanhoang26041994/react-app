@@ -48,7 +48,7 @@ export default class Pagination extends React.PureComponent {
       this.setState({ page });
     }
 
-    return this.props.onChange(event, { ...this.state, page });
+    return this.props.onChangePage({ target: { value: page } });
   };
 
   prev = event => this.handlePageChange(event, this.state.page - 1);
@@ -205,13 +205,13 @@ Pagination.propTypes = {
   defaultPageSize: PropTypes.number,
   total: PropTypes.number,
   max: PropTypes.oneOf([5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]),
-  onChange: PropTypes.func,
+  onChangePage: PropTypes.func,
 };
 Pagination.defaultProps = {
   defaultPage: 1,
   defaultPageSize: 10,
   total: 0,
   max: 5,
-  onChange: f => f,
+  onChangePage: f => f,
   renderItem: i => <span>{i}</span>,
 };

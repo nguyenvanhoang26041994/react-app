@@ -4,9 +4,9 @@ import { Pagination, Grid } from '../../../components/core';
 export default class Demo extends React.Component {
   state = { total: 1000, page: 10, pageSize: 5 };
 
-  changePage = page => this.setState({ page });
+  onChangePage = e => this.setState({ page: e.target.value });
 
-  changePageSize = pageSize => this.setState({ pageSize });
+  onChangePageSize = e => this.setState({ pageSize: e.target.value });
 
   render() {
     const { page, pageSize, total } = this.state;
@@ -20,13 +20,13 @@ export default class Demo extends React.Component {
           page={page}
           max={9}
           pageSize={pageSize}
-          onChange={(e, data) => this.changePage(data.page)}
+          onChangePage={this.onChangePage}
         />
         <Pagination.Options
           className="ml-1"
           options={[5, 10, 30, 50, 100]}
           value={pageSize}
-          onChange={e => this.changePageSize(e.target.value)}
+          onChange={this.onChangePageSize}
         />
       </Grid>
     );
