@@ -9,28 +9,28 @@ export default () => (
         message="Alert message"
         description="Alert description"
         type="info"
-        duration="10000"
+        duration={10000}
       />
       <Alert
         className="m-1"
         message="Alert message"
         description="Alert description"
         type="success"
-        duration="30000"
+        duration={30000}
       />
       <Alert
         className="m-1"
         message="Alert message"
         description="Alert description"
         type="warning"
-        duration="60000"
+        duration={60000}
       />
       <Alert
         className="m-1"
         message="Alert message"
         description="Alert description"
         type="error"
-        duration="100000"
+        duration={100000}
       />
     </div>
   </React.Fragment>

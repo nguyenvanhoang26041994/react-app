@@ -26,41 +26,31 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox col title="Basic used" className="mb-5" link={links.basic} code={`<Button color="primary|success|error warning" disabled=true|false {...otherProps} />`}>
+        <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
-        <ExampleBox title="Size" className="mb-5" link={links.size} code={`<Button size="small|large" {...otherProps} />`}>
+        <ExampleBox title="Size" className="mb-5" link={links.size}>
           <div className="flex items-end">
             <SizeDemo />
           </div>
         </ExampleBox>
-        <ExampleBox title="Ghost mode" className="mb-5" link={links.ghost} code={`<Button ghost=true|false {...otherProps} />`}>
+        <ExampleBox title="Ghost mode" className="mb-5" link={links.ghost}>
           <GhostDemo />
         </ExampleBox>
         <ExampleBox
           title="Group"
           className="mb-5"
           link={links.group}
-          code={`
-<Button.Group color="primary|success|error|warning" ghost=true|false disabled=true|false size="small|large" {...otherProps}>
-  <Button />
-  <Button />
-  <Button />
-</Button.Group>`}
         >
           <GroupDemo />
         </ExampleBox>
         <ExampleBox
           title="Link Button"
           className="mb-5"
-          link={links.link}
-          code={`
-<Button.Link color="primary|success|error|warning" ghost=true|false disabled=true|false size="small|large" {...otherProps} />`}
         >
           <LinkDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Button"
           className="mb-5"
           code={`
@@ -74,8 +64,6 @@ export const colors = Object.freeze({
   warning: 'rc-button--warning',
   success: 'rc-button--success',
 });
-
-...code
 
 Button.displayName = 'Button';
 Button.propTypes = {
@@ -91,31 +79,25 @@ Button.propTypes = {
 Button.defaultProps = {
   htmlType: 'button',
 };
-
-export default Button;
           `}
         />
         <ExampleBox
-          col
           title="Button.Group"
           className="mb-5"
           code={`
-GroupButton.displayName = 'GroupButton';
+GroupButton.displayName = 'Button.Group';
 GroupButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
 GroupButton.defaultProps = {};
-
-export default GroupButton;
           `}
         />
         <ExampleBox
-          col
           title="Button.Link"
           className="mb-5"
           code={`
-LinkButton.displayName = 'LinkButton';
+LinkButton.displayName = 'Button.Link';
 LinkButton.propTypes = {
   className: PropTypes.string,
   linkClass: PropTypes.string,
@@ -123,8 +105,6 @@ LinkButton.propTypes = {
   target: PropTypes.oneOf(['_blank', '_top', '_self', '_parent']),
   children: PropTypes.node,
 };
-
-export default LinkButton;
           `}
         />
       </Grid>

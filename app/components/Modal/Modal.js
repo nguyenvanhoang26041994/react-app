@@ -146,6 +146,7 @@ class Modal extends React.PureComponent {
 
 Modal.displayName = 'Modal';
 Modal.propTypes = {
+  open: PropTypes.bool,
   defaultOpen: PropTypes.bool,
   cancelText: PropTypes.string,
   okText: PropTypes.string,

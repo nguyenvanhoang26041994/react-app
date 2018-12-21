@@ -29,80 +29,39 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox col title="Basic used" className="mb-5" link={links.basic} code={`<Pagination total={1000} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
-        <ExampleBox col title="Max" className="mb-5" link={links.basic} code={`<Pagination total={1000} max={9} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Max" className="mb-5" link={links.basic}>
           <MaxDemo />
         </ExampleBox>
-        <ExampleBox col title="Default page" className="mb-5" link={links.basic} code={`<Pagination total={1000} defaultPage={10} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Default page" className="mb-5" link={links.basic}>
           <DefaultPage />
         </ExampleBox>
-        <ExampleBox col title="Default page size" className="mb-5" link={links.basic} code={`<Pagination total={1000} defaultPageSize={50} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Default page size" className="mb-5" link={links.basic}>
           <DefaultPageSize />
         </ExampleBox>
-        <ExampleBox col title="Page size" className="mb-5" link={links.basic} code={`<Pagination total={1000} pageSize={50} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Page size" className="mb-5" link={links.basic}>
           <PageSizeDemo />
         </ExampleBox>
-        <ExampleBox col title="Page" className="mb-5" link={links.basic} code={`<Pagination total={1000} page={10} pageSize={50} onChange={(e, data) => console.log(data)} />`}>
+        <ExampleBox title="Page" className="mb-5" link={links.basic}>
           <PageDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Render Item"
           className="mb-5"
           link={links.basic}
-          code={`
-<Pagination
-  total={1000}
-  renderItem={item => <span style={{ color: 'purple' }}>{item}</span>}
-  onChange={(e, data) => console.log(data)}
-/>
-`}>
+        >
           <RenderItemDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Full Feature"
           className="mb-5"
           link={links.basic}
-          code={`
-export default class Demo extends React.Component {
-  state = { total: 1000, page: 10, pageSize: 5 };
-
-  changePage = page => this.setState({ page });
-
-  changePageSize = pageSize => this.setState({ pageSize });
-
-  render() {
-    const { page, pageSize, total } = this.state;
-
-    return (
-      <Grid row items="center">
-        <Pagination.Total total={total} page={page} pageSize={pageSize} />
-        <Pagination
-          className="ml-1"
-          total={total}
-          page={page}
-          max={9}
-          pageSize={pageSize}
-          onChange={(e, data) => this.changePage(data.page)}
-        />
-        <Pagination.Options
-          className="ml-1"
-          options={[5, 10, 30, 50, 100]}
-          value={pageSize}
-          onChange={e => this.changePageSize(e.target.value)}
-        />
-      </Grid>
-    );
-  }
-}
-`}>
+        >
           <FullFeatureDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Pagination"
           className="mb-5"
           code={`
@@ -129,7 +88,6 @@ Pagination.defaultProps = {
         />
 
         <ExampleBox
-          col
           title="Pagination.Options"
           className="mb-5"
           code={`
@@ -145,7 +103,6 @@ Options.defaultProps = {
         />
 
         <ExampleBox
-          col
           title="Pagination.Total"
           className="mb-5"
           code={`

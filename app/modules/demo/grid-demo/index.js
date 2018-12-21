@@ -19,7 +19,6 @@ class Demo extends React.Component {
     return (
       <Grid col wrap flex="auto">
         <ExampleBox
-          col
           title="Basic used"
           className="mb-5"
           link={links.basic}

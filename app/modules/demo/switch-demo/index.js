@@ -23,10 +23,10 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox title="Basic used" className="mb-5" link={links.basic} code={`<Switch /> <Switch defaultChecked /> <Switch checked onChange={e => console.log(e.target.checked)} />`}>
+        <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
-        <ExampleBox title="Size" className="mb-5" link={links.basic} code={`<Switch size="small|large" />`}>
+        <ExampleBox title="Size" className="mb-5">
           <div className="flex items-end">
             <SizeDemo />
           </div>

@@ -22,11 +22,10 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox col title="Basic used" className="mb-5" link={links.basic} code={`<Checkbox /> <Checkbox defaultChecked /> <Checkbox checked onChange={e => console.log(e.target.checked)} />`}>
+        <ExampleBox title="Basic used" className="mb-5" link={links.basic}>
           <BasicDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Checkbox"
           className="mb-5"
           code={`

@@ -5,10 +5,8 @@ import { Grid } from '../../../components/core';
 import ExampleBox from '../../ExampleBox';
 
 import BasicDemo from './basic';
-import DescriptionDemo from './description';
+import ControlledDemo from './controlled';
 import AnywhereDemo from './any-where';
-import DurationDemo from './duration';
-import CloseDemo from './close';
 
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
@@ -33,57 +31,46 @@ class Demo extends React.Component {
           <BasicDemo />
         </ExampleBox>
         <ExampleBox
-          title="With description"
+          title="Controlled Modal"
           className="mb-5"
           link={links.basic}>
-          <DescriptionDemo />
+          <ControlledDemo />
         </ExampleBox>
         <ExampleBox
-          title="Closable"
-          className="mb-5"
-          link={links.basic}>
-          <CloseDemo />
-        </ExampleBox>
-        <ExampleBox
-          title="Duration"
-          className="mb-5"
-          link={links.basic}>
-          <DurationDemo />
-        </ExampleBox>
-        <ExampleBox
-          title="Alert call any where on you app"
+          title="Anywhere on you app"
           className="mb-5"
           link={links.basic}>
           <AnywhereDemo />
         </ExampleBox>
         <ExampleBox
-          title="Alert"
+          title="Modal"
           className="mb-5"
           code={`
-export const types = Object.freeze({
-  success: 'rc-alert--success',
-  info: 'rc-alert--info',
-  warning: 'rc-alert--warning',
-  error: 'rc-alert--error',
-});
-
-Alert.displayName = 'Alert';
-Alert.propTypes = {
-  duration: PropTypes.oneOfType([PropTypes.number]),
-  closable: PropTypes.bool,
+Modal.displayName = 'Modal';
+Modal.propTypes = {
+  defaultOpen: PropTypes.bool,
+  cancelText: PropTypes.string,
+  okText: PropTypes.string,
+  hideCancel: PropTypes.bool,
+  hideOK: PropTypes.bool,
   onClose: PropTypes.func,
-  className: PropTypes.string,
-  type: PropTypes.oneOf(Object.keys(types)),
-  message: PropTypes.node.isRequired,
-  description: PropTypes.node,
-  children: PropTypes.node,
+  onOK: PropTypes.func,
+  onCancel: PropTypes.func,
+  propsCancel: PropTypes.object,
+  propsOK: PropTypes.object,
+  footer: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  renderJSNode: PropTypes.any,
 };
-Alert.defaultProps = {
-  type: 'info',
-  duration: 0,
-  closable: true,
+Modal.defaultProps = {
+  defaultOpen: true,
+  cancelText: 'Cancel',
+  okText: 'OK',
+  propsCancel: {},
+  propsOK: {},
   onClose: f => f,
-};
+  onOK: () => true,
+  onCancel: () => true,
+};   
           `}
         />
       </Grid>

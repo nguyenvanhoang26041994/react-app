@@ -977,7 +977,6 @@ export default class IconDemo extends React.Component {
           />
         </StickyGrid>
         <ExampleBox
-          col
           title="Icon"
           className="p-5"
           style={{ fontSize: '1rem' }}

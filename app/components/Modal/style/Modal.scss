@@ -14,9 +14,9 @@
   z-index: $z-index-modal;
 
   .rc-modal {
-    top: 5em;
-    max-height: 100vh;
-    max-width: 100vw;
+    top: 5rem;
+    max-height: calc(100vh - 10rem);
+    max-width: calc(100vw - 5rem);
     animation: fadeInDown 0.25s ease-out;
   }
 }

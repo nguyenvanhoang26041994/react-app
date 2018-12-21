@@ -27,11 +27,7 @@ class Demo extends React.Component {
           title="Basic used"
           className="mb-5"
           link={links.basic}
-          code={`
-<Tooltip placement="top|right-top|right|right-bottom|bottom-right|bottom|bottom-left|left-bottom|left|left-top|top-left" title="Tooltip title!">
-  <Button />
-</Tooltip>
-        `}>
+        >
           <BasicDemo />
         </ExampleBox>
         <ExampleBox
@@ -45,7 +41,6 @@ const ButtonEnhance = Tooltip.withTooltip(Button);
           <HOCDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Tooltip"
           className="mb-5"
           code={`

@@ -28,42 +28,14 @@ class Demo extends React.Component {
           title="Basic used"
           className="mb-5"
           link={links.basic}
-          code={`
-<React.Fragment>
-  <Avatar />
-  <Avatar name="Hoang" />
-  <Avatar name="Hoang" color="purple" />
-  <Avatar name="Hoang" color="dodgerblue" />
-  <Avatar
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-  />
-</React.Fragment>
-        `}>
+        >
           <BasicDemo />
         </ExampleBox>
         <ExampleBox
           title="Size"
           className="mb-5"
           link={links.basic}
-          code={`
-<React.Fragment>
-  <Avatar
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-    size="small"
-  />
-  <Avatar
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-  />
-  <Avatar
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-    size="large"
-  />
-  <Avatar
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-    size="100px"
-  />
-</React.Fragment>
-        `}>
+        >
           <div className="flex items-end">
             <SizeDemo />
           </div>
@@ -72,24 +44,10 @@ class Demo extends React.Component {
           title="Shape"
           className="mb-5"
           link={links.basic}
-          code={`
-<React.Fragment>
-  <Avatar
-    shape="circle"
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-    size="100px"
-  />
-  <Avatar
-    shape="square"
-    src="https://www.mobafire.com/images/avatars/yasuo-nightbringer.png"
-    size="100px"
-  />
-</React.Fragment>
-        `}>
+        >
           <ShapeDemo />
         </ExampleBox>
         <ExampleBox
-          col
           title="Avatar"
           className="mb-5"
           code={`
