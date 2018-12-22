@@ -1,3 +1,18 @@
+import { Alert } from '../components/core';
+
+export const handleError = (e, response) => {
+  // Log or something here
+
+  // display the flash message
+  Alert.error({
+    message: 'Fetch API error!',
+    description: response ? response.message : e.message,
+    duration: 2000,
+  });
+
+  throw e;
+};
+
 export const config = method => (endpoint, options = {}) => {
   const { headers, ...otherOptions } = options;
 
@@ -16,13 +31,9 @@ export const config = method => (endpoint, options = {}) => {
           json,
           response,
         }))
-        .catch(e => {
-          throw e;
-        }),
+        .catch(e => handleError(e, response)),
     )
-    .catch(e => {
-      throw e;
-    });
+    .catch(e => handleError(e));
 };
 
 export default Object.freeze({

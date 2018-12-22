@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import request from '../../utils/request';
 import b64DecodeUnicode from '../../utils/b64DecodeUnicode';
-import { Grid, Icon, Text, Alert } from '../../components/core';
+import { Grid, Icon, Text, Button } from '../../components/core';
 import CodeGuide from '../CodeGuide';
 
 const githubAPI =
@@ -37,16 +37,6 @@ const Footer = styled(Grid)`
   padding-top: 1rem;
 `;
 
-const CodeIcon = styled(Icon)`
-  font-size: 1rem;
-  cursor: pointer;
-  color: #d9d9d9;
-
-  &:hover {
-    color: dodgerblue;
-  }
-`;
-
 class ExampleBox extends React.Component {
   state = { code: '', showCode: false };
 
@@ -59,12 +49,9 @@ class ExampleBox extends React.Component {
           code: b64DecodeUnicode(localStorage.getItem(`rc_${this.props.link}`)),
         });
       })
-      .catch(() =>
-        Alert.error({
-          message: 'Fetch code from github error',
-          duration: 1000,
-        }),
-      );
+      .catch(e => {
+        throw e;
+      });
   };
 
   getCodeFromBrowser = item => localStorage.getItem(`rc_${item}`);
@@ -108,9 +95,15 @@ class ExampleBox extends React.Component {
         </Box>
         <Footer justify="end">
           {link && (
-            <a href={`#${githubRepo}/${link}`}>
-              <CodeIcon icon="file-code" onClick={this.onShowCode} />
-            </a>
+            <Button.Link
+              ghost
+              size="small"
+              color="primary"
+              href={`#${githubRepo}/${link}`}
+              onClick={this.onShowCode}
+            >
+              <Icon icon="code" />
+            </Button.Link>
           )}
         </Footer>
       </Wrapper>
