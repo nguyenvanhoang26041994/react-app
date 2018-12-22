@@ -1,5 +1,7 @@
-export const config = method => (endpoint, { headers, ...otherOptions }) =>
-  fetch(endpoint, {
+export const config = method => (endpoint, options = {}) => {
+  const { headers, ...otherOptions } = options;
+
+  return fetch(endpoint, {
     method,
     headers: {
       'Content-Type': 'application/json',
@@ -21,6 +23,7 @@ export const config = method => (endpoint, { headers, ...otherOptions }) =>
     .catch(e => {
       throw e;
     });
+};
 
 export default Object.freeze({
   get: config('GET'),

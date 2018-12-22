@@ -10,6 +10,8 @@ import CodeGuide from '../CodeGuide';
 
 const githubAPI =
   'https://api.github.com/repos/nguyenvanhoang26041994/react-components/contents';
+const githubRepo =
+  'https://github.com/nguyenvanhoang26041994/react-components/tree/master';
 
 const Wrapper = styled(Grid)`
   min-width: 30rem;
@@ -46,24 +48,46 @@ const CodeIcon = styled(Icon)`
 `;
 
 class ExampleBox extends React.Component {
-  state = { code: '' };
+  state = { code: '', showCode: false };
 
-  componentDidMount() {
-    this.fetchCodeFromGithub(this.props.link);
-  }
-
-  fetchCodeFromGithub = link =>
+  fetchCodeFromGithub = () => {
     request
-      .get(`${githubAPI}${link}`, {})
-      .then(({ json }) =>
-        this.setState({ code: b64DecodeUnicode(json.content) }),
-      )
+      .get(`${githubAPI}/${this.props.link}`)
+      .then(({ json }) => {
+        localStorage.setItem(`rc_${this.props.link}`, json.content);
+        this.setState({
+          code: b64DecodeUnicode(localStorage.getItem(`rc_${this.props.link}`)),
+        });
+      })
       .catch(() =>
         Alert.error({
           message: 'Fetch code from github error',
           duration: 1000,
         }),
       );
+  };
+
+  getCodeFromBrowser = item => localStorage.getItem(`rc_${item}`);
+
+  onShowCode = () => {
+    if (this.state.code) {
+      return this.setState(prevState => ({
+        showCode: !prevState.showCode,
+      }));
+    }
+
+    if (localStorage.getItem(`rc_${this.props.link}`)) {
+      return this.setState(prevState => ({
+        showCode: !prevState.showCode,
+        code: b64DecodeUnicode(localStorage.getItem(`rc_${this.props.link}`)),
+      }));
+    }
+
+    return this.setState(
+      prevState => ({ showCode: !prevState.showCode }),
+      this.fetchCodeFromGithub,
+    );
+  };
 
   render() {
     const {
@@ -80,12 +104,12 @@ class ExampleBox extends React.Component {
         <Title>{title}</Title>
         <Box col className="mb-8">
           {children && <div className="flex py-8">{children}</div>}
-          <CodeGuide code={this.state.code} />
+          {this.state.showCode && <CodeGuide code={this.state.code} />}
         </Box>
         <Footer justify="end">
           {link && (
-            <a href={link} target="_blank">
-              <CodeIcon icon="file-code" />
+            <a href={`#${githubRepo}/${link}`}>
+              <CodeIcon icon="file-code" onClick={this.onShowCode} />
             </a>
           )}
         </Footer>
