@@ -17,8 +17,9 @@ import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';
 import PopconfirmDemo from '../demo/popconfirm-demo';
 import SelectDemo from '../demo/select-demo';
-import TableDemo from '../demo/TableDemo';
+import TableDemo from '../demo/table-demo';
 import TooltipDemo from '../demo/tooltip-demo';
+
 import NotFoundPage from '../../containers/NotFoundPage/Loadable';
 
 import { Grid } from '../../components/core';

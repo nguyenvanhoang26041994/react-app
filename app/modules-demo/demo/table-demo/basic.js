@@ -7,7 +7,7 @@ import {
   Grid,
   Switch,
   Icon,
-} from '../../components/core';
+} from '../../../components/core';
 
 const data = [
   {
@@ -205,53 +205,45 @@ class Demo extends React.Component {
   ];
 
   state = {
-    // current: 1,
-    // pageSize: 10,
-    // total: 301,
-    current2: 1,
-    pageSize2: 10,
-    total2: 1001,
+    current: 1,
+    pageSize: 10,
+    total: 1001,
   };
 
   render() {
     return (
-      <div>
-        <div className="flex mb-2 p-5">
-          <Grid col width="full">
-            <Table
-              columns={this.columns}
-              data={data}
-              bordered="horizontal"
-              selectable
-              vertical="middle"
+      <Grid col width="full">
+        <Table
+          columns={this.columns}
+          data={data}
+          bordered="horizontal"
+          selectable
+          vertical="middle"
+        />
+        <Grid row className="mt-2" justify="end">
+          <Grid items="center">
+            <Pagination.Total
+              total={this.state.total}
+              page={this.state.current}
+              pageSize={this.state.pageSize}
             />
-            <Grid row className="mt-2" justify="end">
-              <Grid>
-                <Pagination.Total
-                  total={this.state.total2}
-                  page={this.state.current2}
-                  pageSize={this.state.pageSize2}
-                />
-                <Pagination
-                  className="ml-1"
-                  total={this.state.total2}
-                  current={this.state.current2}
-                  pageSize={this.state.pageSize2}
-                  onChange={(event, { page }) =>
-                    this.setState({ current2: page })
-                  }
-                />
-                <Pagination.Options
-                  className="ml-1"
-                  options={[10, 20, 30, 50]}
-                  value={this.state.pageSize2}
-                  onChange={this.onChange2}
-                />
-              </Grid>
-            </Grid>
+            <Pagination
+              className="ml-1"
+              total={this.state.total}
+              current={this.state.current}
+              pageSize={this.state.pageSize}
+              max={9}
+              onChange={(event, { page }) => this.setState({ current: page })}
+            />
+            <Pagination.Options
+              className="ml-1"
+              options={[10, 0, 30, 50]}
+              value={this.state.pageSize}
+              onChange={this.onChange}
+            />
           </Grid>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }

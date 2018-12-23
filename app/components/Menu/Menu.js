@@ -60,11 +60,9 @@ Menu.propTypes = {
   defaultShow: PropTypes.bool,
   children: PropTypes.node,
   onChangeActivekey: PropTypes.func,
-  callback: PropTypes.func,
   activeKey: PropTypes.string,
   style: PropTypes.object,
 };
 Menu.defaultProps = {
   onChangeActivekey: f => f,
-  callback: f => f,
 };
