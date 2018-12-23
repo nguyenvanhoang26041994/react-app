@@ -44,77 +44,77 @@ export const hasTrigger = (trigger, triggers = []) => {
 
 export const getPlacementStyle = (
   placement,
-  { offsetTop, offsetLeft, offsetHeight, offsetWidth },
+  { currentTop, currentLeft, currentHeight, currentWidth },
 ) => {
   switch (placement) {
     case 'bottom':
       return {
-        top: offsetTop + offsetHeight,
-        left: offsetLeft + offsetWidth / 2,
+        top: currentTop + currentHeight,
+        left: currentLeft + currentWidth / 2,
         transform: 'translateX(-50%)',
       };
     case 'top':
       return {
-        top: offsetTop,
-        left: offsetLeft + offsetWidth / 2,
+        top: currentTop,
+        left: currentLeft + currentWidth / 2,
         transform: 'translate(-50%, -100%)',
       };
     case 'left':
       return {
-        top: offsetTop + offsetHeight / 2,
-        left: offsetLeft,
+        top: currentTop + currentHeight / 2,
+        left: currentLeft,
         transform: 'translate(-100%, -50%)',
       };
     case 'right':
       return {
-        top: offsetTop + offsetHeight / 2,
-        left: offsetLeft + offsetWidth,
+        top: currentTop + currentHeight / 2,
+        left: currentLeft + currentWidth,
         transform: 'translateY(-50%)',
       };
     case 'top-left':
       return {
-        top: offsetTop,
-        left: offsetLeft,
+        top: currentTop,
+        left: currentLeft,
         transform: 'translateY(-100%)',
       };
     case 'top-right':
       return {
-        top: offsetTop,
-        left: offsetLeft + offsetWidth,
+        top: currentTop,
+        left: currentLeft + currentWidth,
         transform: 'translate(-100%, -100%)',
       };
     case 'bottom-left':
       return {
-        top: offsetTop + offsetHeight,
-        left: offsetLeft,
+        top: currentTop + currentHeight,
+        left: currentLeft,
       };
     case 'bottom-right':
       return {
-        top: offsetTop + offsetHeight,
-        left: offsetLeft + offsetWidth,
+        top: currentTop + currentHeight,
+        left: currentLeft + currentWidth,
         transform: 'translateX(-100%)',
       };
     case 'left-top':
       return {
-        top: offsetTop,
-        left: offsetLeft,
+        top: currentTop,
+        left: currentLeft,
         transform: 'translateX(-100%)',
       };
     case 'left-bottom':
       return {
-        top: offsetTop + offsetHeight,
-        left: offsetLeft,
+        top: currentTop + currentHeight,
+        left: currentLeft,
         transform: 'translate(-100%, -100%)',
       };
     case 'right-top':
       return {
-        top: offsetTop,
-        left: offsetLeft + offsetWidth,
+        top: currentTop,
+        left: currentLeft + currentWidth,
       };
     case 'right-bottom':
       return {
-        top: offsetTop + offsetHeight,
-        left: offsetLeft + offsetWidth,
+        top: currentTop + currentHeight,
+        left: currentLeft + currentWidth,
         transform: 'translateY(-100%)',
       };
     default:
@@ -171,12 +171,18 @@ export default class Sticker extends React.Component {
     const { trigger } = this.props;
 
     this.childrenNode = ReactDOM.findDOMNode(this); // eslint-disable-line react/no-find-dom-node
-    const {
-      offsetTop,
-      offsetLeft,
-      offsetHeight,
-      offsetWidth,
-    } = this.childrenNode;
+    const { offsetHeight, offsetWidth } = this.childrenNode;
+
+    let top = 0;
+    let left = 0;
+    let node = this.childrenNode;
+
+    do {
+      top += node.offsetTop;
+      left += node.offsetLeft;
+
+      node = node.offsetParent;
+    } while (node.offsetParent);
 
     if (trigger === 'hover') {
       this.childrenNode.addEventListener('mouseenter', this.handleVisible);
@@ -189,10 +195,10 @@ export default class Sticker extends React.Component {
 
     this.setState({
       style: getPlacementStyle(this.props.placement, {
-        offsetTop,
-        offsetLeft,
-        offsetHeight,
-        offsetWidth,
+        currentTop: top,
+        currentLeft: left,
+        currentHeight: offsetHeight,
+        currentWidth: offsetWidth,
       }),
     });
   };
