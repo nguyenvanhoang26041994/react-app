@@ -6,19 +6,14 @@ import cn from 'classnames';
 import Select from '../Select';
 import './style/Pagination.Options.scss';
 
-export const formatOptions = (options = []) =>
-  options.map(option => ({
-    key: option,
-    value: option,
-    children: `${option} / page`,
-  }));
-
 const Options = ({ className, options, ...otherProps }) => (
-  <Select
-    className={cn('rc-pagination-options', className)}
-    options={formatOptions(options)}
-    {...otherProps}
-  />
+  <Select className={cn('rc-pagination-options', className)} {...otherProps}>
+    {options.map((option, idx) => (
+      <Select.Option key={idx} value={option}>
+        {option} / page
+      </Select.Option>
+    ))}
+  </Select>
 );
 
 Options.displayName = 'Pagination.Options';

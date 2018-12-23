@@ -1,0 +1,13 @@
+@import '../../style/variables.scss';
+
+.rc-select-group__name {
+  user-select: none;
+  display: flex;
+  justify-content: flex-start;
+  font-style: italic;
+  align-items: center;
+  height: 1.75em;
+  background-color: white;
+  color: $text-color;
+  padding: 0.25em 0.5em 0.25em 0.25em;
+}

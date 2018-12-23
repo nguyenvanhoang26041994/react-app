@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -7,19 +8,20 @@ import './style/Select.Option.scss';
 const Option = ({
   className,
   value,
-  text,
-  selected,
+  currentValue,
+  handleChange,
   render,
   children,
   ...otherProps
 }) => (
   <div
+    {...otherProps}
     className={cn(
       'rc-select__option rc-select-option',
-      { 'rc-select-option--selected': selected },
+      { 'rc-select-option--selected': currentValue === value },
       className,
     )}
-    {...otherProps}
+    onClick={event => handleChange({ target: { value } }, event)}
   >
     {render({ value, children })}
   </div>
