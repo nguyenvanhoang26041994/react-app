@@ -10,10 +10,10 @@ import CustomizeButtonDemo from './customize-button';
 import OnEventDemo from './on-event';
 
 const links = {
-  basic: 'app/modules/demo/popconfirm-demo/basic.js',
-  hoc: 'app/modules/demo/popconfirm-demo/hoc.js',
-  'customize-button': 'app/modules/demo/popconfirm-demo/customize-button.js',
-  'on-event': 'app/modules/demo/popconfirm-demo/on-event.js',
+  basic: 'app/modules-demo/demo/popconfirm-demo/basic.js',
+  hoc: 'app/modules-demo/demo/popconfirm-demo/hoc.js',
+  'customize-button': 'app/modules-demo/demo/popconfirm-demo/customize-button.js',
+  'on-event': 'app/modules-demo/demo/popconfirm-demo/on-event.js',
 };
 
 class Demo extends React.Component {

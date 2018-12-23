@@ -7,7 +7,7 @@ import ExampleBox from '../../ExampleBox';
 import BasicDemo from './basic';
 
 const links = {
-  basic: 'app/modules/demo/checkbox-demo/basic.js',
+  basic: 'app/modules-demo/demo/checkbox-demo/basic.js',
 };
 
 class Demo extends React.Component {

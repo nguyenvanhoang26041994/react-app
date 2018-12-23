@@ -13,13 +13,13 @@ import CustomizeButtonDemo from './customize-button';
 import PureModalDemo from './pure-modal';
 
 const links = {
-  basic: 'app/modules/demo/modal-demo/basic.js',
-  controlled: 'app/modules/demo/modal-demo/controlled.js',
-  'any-where': 'app/modules/demo/modal-demo/any-where.js',
-  'on-ok': 'app/modules/demo/modal-demo/on-ok.js',
-  'on-cancel': 'app/modules/demo/modal-demo/on-cancel.js',
-  'customize-button': 'app/modules/demo/modal-demo/customize-button.js',
-  'pure-modal': 'app/modules/demo/modal-demo/pure-modal.js',
+  basic: 'app/modules-demo/demo/modal-demo/basic.js',
+  controlled: 'app/modules-demo/demo/modal-demo/controlled.js',
+  'any-where': 'app/modules-demo/demo/modal-demo/any-where.js',
+  'on-ok': 'app/modules-demo/demo/modal-demo/on-ok.js',
+  'on-cancel': 'app/modules-demo/demo/modal-demo/on-cancel.js',
+  'customize-button': 'app/modules-demo/demo/modal-demo/customize-button.js',
+  'pure-modal': 'app/modules-demo/demo/modal-demo/pure-modal.js',
 };
 
 class Demo extends React.Component {

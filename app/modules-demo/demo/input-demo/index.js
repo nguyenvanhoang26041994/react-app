@@ -7,7 +7,7 @@ import ExampleBox from '../../ExampleBox';
 import NativeDemo from './native';
 
 const links = {
-  native: 'app/modules/demo/input-demo/native.js',
+  native: 'app/modules-demo/demo/input-demo/native.js',
 };
 
 class Demo extends React.Component {

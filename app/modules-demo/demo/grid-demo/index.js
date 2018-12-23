@@ -7,9 +7,9 @@ import ExampleBox from '../../ExampleBox';
 const repo = 'https://github.com/nguyenvanhoang26041994/react-components';
 
 const links = {
-  basic: `${repo}/blob/master/app/modules/demo/grid-demo/basic.js`,
-  row: `${repo}/blob/master/app/modules/demo/grid-demo/row.js`,
-  col: `${repo}/blob/master/app/modules/demo/grid-demo/col.js`,
+  basic: `${repo}/blob/master/app/modules-demo/demo/grid-demo/basic.js`,
+  row: `${repo}/blob/master/app/modules-demo/demo/grid-demo/row.js`,
+  col: `${repo}/blob/master/app/modules-demo/demo/grid-demo/col.js`,
 };
 
 class Demo extends React.Component {

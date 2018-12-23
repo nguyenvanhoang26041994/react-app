@@ -9,9 +9,9 @@ import SizeDemo from './size';
 import ShapeDemo from './shape';
 
 const links = {
-  basic: 'app/modules/demo/avatar-demo/basic.js',
-  size: 'app/modules/demo/avatar-demo/size.js',
-  shape: 'app/modules/demo/avatar-demo/shape.js',
+  basic: 'app/modules-demo/demo/avatar-demo/basic.js',
+  size: 'app/modules-demo/demo/avatar-demo/size.js',
+  shape: 'app/modules-demo/demo/avatar-demo/shape.js',
 };
 
 class Demo extends React.Component {

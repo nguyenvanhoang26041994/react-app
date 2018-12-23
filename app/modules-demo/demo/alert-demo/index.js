@@ -11,11 +11,11 @@ import DurationDemo from './duration';
 import CloseDemo from './close';
 
 const links = {
-  basic: 'app/modules/demo/alert-demo/basic.js',
-  'any-where': 'app/modules/demo/alert-demo/any-where.js',
-  description: 'app/modules/demo/alert-demo/description.js',
-  duration: 'app/modules/demo/alert-demo/duration.js',
-  close: 'app/modules/demo/alert-demo/close.js',
+  basic: 'app/modules-demo/demo/alert-demo/basic.js',
+  'any-where': 'app/modules-demo/demo/alert-demo/any-where.js',
+  description: 'app/modules-demo/demo/alert-demo/description.js',
+  duration: 'app/modules-demo/demo/alert-demo/duration.js',
+  close: 'app/modules-demo/demo/alert-demo/close.js',
 };
 
 class Demo extends React.Component {

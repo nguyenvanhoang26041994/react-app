@@ -11,11 +11,11 @@ import GroupDemo from './group';
 import LinkDemo from './link';
 
 const links = {
-  basic: '/app/modules/demo/button-demo/basic.js',
-  size: '/app/modules/demo/button-demo/size.js',
-  ghost: '/app/modules/demo/button-demo/ghost.js',
-  group: '/app/modules/demo/button-demo/group.js',
-  link: '/app/modules/demo/button-demo/link.js',
+  basic: '/app/modules-demo/demo/button-demo/basic.js',
+  size: '/app/modules-demo/demo/button-demo/size.js',
+  ghost: '/app/modules-demo/demo/button-demo/ghost.js',
+  group: '/app/modules-demo/demo/button-demo/group.js',
+  link: '/app/modules-demo/demo/button-demo/link.js',
 };
 
 class Demo extends React.Component {

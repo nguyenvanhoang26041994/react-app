@@ -8,8 +8,8 @@ import BasicDemo from './basic';
 import HOCDemo from './hoc';
 
 const links = {
-  basic: 'app/modules/demo/tooltip-demo/basic.js',
-  hoc: 'app/modules/demo/tooltip-demo/hoc.js',
+  basic: 'app/modules-demo/demo/tooltip-demo/basic.js',
+  hoc: 'app/modules-demo/demo/tooltip-demo/hoc.js',
 };
 
 class Demo extends React.Component {

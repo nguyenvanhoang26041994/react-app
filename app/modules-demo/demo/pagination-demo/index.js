@@ -14,14 +14,14 @@ import RenderItemDemo from './render-item';
 import FullFeatureDemo from './full-feature';
 
 const links = {
-  basic: 'app/modules/demo/pagination-demo/basic.js',
-  'default-page': 'app/modules/demo/pagination-demo/default-page.js',
-  'default-page-size': 'app/modules/demo/pagination-demo/default-page-size.js',
-  'page-size': 'app/modules/demo/pagination-demo/page-size.js',
-  page: 'app/modules/demo/pagination-demo/page.js',
-  max: 'app/modules/demo/pagination-demo/max.js',
-  'render-item': 'app/modules/demo/pagination-demo/render-item.js',
-  'full-feature': 'app/modules/demo/pagination-demo/full-feature.js',
+  basic: 'app/modules-demo/demo/pagination-demo/basic.js',
+  'default-page': 'app/modules-demo/demo/pagination-demo/default-page.js',
+  'default-page-size': 'app/modules-demo/demo/pagination-demo/default-page-size.js',
+  'page-size': 'app/modules-demo/demo/pagination-demo/page-size.js',
+  page: 'app/modules-demo/demo/pagination-demo/page.js',
+  max: 'app/modules-demo/demo/pagination-demo/max.js',
+  'render-item': 'app/modules-demo/demo/pagination-demo/render-item.js',
+  'full-feature': 'app/modules-demo/demo/pagination-demo/full-feature.js',
 };
 
 class Demo extends React.Component {

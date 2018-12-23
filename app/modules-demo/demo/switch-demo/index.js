@@ -8,8 +8,8 @@ import BasicDemo from './basic';
 import SizeDemo from './size';
 
 const links = {
-  basic: 'app/modules/demo/switch-demo/basic.js',
-  size: 'app/modules/demo/switch-demo/size.js',
+  basic: 'app/modules-demo/demo/switch-demo/basic.js',
+  size: 'app/modules-demo/demo/switch-demo/size.js',
 };
 
 class Demo extends React.Component {

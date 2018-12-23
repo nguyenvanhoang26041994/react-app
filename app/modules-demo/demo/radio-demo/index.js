@@ -7,7 +7,7 @@ import ExampleBox from '../../ExampleBox';
 import BasicDemo from './basic';
 
 const links = {
-  basic: 'app/modules/demo/radio-demo/basic.js',
+  basic: 'app/modules-demo/demo/radio-demo/basic.js',
 };
 
 class Demo extends React.Component {
