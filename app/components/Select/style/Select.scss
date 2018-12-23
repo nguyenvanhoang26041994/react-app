@@ -80,6 +80,7 @@ $max-height: 30rem;
   overflow: scroll;
   max-height: $max-height;
   border-radius: $border-radius;
+  margin-bottom: 0.5rem;
 
   &::-webkit-scrollbar {
     display: none;
