@@ -1,31 +1,26 @@
 @import '../../style/variables.scss';
 
-.rc-select-native {
-  min-height: $height;
-  height: auto;
-  padding-right: 0.5em;
-}
-
-.rc-select,
-.rc-select-native {
+.rc-select {
   font-size: $font-size;
   display: inline-block;
-}
-
-.rc-select:not(.rc-select-native) {
   position: relative;
   white-space: nowrap;
 }
 
-.rc-select-native,
-.rc-select .rc-select__button {
+.rc-select__button {
   touch-action: manipulation;
   outline: none;
-  background-color: white;
+  background-color: #ffffff;
   border: 0.0625em solid $border-color;
   color: $text-color;
   border-radius: 0.25em;
   padding-left: 0.5em;
+  position: relative;
+  padding-right: 2em;
+  font-size: 1em;
+  height: $height;
+  display: flex;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -38,26 +33,15 @@
   }
 }
 
-.rc-select .rc-select__button {
-  position: relative;
-  padding-right: 2em;
-  font-size: 1em;
-  height: $height;
-  display: flex;
-  align-items: center;
-}
-
-.rc-select-native--small,
 .rc-select--small {
   font-size: $font-size-for-small;
 }
 
-.rc-select-native--large,
 .rc-select--large {
   font-size: $font-size-for-large;
 }
 
-.rc-select--disabled:not(.rc-select-native) {
+.rc-select--disabled {
   cursor: not-allowed;
 
   .rc-select__button {
@@ -66,8 +50,7 @@
 }
 
 .rc-select--disabled .rc-select__button,
-.rc-select--disabled .rc-select__button:hover,
-.rc-select-native:disabled {
+.rc-select--disabled .rc-select__button:hover {
   cursor: not-allowed;
   border-color: $border-color-when-disabled;
   color: $text-color-when-disabled;
@@ -81,8 +64,6 @@
   transform: rotate(90deg);
   transition: 0.3s;
 }
-
-
 
 .rc-select__options {
   display: none;

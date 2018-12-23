@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import OptGroup from './Select.OptGroup';
+import './style/Select.scss';
 
 export const formatOptions = children => {
   const result = {};

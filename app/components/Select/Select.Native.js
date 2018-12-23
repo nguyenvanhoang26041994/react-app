@@ -2,36 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import './style/Select.scss';
+import './style/Select.Native.scss';
 
-const Select = ({ className, selectRef, options, ...otherProps }) => (
-  <select
-    {...otherProps}
-    className={cn('rc-select-native', className)}
-    ref={selectRef}
-  >
-    {options.map(option => (
-      <option key={option.key} value={option.value}>
-        {option.children}
-      </option>
-    ))}
-  </select>
+const Select = ({ className, selectRef, children, ...otherProps }) => (
+  <div className={cn('rc-select-native', className)}>
+    <select {...otherProps} ref={selectRef}>
+      {children}
+    </select>
+    <span className="rc-select-native__dropdown-icon">❯</span>
+  </div>
 );
+
+const Option = props => <option {...props} />;
+const OptGroup = props => <optgroup {...props} />;
+
+Select.Option = Option;
+Select.OptGroup = OptGroup;
 
 Select.displayName = 'Select.Native';
 Select.propTypes = {
   className: PropTypes.string,
   selectRef: PropTypes.any,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      children: PropTypes.node,
-    }),
-  ),
+  children: PropTypes.node, // SelectNative.Option or SelectNative.OptGroup
 };
-Select.defaultProps = {
-  options: [],
-};
+Select.defaultProps = {};
 
 export default Select;

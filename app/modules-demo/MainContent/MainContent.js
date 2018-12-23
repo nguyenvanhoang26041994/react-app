@@ -16,7 +16,7 @@ import MenuDemo from '../demo/MenuDemo';
 import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';
 import PopconfirmDemo from '../demo/popconfirm-demo';
-import SelectDemo from '../demo/SelectDemo';
+import SelectDemo from '../demo/select-demo';
 import TableDemo from '../demo/TableDemo';
 import TooltipDemo from '../demo/tooltip-demo';
 import NotFoundPage from '../../containers/NotFoundPage/Loadable';

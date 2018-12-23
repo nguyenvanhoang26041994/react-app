@@ -5,9 +5,9 @@ import cn from 'classnames';
 
 import './style/Select.OptGroup.scss';
 
-const OptGroup = ({ className, title, render, children, ...otherProps }) => (
+const OptGroup = ({ className, label, render, children, ...otherProps }) => (
   <div className={cn('rc-select__group rc-select-group', className)}>
-    <div className="rc-select-group__name">{render(title)}</div>
+    <div className="rc-select-group__label">{render(label)}</div>
     <div className="rc-select-group__options">
       {React.Children.map(children, elm => {
         if (!React.isValidElement(elm)) {
@@ -22,14 +22,14 @@ const OptGroup = ({ className, title, render, children, ...otherProps }) => (
 OptGroup.displayName = 'Select.OptGroup';
 OptGroup.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.node,
+  label: PropTypes.node,
   value: PropTypes.any,
   render: PropTypes.func,
   onClick: PropTypes.func,
   children: PropTypes.node,
 };
 OptGroup.defaultProps = {
-  render: title => title,
+  render: label => label,
   onClick: f => f,
 };
 
