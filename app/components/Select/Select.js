@@ -10,6 +10,13 @@ export const sizes = Object.freeze({
   large: 'rc-select--large',
 });
 
+export const placements = Object.freeze({
+  bottom: 'rc-select--bottom',
+  'right-top': 'rc-select--right-top',
+  'bottom-left': 'rc-select--bottom-left',
+  'bottom-right': 'rc-select--bottom-right',
+});
+
 export const formatOptions = children => {
   const result = {};
 
@@ -100,7 +107,7 @@ class Select extends React.PureComponent {
   };
 
   render() {
-    const { className, disabled, children, size } = this.props;
+    const { className, disabled, children, size, placement } = this.props;
     const { value, isDropdown, objKeyByValue } = this.state;
 
     return (
@@ -108,6 +115,7 @@ class Select extends React.PureComponent {
         className={cn(
           'rc-select',
           sizes[size],
+          placements[placement],
           { 'rc-select--disabled': disabled },
           { 'rc-select--dropdown-visible': isDropdown },
           className,
@@ -143,6 +151,7 @@ class Select extends React.PureComponent {
 Select.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(sizes)),
+  placement: PropTypes.oneOf(Object.keys(placements)),
   value: PropTypes.any,
   onChange: PropTypes.func,
   defaultValue: PropTypes.any,
@@ -151,6 +160,7 @@ Select.propTypes = {
 };
 Select.defaultProps = {
   onChange: f => f,
+  placement: 'bottom-left',
 };
 
 export default Select;

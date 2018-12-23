@@ -1,5 +1,8 @@
 @import '../../style/variables.scss';
 
+$spacing: 0.25em;
+$max-height: 30rem;
+
 .rc-select {
   font-size: $font-size;
   display: inline-block;
@@ -11,9 +14,9 @@
   touch-action: manipulation;
   outline: none;
   background-color: #ffffff;
-  border: 0.0625em solid $border-color;
+  border: $border-width solid $border-color;
   color: $text-color;
-  border-radius: 0.25em;
+  border-radius: $border-radius;
   padding-left: 0.5em;
   position: relative;
   padding-right: 2em;
@@ -69,15 +72,13 @@
 .rc-select__options {
   display: none;
   position: absolute;
-  top: calc(100% + 0.25em);
-  left: 0;
   z-index: 1;
   width: 100%;
   border: 0.0625em solid $border-color;
   box-shadow: $box-shadow;
   box-sizing: border-box;
   overflow: scroll;
-  max-height: 30rem;
+  max-height: $max-height;
   border-radius: $border-radius;
 
   &::-webkit-scrollbar {
@@ -101,4 +102,28 @@
     min-width: 100%;
     width: max-content;
   }
+}
+
+
+/* Position of options overlay */
+.rc-select--bottom,
+.rc-select--bottom-left,
+.rc-select--bottom-right {
+  .rc-select__options {
+    top: 100%;
+    transform: translateY($spacing);
+  }
+}
+
+.rc-select--bottom .rc-select__options {
+  left: 50%;
+  transform: translate(-50%, $spacing);
+}
+
+.rc-select--bottom-left .rc-select__options {
+  left: 0;
+}
+
+.rc-select--bottom-right .rc-select__options {
+  right: 0;
 }
