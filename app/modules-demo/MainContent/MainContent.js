@@ -12,7 +12,7 @@ import SwitchDemo from '../demo/switch-demo';
 import RadioDemo from '../demo/radio-demo';
 import InputDemo from '../demo/input-demo';
 import DropdownDemo from '../demo/DropdownDemo';
-import MenuDemo from '../demo/MenuDemo';
+import MenuDemo from '../demo/menu-demo';
 import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';
 import PopconfirmDemo from '../demo/popconfirm-demo';

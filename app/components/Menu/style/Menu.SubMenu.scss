@@ -8,12 +8,17 @@ $spacing: 0.25rem;
   position: relative;
   > .rc-submenu__menu {
     display: none;
+
+    > .rc-menu-item {
+      padding-left: 2em;
+    }
   }
 }
 
-.rc-menu-item.rc-submenu__title {
+.rc-menu-item.rc-submenu__label {
   position: relative;
   font-style: italic;
+  padding-right: 3em;
 
   &:before {
     content: "❯";
@@ -31,7 +36,7 @@ $spacing: 0.25rem;
     display: flex;
   }
 
-  > .rc-menu-item.rc-submenu__title {
+  > .rc-menu-item.rc-submenu__label {
     &:before {
       transform: translateY(-50%) rotate(90deg);
     }

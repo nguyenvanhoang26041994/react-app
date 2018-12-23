@@ -10,7 +10,7 @@ const globalMenus = [
   {
     key: 'group-core',
     isGroupItem: true,
-    title: 'UI Core',
+    label: 'UI Core',
     children: [
       { key: 'Button', children: 'Button', icon: <Icon icon="hand-pointer" /> },
       { key: 'Icon', children: 'Icon', icon: <Icon icon="eye" /> },
@@ -54,7 +54,7 @@ const globalMenus = [
   {
     key: 'group-advanced',
     isGroupItem: true,
-    title: 'UI Advanced',
+    label: 'UI Advanced',
     children: [
       {
         key: 'login-form',
@@ -66,7 +66,7 @@ const globalMenus = [
   {
     key: 'collection',
     isSubMenu: true,
-    title: '3rd package UI',
+    label: '3rd package UI',
     defaultShow: false,
     children: [
       { key: 'key-1', children: 'UI-1', icon: <Icon icon="ad" /> },

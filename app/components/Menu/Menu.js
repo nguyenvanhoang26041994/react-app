@@ -5,8 +5,10 @@ import cn from 'classnames';
 import './style/Menu.scss';
 
 export default class Menu extends React.Component {
+  isHaveActiveKey = 'activeKey' in this.props;
+
   state = {
-    activeKey: this.props.activeKey || null,
+    activeKey: this.isHaveActiveKey ? this.props.activeKey : null,
     visiable: true,
   };
 
@@ -16,22 +18,23 @@ export default class Menu extends React.Component {
     }
   }
 
-  onChangeActivekey = (activeKey, other) =>
-    this.setState({ activeKey }, () => {
-      this.props.onChangeActivekey(activeKey, other);
+  onChangeActivekey = (activeKey, other) => {
+    if (this.isHaveActiveKey) {
+      return this.props.onChangeActivekey(activeKey, other);
+    }
 
-      // callback function, just used for some case like Dropdown
-      this.props.callback(activeKey, other);
+    return this.setState({ activeKey }, () => {
+      this.props.onChangeActivekey(activeKey, other);
     });
+  };
 
   render() {
     if (!this.state.visiable) {
       return null;
     }
 
-    const { className, children, style } = this.props;
+    const { className, children, style, defaultShow } = this.props;
     const { activeKey } = this.state;
-
     return (
       <ul className={cn('rc-menu', className)} style={style}>
         {React.Children.map(children, elm => {
@@ -43,6 +46,7 @@ export default class Menu extends React.Component {
             onChangeActivekey: (elmKey, other) =>
               this.onChangeActivekey(elmKey, other),
             activeKey,
+            defaultShow,
             elmKey: elm.key,
           });
         })}
@@ -53,6 +57,7 @@ export default class Menu extends React.Component {
 
 Menu.propTypes = {
   className: PropTypes.string,
+  defaultShow: PropTypes.bool,
   children: PropTypes.node,
   onChangeActivekey: PropTypes.func,
   callback: PropTypes.func,

@@ -1,13 +1,13 @@
 @import '../../style/variables.scss';
 
-.rc-menu-item.rc-menu-groupitem__title {
+.rc-menu-item.rc-menu-groupitem__label {
   cursor: pointer;
   color: $text-color;
   font-style: italic;
 }
 
-.rc-menu-groupitem__menu-item {
-  .rc-menu-item {
+.rc-menu-groupitem__menu {
+  > .rc-menu-item {
     padding-left: 2em;
   }
 }

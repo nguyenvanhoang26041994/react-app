@@ -4,5 +4,15 @@
   font-size: $font-size;
   display: flex;
   flex-flow: column nowrap;
-  background-color: transparent;
+  background-color: #ffffff;
+
+  .rc-menu-item:first-child {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  .rc-menu-item:last-child {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
 }

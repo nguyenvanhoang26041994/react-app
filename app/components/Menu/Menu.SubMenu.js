@@ -23,7 +23,7 @@ class SubMenu extends React.Component {
   onChangeShow = () => this.setState(prevState => ({ show: !prevState.show }));
 
   render() {
-    const { className, title, mode, elmKey, ...otherProps } = this.props;
+    const { className, label, mode, elmKey, ...otherProps } = this.props;
 
     return (
       <li
@@ -35,10 +35,10 @@ class SubMenu extends React.Component {
         )}
       >
         <div
-          className="rc-menu-item rc-submenu__title"
+          className="rc-menu-item rc-submenu__label"
           onClick={this.onChangeShow}
         >
-          {title}
+          {label}
         </div>
         <Menu className="rc-submenu__menu" {...otherProps} />
       </li>
@@ -49,13 +49,13 @@ class SubMenu extends React.Component {
 SubMenu.displayName = 'Menu.SubMenu';
 SubMenu.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.node,
+  label: PropTypes.node,
   onChangeActivekey: PropTypes.func,
   defaultShow: PropTypes.bool,
   mode: PropTypes.oneOf(['inline', 'split']),
 };
 SubMenu.defaultProps = {
-  defaultShow: true,
+  defaultShow: false,
   onChangeActivekey: f => f,
   mode: 'inline',
 };

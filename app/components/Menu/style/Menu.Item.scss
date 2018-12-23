@@ -16,7 +16,7 @@ $background-color-for-hover: lighten($primary, 40%);
   white-space: nowrap;
   color: $text-color;
 
-  &:hover:not(.rc-menu-item--active):not(.rc-menu-groupitem__title):not(.rc-submenu__title) {
+  &:hover:not(.rc-menu-item--active):not(.rc-menu-groupitem__label):not(.rc-submenu__label) {
     background-color: $background-color-for-hover;
   }
 }
