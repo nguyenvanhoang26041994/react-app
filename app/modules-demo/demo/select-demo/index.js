@@ -6,10 +6,12 @@ import ExampleBox from '../../ExampleBox';
 
 import NativeDemo from './native';
 import NiceDemo from './nice';
+import SizeDemo from './size';
 
 const links = {
   native: 'app/modules-demo/demo/select-demo/native.js',
   nice: 'app/modules-demo/demo/select-demo/nice.js',
+  size: 'app/modules-demo/demo/select-demo/size.js',
 };
 
 class Demo extends React.Component {
@@ -23,6 +25,9 @@ class Demo extends React.Component {
         </ExampleBox>
         <ExampleBox flex="auto" title="Select beauty" className="mb-5" link={links.nice}>
           <NiceDemo />
+        </ExampleBox>
+        <ExampleBox flex="auto" title="Size" className="mb-5" link={links.nice}>
+          <SizeDemo />
         </ExampleBox>
       </Grid>
     );

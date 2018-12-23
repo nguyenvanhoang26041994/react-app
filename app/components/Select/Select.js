@@ -5,6 +5,11 @@ import cn from 'classnames';
 import OptGroup from './Select.OptGroup';
 import './style/Select.scss';
 
+export const sizes = Object.freeze({
+  small: 'rc-select--small',
+  large: 'rc-select--large',
+});
+
 export const formatOptions = children => {
   const result = {};
 
@@ -95,13 +100,14 @@ class Select extends React.PureComponent {
   };
 
   render() {
-    const { className, disabled, children } = this.props;
+    const { className, disabled, children, size } = this.props;
     const { value, isDropdown, objKeyByValue } = this.state;
 
     return (
       <div
         className={cn(
           'rc-select',
+          sizes[size],
           { 'rc-select--disabled': disabled },
           { 'rc-select--dropdown-visible': isDropdown },
           className,
@@ -136,6 +142,7 @@ class Select extends React.PureComponent {
 
 Select.propTypes = {
   className: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(sizes)),
   value: PropTypes.any,
   onChange: PropTypes.func,
   defaultValue: PropTypes.any,

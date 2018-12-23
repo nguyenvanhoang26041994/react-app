@@ -13,6 +13,7 @@
   height: $height;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 
   &:hover,
   &:focus {

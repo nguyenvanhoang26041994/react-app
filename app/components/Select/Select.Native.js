@@ -4,8 +4,13 @@ import cn from 'classnames';
 
 import './style/Select.Native.scss';
 
-const Select = ({ className, selectRef, children, ...otherProps }) => (
-  <div className={cn('rc-select-native', className)}>
+export const sizes = Object.freeze({
+  small: 'rc-select-native--small',
+  large: 'rc-select-native--large',
+});
+
+const Select = ({ className, selectRef, size, children, ...otherProps }) => (
+  <div className={cn('rc-select-native', sizes[size], className)}>
     <select {...otherProps} ref={selectRef}>
       {children}
     </select>
@@ -22,6 +27,7 @@ Select.OptGroup = OptGroup;
 Select.displayName = 'Select.Native';
 Select.propTypes = {
   className: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(sizes)),
   selectRef: PropTypes.any,
   children: PropTypes.node, // SelectNative.Option or SelectNative.OptGroup
 };
