@@ -96,7 +96,16 @@ $padding: 0.8em;
   }
 }
 
-.rc-button--ghost:not(:disabled) {
+.rc-button--text:not(:disabled).rc-button--text:not(:disabled) {
+  border-color: transparent;
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.rc-button--ghost:not(:disabled),
+.rc-button--text:not(:disabled) {
   background-color: transparent;
   color: $text-color;
 

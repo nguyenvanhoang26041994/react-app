@@ -21,6 +21,7 @@ const Button = ({
   size,
   color,
   htmlType,
+  text,
   ghost,
   disabled,
   buttonRef,
@@ -34,7 +35,10 @@ const Button = ({
       'rc-button',
       sizes[size],
       colors[color],
-      { 'rc-button--ghost': ghost },
+      {
+        'rc-button--ghost': ghost,
+        'rc-button--text': text,
+      },
       className,
     )}
     disabled={disabled}
@@ -57,6 +61,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(Object.keys(sizes)),
   color: PropTypes.oneOf(Object.keys(colors)),
   ghost: PropTypes.bool,
+  text: PropTypes.bool,
   htmlType: PropTypes.oneOf(['button', 'submit', 'reset']),
   disabled: PropTypes.bool,
   buttonRef: PropTypes.any,

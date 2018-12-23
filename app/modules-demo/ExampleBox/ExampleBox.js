@@ -96,6 +96,7 @@ class ExampleBox extends React.Component {
         <Footer justify="end">
           {link && (
             <Button.Link
+              text
               ghost
               size="small"
               color="primary"
