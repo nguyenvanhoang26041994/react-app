@@ -11,7 +11,7 @@ import CheckboxDemo from '../demo/checkbox-demo';
 import SwitchDemo from '../demo/switch-demo';
 import RadioDemo from '../demo/radio-demo';
 import InputDemo from '../demo/input-demo';
-import DropdownDemo from '../demo/DropdownDemo';
+import DropdownDemo from '../demo/dropdown-demo';
 import MenuDemo from '../demo/menu-demo';
 import ModalDemo from '../demo/modal-demo';
 import PaginationDemo from '../demo/pagination-demo';

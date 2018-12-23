@@ -61,7 +61,6 @@ export default class Dropdown extends React.Component {
       <Sticker
         visible={this.state.visible}
         onChangeVisible={this.onChangeVisible}
-        // onClick={this.onUnVisible}
         placement={placement}
         overlay={
           <div
