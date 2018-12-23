@@ -6,17 +6,17 @@ import cn from 'classnames';
 import './style/Select.OptGroup.scss';
 
 const OptGroup = ({ className, label, render, children, ...otherProps }) => (
-  <div className={cn('rc-select__group rc-select-group', className)}>
+  <li className={cn('rc-select__group rc-select-group', className)}>
     <div className="rc-select-group__label">{render(label)}</div>
-    <div className="rc-select-group__options">
+    <ul className="rc-select-group__options">
       {React.Children.map(children, elm => {
         if (!React.isValidElement(elm)) {
           return null;
         }
         return React.cloneElement(elm, otherProps);
       })}
-    </div>
-  </div>
+    </ul>
+  </li>
 );
 
 OptGroup.displayName = 'Select.OptGroup';

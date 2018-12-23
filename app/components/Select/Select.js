@@ -132,7 +132,7 @@ class Select extends React.PureComponent {
           </span>
           <span className="rc-select__dropdown-icon">❯</span>
         </button>
-        <div className="rc-select__options">
+        <ul className="rc-select__options">
           {React.Children.map(children, elm => {
             if (!React.isValidElement(elm)) {
               return null;
@@ -142,7 +142,7 @@ class Select extends React.PureComponent {
               handleChange: this.handleChange,
             });
           })}
-        </div>
+        </ul>
       </div>
     );
   }

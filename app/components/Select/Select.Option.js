@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -14,7 +14,7 @@ const Option = ({
   children,
   ...otherProps
 }) => (
-  <div
+  <li
     {...otherProps}
     className={cn(
       'rc-select__option rc-select-option',
@@ -24,7 +24,7 @@ const Option = ({
     onClick={event => handleChange({ target: { value } }, event)}
   >
     {render({ value, children })}
-  </div>
+  </li>
 );
 
 Option.displayName = 'Select.Option';
