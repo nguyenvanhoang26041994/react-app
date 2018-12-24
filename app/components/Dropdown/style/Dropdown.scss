@@ -2,7 +2,7 @@
 
 $background-color: #ffffff;
 $spacing: 0.25rem;
-$max-height: 30rem;
+$max-height: 20rem;
 
 .rc-dropdown {
   box-shadow: $box-shadow;
@@ -10,6 +10,7 @@ $max-height: 30rem;
   box-sizing: border-box;
   z-index: $z-index-dropdown;
   max-height: $max-height;
+  border-radius: $border-radius;
   overflow: scroll;
 
   &::-webkit-scrollbar {

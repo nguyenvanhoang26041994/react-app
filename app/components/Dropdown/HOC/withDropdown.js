@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Popconfirm from '../Dropdown';
+import Dropdown from '../Dropdown';
 
 export default Com => {
   const WrappedComponent = ({ dropdownProps, ...otherProps }) => (
-    <Popconfirm {...dropdownProps}>
+    <Dropdown {...dropdownProps}>
       <Com {...otherProps} />
-    </Popconfirm>
+    </Dropdown>
   );
 
   WrappedComponent.displayName = `withDropdown(${Com.displayName ||

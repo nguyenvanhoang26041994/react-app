@@ -23,6 +23,11 @@ input[type=url].rc-native-input {
   align-items: center;
   color: $text-color;
 
+  &::placeholder {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
   &:hover {
     border-color: $primary;
   }

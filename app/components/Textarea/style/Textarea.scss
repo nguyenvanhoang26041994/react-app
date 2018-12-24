@@ -10,6 +10,11 @@
   min-height: $height;
   color: $text-color;
 
+  &::placeholder {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
   &:hover,
   &:focus {
     border-color: $primary;
