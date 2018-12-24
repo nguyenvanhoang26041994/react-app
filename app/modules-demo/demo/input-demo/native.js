@@ -6,8 +6,8 @@ import {
 
 export default () => (
   <div className="flex flex-col">
-    <div className="flex row mb-2">
-      <Input placeholder="Input placeholder" />
+    <div className="flex flex-row mb-2">
+      <Input placeholder="Textbox placeholder" />
       <Input
         placeholder="Password placeholder"
         htmlType="password"
@@ -19,25 +19,26 @@ export default () => (
         className="ml-2"
       />
     </div>
-    <Input placeholder="Tel placeholder" htmlType="tel" className="mb-2" />
-    <Input placeholder="Url placeholder" htmlType="url" className="mb-2" />
+    <div className="flex flex-row mb-2">
+      <Input placeholder="Tel placeholder" htmlType="tel" />
+      <Input placeholder="Url placeholder" htmlType="url" className="ml-2" />
+      <Input
+        placeholder="Email placeholder"
+        htmlType="email"
+        className="ml-2"
+      />
+    </div>
     <Input
       placeholder="Number placeholder"
       htmlType="number"
       className="mb-2"
     />
+    <Input htmlType="time" className="mb-2" />
+    <Input placeholder="Week placeholder" htmlType="week" className="mb-2" />
+    <Input htmlType="month" className="mb-2" />
     <Input placeholder="Date placeholder" htmlType="date" className="mb-2" />
     <Input htmlType="datetime" className="mb-2" />
-    <Input
-      placeholder="Input placeholder"
-      htmlType="datetime-local"
-      className="mb-2"
-    />
-    <Input placeholder="Email placeholder" htmlType="email" className="mb-2" />
-    <Input htmlType="time" className="mb-2" />
-    <Input htmlType="month" className="mb-2" />
-    <Input placeholder="Week placeholder" htmlType="week" className="mb-2" />
-    <Input htmlType="color" className="mb-2" />
+    <Input htmlType="datetime-local" className="mb-2" />
     <Textarea placeholder="Textarea placeholder" />
   </div>
 );

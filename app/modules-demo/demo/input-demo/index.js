@@ -16,7 +16,7 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col wrap flex="auto">
-        <ExampleBox flex="auto" title="Textarea native" className="mb-5" link={links.native}>
+        <ExampleBox flex="auto" title="Input native" className="mb-5" link={links.native}>
           <NativeDemo />
         </ExampleBox>
       </Grid>
