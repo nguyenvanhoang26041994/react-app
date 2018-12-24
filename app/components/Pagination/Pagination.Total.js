@@ -22,7 +22,7 @@ const calculate = ({ total, page, pageSize }) => {
 
 const defaultRender = ({ total, from, to }) => ( // eslint-disable-line
   <div className={cn('rc-pagination-total')}>
-    {from} - {to} of {total} records
+    Show {from} to {to} of {total} records
   </div>
 );
 

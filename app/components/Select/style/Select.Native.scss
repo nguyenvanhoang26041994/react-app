@@ -6,10 +6,9 @@
   position: relative;
   white-space: nowrap;
   border: 0.0625em solid $border-color;
+  background-color: #ffffff;
   color: $text-color;
   border-radius: 0.25em;
-  padding-left: 0.5em;
-  padding-right: 2em;
   height: $height;
   display: flex;
   align-items: center;
@@ -31,6 +30,9 @@
     border: none;
     background-color: transparent;
     color: $text-color;
+    width: 100%;
+    padding-left: 0.5em;
+    padding-right: 2em;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
