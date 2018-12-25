@@ -1,5 +1,7 @@
 @import '../../style/variables.scss';
 
+$padding: 1em;
+
 .rc-tabs {
   font-size: $font-size;
   display: flex;
@@ -14,12 +16,12 @@
   margin: 0;
   height: 2.5em;
   border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
+  border-top-right-radius: $border-radius;;
 }
 
 .rc-tabs__content {
   display: none;
-  padding: 0.5em;
+  padding: $padding;
   background-color: white;
   border-bottom-left-radius: $border-radius;
   border-bottom-right-radius: $border-radius;
@@ -33,13 +35,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1em;
+  padding: 0 $padding;
   height: 100%;
-  background-color: transparent;
+  background-color: #ffffff;
   color: $text-color;
   cursor: pointer;
+  transition: 0.2s ease-in;
 
-  &:hover:not(&--disabled) {
+  &:first-child {
+    border-top-left-radius: $border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $border-radius;
+  }
+
+  &:hover:not(&--disabled):not(&--active) {
     color: $primary;
   }
 
@@ -49,12 +60,10 @@
   }
 }
 
-.rc-tab--active {
-  background-color: white;
-  color: $primary;
+.rc-tab--active:not(.rc-tab--disabled) {
+  background-color: $primary;
+  color: #ffffff;
   font-weight: 500;
-  border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
 }
 
 .rc-tab--disabled {

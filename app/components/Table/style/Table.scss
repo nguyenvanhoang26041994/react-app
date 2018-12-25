@@ -37,6 +37,7 @@ $background-color-when-hover: darken($background-color-for-row-odd, 5%);
         padding: 0.5em $padding;
         transition: 0.3s;
         font-weight: 400;
+        background-color: #ffffff;
 
         &:hover {
           background-color: $background-color-when-hover;

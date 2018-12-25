@@ -6,9 +6,9 @@ import cn from 'classnames';
 import './style/Tabs.scss';
 
 class Tabs extends React.PureComponent {
-  isControlled = 'activeTab' in this.props;
+  isHasActiveTab = 'activeTab' in this.props;
 
-  defaultActiveTabState = this.isControlled
+  defaultActiveTabState = this.isHasActiveTab
     ? this.props.activeTab
     : this.props.defaultActiveTab;
 
@@ -19,20 +19,20 @@ class Tabs extends React.PureComponent {
   };
 
   componentWillReceiveProps(nextProps) {
-    if (this.isControlled && nextProps.activeTab !== this.props.activeTab) {
+    if (nextProps.activeTab !== this.props.activeTab) {
       this.setState({
         activeTab: nextProps.activeTab,
       });
     }
   }
 
-  handleClick = (event, elm) => {
+  handleChangeActiveTab = (event, elm) => {
     const { disabled, tab } = elm.props;
     if (disabled) {
       return null;
     }
 
-    return this.isControlled
+    return this.isHasActiveTab
       ? this.props.onChange(event, tab)
       : this.setState({ activeTab: tab });
   };
@@ -55,9 +55,8 @@ class Tabs extends React.PureComponent {
                   'rc-tab--active': elm.props.tab === activeTab,
                   'rc-tab--disabled': elm.props.disabled,
                 })}
-                onClick={event => this.handleClick(event, elm)}
+                onClick={event => this.handleChangeActiveTab(event, elm)}
               >
-                {elm.props.icon}
                 {typeof elm.props.title === 'string' ? (
                   <span>{elm.props.title}</span>
                 ) : (

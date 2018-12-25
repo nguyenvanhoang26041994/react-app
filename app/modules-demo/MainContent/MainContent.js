@@ -19,6 +19,7 @@ import PopconfirmDemo from '../demo/popconfirm-demo';
 import SelectDemo from '../demo/select-demo';
 import TableDemo from '../demo/table-demo';
 import TooltipDemo from '../demo/tooltip-demo';
+import TabsDemo from '../demo/tabs-demo';
 
 import NotFoundPage from '../../containers/NotFoundPage/Loadable';
 
@@ -34,6 +35,7 @@ export default class MainContent extends React.Component {
       <Grid col className={className}>
         <Switch>
           <Route exact path="/document/Grid" component={GridDemo} />
+          <Route exact path="/document/Tabs" component={TabsDemo} />
           <Route exact path="/document/Alert" component={AlertDemo} />
           <Route exact path="/document/Avatar" component={AvatarDemo} />
           <Route exact path="/document/Button" component={ButtonDemo} />
