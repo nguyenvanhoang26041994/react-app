@@ -122,24 +122,38 @@ export const getPlacementStyle = (
   }
 };
 
-export default class Sticker extends React.Component {
+export default class Sticker extends React.PureComponent {
   state = {
     style: {},
     visible: this.props.visible,
   };
 
+  isMouseEnter = false; // flag just for hover trigger
+
   childrenNode = null;
 
-  shouldComponentUpdate() {
-    return true;
-  }
+  stickerRef = React.createRef();
 
   componentDidMount() {
     this.set();
   }
 
+  componentDidUpdate() {
+    if (this.props.trigger === 'hover' && this.stickerRef.current) {
+      this.stickerRef.current.addEventListener(
+        'mouseleave',
+        this.delayOnMouseLeaveOnSticker,
+      );
+      this.stickerRef.current.addEventListener(
+        'mouseenter',
+        this.onMouseEnterOnSticker,
+      );
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible !== this.props.visible) {
+      this.isMouseEnter = false; // resset
       this.setState({ visible: nextProps.visible });
     }
   }
@@ -148,8 +162,25 @@ export default class Sticker extends React.Component {
     const { trigger } = this.props;
 
     if (trigger === 'hover') {
-      this.childrenNode.removeEventListener('mouseenter', this.handleVisible);
-      this.childrenNode.removeEventListener('mouseleave', this.handleUnVisible);
+      this.childrenNode.removeEventListener(
+        'mouseenter',
+        this.onMouseEnterOnChildrenNode,
+      );
+      this.childrenNode.removeEventListener(
+        'mouseleave',
+        this.delayOnMouseLeaveOnChildrenNode,
+      );
+
+      if (this.stickerRef.current) {
+        this.stickerRef.current.removeEventListener(
+          'mouseleave',
+          this.delayOnMouseLeaveOnSticker,
+        );
+        this.stickerRef.current.removeEventListener(
+          'mouseenter',
+          this.onMouseEnterOnSticker,
+        );
+      }
     }
 
     if (trigger === 'click') {
@@ -162,10 +193,33 @@ export default class Sticker extends React.Component {
       this.props.onChangeVisible({ target: { value: true } }),
     );
 
-  handleUnVisible = () =>
+  handleUnVisible = () => {
+    this.isMouseEnter = false; // reset
     this.setState({ visible: false }, () =>
       this.props.onChangeVisible({ target: { value: false } }),
     );
+  };
+
+  onMouseEnterOnChildrenNode = () => this.handleVisible();
+
+  onMouseLeaveOnChildrenNode = () => {
+    if (this.props.trigger === 'hover' && this.isMouseEnter) {
+      return false;
+    }
+
+    return this.handleUnVisible();
+  };
+
+  onMouseLeaveOnSticker = () => this.handleUnVisible();
+
+  onMouseEnterOnSticker = () => {
+    this.isMouseEnter = true;
+  };
+
+  delayOnMouseLeaveOnSticker = () => setTimeout(this.onMouseLeaveOnSticker);
+
+  delayOnMouseLeaveOnChildrenNode = () =>
+    setTimeout(this.onMouseLeaveOnChildrenNode);
 
   set = () => {
     const { trigger } = this.props;
@@ -185,8 +239,25 @@ export default class Sticker extends React.Component {
     } while (node.offsetParent);
 
     if (trigger === 'hover') {
-      this.childrenNode.addEventListener('mouseenter', this.handleVisible);
-      this.childrenNode.addEventListener('mouseleave', this.handleUnVisible);
+      this.childrenNode.addEventListener(
+        'mouseenter',
+        this.onMouseEnterOnChildrenNode,
+      );
+      this.childrenNode.addEventListener(
+        'mouseleave',
+        this.delayOnMouseLeaveOnChildrenNode,
+      );
+
+      if (this.stickerRef.current) {
+        this.stickerRef.current.addEventListener(
+          'mouseleave',
+          this.delayOnMouseLeaveOnSticker,
+        );
+        this.stickerRef.current.addEventListener(
+          'mouseenter',
+          this.onMouseEnterOnSticker,
+        );
+      }
     }
 
     if (trigger === 'click') {
@@ -228,6 +299,7 @@ export default class Sticker extends React.Component {
             {...otherProps}
             style={this.state.style}
             className={cn('rc-sticker', placements[placement], className)}
+            ref={this.stickerRef}
           >
             {overlay}
           </div>

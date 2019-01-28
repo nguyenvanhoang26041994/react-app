@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import '../style/Input.scss';
+
 export const colors = Object.freeze({
   primary: 'rc-textbox--primary',
   success: 'rc-textbox--success',
