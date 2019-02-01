@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import Sticker from '../Sticker';
+import Overlay from '../Overlay';
 
 import './style/Popover.scss';
 
@@ -22,7 +22,7 @@ export const placements = Object.freeze({
 });
 
 const Popover = ({ className, content, children, placement, trigger }) => (
-  <Sticker
+  <Overlay
     placement={placement}
     overlay={
       <div className={cn('rc-popover', placements[placement], className)}>
@@ -32,7 +32,7 @@ const Popover = ({ className, content, children, placement, trigger }) => (
     trigger={trigger}
   >
     {children}
-  </Sticker>
+  </Overlay>
 );
 
 Popover.displayName = 'Popover';

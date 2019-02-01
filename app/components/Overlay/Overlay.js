@@ -5,42 +5,30 @@ import cn from 'classnames';
 
 import Portal from '../Portal';
 import { canUseDOM } from '../utils';
-import './style/Sticker.scss';
 
-let stickerRenderNode = null;
+import './style/Overlay.scss';
 
+let nodeRender = null;
 if (canUseDOM) {
-  stickerRenderNode = document.createElement('div');
-  stickerRenderNode.className = 'rc-root-sticker';
-  document.body.appendChild(stickerRenderNode);
+  nodeRender = document.getElementsByTagName('body')[0]; // eslint-disable-line prefer-destructuring
 }
 
+export const defaultDuration = 100;
+
 export const placements = Object.freeze({
-  top: 'rc-sticker--top',
-  right: 'rc-sticker--right',
-  bottom: 'rc-sticker--bottom',
-  left: 'rc-sticker--left',
-  'top-left': 'rc-sticker--top-left',
-  'left-top': 'rc-sticker--left-top',
-  'top-right': 'rc-sticker--top-right',
-  'right-top': 'rc-sticker--right-top',
-  'bottom-left': 'rc-sticker--bottom-left',
-  'left-bottom': 'rc-sticker--left-bottom',
-  'bottom-right': 'rc-sticker--bottom-right',
-  'right-bottom': 'rc-sticker--right-bottom',
+  top: 'rc-overlay--top',
+  right: 'rc-overlay--right',
+  bottom: 'rc-overlay--bottom',
+  left: 'rc-overlay--left',
+  'top-left': 'rc-overlay--top-left',
+  'left-top': 'rc-overlay--left-top',
+  'top-right': 'rc-overlay--top-right',
+  'right-top': 'rc-overlay--right-top',
+  'bottom-left': 'rc-overlay--bottom-left',
+  'left-bottom': 'rc-overlay--left-bottom',
+  'bottom-right': 'rc-overlay--bottom-right',
+  'right-bottom': 'rc-overlay--right-bottom',
 });
-
-export const hasTrigger = (trigger, triggers = []) => {
-  let isHasInTriggers = false;
-  for (let i = 0; i < triggers.length; i += 1) {
-    if (trigger === triggers[i]) {
-      isHasInTriggers = true;
-      break;
-    }
-  }
-
-  return isHasInTriggers;
-};
 
 export const getPlacementStyle = (
   placement,
@@ -122,31 +110,33 @@ export const getPlacementStyle = (
   }
 };
 
-export default class Sticker extends React.PureComponent {
+export default class Overlay extends React.PureComponent {
   state = {
     style: {},
     visible: this.props.visible,
   };
 
+  overlayRenderNode = null;
+
   isMouseEnter = false; // flag just for hover trigger
 
   childrenNode = null;
 
-  stickerRef = React.createRef();
+  overlayRef = React.createRef();
 
   componentDidMount() {
     this.set();
   }
 
   componentDidUpdate() {
-    if (this.props.trigger === 'hover' && this.stickerRef.current) {
-      this.stickerRef.current.addEventListener(
+    if (this.props.trigger === 'hover' && this.overlayRef.current) {
+      this.overlayRef.current.addEventListener(
         'mouseleave',
-        this.delayOnMouseLeaveOnSticker,
+        this.delayOnMouseLeaveOnOverlay,
       );
-      this.stickerRef.current.addEventListener(
+      this.overlayRef.current.addEventListener(
         'mouseenter',
-        this.onMouseEnterOnSticker,
+        this.onMouseEnterOnOverlay,
       );
     }
   }
@@ -171,14 +161,14 @@ export default class Sticker extends React.PureComponent {
         this.delayOnMouseLeaveOnChildrenNode,
       );
 
-      if (this.stickerRef.current) {
-        this.stickerRef.current.removeEventListener(
+      if (this.overlayRef.current) {
+        this.overlayRef.current.removeEventListener(
           'mouseleave',
-          this.delayOnMouseLeaveOnSticker,
+          this.delayOnMouseLeaveOnOverlay,
         );
-        this.stickerRef.current.removeEventListener(
+        this.overlayRef.current.removeEventListener(
           'mouseenter',
-          this.onMouseEnterOnSticker,
+          this.onMouseEnterOnOverlay,
         );
       }
     }
@@ -210,16 +200,17 @@ export default class Sticker extends React.PureComponent {
     return this.handleUnVisible();
   };
 
-  onMouseLeaveOnSticker = () => this.handleUnVisible();
+  onMouseLeaveOnOverlay = () => this.handleUnVisible();
 
-  onMouseEnterOnSticker = () => {
+  onMouseEnterOnOverlay = () => {
     this.isMouseEnter = true;
   };
 
-  delayOnMouseLeaveOnSticker = () => setTimeout(this.onMouseLeaveOnSticker);
+  delayOnMouseLeaveOnOverlay = () =>
+    setTimeout(this.onMouseLeaveOnOverlay, this.props.duration);
 
   delayOnMouseLeaveOnChildrenNode = () =>
-    setTimeout(this.onMouseLeaveOnChildrenNode);
+    setTimeout(this.onMouseLeaveOnChildrenNode, this.props.duration);
 
   set = () => {
     const { trigger } = this.props;
@@ -248,14 +239,14 @@ export default class Sticker extends React.PureComponent {
         this.delayOnMouseLeaveOnChildrenNode,
       );
 
-      if (this.stickerRef.current) {
-        this.stickerRef.current.addEventListener(
+      if (this.overlayRef.current) {
+        this.overlayRef.current.addEventListener(
           'mouseleave',
-          this.delayOnMouseLeaveOnSticker,
+          this.delayOnMouseLeaveOnOverlay,
         );
-        this.stickerRef.current.addEventListener(
+        this.overlayRef.current.addEventListener(
           'mouseenter',
-          this.onMouseEnterOnSticker,
+          this.onMouseEnterOnOverlay,
         );
       }
     }
@@ -275,10 +266,6 @@ export default class Sticker extends React.PureComponent {
   };
 
   render() {
-    if (!canUseDOM) {
-      return null;
-    }
-
     if (!this.state.visible) {
       return this.props.children;
     }
@@ -294,14 +281,16 @@ export default class Sticker extends React.PureComponent {
     return (
       <React.Fragment>
         {children}
-        <Portal node={stickerRenderNode}>
-          <div
-            {...otherProps}
-            style={this.state.style}
-            className={cn('rc-sticker', placements[placement], className)}
-            ref={this.stickerRef}
-          >
-            {overlay}
+        <Portal node={nodeRender}>
+          <div className="rc-overlay-container">
+            <div
+              {...otherProps}
+              style={this.state.style}
+              className={cn('rc-overlay', placements[placement], className)}
+              ref={this.overlayRef}
+            >
+              {overlay}
+            </div>
           </div>
         </Portal>
       </React.Fragment>
@@ -309,16 +298,19 @@ export default class Sticker extends React.PureComponent {
   }
 }
 
-Sticker.propTypes = {
+Overlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node, // the guy you want to stick some thing
   overlay: PropTypes.node, // the something you want to stick to the guy
   placement: PropTypes.oneOf(Object.keys(placements)),
-  trigger: PropTypes.string,
+  trigger: PropTypes.oneOf(['hover', 'click']),
   visible: PropTypes.bool,
   onChangeVisible: PropTypes.func,
+  duration: PropTypes.number,
 };
-Sticker.defaultProps = {
+Overlay.defaultProps = {
+  duration: defaultDuration,
   visible: false,
+  trigger: 'hover',
   onChangeVisible: f => f,
 };

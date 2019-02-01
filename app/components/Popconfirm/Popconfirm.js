@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { omit } from 'lodash/fp';
 
-import Sticker from '../Sticker';
+import Overlay from '../Overlay';
 import Icon from '../Icon';
 import Button from '../Button';
 
@@ -76,7 +76,7 @@ export default class Popconfirm extends React.Component {
     const otherPropsOK = omit('className')(propsOK);
 
     return (
-      <Sticker
+      <Overlay
         visible={this.state.visible}
         onChangeVisible={this.onChangeVisible}
         placement={placement}
@@ -108,7 +108,7 @@ export default class Popconfirm extends React.Component {
         trigger="click"
       >
         {children}
-      </Sticker>
+      </Overlay>
     );
   }
 }

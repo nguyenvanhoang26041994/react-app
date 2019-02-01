@@ -1,6 +1,4 @@
-@import '../../style/variables.scss';
-
-.rc-root-sticker {
+.rc-overlay-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -9,7 +7,7 @@
   z-index: 10000;
 }
 
-.rc-sticker {
+.rc-overlay {
   width: max-content;
   position: absolute;
 }

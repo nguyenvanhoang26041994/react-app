@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import Sticker from '../Sticker';
+import Overlay from '../Overlay';
 
 import './style/Tooltip.scss';
 
@@ -22,7 +22,7 @@ export const placements = Object.freeze({
 });
 
 const Tooltip = ({ className, children, title, placement }) => (
-  <Sticker
+  <Overlay
     placement={placement}
     overlay={
       <div className={cn('rc-tooltip', placements[placement], className)}>
@@ -32,7 +32,7 @@ const Tooltip = ({ className, children, title, placement }) => (
     trigger="hover"
   >
     {children}
-  </Sticker>
+  </Overlay>
 );
 
 Tooltip.displayName = 'Tooltip';

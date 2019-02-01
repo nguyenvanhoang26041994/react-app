@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import Sticker from '../Sticker';
+import Overlay from '../Overlay';
 
 import './style/Dropdown.scss';
 
@@ -58,7 +58,7 @@ export default class Dropdown extends React.Component {
     const { className, children, overlay, placement } = this.props;
 
     return (
-      <Sticker
+      <Overlay
         visible={this.state.visible}
         onChangeVisible={this.onChangeVisible}
         placement={placement}
@@ -73,7 +73,7 @@ export default class Dropdown extends React.Component {
         trigger="click"
       >
         {children}
-      </Sticker>
+      </Overlay>
     );
   }
 }

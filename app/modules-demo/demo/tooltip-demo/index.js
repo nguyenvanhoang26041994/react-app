@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Grid } from '../../../components/core';
 import ExampleBox from '../../ExampleBox';
+import OverLay from '../../../components/Overlay';
 
 import BasicDemo from './basic';
 import HOCDemo from './hoc';
@@ -18,6 +19,7 @@ class Demo extends React.Component {
   render() {
     return (
       <Grid col flex="auto">
+        <OverLay><p>alksksab</p></OverLay>
         <ExampleBox
           title="Basic used"
           className="mb-5"

@@ -17,7 +17,7 @@ export { default as Grid } from './Grid';
 export { default as Switch } from './Switch';
 export { default as SelectNative } from './Select/Select.Native';
 export { default as Select } from './Select';
-export { default as Sticker } from './Sticker';
+export { default as Overlay } from './Overlay';
 export { default as Modal } from './Modal';
 export { default as Menu } from './Menu';
 export { default as Radio } from './Radio';
