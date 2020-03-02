@@ -1,10 +1,18 @@
 {
-  "name": "react-components",
+  "name": "www.rc-components.now.sh",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=10.15.3",
+    "yarn": ">=1.16.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./src --",
+    "clean-dist": "rimraf \"dist\"",
+    "build": "yarn clean-dist && cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
+    "dev": "cross-env NODE_ENV=development node dev-server",
+    "deploy": "now -p"
   },
   "repository": {
     "type": "git",
@@ -15,5 +23,48 @@
   "bugs": {
     "url": "https://github.com/nguyenvanhoang26041994/react-components/issues"
   },
-  "homepage": "https://github.com/nguyenvanhoang26041994/react-components#readme"
+  "homepage": "https://github.com/nguyenvanhoang26041994/react-components#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
+    "workbox-window": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "chalk": "^2.4.2",
+    "compression": "^1.7.4",
+    "compression-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "express": "^4.17.1",
+    "favicons-webpack-plugin": "^1.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "ip": "^1.1.5",
+    "path": "^0.12.7",
+    "preload-webpack-plugin": "^3.0.0-beta.3",
+    "rimraf": "^3.0.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "url": "^0.11.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-middleware": "^3.7.1",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
+  }
 }
