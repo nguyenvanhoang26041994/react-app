@@ -12,10 +12,8 @@ const mColors = Object.freeze({
 });
 
 const mSizes = Object.freeze({
-  tiny: 'rc-button--tiny',
   small: 'rc-button--small',
   large: 'rc-button--large',
-  huge: 'rc-button--huge',
 });
 
 const Button = ({ className, color, size, ...otherProps }) => (

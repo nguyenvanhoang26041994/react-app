@@ -1,0 +1,64 @@
+.rc-button {
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  border-radius: 100em;
+  border: 0.0625em solid #2f2f2f;
+  background-color: #2f2f2f;
+  color: #fff;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  outline: 0 !important;
+  outline-style: none;
+  user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: all 0.125s;
+
+  &:hover {
+    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    box-shadow: inset 0.0725em 0.0725em 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.rc-button--blue {
+  border-color: #1890ff;
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.rc-button--red {
+  border-color: #f5222d;
+  background-color: #f5222d;
+  color: #fff;
+}
+
+.rc-button--orange {
+  border-color: #faad14;
+  background-color: #faad14;
+  color: #fff;
+}
+
+.rc-button--green {
+  border-color: #73d13d;
+  background-color: #73d13d;
+  color: #fff;
+}
+
+.rc-button--small {
+  font-size: 0.85rem;
+}
+
+.rc-button--large {
+  font-size: 1.25rem;
+}
