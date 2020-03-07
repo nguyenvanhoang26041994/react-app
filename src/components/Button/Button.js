@@ -16,11 +16,20 @@ const mSizes = Object.freeze({
   large: 'rc-button--large',
 });
 
-const Button = ({ className, color, size, ...otherProps }) => (
+const Button = ({ className, color, size, icon, children, ...otherProps }) => (
   <button
-    className={cn('rc-button', mColors[color], mSizes[size], className)}
+    className={cn('rc-button', mColors[color], mSizes[size], { 'rc-button--icon': icon }, className)}
     {...otherProps}
-  />
+  >
+    {React.Children.map(children, item => {
+      /* wrapper children by span tags for fix bugs css */
+      if (typeof item === 'string' || typeof item === 'number') {
+        return <span key={item.key}>{item}</span>;
+      }
+
+      return item;
+    })}
+  </button>
 );
 
 Button.displayName = 'Button';

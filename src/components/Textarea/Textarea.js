@@ -1,17 +1,17 @@
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
-require('./Textbox.scss');
+require('./Textarea.scss');
 
 const mSizes = Object.freeze({
-  small: 'rc-textbox--small',
-  large: 'rc-textbox--large',
+  small: 'rc-textarea--small',
+  large: 'rc-textarea--large',
 });
 
-const Textbox = ({ type, placeholder, label, className, onFocus, size, ...otherProps }) => {
+const Textarea = ({ type, label, textareaRef, className, onFocus, size, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
@@ -28,37 +28,27 @@ const Textbox = ({ type, placeholder, label, className, onFocus, size, ...otherP
     <div
       ref={ref}
       className={cn(
-        'rc-textbox',
+        'rc-textarea',
         mSizes[size],
         {
-          'rc-textbox--focus': isFocus,
+          'rc-textarea--focus': isFocus,
         },
         className,
       )}
     >
-      <input
-        type={type}
-        placeholder={placeholder}
+      <textarea
         onFocus={_onFocus}
+        ref={textareaRef}
         {...otherProps}
       />
-      <label className="rc-textbox-label">
+      <label className="rc-textarea__label">
         {label}
       </label>
     </div>
   );
-};
+}
 
-Textbox.displayName = 'Textbox';
-Textbox.propTypes = {
-  className: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(mSizes)),
-  type: PropTypes.string,
-  onFocus: PropTypes.func,
-};
-Textbox.defaultProps = {
-  type: 'text',
-  onFocus: f => f,
-};
-
-export default Textbox;
+Textarea.displayName = 'Textarea';
+Textarea.propTypes = {};
+Textarea.defaultProps = {};
+export default Textarea;

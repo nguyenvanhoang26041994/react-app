@@ -1,4 +1,4 @@
-.rc-textbox {
+.rc-textarea {
   font-size: 1rem;
   display: flex;
   flex-direction: column-reverse;
@@ -9,18 +9,18 @@
   transition: all 0.125s;
 
   &:hover,
-  &.rc-textbox--focus  {
+  &.rc-textarea--focus  {
     background-color: #2f2f2f;
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
     transform: scale(1.025);
 
-    .rc-textbox-label {
+    .rc-textarea__label {
       color: #fff;
     }
   }
 }
 
-.rc-textbox-label {
+.rc-textarea__label {
   height: 2.5em;
   font-weight: 500;
   display: flex;
@@ -29,24 +29,22 @@
   transition: all 0.25s;
 }
 
-.rc-textbox > input {
+.rc-textarea > textarea {
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 2.5em;
-  border-radius: 100em;
-  padding-left: 1em;
-  padding-right: 1em;
+  min-height: 10em;
+  border-radius: 1em;
+  padding: 0.5em 1em;
   outline: 0 !important;
   background-color: #f2f2f2;
-  border: none;
   box-shadow: none;
   touch-action: manipulation;
   transition: all 0.25s;
 }
 
-.rc-textbox > input:disabled {
+.rc-textarea > textarea:disabled {
   box-shadow: none;
   cursor: not-allowed;
 }

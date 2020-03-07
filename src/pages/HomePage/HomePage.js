@@ -1,26 +1,29 @@
 import React from 'react';
 import Button from '../../components/Button';
 import Textbox from '../../components/Textbox';
+import Textarea from '../../components/Textarea';
+import Select from '../../components/Select';
+import Icon from '../../components/Icon';
+import Pagination from '../../components/Pagination';
 
 require('./HomePage.scss');
 
 const HomePage = () => (
   <div className="flex min-h-screen p-3">
-    <div className="flex flex-col w-1/4">
-      <div className="mb-5">
-        <Button className="mr-3">Normal Button</Button>
+    <div className="w-1/5">
+      <div className="mb-5 flex">
+        <Button className="mr-2" style={{ padding: 0 }}><Icon name="globe" /></Button>
+        <Button className="mr-2">Button</Button>
       </div>
     </div>
     <div className="flex flex-col w-1/5">
-      <Textbox className="mr-3 w-full mb-2" label="Tên đăng nhập" placeholder="Tên đăng nhập..." />
-      <Textbox className="mr-3 w-full mb-2" label="Tên hiển thị" placeholder="Tên hiển thị..." />
-      <Textbox className="mr-3 w-full mb-2" label="Email" placeholder="Email..." />
-      <Textbox className="mr-3 w-full mb-2" label="Mật khẩu" placeholder="Mật khẩu..." type="password" />
-      <Textbox className="mr-3 w-full mb-2" label="Nhập lại mật khẩu" placeholder="Nhập lại mật khẩu..." type="password" />
-      <Textbox className="mr-3 w-full mb-2" label="Disabled" type="password" disabled />
-      <div className="flex justify-end">
-        <Button>Đăng ký</Button>
-      </div>
+      <Textbox className="mr-3 w-full mb-2" label="Textbox" placeholder="placeholder..." />
+      <Textbox className="mr-3 w-full mb-2" label="Password" color="blue" placeholder="placeholder..." type="password" />
+      <Textarea className="mr-3 w-full mb-2" label="Textarea" placeholder="placeholder..." />
+      <Select className="mr-3 w-full mb-2" label="Select Box" />
+    </div>
+    <div className="w-1/5">
+      {/* <Pagination total={100} pageSize={10} /> */}
     </div>
   </div>
 );

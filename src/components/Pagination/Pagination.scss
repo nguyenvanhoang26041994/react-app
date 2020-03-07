@@ -1,0 +1,24 @@
+.rc-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.rc-pagination-item,
+.rc-pagination-prev,
+.rc-pagination-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  height: 2em;
+  width: 2em;
+  border-radius: 100em;
+  cursor: pointer;
+  margin: 0 0.5em;
+  transition: all 0.25s;
+
+  &:hover {
+    background-color: #2f2f2f;
+    color: #fff;
+  }
+}
