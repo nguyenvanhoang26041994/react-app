@@ -1,18 +1,23 @@
+@import '../../scss/vars.scss';
+
 .rc-select {
-  font-size: 1rem;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
   position: relative;
-  border-radius: 1.5em;
+  border-radius: 1em;
   padding: 0.5em;
   transition: all 0.125s;
 
   &:hover,
   &.rc-select--focus  {
-    background-color: #2f2f2f;
+    background-color: $primary-color;
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
     transform: scale(1.025);
+
+    .rc-select-dropdown {
+      background-color: $primary-color;
+    }
 
     .rc-select-label {
       color: #fff;
@@ -21,9 +26,7 @@
 
   &.rc-select--focus {
     .rc-select-dropdown {
-      .rc-icon {
-        transform: rotate(-180deg);
-      }
+      background-color: $primary-color;
     }
   }
 }
@@ -32,10 +35,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 2.5em;
-  width: 2.5em;
+  height: $basic-height;
+  width: $basic-height;
   border-radius: 100em;
-  background-color: #2f2f2f;
   user-select: none;
   touch-action: manipulation;
   cursor: pointer;
@@ -46,6 +48,8 @@
   .rc-icon {
     transition: all 0.125s;
     color: #fff;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -54,16 +58,16 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 2.5em;
+  height: $basic-height;
   border-radius: 100em;
   padding-left: 1em;
   padding-right: 1em;
-  background-color: #f2f2f2;
+  background-color: $form-input-bg-color;
   cursor: pointer;
 }
 
 .rc-select-label {
-  height: 2.5em;
+  height: $basic-height;
   font-weight: 500;
   display: flex;
   align-items: center;

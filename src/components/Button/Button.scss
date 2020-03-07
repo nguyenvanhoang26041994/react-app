@@ -1,13 +1,14 @@
+@import '../../scss/vars.scss';
+
 .rc-button {
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 2.5em;
-  min-width: 2.5em;
+  height: $basic-height;
+  min-width: $basic-height;
+  background-color: $form-input-bg-color;
   border-radius: 100em;
-  background-color: #2f2f2f;
-  color: #fff;
   padding-left: 1.5em;
   padding-right: 1.5em;
   outline: 0 !important;
@@ -19,6 +20,8 @@
 
   &:hover {
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+    background-color: $primary-color;
+    color: #fff;
   }
 
   &:focus {
@@ -29,37 +32,12 @@
     box-shadow: none;
     cursor: not-allowed;
   }
-
-  > .rc-icon + span,
-  > span + .rc-icon {
-    margin-left: 0.5em;
-  }
-}
-
-.rc-button--blue {
-  background-color: #1890ff;
-  color: #fff;
-}
-
-.rc-button--red {
-  background-color: #f5222d;
-  color: #fff;
-}
-
-.rc-button--orange {
-  background-color: #faad14;
-  color: #fff;
-}
-
-.rc-button--green {
-  background-color: #73d13d;
-  color: #fff;
 }
 
 .rc-button--small {
-  font-size: 0.85rem;
+  font-size: $font-small;
 }
 
 .rc-button--large {
-  font-size: 1.25rem;
+  font-size: $font-large;
 }
