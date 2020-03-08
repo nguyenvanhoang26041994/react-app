@@ -7,8 +7,7 @@
   align-items: flex-start;
   position: relative;
   border-radius: 1em;
-  padding: 0.5em;
-  transition: all 0.125s;
+  padding: 0.25em 0.5em;
 
   &:hover,
   &.rc-textbox--focus  {
@@ -17,6 +16,11 @@
 
     .rc-textbox-label {
       color: #fff;
+    }
+
+    > input {
+      background-color: transparent;
+      color: #fff;;
     }
   }
 }
@@ -27,7 +31,6 @@
   display: flex;
   align-items: center;
   color: #000;
-  transition: all 0.25s;
 }
 
 .rc-textbox > input {
@@ -44,7 +47,6 @@
   border: none;
   box-shadow: none;
   touch-action: manipulation;
-  transition: all 0.25s;
 }
 
 .rc-textbox > input:disabled {

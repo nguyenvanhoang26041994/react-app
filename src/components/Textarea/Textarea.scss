@@ -6,8 +6,7 @@
   align-items: flex-start;
   position: relative;
   border-radius: 1em;
-  padding: 0.5em;
-  transition: all 0.125s;
+  padding: 0.25em 0.5em;
 
   &:hover,
   &.rc-textarea--focus  {
@@ -16,6 +15,11 @@
 
     .rc-textarea__label {
       color: #fff;
+    }
+
+    > textarea {
+      background-color: transparent;
+      color: #fff;;
     }
   }
 }
@@ -26,7 +30,6 @@
   display: flex;
   align-items: center;
   color: #000;
-  transition: all 0.25s;
 }
 
 .rc-textarea > textarea {
@@ -41,7 +44,6 @@
   background-color: $form-input-bg-color;
   box-shadow: none;
   touch-action: manipulation;
-  transition: all 0.25s;
 }
 
 .rc-textarea > textarea:disabled {

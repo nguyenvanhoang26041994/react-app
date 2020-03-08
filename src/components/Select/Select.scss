@@ -6,8 +6,7 @@
   align-items: flex-start;
   position: relative;
   border-radius: 1em;
-  padding: 0.5em;
-  transition: all 0.125s;
+  padding: 0.25em 0.5em;
 
   &:hover,
   &.rc-select--focus  {
@@ -21,11 +20,10 @@
     .rc-select-label {
       color: #fff;
     }
-  }
 
-  &.rc-select--focus {
-    .rc-select-dropdown {
-      background-color: $primary-color;
+    .rc-select-input {
+      background-color: transparent;
+      color: #fff;;
     }
   }
 }
@@ -40,12 +38,10 @@
   user-select: none;
   touch-action: manipulation;
   cursor: pointer;
-  transition: all 0.125s;
   position: absolute;
   right: 0;
 
   .rc-icon {
-    transition: all 0.125s;
     color: #fff;
     height: 100%;
     width: 100%;
@@ -71,5 +67,4 @@
   display: flex;
   align-items: center;
   color: #000;
-  transition: all 0.25s;
 }

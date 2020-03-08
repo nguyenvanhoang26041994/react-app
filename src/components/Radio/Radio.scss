@@ -10,7 +10,6 @@
   border-radius: 100em;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.25s;
 }
 
 .rc-radio-input {
@@ -42,7 +41,6 @@
   height: 100%;
   width: 100%;
   background-color: $form-input-bg-color;
-  transition: all 0.25s;
 }
 
 .rc-radio-check {
