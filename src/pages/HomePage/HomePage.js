@@ -6,6 +6,7 @@ import Select from '../../components/Select';
 import Icon from '../../components/Icon';
 import Pagination from '../../components/Pagination';
 import Checkbox from '../../components/Checkbox';
+import Radio from '../../components/Radio';
 
 require('./HomePage.scss');
 
@@ -23,8 +24,11 @@ const HomePage = () => (
       <Select className="w-full mb-2" label="Select Box" />
       <Textarea className="w-full mb-2" label="Textarea" placeholder="placeholder..." />
     </div>
-    <div className="w-1/5 flex flex-col p-2">
-      <Checkbox />
+    <div className="w-1/5 flex p-2">
+      <Checkbox className="mr-3" defaultChecked />
+      <Checkbox className="mr-3" />
+      <Radio name="same_name" className="mr-2" defaultChecked />
+      <Radio name="same_name" className="mr-2" />
     </div>
   </div>
 );

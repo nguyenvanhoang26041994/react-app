@@ -16,6 +16,7 @@ const icons = {
   'chart': require('./chart').default,
   'bell': require('./bell').default,
   'chevron-down': require('./chevron-down').default,
+  'dot-circle': require('./dot-circle').default,
 };
 
 export default icons;
