@@ -37,9 +37,7 @@ const Select = ({ className, size, label, ...otherProps }) => {
           <Icon name="chevron-down" />
         </div>
       </div>
-      <label className="rc-select-label">
-        {label}
-      </label>
+      {label && (<label className="rc-select-label">{label}</label>)}
     </div>
   );
 }

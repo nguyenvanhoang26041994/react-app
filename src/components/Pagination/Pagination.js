@@ -6,8 +6,20 @@ import Icon from '../Icon';
 
 require('./Pagination.scss');
 
-const Pagination = ({ className, total, pageSize }) => {
+const times = (n, cb) => {
+  const rs = [];
+  for (let i = 0; i < n; i++) {
+    rs.push(cb(i));
+  }
+  return rs;
+};
+
+const Pagination = ({ className, total, pageSize, defaultCurrentPage }) => {
   const itemCount = useMemo(() => Math.round(total / pageSize), [total, pageSize]);
+  const [currentPage, setCurrentPage] = useState(defaultCurrentPage);
+
+  const onNextItems = useCallback(() => {}, []);
+  const onPrevItems = useCallback(() => {}, []);
 
   return (
     <ul
@@ -16,12 +28,28 @@ const Pagination = ({ className, total, pageSize }) => {
         className,
       )}
     >
-      <li className="rc-pagination-prev"><Icon name="plus" /></li>
-      <li className="rc-pagination-item"><span>1</span></li>
-      <li className="rc-pagination-item"><span>2</span></li>
-      <li className="rc-pagination-item"><span>3</span></li>
-      <li className="rc-pagination-item"><span>4</span></li>
-      <li className="rc-pagination-next"><Icon name="plus" /></li>
+      <li className="rc-pagination-prev" onClick={onPrevItems}>
+        <a><Icon name="chevron-circle-left" /></a>
+      </li>
+        {times(itemCount, (i) => (
+          <li
+            key={i}
+            className={
+              cn(
+                'rc-pagination-item',
+                {
+                  'rc-pagination-item--active': i + 1 === currentPage,
+                }
+              )
+            }
+            onClick={() => setCurrentPage(i + 1)}
+          >
+            <a>{i + 1}</a>
+          </li>
+        ))}
+      <li className="rc-pagination-next" onClick={onNextItems}>
+        <a><Icon name="chevron-circle-right" /></a>
+      </li>
     </ul>
   );
 };
@@ -31,8 +59,10 @@ Pagination.propTypes = {
   className: PropTypes.string,
   total: PropTypes.number,
   pageSize: PropTypes.number,
+  defaultCurrentPage: PropTypes.number,
 };
 Pagination.defaultProps = {
+  defaultCurrentPage: 1,
   total: 0,
   pageSize: 0,
 };

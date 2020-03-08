@@ -9,8 +9,8 @@
   min-width: $basic-height;
   background-color: $form-input-bg-color;
   border-radius: 100em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
   outline: 0 !important;
   outline-style: none;
   user-select: none;
@@ -34,6 +34,10 @@
   }
 }
 
+.rc-button--circle {
+  padding-left: 0;
+  padding-right: 0;
+}
 .rc-button--small {
   font-size: $font-small;
 }

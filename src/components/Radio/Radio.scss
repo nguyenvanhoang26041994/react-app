@@ -10,6 +10,7 @@
   border-radius: 100em;
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.25s;
 }
 
 .rc-radio-input {
@@ -28,6 +29,10 @@
     + .rc-radio-inner {
       background-color: $primary-color;
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 

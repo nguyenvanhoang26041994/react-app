@@ -42,9 +42,7 @@ const Textbox = ({ type, placeholder, label, className, onFocus, size, ...otherP
         onFocus={_onFocus}
         {...otherProps}
       />
-      <label className="rc-textbox-label">
-        {label}
-      </label>
+      {label && (<label className="rc-textbox-label">{label}</label>)}
     </div>
   );
 };

@@ -29,6 +29,10 @@
       background-color: $primary-color;
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .rc-checkbox-inner {

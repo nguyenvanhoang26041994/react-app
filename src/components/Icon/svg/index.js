@@ -17,6 +17,8 @@ const icons = {
   'bell': require('./bell').default,
   'chevron-down': require('./chevron-down').default,
   'dot-circle': require('./dot-circle').default,
+  'chevron-circle-left': require('./chevron-circle-left').default,
+  'chevron-circle-right': require('./chevron-circle-right').default,
 };
 
 export default icons;

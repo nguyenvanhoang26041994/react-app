@@ -41,14 +41,16 @@ const Textarea = ({ type, label, textareaRef, className, onFocus, size, ...other
         ref={textareaRef}
         {...otherProps}
       />
-      <label className="rc-textarea__label">
-        {label}
-      </label>
+      {label && (<label className="rc-textarea__label">{label}</label>)}
     </div>
   );
 }
 
 Textarea.displayName = 'Textarea';
-Textarea.propTypes = {};
-Textarea.defaultProps = {};
+Textarea.propTypes = {
+  onFocus: PropTypes.func,
+};
+Textarea.defaultProps = {
+  onFocus: f => f,
+};
 export default Textarea;
