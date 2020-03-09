@@ -6,6 +6,7 @@ import Select from '../../components/Select';
 import Icon from '../../components/Icon';
 import Pagination from '../../components/Pagination';
 import Checkbox from '../../components/Checkbox';
+import Switch from '../../components/Switch';
 import Radio from '../../components/Radio';
 import Progress from '../../components/Progress';
 
@@ -51,6 +52,7 @@ const HomePage = () => (
       <div className="my-5 flex">
         <Radio name="same_name" className="mr-2" defaultChecked />
         <Checkbox className="mr-2" defaultChecked />
+        <Switch className="mr-2" defaultChecked />
       </div>
       <div className="my-5 flex flex-wrap">
         <Button className="mr-3" circle><Icon name="globe" /></Button>
