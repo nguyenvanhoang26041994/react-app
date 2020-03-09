@@ -85,3 +85,12 @@
   opacity: 0;
   margin: 0;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-pagination-item,
+  .rc-pagination-next,
+  .rc-pagination-prev {
+    color: #fff;
+  }
+}

@@ -51,3 +51,22 @@
   width: 100%;
   fill: #fff;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-radio-inner {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .rc-radio-input + .rc-radio-inner {
+    + .rc-radio-check {
+      fill: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .rc-radio-input:checked + .rc-radio-inner {
+    + .rc-radio-check {
+      fill: #fff;
+    }
+  }
+}

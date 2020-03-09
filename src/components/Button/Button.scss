@@ -45,3 +45,11 @@
 .rc-button--large {
   font-size: $font-large;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-button:not(:hover) {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+}

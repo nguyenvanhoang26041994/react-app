@@ -41,7 +41,7 @@ const Textarea = ({ type, label, textareaRef, className, onFocus, size, ...other
         ref={textareaRef}
         {...otherProps}
       />
-      {label && (<label className="rc-textarea__label">{label}</label>)}
+      {label && (<label className="rc-textarea-label">{label}</label>)}
     </div>
   );
 }

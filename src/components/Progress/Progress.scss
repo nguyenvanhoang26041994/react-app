@@ -14,6 +14,10 @@
     circle.rc-progress-percent {
       stroke: #fff;
     }
+
+    .rc-progress-number {
+      color: #fff;
+    }
   }
 }
 
@@ -34,9 +38,9 @@ circle.rc-progress-percent {
 }
 
 .rc-progress-number {
-  font-size: 2em;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: $primary-color;
 }

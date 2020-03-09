@@ -13,7 +13,7 @@
     background-color: $primary-color;
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
-    .rc-textarea__label {
+    .rc-textarea-label {
       color: #fff;
     }
 
@@ -25,7 +25,7 @@
   }
 }
 
-.rc-textarea__label {
+.rc-textarea-label {
   height: 2.5em;
   font-weight: 500;
   display: flex;
@@ -44,9 +44,21 @@
   outline: 0 !important;
   box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   touch-action: manipulation;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .rc-textarea > textarea:disabled {
   box-shadow: none;
   cursor: not-allowed;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-textarea > textarea {
+    color: #fff;
+  }
+
+  .rc-textarea-label {
+    color: #fff;
+  }
 }

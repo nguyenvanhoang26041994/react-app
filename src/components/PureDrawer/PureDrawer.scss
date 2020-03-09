@@ -1,0 +1,16 @@
+@import '../../scss/vars.scss';
+
+.rc-pure-drawer {
+  min-width: 24em;
+  max-width: 100vw;
+  height: 100vh;
+  background-color: $form-input-bg-color;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-pure-drawer {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+}

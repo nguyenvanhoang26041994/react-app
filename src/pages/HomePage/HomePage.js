@@ -9,8 +9,13 @@ import Checkbox from '../../components/Checkbox';
 import Switch from '../../components/Switch';
 import Radio from '../../components/Radio';
 import Progress from '../../components/Progress';
+import PureConfirm from '../../components/PureConfirm';
+import PureDrawer from '../../components/PureDrawer';
+import DarkModeToggle from '../../components/DarkModeToggle';
+import ScrollUp from '../../components/ScrollUp';
 
 require('./HomePage.scss');
+
 const icons = [
   'bars',
   'bell',
@@ -33,40 +38,46 @@ const icons = [
 ];
 
 const HomePage = () => (
-  <div className="flex flex-wrap min-h-screen sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex p-1">
+  <div className="flex flex-wrap min-h-screen sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex">
+    <DarkModeToggle />
+    <ScrollUp />
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
-      <div className="my-5 flex items-center">
+      <div className="my-5 flex items-center justify-center">
         <Progress percent={0.69} className="mr-3" />
-        <Progress percent={0.22} r={40} className="mr-3" />
+        <Progress percent={0.22} r={35} className="mr-3" />
       </div>
-      <div className="my-5 flex">
+      <div className="my-5 flex justify-center">
         <Pagination total={144} pageSize={5} />
       </div>
-
+      <div className="flex my-5 justify-center">
+        <PureConfirm>
+          Hello there, I just wanna told you that you are so handsome!
+        </PureConfirm>
+      </div>
     </div>
     <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4 my-5">
       <Textbox className="w-full mb-2" label="Textbox" placeholder="placeholder..." />
       <Textbox className="w-full mb-2" label="Password" color="blue" placeholder="placeholder..." type="password" />
       <Select className="w-full mb-2" label="Select Box" />
       <Textarea className="w-full mb-2" label="Textarea" placeholder="placeholder..." />
-      <div className="my-5 flex">
-        <Radio name="same_name" className="mr-2" defaultChecked />
-        <Checkbox className="mr-2" defaultChecked />
-        <Switch className="mr-2" defaultChecked />
-      </div>
       <div className="my-5 flex flex-wrap">
         <Button className="mr-3" circle><Icon name="globe" /></Button>
         <Button className="mr-3">Button</Button>
         <Button className="mr-3">Button<Icon name="globe" className="ml-2" /></Button>
       </div>
+      <div className="my-5 flex">
+        <Radio name="same_name" className="mr-2" defaultChecked />
+        <Radio name="same_name" className="mr-2" />
+        <Checkbox className="mr-2" defaultChecked />
+        <Switch className="mr-2" defaultChecked />
+      </div>
     </div>
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col my-5">
-      
+
     </div>
-    <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start my-5">
-      {/* {icons.map((icon, idx) => (
-        <Icon key={idx} name={icon} className="m-3" />
-      ))} */}
+    <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start">
+      <PureDrawer className="w-full">
+      </PureDrawer>
     </div>
   </div>
 );

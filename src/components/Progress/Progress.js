@@ -29,7 +29,7 @@ const Progress = ({ className, percent, r }) => {
           }}
         />
       </svg>
-      <label className="rc-progress-number">{percent * 100}%</label>
+      <label className="rc-progress-number" style={{ fontSize: `${r}px`}}>{percent * 100}%</label>
     </div>
   );
 };
@@ -43,7 +43,7 @@ Progress.propTypes = {
 };
 Progress.defaultProps = {
   percent: 0,
-  r: 35
+  r: 25
 };
 
 export default Progress;

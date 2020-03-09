@@ -47,9 +47,22 @@
   box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   border: none;
   touch-action: manipulation;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .rc-textbox > input:disabled {
   box-shadow: none;
   cursor: not-allowed;
+}
+
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-textbox > input {
+    color: #fff;
+  }
+
+  .rc-textbox-label {
+    color: #fff;
+  }
 }
