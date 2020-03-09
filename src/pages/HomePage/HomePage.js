@@ -43,15 +43,15 @@ const HomePage = () => (
     <ScrollUp />
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
       <div className="my-5 flex items-center justify-center">
-        <Progress percent={0.69} className="mr-3" />
-        <Progress percent={0.22} r={35} className="mr-3" />
+        <Progress percent={0.69} className="mr-8" />
+        <Progress percent={0.22} r={35} />
       </div>
       <div className="my-5 flex justify-center">
         <Pagination total={144} pageSize={5} />
       </div>
       <div className="flex my-5 justify-center">
-        <PureConfirm>
-          Hello there, I just wanna told you that you are so handsome!
+        <PureConfirm header="Wellcome">
+          Hello sweet, I just wanna say to you that you are so beautiful!
         </PureConfirm>
       </div>
     </div>
@@ -77,6 +77,9 @@ const HomePage = () => (
     </div>
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start">
       <PureDrawer className="w-full">
+        <div className="flex justify-center">
+          <Progress percent={0.22} r={35} />
+        </div>
       </PureDrawer>
     </div>
   </div>
