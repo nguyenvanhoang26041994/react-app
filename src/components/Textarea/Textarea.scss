@@ -19,7 +19,8 @@
 
     > textarea {
       background-color: transparent;
-      color: #fff;;
+      color: #fff;
+      box-shadow: none;
     }
   }
 }
@@ -41,8 +42,7 @@
   border-radius: 1em;
   padding: 0.5em 1em;
   outline: 0 !important;
-  background-color: $form-input-bg-color;
-  box-shadow: none;
+  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   touch-action: manipulation;
 }
 

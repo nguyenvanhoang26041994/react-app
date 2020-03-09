@@ -15,6 +15,10 @@
 
     .rc-select-dropdown {
       background-color: $primary-color;
+
+      .rc-icon {
+        color: #fff;
+      }
     }
 
     .rc-select-label {
@@ -23,7 +27,8 @@
 
     .rc-select-input {
       background-color: transparent;
-      color: #fff;;
+      color: #fff;
+      box-shadow: none;
     }
   }
 }
@@ -42,7 +47,7 @@
   right: 0;
 
   .rc-icon {
-    color: #fff;
+    color: $primary-color;
     height: 100%;
     width: 100%;
   }
@@ -57,7 +62,7 @@
   border-radius: 100em;
   padding-left: 1em;
   padding-right: 1em;
-  background-color: $form-input-bg-color;
+  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   cursor: pointer;
 }
 

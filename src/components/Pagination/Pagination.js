@@ -93,7 +93,7 @@ Pagination.defaultProps = {
   defaultCurrentPage: 1,
   total: 0,
   pageSize: 0,
-  max: 10,
+  max: 7,
   onPageChange: f => f,
 };
 
