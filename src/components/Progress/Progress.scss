@@ -1,0 +1,42 @@
+@import '../../scss/vars.scss';
+
+.rc-progress {
+  position: relative;
+  border-radius: 100em;
+  user-select: none;
+  box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: $primary-color;
+    color: #fff;
+    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+
+    circle.rc-progress-percent {
+      stroke: #fff;
+    }
+  }
+}
+
+svg.rc-progress-svg {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+circle.rc-progress-percent {
+  height: 100%;
+  width: 100%;
+  fill: none;
+  stroke-width: 0.35em;
+  stroke: $primary-color;
+  transform: translate(0.35em, 0.35em);
+  stroke-linecap: round;
+}
+
+.rc-progress-number {
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

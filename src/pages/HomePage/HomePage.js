@@ -7,6 +7,7 @@ import Icon from '../../components/Icon';
 import Pagination from '../../components/Pagination';
 import Checkbox from '../../components/Checkbox';
 import Radio from '../../components/Radio';
+import Progress from '../../components/Progress';
 
 require('./HomePage.scss');
 const icons = [
@@ -64,6 +65,10 @@ const HomePage = () => (
     <div className="w-2/5 flex flex-col p-2">
       <div className="mb-5 flex">
         <Pagination total={144} pageSize={5} defaultCurrentPage={13} onPageChange={p => console.log(p)} />
+      </div>
+      <div className="mb-5 flex items-center">
+        <Progress percent={0.69} className="mr-5" />
+        <Progress percent={0.9} r={40} className="mr-5" />
       </div>
     </div>
     <div className="w-1/5 flex flex-wrap self-start p-2">
