@@ -7,6 +7,7 @@
   position: relative;
   border-radius: 1em;
   padding: 0.25em 0.5em;
+  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
 
   &:hover,
   &.rc-select--focus  {
@@ -17,18 +18,13 @@
       background-color: $primary-color;
 
       .rc-icon {
-        color: #fff;
+        fill: #fff;
       }
     }
 
-    .rc-select-label {
-      color: #fff;
-    }
-
+    .rc-select-label,
     .rc-select-input {
-      background-color: transparent;
       color: #fff;
-      box-shadow: none;
     }
   }
 }
@@ -47,7 +43,7 @@
   right: 0;
 
   .rc-icon {
-    color: $primary-color;
+    fill: #000;
     height: 100%;
     width: 100%;
   }
@@ -62,9 +58,8 @@
   border-radius: 100em;
   padding-left: 1em;
   padding-right: 1em;
-  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
 }
 
 .rc-select-label {
@@ -78,17 +73,18 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-select-input {
-    color: #fff;
+  .rc-select:not(:hover):not(.rc-select--focus) {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
+  .rc-select-input,
   .rc-select-label {
     color: #fff;
   }
 
   .rc-select-dropdown {
     .rc-icon {
-      color:  #fff;
+      fill:  #fff;
     }
   }
 }

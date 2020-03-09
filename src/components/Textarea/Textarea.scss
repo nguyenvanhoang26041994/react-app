@@ -7,26 +7,23 @@
   position: relative;
   border-radius: 1em;
   padding: 0.25em 0.5em;
+  background-color: #fff;
+  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
 
   &:hover,
   &.rc-textarea--focus  {
     background-color: $primary-color;
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
-    .rc-textarea-label {
-      color: #fff;
-    }
-
+    .rc-textarea-label,
     > textarea {
-      background-color: transparent;
       color: #fff;
-      box-shadow: none;
     }
   }
 }
 
 .rc-textarea-label {
-  height: 2.5em;
+  height: $basic-height;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -43,22 +40,21 @@
   border-radius: 1em;
   padding: 0.5em 1em;
   outline: 0 !important;
-  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
   touch-action: manipulation;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
 }
 
 .rc-textarea > textarea:disabled {
-  box-shadow: none;
   cursor: not-allowed;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-textarea > textarea {
-    color: #fff;
+  .rc-textarea:not(:hover):not(.rc-textarea--focus) {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 
+  .rc-textarea > textarea,
   .rc-textarea-label {
     color: #fff;
   }
