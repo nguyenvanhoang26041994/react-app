@@ -63,7 +63,7 @@ const HomePage = () => (
     </div>
     <div className="w-2/5 flex flex-col p-2">
       <div className="mb-5 flex">
-        <Pagination total={101} pageSize={5} onPageChange={p => console.log(p)} />
+        <Pagination total={144} pageSize={5} defaultCurrentPage={13} onPageChange={p => console.log(p)} />
       </div>
     </div>
     <div className="w-1/5 flex flex-wrap self-start p-2">
