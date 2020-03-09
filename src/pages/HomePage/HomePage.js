@@ -78,7 +78,7 @@ const HomePage = () => (
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start">
       <PureDrawer className="w-full">
         <div className="flex justify-center">
-          <Progress percent={0.22} r={35} />
+          {/* <Progress percent={0.22} r={35} /> */}
         </div>
       </PureDrawer>
     </div>

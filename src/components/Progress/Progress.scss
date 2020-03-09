@@ -44,3 +44,10 @@ circle.rc-progress-percent {
   transform: translate(-50%, -50%);
   color: $primary-color;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-progress:not(:hover) {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
