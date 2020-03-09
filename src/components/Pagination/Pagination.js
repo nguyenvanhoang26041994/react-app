@@ -6,20 +6,40 @@ import Icon from '../Icon';
 
 require('./Pagination.scss');
 
-const times = (n, cb) => {
+const loop = (start, end, cb) => {
   const rs = [];
-  for (let i = 0; i < n; i++) {
+  for (let i = start; i <= end; i++) {
     rs.push(cb(i));
   }
   return rs;
 };
 
-const Pagination = ({ className, total, pageSize, defaultCurrentPage }) => {
-  const itemCount = useMemo(() => Math.round(total / pageSize), [total, pageSize]);
+const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPageChange }) => {
+  const itemCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
   const [currentPage, setCurrentPage] = useState(defaultCurrentPage);
+  const [currentFlag, setCurrentFlag] = useState(Math.ceil(defaultCurrentPage / pageSize));
+  const maxCurrentFlag = useMemo(() => Math.ceil(itemCount / pageSize), [itemCount, pageSize]);
 
-  const onNextItems = useCallback(() => {}, []);
-  const onPrevItems = useCallback(() => {}, []);
+  const startIndex = useMemo(() => (currentFlag - 1) * max + 1, [currentFlag, currentPage, max]);
+  const endIndex = useMemo(() => {
+    let end = (currentFlag - 1) * max + max;
+
+    return itemCount < end ? itemCount : end;
+  }, [currentFlag, currentPage, max]);
+
+  const onNextItems = useCallback(() => setCurrentFlag(prev => {
+    const nextState = prev + 1;
+    return nextState > maxCurrentFlag ? maxCurrentFlag : nextState;
+  }), [setCurrentFlag, maxCurrentFlag]);
+
+  const onPrevItems = useCallback(() => setCurrentFlag(prev => {
+    const nextState = prev - 1;
+    return nextState > 1 ? nextState : 1;
+  }), [setCurrentFlag]);
+
+  useEffect(() => {
+    onPageChange(currentPage);
+  }, [currentPage, onPageChange]);
 
   return (
     <ul
@@ -28,26 +48,32 @@ const Pagination = ({ className, total, pageSize, defaultCurrentPage }) => {
         className,
       )}
     >
-      <li className="rc-pagination-prev" onClick={onPrevItems}>
+      <li
+        className={cn('rc-pagination-prev', { 'rc-pagination-prev--hidden': currentFlag <= 1 })}
+        onClick={onPrevItems}
+      >
         <a><Icon name="chevron-circle-left" /></a>
       </li>
-        {times(itemCount, (i) => (
+        {loop(startIndex, endIndex, pageNumber => (
           <li
-            key={i}
+            key={pageNumber}
             className={
               cn(
                 'rc-pagination-item',
                 {
-                  'rc-pagination-item--active': i + 1 === currentPage,
+                  'rc-pagination-item--active': pageNumber === currentPage,
                 }
               )
             }
-            onClick={() => setCurrentPage(i + 1)}
+            onClick={() => setCurrentPage(pageNumber)}
           >
-            <a>{i + 1}</a>
+            <a>{pageNumber}</a>
           </li>
         ))}
-      <li className="rc-pagination-next" onClick={onNextItems}>
+      <li
+        className={cn('rc-pagination-next', { 'rc-pagination-next--hidden': currentFlag >= maxCurrentFlag })}
+        onClick={onNextItems}
+      >
         <a><Icon name="chevron-circle-right" /></a>
       </li>
     </ul>
@@ -60,11 +86,15 @@ Pagination.propTypes = {
   total: PropTypes.number,
   pageSize: PropTypes.number,
   defaultCurrentPage: PropTypes.number,
+  max: PropTypes.number,
+  onPageChange: PropTypes.func,
 };
 Pagination.defaultProps = {
   defaultCurrentPage: 1,
   total: 0,
   pageSize: 0,
+  max: 10,
+  onPageChange: f => f,
 };
 
 export default Pagination;
