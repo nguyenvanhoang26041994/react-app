@@ -1,0 +1,42 @@
+@import '../../scss/vars.scss';
+
+.rc-date-picker {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
+  min-height: 6em;
+
+  &:hover,
+  &.rc-date-picker--focus  {
+    background-color: $primary-color;
+    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+
+    .rc-date-picker-label {
+      color: #fff;
+    }
+  }
+}
+
+.rc-date-picker-label {
+  height: $basic-height;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #000;
+  user-select: none;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-date-picker:not(:hover) {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .rc-date-picker-label {
+    color: #fff;
+  }
+}

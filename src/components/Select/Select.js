@@ -9,12 +9,7 @@ import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 require('./Select.scss');
 
-const mSizes = Object.freeze({
-  small: 'rc-select--small',
-  large: 'rc-select--large',
-});
-
-const Select = ({ className, size, label, ...otherProps }) => {
+const Select = ({ className, label, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
@@ -29,7 +24,7 @@ const Select = ({ className, size, label, ...otherProps }) => {
   return (
     <div
       ref={ref}
-      className={cn('rc-select', { 'rc-select--focus': isFocus }, mSizes[size], className)}
+      className={cn('rc-select', { 'rc-select--focus': isFocus }, className)}
       {...otherProps}
     >
       <div className="rc-select-input" onClick={_onFocus}>
@@ -45,7 +40,6 @@ const Select = ({ className, size, label, ...otherProps }) => {
 Select.displayName = 'Select';
 Select.propTypes = {
   className: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(mSizes)),
 };
 Select.defaultProps = {};
 

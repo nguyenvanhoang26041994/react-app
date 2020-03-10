@@ -15,6 +15,7 @@ import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
 import PureNotification from '../../components/PureNotification';
 import Rating from '../../components/Rating';
+import DatePicker from '../../components/DatePicker';
 
 require('./HomePage.scss');
 
@@ -61,7 +62,7 @@ const HomePage = () => (
         <PureNotification>Hello sweet</PureNotification>
       </div>
       <div className="flex m-2">
-        <Rating />
+        <Rating defaultStar={3} />
       </div>
     </div>
     <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
@@ -78,13 +79,12 @@ const HomePage = () => (
           <ProgressButton className="mr-2" icon="heart" />
           <Button>Button</Button>
         </div>
-        <div>
-          
-        </div>
       </div>
     </div>
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">
-
+      <div className="m-2">
+        {/* <DatePicker label="Date Picker" /> */}
+      </div>
     </div>
     <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start">
     </div>
