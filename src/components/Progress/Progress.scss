@@ -49,5 +49,13 @@ circle.rc-progress-percent {
 .dark-mode {
   .rc-progress:not(:hover) {
     background-color: rgba(255, 255, 255, 0.2);
+
+    circle.rc-progress-percent {
+      stroke: #fff;
+    }
+  }
+
+  .rc-progress-number {
+    color: #fff;
   }
 }
