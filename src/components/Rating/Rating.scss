@@ -8,6 +8,10 @@
 .rc-rating-item {
   color: $form-input-bg-color;
   padding: 0.25em;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 
 .rc-rating-item--light {

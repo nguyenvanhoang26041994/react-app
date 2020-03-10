@@ -46,6 +46,7 @@ const Rating = ({ className, max, starRef, icon, defaultCurrentStar, onStarChang
       ref={starRef}
       onMouseLeave={() => setCurrentStarHover('outside')}
       {...otherProps}
+      star={currentStar}
     >
       {stars}
     </div>
@@ -57,11 +58,13 @@ Rating.propTypes = {
   icon: PropTypes.string,
   max: PropTypes.number,
   onStarChange: PropTypes.func,
+  defaultCurrentStar: PropTypes.number,
 };
 Rating.defaultProps = {
   icon: 'star',
   max: 5,
   onStarChange: f => f,
+  defaultCurrentStar: 0,
 };
 
 export default Rating;
