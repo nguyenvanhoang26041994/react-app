@@ -17,8 +17,8 @@ const icons = {
   'bell': require('./bell').default,
   'chevron-down': require('./chevron-down').default,
   'dot-circle': require('./dot-circle').default,
-  'chevron-circle-left': require('./chevron-circle-left').default,
-  'chevron-circle-right': require('./chevron-circle-right').default,
+  'chevron-left': require('./chevron-left').default,
+  'chevron-right': require('./chevron-right').default,
   'times': require('./times').default,
   'star': require('./star').default,
 };

@@ -7,6 +7,7 @@
   position: relative;
   border-radius: 1em;
   padding: 0.5em 1em;
+  transition: all 0.25s;
   box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
   &:hover,
@@ -15,8 +16,6 @@
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
     .rc-select-dropdown {
-      background-color: $primary-color;
-
       .rc-icon {
         fill: #fff;
       }
@@ -33,19 +32,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 1.75em;
-  width: 1.75em;
-  border-radius: 100em;
-  user-select: none;
-  touch-action: manipulation;
   cursor: pointer;
   position: absolute;
   right: 0;
 
   .rc-icon {
     fill: #000;
-    height: 100%;
-    width: 100%;
   }
 }
 

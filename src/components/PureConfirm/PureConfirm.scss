@@ -10,6 +10,7 @@
   padding-bottom: 3em;
   box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
   user-select: none;
+  transition: all 0.25s;
 
   &:hover {
     background-color: $primary-color;

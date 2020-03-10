@@ -52,7 +52,7 @@ const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPag
         className={cn('rc-pagination-prev', { 'rc-pagination-prev--hidden': currentFlag <= 1 })}
         onClick={onPrevItems}
       >
-        <a><Icon name="chevron-circle-left" /></a>
+        <a><Icon name="chevron-left" /></a>
       </li>
         {loop(startIndex, endIndex, pageNumber => (
           <li
@@ -74,7 +74,7 @@ const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPag
         className={cn('rc-pagination-next', { 'rc-pagination-next--hidden': currentFlag >= maxCurrentFlag })}
         onClick={onNextItems}
       >
-        <a><Icon name="chevron-circle-right" /></a>
+        <a><Icon name="chevron-right" /></a>
       </li>
     </ul>
   );

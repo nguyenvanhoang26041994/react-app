@@ -1,8 +1,18 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 require('./Progress.scss');
+
+const useSupportAnimation = time => {
+  const [waiting, setWaiting] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setWaiting(false), time) ;
+  }, []);
+
+  return waiting;
+};
 
 const Progress = ({ className, percent, r }) => {
   const strokeDasharray = useMemo(() => Math.PI * 4 * r, [r]);
@@ -11,6 +21,8 @@ const Progress = ({ className, percent, r }) => {
     const newStrokeDashoffset = strokeDasharray + (strokeDasharray * percent);
     return newStrokeDashoffset > maxStrokeDashoffset ? maxStrokeDashoffset : newStrokeDashoffset;
   }, [strokeDasharray, percent, maxStrokeDashoffset]);
+
+  const delayAnimation = useSupportAnimation(300);
 
   return (
     <div
@@ -25,7 +37,7 @@ const Progress = ({ className, percent, r }) => {
           className="rc-progress-percent"
           style={{
             strokeDasharray,
-            strokeDashoffset,
+            strokeDashoffset: delayAnimation ? strokeDasharray : strokeDashoffset,
           }}
         />
       </svg>

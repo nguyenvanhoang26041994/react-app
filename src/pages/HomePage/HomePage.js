@@ -48,7 +48,7 @@ const HomePage = () => (
       <div className="m-2 flex items-end justify-start">
         <Progress percent={0.32} r={20} className="mr-2" />
         <Progress percent={0.69} className="mr-2" />
-        <Progress percent={0.22} r={35} />
+        <Progress percent={0.9} r={35} />
       </div>
       <div className="my-2 flex justify-start ml-2">
         <Pagination total={144} pageSize={5} />

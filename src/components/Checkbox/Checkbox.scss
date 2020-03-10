@@ -41,15 +41,15 @@
   height: 100%;
   width: 100%;
   background-color: $form-input-bg-color;
+  transition: all 0.25s;
 }
 
 .rc-checkbox-check {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  top: 50%;
+  left: 50%;
   fill: #fff;
+  transform: translate(-50%, -50%);
 }
 
 // DARK MODE SUPPORT

@@ -7,6 +7,7 @@
 
 .rc-rating-item {
   color: $form-input-bg-color;
+  transition: all 0.25s;
   padding: 0.25em;
 
   &:hover {
