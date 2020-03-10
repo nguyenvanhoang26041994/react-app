@@ -34,7 +34,7 @@ circle.rc-progress-percent {
   fill: none;
   stroke-width: 0.35em;
   stroke: $primary-color;
-  transition: all 0.5s;
+  transition: stroke-dashoffset 0.5s;
   transform: translate(0.35em, 0.35em);
   stroke-linecap: round;
 }
@@ -44,8 +44,14 @@ circle.rc-progress-percent {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.25s;
   color: $primary-color;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+
+  > span {
+    font-size: 0.5em;
+  }
 }
 
 // DARK MODE SUPPORT

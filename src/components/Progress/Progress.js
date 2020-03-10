@@ -41,7 +41,10 @@ const Progress = ({ className, percent, r }) => {
           }}
         />
       </svg>
-      <label className="rc-progress-number" style={{ fontSize: `${r * 0.8}px`}}>{percent * 100}%</label>
+      <label className="rc-progress-number" style={{ fontSize: `${r * 0.8}px`}}>
+        {percent * 100}
+        <span>%</span>
+      </label>
     </div>
   );
 };

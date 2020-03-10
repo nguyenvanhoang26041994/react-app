@@ -16,7 +16,7 @@ const Radio = ({ className, radioRef, ...otherProps }) => {
         {...otherProps}
       />
       <span className="rc-radio-inner" />
-      <Icon name="dot-circle" className="rc-radio-check" />
+      {/* <Icon name="dot-circle" className="rc-radio-check" /> */}
     </span>
   );
 };

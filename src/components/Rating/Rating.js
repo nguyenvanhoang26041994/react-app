@@ -42,11 +42,11 @@ const Rating = ({ className, max, starRef, icon, defaultStar, onStarChange, ...o
 
   return (
     <div
+      star={star}
       className={cn('rc-rating', className)}
       ref={starRef}
       onMouseLeave={() => setCurrentStarHover('outside')}
       {...otherProps}
-      star={star}
     >
       {stars}
     </div>

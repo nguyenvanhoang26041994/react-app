@@ -39,7 +39,7 @@
   font-weight: 500;
   border-radius: 100em;
   cursor: pointer;
-  transition: color 0s, background-color 0.25s;
+  transition: color 0, background-color 0.25s;
 
   &:hover {
     background-color: $primary-color;

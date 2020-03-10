@@ -26,7 +26,11 @@
 
   &:checked {
     + .rc-radio-inner {
-      background-color: $primary-color;
+      border-color: $primary-color;
+
+      &::after {
+        opacity: 1;
+      }
     }
   }
 
@@ -41,33 +45,30 @@
   height: 100%;
   width: 100%;
   transition: all 0.25s;
-  background-color: $form-input-bg-color;
-}
+  background-color: transparent;
+  border: 0.125em solid $primary-color;
+  border-radius: 100em;
 
-.rc-radio-check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  fill: #fff;
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 0.75em;
+    width: 0.75em;
+    box-sizing: border-box;
+    transform: translate(-0.375em, -0.375em);
+    border-radius: 100em;
+    background-color: $primary-color;
+    opacity: 0;
+    transition: all 0.25s;
+  }
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-radio-inner {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  .rc-radio-input + .rc-radio-inner {
-    + .rc-radio-check {
-      fill: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  .rc-radio-input:checked + .rc-radio-inner {
-    + .rc-radio-check {
-      fill: #fff;
-    }
+    border-color: rgba(255, 255, 255, 0.2);
   }
 }
