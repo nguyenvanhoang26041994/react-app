@@ -13,6 +13,7 @@ import PureConfirm from '../../components/PureConfirm';
 import PureDrawer from '../../components/PureDrawer';
 import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
+import PureNotification from '../../components/PureNotification';
 
 require('./HomePage.scss');
 
@@ -50,10 +51,13 @@ const HomePage = () => (
       <div className="my-2 flex justify-start ml-2">
         <Pagination total={144} pageSize={5} />
       </div>
-      <div className="flex m-2 justify-start">
+      <div className="flex m-2">
         <PureConfirm header="Wellcome">
           Hello sweet, I just wanna say to you that you are so beautiful!
         </PureConfirm>
+      </div>
+      <div className="flex m-2">
+        <PureNotification>Hello sweet</PureNotification>
       </div>
     </div>
     <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">

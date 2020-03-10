@@ -19,6 +19,7 @@ const icons = {
   'dot-circle': require('./dot-circle').default,
   'chevron-circle-left': require('./chevron-circle-left').default,
   'chevron-circle-right': require('./chevron-circle-right').default,
+  'times': require('./times').default,
 };
 
 export default icons;

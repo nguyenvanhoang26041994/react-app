@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "react-components",
+  "builds": [{
+    "src": "package.json",
+    "use": "@now/static-build",
+    "config": { "distDir": "dist" }
+  }]
+}
