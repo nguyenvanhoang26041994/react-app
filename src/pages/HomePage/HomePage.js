@@ -15,7 +15,7 @@ import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
 import PureNotification from '../../components/PureNotification';
 import Rating from '../../components/Rating';
-import DatePicker from '../../components/DatePicker';
+import Slider from '../../components/Slider';
 
 require('./HomePage.scss');
 
@@ -63,6 +63,9 @@ const HomePage = () => (
       </div>
       <div className="flex m-2">
         <Rating defaultStar={3} />
+      </div>
+      <div className="flex m-2">
+        <Slider value={10} max={100} onChange={value => console.log(value)} style={{ width: '350px' }} />
       </div>
     </div>
     <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
