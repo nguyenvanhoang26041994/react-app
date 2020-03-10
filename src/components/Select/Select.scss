@@ -6,7 +6,7 @@
   align-items: flex-start;
   position: relative;
   border-radius: 1em;
-  padding: 0.25em 0.5em;
+  padding: 0.5em 1em;
   box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
 
   &:hover,
@@ -55,9 +55,6 @@
   align-items: center;
   width: 100%;
   height: $basic-height;
-  border-radius: 100em;
-  padding-left: 1em;
-  padding-right: 1em;
   cursor: pointer;
   background-color: transparent;
 }

@@ -10,7 +10,7 @@ const ScrollUp = ({ className }) => {
   const scrollToTop = useCallback(() => window.scrollTo({top: 0, behavior: 'smooth'}), []);
 
   return (
-    <Button className={cn('rc-scroll-up', className)} onClick={scrollToTop}>
+    <Button circle className={cn('rc-scroll-up', className)} onClick={scrollToTop}>
       <Icon name="home" />
     </Button>
   );

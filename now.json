@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "react-components",
+  "name": "rc-components",
   "builds": [{
     "src": "package.json",
     "use": "@now/static-build",

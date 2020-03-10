@@ -10,10 +10,11 @@ import Switch from '../../components/Switch';
 import Radio from '../../components/Radio';
 import Progress from '../../components/Progress';
 import PureConfirm from '../../components/PureConfirm';
-import PureDrawer from '../../components/PureDrawer';
+import ProgressButton from '../../components/ProgressButton';
 import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
 import PureNotification from '../../components/PureNotification';
+import Rating from '../../components/Rating';
 
 require('./HomePage.scss');
 
@@ -59,6 +60,9 @@ const HomePage = () => (
       <div className="flex m-2">
         <PureNotification>Hello sweet</PureNotification>
       </div>
+      <div className="flex m-2">
+        <Rating />
+      </div>
     </div>
     <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
       <div className="m-2">
@@ -71,7 +75,11 @@ const HomePage = () => (
           <Checkbox className="mr-2" defaultChecked />
           <Switch className="mr-2" defaultChecked />
           <Button className="mr-2" circle><Icon name="globe" /></Button>
+          <ProgressButton className="mr-2" icon="heart" />
           <Button>Button</Button>
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>

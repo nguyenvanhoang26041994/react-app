@@ -24,7 +24,7 @@ const DarkModeToggle = ({ className }) => {
   }, [isDark]);
 
   return (
-    <Button className={cn('rc-dark-mode-button', className)} onClick={handleToogleDarkMode}>
+    <Button circle className={cn('rc-dark-mode-button', className)} onClick={handleToogleDarkMode}>
       <Icon name={isDark ? 'sun' : 'moon-stars' } />
     </Button>
   );

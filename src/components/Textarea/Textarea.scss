@@ -6,7 +6,7 @@
   align-items: flex-start;
   position: relative;
   border-radius: 1em;
-  padding: 0.25em 0.5em;
+  padding: 0.5em 1em;
   background-color: #fff;
   box-shadow: 0.125em 0.125em 2.6em rgba(0, 0, 0, 0.05);
 
@@ -33,12 +33,7 @@
 
 .rc-textarea > textarea {
   width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   min-height: 7em;
-  border-radius: 1em;
-  padding: 0.5em 1em;
   outline: 0 !important;
   touch-action: manipulation;
   background-color: transparent;

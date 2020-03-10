@@ -4,14 +4,9 @@ import PropTypes from 'prop-types';
 
 require('./Button.scss');
 
-const mSizes = Object.freeze({
-  small: 'rc-button--small',
-  large: 'rc-button--large',
-});
-
-const Button = ({ className, size, circle, ...otherProps }) => (
+const Button = ({ className, circle, ...otherProps }) => (
   <button
-    className={cn('rc-button', mSizes[size], { 'rc-button--circle': circle }, className)}
+    className={cn('rc-button', { 'rc-button--circle': circle }, className)}
     {...otherProps}
   />
 );
@@ -19,7 +14,6 @@ const Button = ({ className, size, circle, ...otherProps }) => (
 Button.displayName = 'Button';
 Button.propTypes = {
   className: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(mSizes)),
 };
 Button.defaultProps = {};
 
