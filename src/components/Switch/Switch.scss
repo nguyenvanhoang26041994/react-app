@@ -7,7 +7,7 @@
   outline: 0 !important;
   width: 3em;
   height: 1.75em;
-  border-radius: 100em;
+  border-radius: $border-radius;
   background-color: $form-input-bg-color;
   transition: all 0.25s;
   cursor: pointer;
@@ -45,7 +45,7 @@
   background-color: #fff;
   height: 1.75em;
   width: 1.75em;
-  border-radius: 100em;
+  border-radius: $border-radius;
   transition: all 0.25s;
   box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05), -0.125em -0.125em 0.5em rgba(0, 0, 0, 0.05);
 }

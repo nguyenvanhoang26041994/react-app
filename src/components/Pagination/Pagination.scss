@@ -5,7 +5,7 @@
   align-items: center;
   height: 2.5em;
   padding: 0 0.25em;
-  border-radius: 100em;
+  border-radius: $border-radius;
   user-select: none;
   transition: all 0.25s;
 
@@ -37,7 +37,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  border-radius: 100em;
+  border-radius: $border-radius;
   cursor: pointer;
   transition: color 0, background-color 0.25s;
 
@@ -72,14 +72,10 @@
   width: 2.125em;
   padding: 0;
   transition: all 0.2s;
-}
-
-.rc-pagination-next {
-  margin-left: 0.5em;
-}
-
-.rc-pagination-prev {
-  margin-right: 0.5em;
+  
+  .rc-icon {
+    font-size: 0.75em;
+  }
 }
 
 .rc-pagination-next--hidden,

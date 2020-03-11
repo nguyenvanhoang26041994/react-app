@@ -5,9 +5,9 @@
   flex-direction: column-reverse;
   align-items: flex-start;
   position: relative;
-  border-radius: 1em;
+  border-radius: $border-radius;
   padding: 0.5em 1em;
-  background-color: #fff;
+  background-color: #f9f9f9;
   transition: all 0.25s;
   // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
