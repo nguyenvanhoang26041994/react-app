@@ -1,4 +1,5 @@
 @import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
 
 .rc-select {
   display: flex;
@@ -62,22 +63,17 @@
 }
 
 // DROP DOWN
-@keyframes select-dropdown {
-  from {
-    max-height: 0;
-  }
-  to {
-    max-height: 100vh;
-  }
-}
-
 .rc-select-dropdown {
   position: absolute;
   background-color: #595959;
   max-height: 20em;
   overflow: scroll;
   border-radius: $border-radius;
-  animation: select-dropdown 0.5s ease-in-out;
+  animation: zoomIn 0.25s ease-in-out;
+}
+
+.rc-select-dropdown--close {
+  animation: zoomOut 0.25s ease-in-out;
 }
 
 // SELECT OPTION

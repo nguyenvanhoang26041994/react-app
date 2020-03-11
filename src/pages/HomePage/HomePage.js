@@ -70,9 +70,6 @@ const HomePage = () => {
         <div className="flex mb-10 mx-2">
           <PureNotification>Hello sweet</PureNotification>
         </div>
-        <div className="flex mb-10 mx-2">
-          {/* <Slider value={10} max={100} onChange={value => console.log(value)} style={{ width: '350px' }} /> */}
-        </div>
       </div>
       <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
         <div className="mt-2 mb-10 mx-2">
