@@ -55,12 +55,12 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-checkbox-inner {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: $background-color-dark-mode;
   }
 
   .rc-checkbox-input + .rc-checkbox-inner {
     + .rc-checkbox-check {
-      fill: rgba(255, 255, 255, 0.2);
+      fill: $background-color-dark-mode;
     }
   }
 

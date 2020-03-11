@@ -47,7 +47,7 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-textarea:not(:hover):not(.rc-textarea--focus) {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: $background-color-dark-mode;
   }
 
   .rc-textarea > textarea,
