@@ -9,17 +9,16 @@
   padding: 0.5em 1em;
   transition: all 0.25s;
   background-color: #f9f9f9;
+  user-select: none;
   // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
   &:hover,
-  &.rc-select--focus  {
+  &.rc-select--drop  {
     background-color: $primary-color;
     box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
-    .rc-select-dropdown {
-      .rc-icon {
-        fill: #fff;
-      }
+    .rc-select-icon {
+      fill: #fff;
     }
 
     .rc-select-label,
@@ -29,17 +28,18 @@
   }
 }
 
-.rc-select-dropdown {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.rc-select--drop {
+  .rc-select-icon {
+    transform: rotate(-180deg);
+  }
+}
+
+.rc-select-icon {
   cursor: pointer;
+  transition: transform 0.5s;
   position: absolute;
   right: 0;
-
-  .rc-icon {
-    fill: #000;
-  }
+  fill: #000;
 }
 
 .rc-select-input {
@@ -61,6 +61,47 @@
   user-select: none;
 }
 
+// DROP DOWN
+@keyframes select-dropdown {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 100vh;
+  }
+}
+
+.rc-select-dropdown {
+  position: absolute;
+  background-color: #595959;
+  max-height: 20em;
+  overflow: scroll;
+  border-radius: $border-radius;
+  animation: select-dropdown 0.5s ease-in-out;
+}
+
+// SELECT OPTION
+.rc-select-option {
+  display: flex;
+  align-items: center;
+  padding: 0 2em;
+  height: 3.5em;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.rc-select-dropdown ul > .rc-select-option:nth-child(1) {
+  margin-top: 1em;
+}
+
+.rc-select-dropdown ul > .rc-select-option:last-child {
+  margin-bottom: 1em;
+}
+
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-select:not(:hover):not(.rc-select--focus) {
@@ -72,9 +113,7 @@
     color: #fff;
   }
 
-  .rc-select-dropdown {
-    .rc-icon {
-      fill:  #fff;
-    }
+  .rc-select-icon {
+    fill:  #fff;
   }
 }

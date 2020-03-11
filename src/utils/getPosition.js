@@ -9,5 +9,5 @@ export default node => {
     _nextNode = _nextNode.offsetParent;
   } while(_nextNode && _nextNode.offsetParent)
 
-  return { pageX, pageY };
+  return { pageX, pageY, clientHeight: node.clientHeight, clientWidth: node.clientWidth };
 }

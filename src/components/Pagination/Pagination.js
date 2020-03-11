@@ -17,7 +17,7 @@ const loop = (start, end, cb) => {
 const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPageChange }) => {
   const itemCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
   const [currentPage, setCurrentPage] = useState(defaultCurrentPage);
-  const [currentFlag, setCurrentFlag] = useState(Math.ceil(defaultCurrentPage / pageSize));
+  const [currentFlag, setCurrentFlag] = useState(Math.ceil(defaultCurrentPage / max));
   const maxCurrentFlag = useMemo(() => Math.ceil(itemCount / max), [itemCount, max]);
 
   const startIndex = useMemo(() => (currentFlag - 1) * max + 1, [currentFlag, currentPage, max]);
@@ -93,7 +93,7 @@ Pagination.defaultProps = {
   defaultCurrentPage: 1,
   total: 0,
   pageSize: 0,
-  max: 10,
+  max: 5,
   onPageChange: f => f,
 };
 
