@@ -5,7 +5,15 @@ import Button from '../Button';
 
 require('./PureConfirm.scss');
 
-const PureConfirm = ({ confirmRef, children, header, className, ...otherProps }) => {
+const PureConfirm = ({
+  confirmRef,
+  children,
+  header,
+  className,
+  onOkClick,
+  onCancelClick,
+  ...otherProps
+}) => {
   return (
     <div className={cn('rc-pure-confirm', className)} ref={confirmRef} {...otherProps}>
       <div className="rc-pure-confirm-inside-wraper">
@@ -13,8 +21,8 @@ const PureConfirm = ({ confirmRef, children, header, className, ...otherProps })
         <div className="rc-pure-confirm-content">{children}</div>
       </div>
       <div className="rc-pure-confirm-buttons">
-        <Button className="rc-pure-confirm-ok">OK</Button>
-        <Button className="rc-pure-confirm-cancel">Cancel</Button>
+        <Button className="rc-pure-confirm-ok" onClick={onOkClick}>OK</Button>
+        <Button className="rc-pure-confirm-cancel" onClick={onCancelClick}>Cancel</Button>
       </div>
     </div>
   );

@@ -10,19 +10,10 @@
   max-width: calc(100vw - 1em);
   border-radius: 1em;
   transition: all 0.25s;
-  box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  background-color: $primary-color;
   user-select: none;
-
-  &:hover {
-    background-color: $primary-color;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
-    color: #fff;
-
-    .rc-pure-notification-close {
-      color: #fff;
-    }
-  }
+  color: #fff;
 }
 
 .rc-pure-notification-content {
@@ -36,7 +27,6 @@
   transform: translate(-50%, 50%);
   padding: 0;
   background-color: transparent;
-  color: $primary-color;
 
   &:hover {
     box-shadow: none;
@@ -46,17 +36,8 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-pure-notification:not(:hover) {
-    color: #fff;
-    background-color: #424242;
-  }
-
-  .rc-pure-notification-close.rc-pure-notification-close {
+  .rc-pure-notification-close.rc-pure-notification-close:not(:hover) {
     color: #fff;
     background-color: transparent;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
   }
 }

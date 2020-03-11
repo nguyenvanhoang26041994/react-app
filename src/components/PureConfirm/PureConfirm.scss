@@ -8,21 +8,11 @@
   max-width: calc(100vw - 1em);
   border-radius: 1em;
   padding-bottom: 3em;
-  background-color: #fff;
-  box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
+  background-color: $primary-color;
+  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  color: #fff;
   user-select: none;
   transition: all 0.25s;
-
-  &:hover {
-    background-color: $primary-color;
-    color: #fff;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
-
-    .rc-pure-confirm-ok,
-    .rc-pure-confirm-cancel {
-      color: #fff;
-    }
-  }
 }
 
 .rc-pure-confirm-inside-wraper {
@@ -58,6 +48,7 @@
   color: $primary-color;
   text-transform: uppercase;
   font-weight: 500;
+  color: #fff;
 
   &:hover {
     box-shadow: none;
@@ -67,18 +58,9 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-pure-confirm:not(:hover) {
-    background-color: #424242;
-    color: #fff;
-  }
-
-  .rc-pure-confirm-ok.rc-pure-confirm-ok,
-  .rc-pure-confirm-cancel.rc-pure-confirm-cancel {
+  .rc-pure-confirm-ok.rc-pure-confirm-ok:not(:hover),
+  .rc-pure-confirm-cancel.rc-pure-confirm-cancel:not(:hover) {
     color: #fff;
     background-color: transparent;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
   }
 }
