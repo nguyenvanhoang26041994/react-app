@@ -13,10 +13,13 @@
   user-select: none;
   // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
+  &:hover {
+    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  }
+
   &:hover,
   &.rc-select--drop  {
     background-color: $primary-color;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
     .rc-select-icon {
       fill: #fff;
@@ -65,37 +68,16 @@
 // DROP DOWN
 .rc-select-dropdown {
   position: absolute;
-  background-color: #595959;
+  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  background-color: $form-input-bg-color;
   max-height: 20em;
   overflow: scroll;
   border-radius: $border-radius;
-  animation: zoomIn 0.25s ease-in-out;
+  animation: zoomIn 0.25s;
 }
 
-.rc-select-dropdown--close {
-  animation: zoomOut 0.25s ease-in-out;
-}
-
-// SELECT OPTION
-.rc-select-option {
-  display: flex;
-  align-items: center;
-  padding: 0 2em;
-  height: 3.5em;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $primary-color;
-  }
-}
-
-.rc-select-dropdown ul > .rc-select-option:nth-child(1) {
-  margin-top: 1em;
-}
-
-.rc-select-dropdown ul > .rc-select-option:last-child {
-  margin-bottom: 1em;
+.rc-select-dropdown--close-animation {
+  animation: zoomOut 0.5s;
 }
 
 // DARK MODE SUPPORT
@@ -111,5 +93,10 @@
 
   .rc-select-icon {
     fill:  #fff;
+  }
+
+  .rc-select-dropdown {
+    background-color: #595959;
+    color: #fff;
   }
 }

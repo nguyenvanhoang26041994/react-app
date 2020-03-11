@@ -5,6 +5,7 @@ import Portal from '../Portal';
 import PureConfirm from '../PureConfirm';
 
 import useOnClickOutside from '../../hooks/useOnClickOutside';
+import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
 require('./Confirm.scss');
 
@@ -20,12 +21,13 @@ const Confirm = ({ children, onClose, open, canOutsideClickClose, ...otherProps 
   const onCancelClick = useCallback(() => onClose(), [onClose]);
 
   useOnClickOutside(confirmRef, handleClickOutside);
+  const delayOpen = useSupportCloseAnimation(open);
 
   return (
     <React.Fragment>
-      {open && (
+      {delayOpen && (
         <Portal>
-          <div className="rc-confirm-wrapper">
+          <div className={cn('rc-confirm', { 'rc-confirm--close-animation': !open })}>
             <PureConfirm
               confirmRef={confirmRef}
               onOkClick={onOkClick}

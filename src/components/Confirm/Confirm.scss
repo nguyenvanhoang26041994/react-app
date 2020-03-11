@@ -1,4 +1,7 @@
-.rc-confirm-wrapper {
+@import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
+
+.rc-confirm {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -11,6 +14,15 @@
   z-index: 1000;
 
   .rc-pure-confirm {
+    transition: all 1s;
     transform: translateY(-80%);
+    animation: zoomIn 0.5s;
+  }
+}
+
+.rc-confirm--close-animation {
+  background-color: transparent;
+  .rc-pure-confirm {
+    animation: zoomOut 0.5s;
   }
 }

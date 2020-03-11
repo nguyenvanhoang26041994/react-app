@@ -6,7 +6,7 @@
   position: relative;
   min-height: 5em;
   padding: 1.25em;
-  width: 25.5em;
+  min-width: 25.5em;
   max-width: calc(100vw - 1em);
   border-radius: $border-radius;
   transition: all 0.25s;

@@ -1,0 +1,29 @@
+@import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
+
+// SELECT OPTION
+.rc-select-option {
+  display: flex;
+  align-items: center;
+  padding: 0 2em;
+  height: 3.5em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+    color: #fff;
+  }
+}
+
+.rc-select-option--selected {
+  background-color: $primary-color;
+  color: #fff;
+}
+
+.rc-select-dropdown ul > .rc-select-option:nth-child(1) {
+  margin-top: 1em;
+}
+
+.rc-select-dropdown ul > .rc-select-option:last-child {
+  margin-bottom: 1em;
+}

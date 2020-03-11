@@ -60,7 +60,7 @@ const HomePage = () => {
           <Pagination total={500} pageSize={5} max={9} defaultCurrentPage={15} />
         </div>
         <div className="flex flex-col mb-10 mx-2">
-          <PureConfirm header="Wellcome">
+          <PureConfirm header="Wellcome" className="w-full">
             Hello sweet, I just wanna say to you that you are so beautiful!
           </PureConfirm>
           <Confirm canOutsideClickClose open={confirmOpen} header="Wellcome" onClose={() => setConfirmOpen(false)}>
@@ -68,7 +68,7 @@ const HomePage = () => {
           </Confirm>
         </div>
         <div className="flex mb-10 mx-2">
-          <PureNotification>Hello sweet</PureNotification>
+          <PureNotification className="w-full">Hello sweet</PureNotification>
         </div>
       </div>
       <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
@@ -76,7 +76,13 @@ const HomePage = () => {
           <Textbox className="w-full mb-2" label="Textbox" placeholder="placeholder..." />
           <Textbox className="w-full mb-2" label="Password" color="blue" placeholder="placeholder..." type="password" />
           <Textarea className="w-full mb-2" label="Textarea" placeholder="placeholder..." />
-          <Select className="w-full mb-2" label="Select Box" />
+          <Select className="w-full mb-2" defaultValue="option-2" label="Select Box">
+            <Select.Option value="option-1">Option One</Select.Option>
+            <Select.Option value="option-2">Option Two</Select.Option>
+            <Select.Option value="option-3">Option Three</Select.Option>
+            <Select.Option value="option-4">Option Four</Select.Option>
+            <Select.Option value="option-5">Option Five</Select.Option>
+          </Select>
         </div>
         <div className="flex flex-col mb-10 mx-2">
           <Rating defaultStar={3} className="mb-2" />
