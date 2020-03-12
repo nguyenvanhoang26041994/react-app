@@ -1,21 +1,21 @@
 @import '../../scss/vars.scss';
 @import '../../scss/animation.scss';
 
-.rc-notification {
+.rc-alert {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 0;
   z-index: 1000;
 
-  .rc-pure-notification {
+  .rc-pure-alert {
     animation: zoomIn 0.25s;
     margin: 0.5em;
   }
 }
 
-.rc-notification--close-animation {
-  .rc-pure-notification {
+.rc-alert--close-animation {
+  .rc-pure-alert {
     animation: zoomOut 0.25s;
   }
 }

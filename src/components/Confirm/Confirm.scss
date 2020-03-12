@@ -15,13 +15,13 @@
 
   .rc-pure-confirm {
     transform: translateY(-80%);
-    animation: zoomIn 0.5s;
+    animation: zoomIn 0.25s;
   }
 }
 
 .rc-confirm--close-animation {
   background-color: transparent;
   .rc-pure-confirm {
-    animation: zoomOut 0.5s;
+    animation: zoomOut 0.25s;
   }
 }

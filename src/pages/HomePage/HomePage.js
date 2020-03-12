@@ -14,12 +14,14 @@ import ProgressButton from '../../components/ProgressButton';
 import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
 import PureNotification from '../../components/PureNotification';
+import PureAlert from '../../components/PureAlert';
 import Rating from '../../components/Rating';
 import Slider from '../../components/Slider';
 import Portal from '../../components/Portal';
 import Pin from '../../components/Pin';
 import Confirm from '../../components/Confirm';
 import Notification from '../../components/Notification';
+import Alert from '../../components/Alert';
 
 require('./HomePage.scss');
 
@@ -47,6 +49,7 @@ const icons = [
 const HomePage = () => {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
   return (
     <div className="flex flex-wrap min-h-screen sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex">
@@ -68,6 +71,23 @@ const HomePage = () => {
           <Confirm canOutsideClickClose open={confirmOpen} header="Wellcome" onClose={() => setConfirmOpen(false)}>
             Hello sweet, I just wanna say to you that you are so beautiful!
           </Confirm>
+        </div>
+        <div className="flex flex-col mb-10 mx-2">
+          <PureAlert className="w-full mb-2">
+            Normal message!
+          </PureAlert>
+          <PureAlert type="success" className="w-full mb-2">
+            Success message!
+          </PureAlert>
+          <PureAlert type="error" className="w-full mb-2">
+            Error message!
+          </PureAlert>
+          <PureAlert type="warning" className="w-full">
+            Warning message!
+          </PureAlert>
+          <Alert type="success" open={alertOpen} onClose={() => setAlertOpen(false)} className="w-full mb-2">
+            Success message!
+          </Alert>
         </div>
         <div className="flex mb-10 mx-2">
           <PureNotification className="w-full">
@@ -96,12 +116,14 @@ const HomePage = () => {
           <Rating defaultStar={4} max={10} className="mb-2" />
         </div>
         <div className="flex flex-wrap justify-start items-center mb-10 mx-2">
-          <Radio name="same_name" className="mr-2" />
+          <Radio name="same_name" className="mr-2" defaultChecked />
           <Checkbox className="mr-2" defaultChecked />
           <Switch className="mr-2" defaultChecked />
-          <Button className="mr-2" circle><Icon name="globe" /></Button>
+        </div>
+        <div className="flex flex-wrap justify-start items-center mb-10 mx-2">
           <Button className="mr-2" onClick={() => setConfirmOpen(true)}>Confirm</Button>
-          <Button onClick={() => setNotificationOpen(true)}>Notification</Button>
+          <Button className="mr-2" onClick={() => setNotificationOpen(true)}>Notification</Button>
+          <Button onClick={() => setAlertOpen(true)}>Alert</Button>
         </div>
       </div>
       <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">

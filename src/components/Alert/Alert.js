@@ -2,15 +2,12 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 
 import Portal from '../Portal';
-import PureNotification from '../PureNotification';
-
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+import PureAlert from '../PureAlert';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
-require('./Notification.scss');
+require('./Alert.scss');
 
-const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
-  const onBellClick = useCallback(() => onClose(), [onClose]);
+const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
   const delayOpen = useSupportCloseAnimation(open);
 
   useEffect(() => {
@@ -24,13 +21,13 @@ const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-notification', { 'rc-notification--close-animation': !open })}>
-            <PureNotification
-              onBellClick={onBellClick}
+          <div className={cn('rc-alert', { 'rc-alert--close-animation': !open })}>
+            <PureAlert
+              onClose={onClose}
               {...otherProps}
             >
               {children}
-            </PureNotification>
+            </PureAlert>
           </div>
         </Portal>
       )}
@@ -38,9 +35,9 @@ const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
   );
 };
 
-Notification.defaultProps = {
+Alert.defaultProps = {
   onClose: f => f,
   duration: 3000,
 };
 
-export default Notification;
+export default Alert;
