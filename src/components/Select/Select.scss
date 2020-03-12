@@ -73,11 +73,12 @@
   max-height: 20em;
   overflow: scroll;
   border-radius: $border-radius;
-  animation: zoomIn 0.25s;
+  animation: zoomIn 0.125s;
+  z-index: 1050;
 }
 
 .rc-select-dropdown--close-animation {
-  animation: zoomOut 0.5s;
+  animation: zoomOut 0.25s;
 }
 
 // DARK MODE SUPPORT

@@ -43,7 +43,7 @@ const Select = ({ className, label, children, defaultValue, onChange, ...otherPr
   const delayIsDrop = useSupportCloseAnimation(isDrop);
   const options = useMemo(() => mapToObject(React.Children.map(children, elm => ({ value: elm.props.value, label: elm.props.children }))), [children]);
 
-  const { pageX, pageY, clientHeight, clientWidth } = usePosition(ref);
+  const { pageX, pageY, clientHeight, clientWidth } = usePosition(ref, [isDrop]);
 
   return (
     <React.Fragment>

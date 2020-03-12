@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import getPosition from '../utils/getPosition';
 
-export default (ref) => {
+export default (ref, tracking = []) => {
   const [pageX, setPageX] = useState(0);
   const [pageY, setPageY] = useState(0);
   const [clientWidth, setClientWidth] = useState(0);
@@ -13,7 +13,7 @@ export default (ref) => {
     setPageY(position.pageY);
     setClientWidth(position.clientWidth);
     seClienttHeight(position.clientHeight);
-  }, []);
+  }, tracking);
 
   return useMemo(() => ({
     pageX,

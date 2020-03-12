@@ -10,6 +10,7 @@ import Switch from '../../components/Switch';
 import Radio from '../../components/Radio';
 import Progress from '../../components/Progress';
 import PureConfirm from '../../components/PureConfirm';
+import PureDrawer from '../../components/PureDrawer'
 import DarkModeToggle from '../../components/DarkModeToggle';
 import ScrollUp from '../../components/ScrollUp';
 import PureNotification from '../../components/PureNotification';
@@ -20,6 +21,7 @@ import Portal from '../../components/Portal';
 import Confirm from '../../components/Confirm';
 import Notification from '../../components/Notification';
 import Alert from '../../components/Alert';
+import Drawer from '../../components/Drawer';
 
 require('./HomePage.scss');
 
@@ -48,6 +50,7 @@ const HomePage = () => {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <div className="flex flex-wrap min-h-screen sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex">
@@ -55,9 +58,9 @@ const HomePage = () => {
       <ScrollUp />
       <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">
         <div className="mt-2 mb-10 flex items-end justify-start mx-2">
-          <Progress percent={0.32} r={20} className="mr-2" />
-          <Progress percent={0.69} className="mr-2" />
-          <Progress percent={0.9} r={30} />
+          <Progress percent={0.32} r={15} className="mr-2" />
+          <Progress percent={0.69} r={20} className="mr-2" />
+          <Progress percent={0.9} r={25} />
         </div>
         <div className="mb-10 flex justify-start mx-2">
           <Pagination total={500} pageSize={5} max={9} defaultCurrentPage={15} />
@@ -95,6 +98,20 @@ const HomePage = () => {
             Hello sweet!
           </Notification>
         </div>
+        <div className="flex mb-10 mx-2">
+          <Drawer header="The Header Of Drawer" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+            <Textbox className="w-full mb-2" label="Textbox" placeholder="placeholder..." />
+            <Textbox className="w-full mb-2" label="Password" color="blue" placeholder="placeholder..." type="password" />
+            <Textarea className="w-full mb-2" label="Textarea" placeholder="placeholder..." />
+            <Select className="w-full mb-2" defaultValue="option-2" label="Select Box">
+              <Select.Option value="option-1">Option One</Select.Option>
+              <Select.Option value="option-2">Option Two</Select.Option>
+              <Select.Option value="option-3">Option Three</Select.Option>
+              <Select.Option value="option-4">Option Four</Select.Option>
+              <Select.Option value="option-5">Option Five</Select.Option>
+            </Select>
+          </Drawer>
+        </div>
       </div>
       <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
         <div className="mt-2 mb-10 mx-2">
@@ -120,16 +137,18 @@ const HomePage = () => {
         </div>
         <div className="flex flex-wrap justify-start items-center mb-10 mx-2">
           <Button className="mr-2" onClick={() => setConfirmOpen(true)}>Confirm</Button>
-          <Button className="mr-2" onClick={() => setNotificationOpen(true)}>Notification</Button>
-          <Button onClick={() => setAlertOpen(true)}>Alert</Button>
+          <Button className="mr-2" onClick={() => setNotificationOpen(true)}>Notify</Button>
+          <Button className="mr-2" onClick={() => setAlertOpen(true)}>Alert</Button>
+          <Button onClick={() => setDrawerOpen(true)}>Drawer</Button>
         </div>
       </div>
       <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">
-        <div className="mx-2">
-          {/* <DatePicker label="Date Picker" /> */}
+        <div className="mx-2 mt-2">
+          
         </div>
       </div>
-      <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-wrap self-start">
+      <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">
+
       </div>
     </div>
   );

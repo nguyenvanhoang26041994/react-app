@@ -1,0 +1,29 @@
+@import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
+
+.rc-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+
+  .rc-pure-drawer {
+    position: absolute;
+    right: 0;
+    animation: slideInRight 0.5s;
+    
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+.rc-drawer--close-animation {
+  background-color: transparent;
+
+  .rc-pure-drawer {
+    animation: slideOutRight 0.5s;
+  }
+}
