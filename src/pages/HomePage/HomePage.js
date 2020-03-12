@@ -19,6 +19,7 @@ import Slider from '../../components/Slider';
 import Portal from '../../components/Portal';
 import Pin from '../../components/Pin';
 import Confirm from '../../components/Confirm';
+import Notification from '../../components/Notification';
 
 require('./HomePage.scss');
 
@@ -45,6 +46,7 @@ const icons = [
 
 const HomePage = () => {
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [notificationOpen, setNotificationOpen] = useState(false);
 
   return (
     <div className="flex flex-wrap min-h-screen sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex">
@@ -68,7 +70,12 @@ const HomePage = () => {
           </Confirm>
         </div>
         <div className="flex mb-10 mx-2">
-          <PureNotification className="w-full">Hello sweet</PureNotification>
+          <PureNotification className="w-full">
+            Hello sweet!
+          </PureNotification>
+          <Notification open={notificationOpen} onClose={() => setNotificationOpen(false)}>
+            Hello sweet!
+          </Notification>
         </div>
       </div>
       <div className="flex flex-col w-full sm:w-full md:w-full lg:w-full xl:w-1/4">
@@ -93,8 +100,8 @@ const HomePage = () => {
           <Checkbox className="mr-2" defaultChecked />
           <Switch className="mr-2" defaultChecked />
           <Button className="mr-2" circle><Icon name="globe" /></Button>
-          <ProgressButton className="mr-2" icon="heart" />
-          <Button onClick={() => setConfirmOpen(true)}>Confirm</Button>
+          <Button className="mr-2" onClick={() => setConfirmOpen(true)}>Confirm</Button>
+          <Button onClick={() => setNotificationOpen(true)}>Notification</Button>
         </div>
       </div>
       <div className="w-full sm:w-full md:w-full lg:w-full xl:w-1/4 flex flex-col">

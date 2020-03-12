@@ -1,0 +1,22 @@
+@import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
+
+.rc-notification {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 1000;
+
+  .rc-pure-notification {
+    animation: zoomIn 0.5s;
+    transform: translate(-50%, 0.75em);
+  }
+}
+
+.rc-notification--close-animation {
+  .rc-pure-notification {
+    animation: zoomOut 0.5s;
+  }
+}
