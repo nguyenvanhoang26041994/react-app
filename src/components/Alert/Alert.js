@@ -23,7 +23,7 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
         <Portal>
           <div className={cn('rc-alert', { 'rc-alert--close-animation': !open })}>
             <PureAlert
-              onClose={onClose}
+              onCloseClick={onClose}
               {...otherProps}
             >
               {children}
