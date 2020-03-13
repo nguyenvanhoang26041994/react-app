@@ -3,13 +3,12 @@
 
 .rc-menubar-wrapper {
   box-sizing: border-box;
-  height: 5.5em;
+  height: 6em;
 }
 
 .rc-menubar {
-  color: #fff;
   position: fixed;
-  bottom: 0;
+  top: 0;
   z-index: 100;
   height: inherit;
   width: 100%;

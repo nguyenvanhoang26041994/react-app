@@ -5,9 +5,18 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: $background-color-dark-mode;
   padding: 0 1.5em;
   border-radius: 0.25em;
   height: 4.5rem;
   min-width: 20em;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-menubar-user {
+    background: #595959;
+    box-shadow:  20px 20px 60px #4c4c4c, -20px -20px 60px #666666;
+  }
 }

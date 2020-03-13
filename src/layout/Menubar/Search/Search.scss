@@ -4,11 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $background-color-dark-mode;
   padding: 0.75em 1.5em;
   border-radius: 0.25em;
   height: 4.5rem;
   min-width: 4.5em;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 
   > input[type=search] {
     outline: 0 !important;
@@ -27,5 +28,13 @@
       display: block;
       width: 30em;
     }
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-menubar-search {
+    background: #595959;
+    box-shadow:  20px 20px 60px #4c4c4c, -20px -20px 60px #666666;
   }
 }
