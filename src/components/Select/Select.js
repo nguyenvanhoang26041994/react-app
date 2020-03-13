@@ -17,7 +17,7 @@ const mapToObject = arr => arr.reduce((rs, item) => {
   return rs;
 }, {});
 
-const Select = ({ className, label, children, defaultValue, onChange, ...otherProps }) => {
+const Select = ({ className, label, children, defaultValue, error, placeholder, onChange, ...otherProps }) => {
   const [value, setValue] = useState(defaultValue);
   const [isDrop, setIsDrop] = useState(false);
   const ref = useRef();
@@ -60,10 +60,13 @@ const Select = ({ className, label, children, defaultValue, onChange, ...otherPr
         {...otherProps}
       >
         <div className="rc-select-input" onClick={toggleIsDrop}>
-          {options[value]}
+          {options[value] || placeholder}
           <Icon name="chevron-down" className="rc-select-icon" />
         </div>
-        {label && (<label className="rc-select-label">{label}</label>)}
+        <div className="rc-select-header">
+          {label && (<label className="rc-select-label">{label}</label>)}
+          {error && (<div className="rc-select-error">{error}</div>)}
+        </div>
       </div>
       {delayIsDrop && (
         <Portal>

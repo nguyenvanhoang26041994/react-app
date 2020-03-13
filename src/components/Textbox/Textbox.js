@@ -11,7 +11,7 @@ const mSizes = Object.freeze({
   large: 'rc-textbox--large',
 });
 
-const Textbox = ({ type, placeholder, label, className, onFocus, size, ...otherProps }) => {
+const Textbox = ({ type, placeholder, label, className, error, require, onFocus, size, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
@@ -40,9 +40,13 @@ const Textbox = ({ type, placeholder, label, className, onFocus, size, ...otherP
         type={type}
         placeholder={placeholder}
         onFocus={_onFocus}
+        require={require}
         {...otherProps}
       />
-      {label && (<label className="rc-textbox-label">{label}</label>)}
+      <div className="rc-textbox-header">
+        {label && (<label className="rc-textbox-label">{label}</label>)}
+        {error && (<div className="rc-textbox-error">{error}</div>)}
+      </div>
     </div>
   );
 };

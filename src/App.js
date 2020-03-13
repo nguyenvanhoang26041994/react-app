@@ -5,6 +5,7 @@ import loadable from './utils/loadable';
 import Layout from './layout/Layout';
 
 const HomePage = loadable(() => import('./pages/HomePage'));
+const FormDocumentPage = loadable(() => import('./pages/FormDocumentPage'));
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Layout>
         <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/document/form" component={FormDocumentPage} />
             <Route path="" component={HomePage} />
           </Switch>
       </Layout>

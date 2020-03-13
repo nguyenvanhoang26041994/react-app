@@ -11,7 +11,7 @@ const mSizes = Object.freeze({
   large: 'rc-textarea--large',
 });
 
-const Textarea = ({ type, label, textareaRef, className, onFocus, size, ...otherProps }) => {
+const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
@@ -41,7 +41,10 @@ const Textarea = ({ type, label, textareaRef, className, onFocus, size, ...other
         ref={textareaRef}
         {...otherProps}
       />
-      {label && (<label className="rc-textarea-label">{label}</label>)}
+      <div className="rc-textarea-header">
+        {label && (<label className="rc-textarea-label">{label}</label>)}
+        {error && (<div className="rc-textarea-error">{error}</div>)}
+      </div>
     </div>
   );
 }

@@ -1,17 +1,18 @@
 import React from 'react';
 import cn from 'classnames';
 
-import Avatar from '../../../components/Avatar';
-import Icon from '../../../components/Icon';
+import DarkModeToggle from '../../../components/DarkModeToggle';
 
 require('./SystemInfo.scss');
 
 const SystemInfo = ({ className }) => {
   return (
     <div className={cn('rc-menubar-system-info', className)}>
-      <h2 className="text-xl mr-5">FRI</h2>
-      <h3 className="text-sm mr-5">10:45 PM</h3>
-      <h2 className="text-sm">MAR 13</h2>
+      <DarkModeToggle className="mr-5"/>
+      <div className="flex flex-col">
+        <h2 className="mr-5">FRI, MAR 13</h2>
+        <h3 className="text-sm mr-5">10:45 PM</h3>
+      </div>
     </div>
   );
 };

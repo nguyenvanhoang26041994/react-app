@@ -9,14 +9,13 @@
   padding: 0.5em 1em;
   transition: all 0.25s;
   background-color: #f9f9f9;
-  // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
   &:hover,
   &.rc-textbox--focus  {
     background-color: $primary-color;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
-    .rc-textbox-label {
+    .rc-textbox-label,
+    .rc-textbox-error {
       color: #fff;
     }
 
@@ -31,8 +30,13 @@
   font-weight: 500;
   display: flex;
   align-items: center;
-  color: #000;
   user-select: none;
+}
+
+.rc-textbox-error {
+  font-size: 0.85em;
+  font-style: italic;
+  color: $error-color;
 }
 
 .rc-textbox > input {

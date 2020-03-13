@@ -11,11 +11,6 @@
   transition: all 0.25s;
   background-color: #f9f9f9;
   user-select: none;
-  // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
-
-  &:hover {
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
-  }
 
   &:hover,
   &.rc-select--drop  {
@@ -26,6 +21,7 @@
     }
 
     .rc-select-label,
+    .rc-select-error,
     .rc-select-input {
       color: #fff;
     }
@@ -65,10 +61,15 @@
   user-select: none;
 }
 
+.rc-select-error {
+  font-size: 0.85em;
+  font-style: italic;
+  color: $error-color;
+}
+
 // DROP DOWN
 .rc-select-dropdown {
   position: absolute;
-  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
   background-color: $form-input-bg-color;
   max-height: 20em;
   overflow: scroll;
@@ -97,7 +98,7 @@
   }
 
   .rc-select-dropdown {
-    background-color: #595959;
+    background-color: $background-color-dark-mode;
     color: #fff;
   }
 }

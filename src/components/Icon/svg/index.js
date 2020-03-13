@@ -23,6 +23,7 @@ const icons = {
   'star': require('./star').default,
   'comments': require('./comments').default,
   'power-off': require('./power-off').default,
+  'keyboard': require('./keyboard').default,
 };
 
 export default icons;

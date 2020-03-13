@@ -9,14 +9,13 @@
   padding: 0.5em 1em;
   background-color: #f9f9f9;
   transition: all 0.25s;
-  // box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
 
   &:hover,
   &.rc-textarea--focus  {
     background-color: $primary-color;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
     .rc-textarea-label,
+    .rc-textarea-error,
     > textarea {
       color: #fff;
     }
@@ -30,6 +29,12 @@
   align-items: center;
   color: #000;
   user-select: none;
+}
+
+.rc-textarea-error {
+  font-size: 0.85em;
+  font-style: italic;
+  color: $error-color;
 }
 
 .rc-textarea > textarea {
