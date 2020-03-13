@@ -1,0 +1,16 @@
+.rc-blur {
+  display: none;
+  background-image: url('https://www.marinareservation.com/articles/wp-content/uploads/2016/07/Heringsdorf-Pier-cover.jpg');
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+.dark-mode .rc-blur {
+  display: block;
+}

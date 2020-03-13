@@ -1,0 +1,12 @@
+@import '../../../scss/vars.scss';
+
+.rc-menubar-system-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: $background-color-dark-mode;
+  padding: 0.75em 1.5em;
+  border-radius: 0.25em;
+  height: 4.5em;
+  min-width: 10em;
+}

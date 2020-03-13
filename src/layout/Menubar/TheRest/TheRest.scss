@@ -1,0 +1,13 @@
+@import '../../../scss/vars.scss';
+
+.rc-menubar-the-rest {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: $background-color-dark-mode;
+  padding: 0 1.5em;
+  border-radius: 0.25em;
+  flex-grow: 1;
+  height: 4.5rem;
+}

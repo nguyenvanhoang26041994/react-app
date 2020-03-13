@@ -1,0 +1,18 @@
+@import '../../scss/vars.scss';
+@import '../../scss/animation.scss';
+
+.rc-avatar {
+  height: 3.5em;
+  width: 3.5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.rc-avatar--square {
+  border-radius: $border-radius;
+}
+
+.rc-avatar--circle {
+  border-radius: 100em;
+}

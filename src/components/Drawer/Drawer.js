@@ -5,6 +5,7 @@ import Portal from '../Portal';
 import PureDrawer from '../PureDrawer';
 
 import useOnClickOutside from '../../hooks/useOnClickOutside';
+import useOnClickOutsideIgnore from '../../hooks/useOnClickOutsideIgnore';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
 require('./Drawer.scss');
@@ -18,7 +19,7 @@ const Drawer = ({ children, onClose, open, canOutsideClickClose, ...otherProps }
     }
   }, [canOutsideClickClose]);
 
-  // useOnClickOutside(drawerRef, handleClickOutside);
+  useOnClickOutside(drawerRef, handleClickOutside);
   const delayOpen = useSupportCloseAnimation(open);
 
   return (

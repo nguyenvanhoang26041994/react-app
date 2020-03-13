@@ -2,18 +2,19 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import loadable from './utils/loadable';
 
-import Dock from './components/Dock';
+import Layout from './layout/Layout';
 
 const HomePage = loadable(() => import('./pages/HomePage'));
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="" component={HomePage} />
-      </Switch>
-      {/* <Dock /> */}
+      <Layout>
+        <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="" component={HomePage} />
+          </Switch>
+      </Layout>
     </BrowserRouter>
   );
 };

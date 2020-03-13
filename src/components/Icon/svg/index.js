@@ -21,6 +21,8 @@ const icons = {
   'chevron-right': require('./chevron-right').default,
   'times': require('./times').default,
   'star': require('./star').default,
+  'comments': require('./comments').default,
+  'power-off': require('./power-off').default,
 };
 
 export default icons;

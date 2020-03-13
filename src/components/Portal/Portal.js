@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const defaultNode = document.body;
+const rootPortal = document.createElement('div');
+rootPortal.id = 'root-portal';
+document.body.appendChild(rootPortal);
+const defaultNode = rootPortal;
 
 class Portal extends React.Component {
   render() {
