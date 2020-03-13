@@ -1,0 +1,11 @@
+.rc-action-button {
+  font-size: 1.25rem;
+  box-shadow: none;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-action-button:not(:hover) {
+    background-color: #656565;
+  }
+}

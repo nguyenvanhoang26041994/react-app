@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import Button from '../Button';
-import Icon from '../Icon';
+
+import ActionButton from '../ActionButton';
 
 require('./DarkModeToggle.scss');
 
@@ -24,9 +24,7 @@ const DarkModeToggle = ({ className }) => {
   }, [isDark]);
 
   return (
-    <Button circle className={cn('rc-dark-mode-button', className)} onClick={handleToogleDarkMode}>
-      <Icon name={isDark ? 'sun' : 'moon-stars' } />
-    </Button>
+    <ActionButton className={className} onClick={handleToogleDarkMode} icon={isDark ? 'sun' : 'moon-stars' } />
   );
 };
 
