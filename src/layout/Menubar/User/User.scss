@@ -3,12 +3,11 @@
 .rc-menubar-user {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  padding: 0 1.5em;
-  border-radius: 0.25em;
+  padding: 0 1.5em 0 0.75em;
+  border-radius: 100em;
   height: 4.5rem;
-  min-width: 19em;
+  width: 20em;
   background: #ffffff;
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }

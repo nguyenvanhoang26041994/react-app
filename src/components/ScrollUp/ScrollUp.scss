@@ -1,12 +1,7 @@
-.rc-scroll-up.rc-scroll-up {
-  font-size: 1rem;
-  background-color: #fff;
-  color: #000;
-  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
-
+.rc-scroll-up {
   position: fixed;
   bottom: 0;
   right: 0;
-  transform: translate(-1em, -4em);
+  transform: translate(-1em, -1em);
   z-index: 10;
 }
