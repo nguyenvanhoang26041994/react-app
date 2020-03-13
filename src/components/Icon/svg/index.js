@@ -24,6 +24,8 @@ const icons = {
   'comments': require('./comments').default,
   'power-off': require('./power-off').default,
   'keyboard': require('./keyboard').default,
+  'mouse': require('./mouse').default,
+  'desktop': require('./desktop').default,
 };
 
 export default icons;

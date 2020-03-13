@@ -6,6 +6,8 @@ import Layout from './layout/Layout';
 
 const HomePage = loadable(() => import('./pages/HomePage'));
 const FormDocumentPage = loadable(() => import('./pages/FormDocumentPage'));
+const CommonDocumentPage = loadable(() => import('./pages/CommonDocumentPage'));
+const DisplayDocumentPage = loadable(() => import('./pages/DisplayDocumentPage'));
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/document/form" component={FormDocumentPage} />
+            <Route exact path="/document/common" component={CommonDocumentPage} />
+            <Route exact path="/document/display" component={DisplayDocumentPage} />
             <Route path="" component={HomePage} />
           </Switch>
       </Layout>

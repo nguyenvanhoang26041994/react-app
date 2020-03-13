@@ -17,7 +17,7 @@ const User = ({ className, avatarUrl, name }) => {
           <Icon name="power-off" className="mr-5" />
           <Icon name="ellipsis-h" />
         </div>
-        <a className="rc-menubar-user-name mt-1">{name}</a>
+        <a className="rc-menubar-user-name mt-3">{name}</a>
       </div>
     </div>
   );

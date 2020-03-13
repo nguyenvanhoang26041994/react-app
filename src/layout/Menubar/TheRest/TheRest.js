@@ -14,6 +14,8 @@ const TheRest = ({ className, avatarUrl, name }) => {
     <div className={cn('rc-menubar-the-rest', className)}>
       <ActionButton className="mr-3" icon="home" onClick={() => push('/')} />
       <ActionButton className="mr-3" icon="keyboard" onClick={() => push('/document/form')} />
+      <ActionButton className="mr-3" icon="mouse" onClick={() => push('/document/common')} />
+      <ActionButton className="mr-3" icon="desktop" onClick={() => push('/document/display')} />
       <ActionButton className="mr-3" icon="heart" />
     </div>
   );
