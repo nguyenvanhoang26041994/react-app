@@ -9,6 +9,7 @@
   padding: 0.5em 1em;
   background-color: $root-bg-color;
   transition: all 0.25s;
+  box-shadow: $neumorphism;
 
   &:hover,
   &.rc-textarea--focus {

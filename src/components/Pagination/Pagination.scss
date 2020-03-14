@@ -26,16 +26,13 @@
   border-radius: 100em;//$border-radius;
   cursor: pointer;
   transition: color 0, background-color 0.25s;
+  background-color: $root-bg-color;
+  box-shadow: $neumorphism;
 
   &:hover {
     background-color: $primary-color;
     color: #fff;
-  }
-}
-
-.rc-pagination-item {
-  > * {
-    transform: translateY(0.1125em);
+    box-shadow: none;
   }
 }
 
@@ -65,9 +62,10 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-pagination-item,
-  .rc-pagination-next,
-  .rc-pagination-prev {
-    color: #fff;
+  .rc-pagination-item:not(:hover),
+  .rc-pagination-next:not(:hover),
+  .rc-pagination-prev:not(:hover) {
+    background-color: $root-darkmode-bg-color;
+    box-shadow: $neumorphism-darkmode;
   }
 }

@@ -9,8 +9,9 @@
   border-radius: $border-radius;
   padding: 0.5em 1em;
   transition: all 0.25s;
-  background-color: $root-bg-color;
   user-select: none;
+  background-color: $root-bg-color;
+  box-shadow: $neumorphism;
 
   &:hover,
   &.rc-select--drop {
@@ -63,6 +64,7 @@
 .rc-select-dropdown {
   position: absolute;
   background-color: $root-bg-color;
+  box-shadow: $neumorphism;
   max-height: 20em;
   overflow: scroll;
   border-radius: $border-radius;
@@ -89,9 +91,6 @@
 
   .rc-select-dropdown {
     background-color: $root-darkmode-bg-color;
-
-    &:hover {
-      background-color: $background-color-dark-mode;
-    }
+    box-shadow: $neumorphism-darkmode;
   }
 }

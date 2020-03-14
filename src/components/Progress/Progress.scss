@@ -6,6 +6,7 @@
   user-select: none;
   transition: all 0.25s;
   background-color: inherit;
+  box-shadow: $neumorphism;
 
   &:hover {
     background-color: $primary-color;
@@ -55,6 +56,10 @@ circle.rc-progress-percent {
 
 // DARK MODE SUPPORT
 .dark-mode {
+  .rc-progress {
+    box-shadow: $neumorphism-darkmode;
+  }
+
   .rc-progress:not(:hover) {
     circle.rc-progress-percent {
       stroke: $primary-color;

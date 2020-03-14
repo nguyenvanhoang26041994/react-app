@@ -17,23 +17,15 @@ const mapToObject = arr => arr.reduce((rs, item) => {
   return rs;
 }, {});
 
-const Select = ({ className, label, children, defaultValue, error, placeholder, onChange, ...otherProps }) => {
-  const [value, setValue] = useState(defaultValue);
-  const [isDrop, setIsDrop] = useState(false);
+const Tooltip = ({ className, label, children, ...otherProps }) => {
+  const [visible, setVisible] = useState(false);
   const ref = useRef();
-  const dropdownRef = useRef();
-
-  const toggleIsDrop = useCallback(() => setIsDrop(prev => !prev), [setIsDrop]);
-  const handleOptionSelected = useCallback(val => {
-    setValue(val);
-    setIsDrop(false);
-  }, [setValue, setIsDrop]);
 
   const handleClickOutside = useCallback(e => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setIsDrop(false);
+    if (ref.current && !ref.current.contains(e.target)) {
+      setVisible(false);
     }
-  }, [ref, setIsDrop]);
+  }, [ref, setVisible]);
 
   useEffect(() => {
     onChange(value);
@@ -70,7 +62,7 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
         <Portal>
           <div
             ref={dropdownRef}
-            className={cn('rc-select-dropdown', { 'rc-select-dropdown--close-animation': !isDrop })}
+            className={cn('rc-select-dropdown neumorphism', { 'rc-select-dropdown--close-animation': !isDrop })}
             style={{ left: pageX, top: pageY, width: clientWidth }}
           >
             <ul>

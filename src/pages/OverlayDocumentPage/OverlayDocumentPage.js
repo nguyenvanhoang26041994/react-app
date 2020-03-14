@@ -58,7 +58,7 @@ const OverlayDocumentPage = ({ children }) => {
       <div className="w-1/4 px-2">
         <Button className="mb-3 mr-3">DRAWER</Button>
         <Button className="mb-3" onClick={() => setDrawerOpen(true)}>Open Drawer</Button>
-        <PureDrawer header="Neumorphism Design">
+        <PureDrawer header="Neumorphism Design" className="neumorphism">
           Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
         </PureDrawer>
         <Drawer header="Neumorphism Design" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>

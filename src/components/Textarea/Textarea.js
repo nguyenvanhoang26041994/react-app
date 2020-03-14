@@ -28,7 +28,7 @@ const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, .
     <div
       ref={ref}
       className={cn(
-        'rc-textarea neumorphism',
+        'rc-textarea',
         mSizes[size],
         {
           'rc-textarea--focus': isFocus,

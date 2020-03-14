@@ -26,7 +26,7 @@ const Progress = ({ className, percent, r }) => {
 
   return (
     <div
-      className={cn('rc-progress neumorphism', className)}
+      className={cn('rc-progress', className)}
       style={{ width: `${4 * r + 10}px`, height: `${4 * r + 10}px`}}
     >
       <svg className="rc-progress-svg">
