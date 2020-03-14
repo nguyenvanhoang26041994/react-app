@@ -40,16 +40,16 @@ const OverlayDocumentPage = ({ children }) => {
         <Button className="mb-3 mr-3 mt-20">ALERT</Button>
         <Button onClick={() => setAlertOpen(true)}>Open Alert</Button>
         <PureAlert className="w-full mb-3">
-          Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
+          Neumorphism Design
         </PureAlert>
         <PureAlert type="success" className="w-full mb-3">
-          Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
+          Neumorphism Design
         </PureAlert>
         <PureAlert type="error" className="w-full mb-3">
-          Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
+          Neumorphism Design
         </PureAlert>
         <PureAlert type="warning" className="w-full mb-3">
-          Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
+          Neumorphism Design
         </PureAlert>
         <Alert open={isAlertOpen} onClose={() => setAlertOpen(false)} className="w-full mb-3">
           Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?

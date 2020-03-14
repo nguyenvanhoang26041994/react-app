@@ -15,14 +15,14 @@ const PureConfirm = ({
   ...otherProps
 }) => {
   return (
-    <div className={cn('rc-pure-confirm neumorphism', className)} ref={confirmRef} {...otherProps}>
+    <div className={cn('rc-pure-confirm', className)} ref={confirmRef} {...otherProps}>
       <div className="rc-pure-confirm-inside-wraper">
         <div className="rc-pure-confirm-header">{header}</div>
         <div className="rc-pure-confirm-content">{children}</div>
       </div>
       <div className="rc-pure-confirm-buttons">
-        <Button className="rc-pure-confirm-ok" onClick={onOkClick}>OK</Button>
-        <Button className="rc-pure-confirm-cancel" onClick={onCancelClick}>Cancel</Button>
+        <span className="rc-pure-confirm-cancel" onClick={onCancelClick}>Cancel</span>
+        <span className="rc-pure-confirm-ok" onClick={onOkClick}>OK</span>
       </div>
     </div>
   );

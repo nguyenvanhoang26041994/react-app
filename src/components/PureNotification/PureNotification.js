@@ -15,7 +15,7 @@ const PureNotification = ({
   ...otherProps
 }) => {
   return (
-    <div className={cn('rc-pure-notification neumorphism', className)} ref={notificationRef} {...otherProps}>
+    <div className={cn('rc-pure-notification', className)} ref={notificationRef} {...otherProps}>
       <div className="rc-pure-notification-inside-wraper">
         <div className="rc-pure-notification-content">{children}</div>
       </div>

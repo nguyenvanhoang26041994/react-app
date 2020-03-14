@@ -9,37 +9,21 @@
   border-radius: $border-radius;
   user-select: none;
   transition: all 0.25s;
-  max-width: 100vw;
-
-  &:hover {
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
-    background-color: $primary-color;
-    color: #fff;
-
-    .rc-pagination-item,
-    .rc-pagination-prev,
-    .rc-pagination-next {
-      &:hover {
-        background-color: #fff;
-        color: #000;
-      }
-    }
-
-    .rc-pagination-item--active {
-      background-color: #fff;
-      color: #000;
-    }
-  }
 }
 
 .rc-pagination-item,
 .rc-pagination-prev,
 .rc-pagination-next {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-right: 0.5em;
+  height: 2.125em;
+  min-width: 2.125em;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  border-radius: $border-radius;
+  border-radius: 100em;//$border-radius;
   cursor: pointer;
   transition: color 0, background-color 0.25s;
 
@@ -50,31 +34,25 @@
 }
 
 .rc-pagination-item {
-  margin: 0 0.0725em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  height: 2.125em;
-  min-width: 2.125em;
-
   > * {
     transform: translateY(0.1125em);
   }
 }
 
-.rc-pagination-item--active {
+.rc-pagination-item--active.rc-pagination-item--active {
   background-color: $primary-color;
   color: #fff;
+  box-shadow: none;
+}
+
+.rc-pagination-next {
+  margin-left: 0;
 }
 
 .rc-pagination-next,
 .rc-pagination-prev {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  height: 2.125em;
-  width: 2.125em;
-  padding: 0;
   transition: all 0.2s;
-  
+
   .rc-icon {
     font-size: 0.75em;
   }
@@ -82,10 +60,7 @@
 
 .rc-pagination-next--hidden,
 .rc-pagination-prev--hidden {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  margin: 0;
+  display: none;
 }
 
 // DARK MODE SUPPORT

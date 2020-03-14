@@ -49,7 +49,7 @@ const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPag
       )}
     >
       <li
-        className={cn('rc-pagination-prev', { 'rc-pagination-prev--hidden': currentFlag <= 1 })}
+        className={cn('rc-pagination-prev neumorphism', { 'rc-pagination-prev--hidden': currentFlag <= 1 })}
         onClick={onPrevItems}
       >
         <a><Icon name="chevron-left" /></a>
@@ -59,7 +59,7 @@ const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPag
             key={pageNumber}
             className={
               cn(
-                'rc-pagination-item',
+                'rc-pagination-item neumorphism',
                 {
                   'rc-pagination-item--active': pageNumber === currentPage,
                 }
@@ -71,7 +71,7 @@ const Pagination = ({ className, total, pageSize, max, defaultCurrentPage, onPag
           </li>
         ))}
       <li
-        className={cn('rc-pagination-next', { 'rc-pagination-next--hidden': currentFlag >= maxCurrentFlag })}
+        className={cn('rc-pagination-next neumorphism', { 'rc-pagination-next--hidden': currentFlag >= maxCurrentFlag })}
         onClick={onNextItems}
       >
         <a><Icon name="chevron-right" /></a>
