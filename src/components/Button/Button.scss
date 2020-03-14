@@ -17,6 +17,7 @@
   touch-action: manipulation;
   cursor: pointer;
   transition: all 0.25s;
+  box-shadow: $neumorphism;
 
   &:hover:not(:disabled) {
     background-color: $primary-color;
@@ -24,8 +25,8 @@
     color: #fff;
   }
 
-  &:focus {
-    box-shadow: none;
+  &:focus:not(:hover) {
+    box-shadow: $neumorphism-inset;
   }
 
   &:disabled {
@@ -46,7 +47,15 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .neumorphism.rc-button--transparent:not(:hover) {
+  .rc-button {
+    box-shadow: $neumorphism-darkmode;
+
+    &:focus:not(:hover) {
+      box-shadow: $neumorphism-darkmode-inset;
+    }
+  }
+
+  .rc-button--transparent:not(:hover) {
     background-color: transparent;
     box-shadow: none;
   }

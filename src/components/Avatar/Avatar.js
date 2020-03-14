@@ -12,7 +12,7 @@ const mShape = Object.freeze({
 const Avatar = ({ className, src, shape, style, name, ...otherProps }) => {
   return (
     <div
-      className={cn('rc-avatar', { 'neumorphism rc-avatar--just-name': !src }, mShape[shape], className)}
+      className={cn('rc-avatar', { 'rc-avatar--neumorphism': !src }, mShape[shape], className)}
       style={{ backgroundImage: `url(${src})`, ...style }}
       {...otherProps}
     >

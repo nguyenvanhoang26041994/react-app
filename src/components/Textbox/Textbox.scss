@@ -11,8 +11,8 @@
   background-color: $root-bg-color;
 
   &:hover,
-  &.rc-textbox--focus  {
-    background-color: #ffffff;
+  &.rc-textbox--focus {
+    box-shadow: $neumorphism-inset;
   }
 }
 
@@ -50,9 +50,12 @@
 .dark-mode {
   .rc-textbox {
     background-color: $root-darkmode-bg-color;
+    box-shadow: $neumorphism-darkmode;
 
-    &:hover {
-      background-color: $background-color-dark-mode;
+    &:hover,
+    &.rc-textbox--focus {
+      background-color: $root-darkmode-bg-color;
+      box-shadow: $neumorphism-darkmode-inset;
     }
   }
 }

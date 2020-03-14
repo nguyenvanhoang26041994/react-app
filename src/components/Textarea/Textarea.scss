@@ -11,8 +11,8 @@
   transition: all 0.25s;
 
   &:hover,
-  &.rc-textarea--focus  {
-    background-color: #ffffff;
+  &.rc-textarea--focus {
+    box-shadow: $neumorphism-inset;
   }
 }
 
@@ -46,9 +46,12 @@
 .dark-mode {
   .rc-textarea {
     background-color: $root-darkmode-bg-color;
-    
-    &:hover {
-      background-color: $background-color-dark-mode;
+    box-shadow: $neumorphism-darkmode;
+
+    &:hover,
+    &.rc-textarea--focus {
+      background-color: $root-darkmode-bg-color;
+      box-shadow: $neumorphism-darkmode-inset;
     }
   }
 }

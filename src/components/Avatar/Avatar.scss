@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.rc-avatar--neumorphism {
+  box-shadow: $neumorphism;
+}
+
 .rc-avatar-name {
   font-size: 1.5em;
 }
@@ -22,4 +26,11 @@
 
 .rc-avatar--circle {
   border-radius: 100em;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-avatar--neumorphism {
+    box-shadow: $neumorphism-darkmode;
+  }
 }

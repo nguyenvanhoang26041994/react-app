@@ -13,8 +13,8 @@
   user-select: none;
 
   &:hover,
-  &.rc-select--drop  {
-    background-color: #ffffff;
+  &.rc-select--drop {
+    box-shadow: $neumorphism-inset;
   }
 }
 
@@ -78,9 +78,12 @@
 .dark-mode {
   .rc-select {
     background-color: $root-darkmode-bg-color;
+    box-shadow: $neumorphism-darkmode;
 
-    &:hover {
-      background-color: $background-color-dark-mode;
+    &:hover,
+    &.rc-select--drop {
+      background-color: $root-darkmode-bg-color;
+      box-shadow: $neumorphism-darkmode-inset;
     }
   }
 

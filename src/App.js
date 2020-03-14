@@ -4,6 +4,8 @@ import loadable from './utils/loadable';
 
 import Layout from './layout/Layout';
 
+require('./scss/utils.scss');
+
 const HomePage = loadable(() => import('./pages/HomePage'));
 const FormDocumentPage = loadable(() => import('./pages/FormDocumentPage'));
 const CommonDocumentPage = loadable(() => import('./pages/CommonDocumentPage'));

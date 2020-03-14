@@ -6,7 +6,14 @@ require('./Button.scss');
 
 const Button = ({ className, circle, transparent, ...otherProps }) => (
   <button
-    className={cn('rc-button neumorphism', { 'rc-button--circle': circle, 'rc-button--transparent': transparent }, className)}
+    className={cn(
+      'rc-button',
+      {
+        'rc-button--circle': circle,
+        'rc-button--transparent': transparent,
+      },
+      className,
+    )}
     {...otherProps}
   />
 );

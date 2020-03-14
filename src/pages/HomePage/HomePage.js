@@ -1,29 +1,5 @@
 import React from 'react';
 
-import Button from '../../components/Button';
-import Textbox from '../../components/Textbox';
-import Textarea from '../../components/Textarea';
-import Select from '../../components/Select';
-import Icon from '../../components/Icon';
-import Pagination from '../../components/Pagination';
-import Checkbox from '../../components/Checkbox';
-import Switch from '../../components/Switch';
-import Radio from '../../components/Radio';
-import Progress from '../../components/Progress';
-import PureConfirm from '../../components/PureConfirm';
-import PureDrawer from '../../components/PureDrawer'
-import DarkModeToggle from '../../components/DarkModeToggle';
-import ScrollUp from '../../components/ScrollUp';
-import PureNotification from '../../components/PureNotification';
-import PureAlert from '../../components/PureAlert';
-import Rating from '../../components/Rating';
-import Slider from '../../components/Slider';
-import Portal from '../../components/Portal';
-import Confirm from '../../components/Confirm';
-import Notification from '../../components/Notification';
-import Alert from '../../components/Alert';
-import Drawer from '../../components/Drawer';
-
 export default () => {
 
   return (
