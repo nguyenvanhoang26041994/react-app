@@ -36,15 +36,13 @@ const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, .
         className,
       )}
     >
+      {error && (<div className="rc-textarea-error">{error}</div>)}
       <textarea
         onFocus={_onFocus}
         ref={textareaRef}
         {...otherProps}
       />
-      <div className="rc-textarea-header">
-        {label && (<label className="rc-textarea-label">{label}</label>)}
-        {error && (<div className="rc-textarea-error">{error}</div>)}
-      </div>
+      {label && (<label className="rc-textarea-label">{label}</label>)}
     </div>
   );
 }

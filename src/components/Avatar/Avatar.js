@@ -9,11 +9,12 @@ const mShape = Object.freeze({
   circle: 'rc-avatar--circle',
 });
 
-const Avatar = ({ className, src, shape }) => {
+const Avatar = ({ className, src, shape, style, ...otherProps }) => {
   return (
     <div
       className={cn('rc-avatar', mShape[shape], className)}
-      style={{ backgroundImage: `url(${src})` }}
+      style={{ backgroundImage: `url(${src})`, ...style }}
+      {...otherProps}
     />
   );
 };

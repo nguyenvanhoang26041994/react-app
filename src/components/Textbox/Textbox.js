@@ -36,6 +36,7 @@ const Textbox = ({ type, placeholder, label, className, error, require, onFocus,
         className,
       )}
     >
+      {error && (<div className="rc-textbox-error">{error}</div>)}
       <input
         type={type}
         placeholder={placeholder}
@@ -43,10 +44,7 @@ const Textbox = ({ type, placeholder, label, className, error, require, onFocus,
         require={require}
         {...otherProps}
       />
-      <div className="rc-textbox-header">
-        {label && (<label className="rc-textbox-label">{label}</label>)}
-        {error && (<div className="rc-textbox-error">{error}</div>)}
-      </div>
+      {label && (<label className="rc-textbox-label">{label}</label>)}
     </div>
   );
 };

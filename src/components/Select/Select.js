@@ -59,14 +59,12 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
         )}
         {...otherProps}
       >
+        {error && (<div className="rc-select-error">{error}</div>)}
         <div className="rc-select-input" onClick={toggleIsDrop}>
-          {options[value] || placeholder}
+          {options[value] || (<span className="rc-select-input-placeholder">{placeholder}</span>)}
           <Icon name="chevron-down" className="rc-select-icon" />
         </div>
-        <div className="rc-select-header">
-          {label && (<label className="rc-select-label">{label}</label>)}
-          {error && (<div className="rc-select-error">{error}</div>)}
-        </div>
+        {label && (<label className="rc-select-label">{label}</label>)}
       </div>
       {delayIsDrop && (
         <Portal>

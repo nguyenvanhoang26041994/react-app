@@ -8,7 +8,7 @@ require('./User.scss');
 
 const User = ({ className, avatarUrl, name }) => {
   return (
-    <div className={cn('rc-menubar-user', className)}>
+    <div className={cn('rc-menubar-user neumorphism', className)}>
       <Avatar src={avatarUrl} className="rc-user-avatar" />
       <div className="flex flex-col ml-4 justify-center items-center">
         <div className="flex py-2">

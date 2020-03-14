@@ -8,7 +8,7 @@ require('./Search.scss');
 
 const Search = ({ className, avatarUrl, name }) => {
   return (
-    <div className={cn('rc-menubar-search', className)}>
+    <div className={cn('rc-menubar-search neumorphism', className)}>
       <input type="search" />
       <Icon name="search" />
     </div>
