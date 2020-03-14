@@ -34,6 +34,10 @@
   }
 }
 
+.rc-button--transparent {
+  background-color: transparent;
+}
+
 .rc-button--circle {
   padding-left: 0;
   padding-right: 0;
@@ -42,7 +46,7 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-button:not(:hover) {
+  .rc-button:not(:hover):not(.rc-button--transparent) {
     background-color: $background-color-dark-mode;
     color: #fff;
   }

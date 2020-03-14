@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import Avatar from '../../../components/Avatar';
+import ActionButton from '../../../components/ActionButton';
 import Icon from '../../../components/Icon';
 
 require('./User.scss');
@@ -11,14 +12,11 @@ const User = ({ className, avatarUrl, name }) => {
     <div className={cn('rc-menubar-user neumorphism', className)}>
       <Avatar src={avatarUrl} className="rc-user-avatar" />
       <div className="flex flex-col ml-4 justify-center items-center">
-        <div className="flex py-2">
-          <Icon name="bell" className="mr-5" />
-          <Icon name="comments" className="mr-5" />
-          <Icon name="power-off" className="mr-5" />
-          <Icon name="ellipsis-h" />
-        </div>
         <a className="rc-menubar-user-name">{name}</a>
       </div>
+      <ActionButton transparent icon="bell" className="ml-2" />
+      <ActionButton transparent icon="comments" className="ml-2" />
+      <ActionButton transparent icon="power-off" className="ml-2" />
     </div>
   );
 };
