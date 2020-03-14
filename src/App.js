@@ -9,19 +9,21 @@ const FormDocumentPage = loadable(() => import('./pages/FormDocumentPage'));
 const CommonDocumentPage = loadable(() => import('./pages/CommonDocumentPage'));
 const DisplayDocumentPage = loadable(() => import('./pages/DisplayDocumentPage'));
 const OverlayDocumentPage = loadable(() => import('./pages/OverlayDocumentPage'));
+const SystemDesign = loadable(() => import('./pages/SystemDesign'));
 
 const App = () => {
   return (
     <BrowserRouter>
       <Layout>
         <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/document/form" component={FormDocumentPage} />
-            <Route exact path="/document/common" component={CommonDocumentPage} />
-            <Route exact path="/document/display" component={DisplayDocumentPage} />
-            <Route exact path="/document/overlay" component={OverlayDocumentPage} />
-            <Route path="" component={HomePage} />
-          </Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/ui-system" component={SystemDesign} />
+          <Route exact path="/document/form" component={FormDocumentPage} />
+          <Route exact path="/document/common" component={CommonDocumentPage} />
+          <Route exact path="/document/display" component={DisplayDocumentPage} />
+          <Route exact path="/document/overlay" component={OverlayDocumentPage} />
+          <Route path="" component={HomePage} />
+        </Switch>
       </Layout>
     </BrowserRouter>
   );

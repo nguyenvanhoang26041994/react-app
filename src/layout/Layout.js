@@ -7,7 +7,9 @@ const Layout = ({ children }) => {
     <div id="layout">
       <Menubar />
       <ScrollUp />
-      {children}
+      <main className="pt-10">
+        {children}
+      </main>
     </div>
   )
 };
