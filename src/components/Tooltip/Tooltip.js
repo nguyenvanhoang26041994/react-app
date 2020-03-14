@@ -1,96 +1,197 @@
-import React, { useCallback, useState, useRef, useEffect, useMemo } from 'react';
+import React, { useCallback, useState, useRef, useEffect, useMemo, createRef } from 'react';
+import ReactDOM from 'react-dom';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Icon from '../Icon';
 import Portal from '../Portal';
-import Option from './Option';
 
-import usePosition from '../../hooks/usePosition';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import getPosition from '../../utils/getPosition';
 
-require('./Select.scss');
+require('./Tooltip.scss');
 
-const mapToObject = arr => arr.reduce((rs, item) => {
-  rs[item.value] = item.label;
-  return rs;
-}, {});
+const renderPlacement = {
+  top: (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - overlayPosition.clientWidth / 2 + targetPosition.clientWidth / 2,
+      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
+    },
+  }),
+  'top-right': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - (overlayPosition.clientWidth - targetPosition.clientWidth),
+      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
+    },
+  }),
+  'right-top': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX + targetPosition.clientWidth + gap,
+      top: targetPosition.pageY,
+    },
+  }),
+  'right-bottom': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX + targetPosition.clientWidth + gap,
+      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight),
+    },
+  }),
+  'bottom-right': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - (overlayPosition.clientWidth - targetPosition.clientWidth),
+      top: targetPosition.pageY + targetPosition.clientHeight + gap,
+    },
+  }),
+  bottom: (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - overlayPosition.clientWidth / 2 + targetPosition.clientWidth / 2,
+      top: targetPosition.pageY + targetPosition.clientHeight + gap,
+    },
+  }),
+  'bottom-left': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX,
+      top: targetPosition.pageY + targetPosition.clientHeight + gap,
+    },
+  }),
+  'left-bottom': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
+      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight),
+    },
+  }),
+  left: (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
+      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight) / 2,
+    },
+  }),
+  'left-top': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
+      top: targetPosition.pageY,
+    },
+  }),
+  'top-left': (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX,
+      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
+    },
+  }),
+  right: (targetPosition, overlayPosition, gap) => ({
+    overlayStyle: {
+      left: targetPosition.pageX + targetPosition.clientWidth + gap,
+      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight) / 2,
+    },
+  }),
+};
 
-const Tooltip = ({ className, label, children, ...otherProps }) => {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef();
+const mPlacements = Object.freeze({
+  'top': 'rc-tooltip--top',
+  'top-right': 'rc-tooltip--top-right',
+  'right-top': 'rc-tooltip--right-top',
+  'right-bottom': 'rc-tooltip--right-bottom',
+  'bottom-right': 'rc-tooltip--bottom-right',
+  'bottom': 'rc-tooltip--bottom',
+  'bottom-left': 'rc-tooltip--bottom-left',
+  'left-bottom': 'rc-tooltip--left-bottom',
+  'left': 'rc-tooltip--left',
+  'left-top': 'rc-tooltip--left-top',
+  'top-left': 'rc-tooltip--top-left',
+  'right': 'rc-tooltip--right',
+});
 
-  const handleClickOutside = useCallback(e => {
-    if (ref.current && !ref.current.contains(e.target)) {
-      setVisible(false);
+class Tooltip extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    return renderPlacement[props.placement](state.targetPosition, state.overlayPosition, props.gap);
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: props.defaultVisible,
+      targetPosition: {
+        pageX: 0,
+        pageY: 0,
+        clientHeight: 0,
+        clientWidth: 0,
+      },
+      overlayPosition: {
+        pageX: 0,
+        pageY: 0,
+        clientHeight: 0,
+        clientWidth: 0,
+      },
+    };
+    this.ref = createRef();
+    this.setVisible = this.setVisible.bind(this);
+    this.setPosition = this.setPosition.bind(this);
+    this.renderPositionTooltip = this.renderPositionTooltip.bind(this);
+  }
+
+  componentDidMount() {
+    this.renderPositionTooltip();
+  
+    this._eventMouseEnterHandler = () => this.setVisible(true);
+    this._eventMouseLeaveHandler = () => this.setVisible(false);
+  
+    this.targetNode.addEventListener('mouseenter', this._eventMouseEnterHandler);
+    this.targetNode.addEventListener('mouseleave', this._eventMouseLeaveHandler);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.visible && this.state.visible !== prevState.visible) {
+      this.renderPositionTooltip();
     }
-  }, [ref, setVisible]);
+  }
 
-  useEffect(() => {
-    onChange(value);
-  }, [value]);
+  componentWillUnmount() {
+    this.targetNode.removeEventListener('mouseenter', this._eventMouseEnterHandler);
+    this.targetNode.removeEventListener('mouseleave', this._eventMouseLeaveHandler);
+  }
 
-  useOnClickOutside(ref, handleClickOutside);
-  const delayIsDrop = useSupportCloseAnimation(isDrop);
-  const options = useMemo(() => mapToObject(React.Children.map(children, elm => ({ value: elm.props.value, label: elm.props.children }))), [children]);
+  setVisible(val) {
+    this.setState({ visible: val });
+  }
 
-  const { pageX, pageY, clientHeight, clientWidth } = usePosition(ref, [isDrop]);
+  setPosition(position) {
+    this.setState({ targetPosition: position });
+  }
 
-  return (
-    <React.Fragment>
-      <div
-        ref={ref}
-        className={cn(
-          'rc-select',
-          {
-            'rc-select--drop': isDrop,
-            'rc-select--close-animation': !isDrop,
-          },
-          className,
+  setPositionOverlay(position) {
+    this.setState({ overlayPosition: position });
+  }
+
+  renderPositionTooltip() {
+    this.targetNode = this.targetNode || ReactDOM.findDOMNode(this);
+    this.targetNode && this.setPosition(getPosition(this.targetNode));
+    this.ref.current && this.setPositionOverlay(getPosition(this.ref.current));
+  }
+
+  render() {
+    const { className, children, label, placement, ...otherProps } = this.props;
+    const { visible, targetPosition, overlayPosition, overlayStyle } = this.state;
+
+    return (
+      <React.Fragment>
+        {children}
+        {visible && (
+          <Portal {...otherProps}>
+            <div
+              ref={this.ref}
+              className={cn('rc-tooltip', mPlacements[placement], { 'rc-tooltip--close-animation': !visible })}
+              style={overlayStyle}
+            >
+              {label}
+            </div>
+          </Portal>
         )}
-        {...otherProps}
-      >
-        {error && (<div className="rc-select-error">{error}</div>)}
-        <div className="rc-select-input" onClick={toggleIsDrop}>
-          {options[value] || (<span className="rc-select-input-placeholder">{placeholder}</span>)}
-          <Icon name="chevron-down" className="rc-select-icon" />
-        </div>
-        {label && (<label className="rc-select-label">{label}</label>)}
-      </div>
-      {delayIsDrop && (
-        <Portal>
-          <div
-            ref={dropdownRef}
-            className={cn('rc-select-dropdown neumorphism', { 'rc-select-dropdown--close-animation': !isDrop })}
-            style={{ left: pageX, top: pageY, width: clientWidth }}
-          >
-            <ul>
-              {React.Children.map(children, elm => {
-                if (!React.isValidElement(elm)) {
-                  return null;
-                }
-                return React.cloneElement(elm, {
-                  selected: value === elm.props.value,
-                  onClick: () => handleOptionSelected(elm.props.value),
-                });
-              })}
-            </ul>
-          </div>
-        </Portal>
-      )}
-    </React.Fragment>
-  );
+      </React.Fragment>
+    );
+  }
 }
-
-Select.displayName = 'Select';
-Select.propTypes = {
-  className: PropTypes.string,
-};
-Select.defaultProps = {
-  onChange: f => f,
+Tooltip.defaultProps = {
+  placement: 'top',
+  gap: 15,
+  defaultVisible: false,
 };
 
-Select.Option = Option;
-
-export default Select;
+export default Tooltip;

@@ -19,12 +19,7 @@
   transition: all 0.25s;
   box-shadow: $neumorphism;
 
-  &:hover:not(:disabled) {
-    background-color: $primary-color;
-    box-shadow: none;
-    color: #fff;
-  }
-
+  &:hover:not(:disabled),
   &:focus:not(:hover) {
     box-shadow: $neumorphism-inset;
   }
@@ -50,6 +45,7 @@
   .rc-button {
     box-shadow: $neumorphism-darkmode;
 
+    &:hover:not(:disabled),
     &:focus:not(:hover) {
       box-shadow: $neumorphism-darkmode-inset;
     }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 require('./Button.scss');
 
-const Button = ({ className, circle, transparent, ...otherProps }) => (
+const Button = ({ className, circle, transparent, buttonRef, ...otherProps }) => (
   <button
     className={cn(
       'rc-button',
@@ -14,6 +14,7 @@ const Button = ({ className, circle, transparent, ...otherProps }) => (
       },
       className,
     )}
+    ref={buttonRef}
     {...otherProps}
   />
 );

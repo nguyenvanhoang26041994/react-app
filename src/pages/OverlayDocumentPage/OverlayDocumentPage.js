@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Confirm from '../../components/Confirm';
 import PureConfirm from '../../components/PureConfirm';
 import Notification from '../../components/Notification';
@@ -8,12 +8,15 @@ import Button from '../../components/Button';
 import PureAlert from '../../components/PureAlert';
 import PureDrawer from '../../components/PureDrawer';
 import Alert from '../../components/Alert';
+import Tooltip from '../../components/Tooltip';
 
 const OverlayDocumentPage = ({ children }) => {
   const [isConfirmOpen, setConfirmOpen] = useState(false);
   const [isNotificationOpen, setNotificationOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isAlertOpen, setAlertOpen] = useState(false);
+
+  const btnRef = useRef();
 
   return (
     <div id="form-document-page" className="flex mt-20">
@@ -64,6 +67,72 @@ const OverlayDocumentPage = ({ children }) => {
         <Drawer header="Neumorphism Design" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
           Bạn có đồng ý rằng Neumorphism Design sẽ là trend trong năm nay?
         </Drawer>
+      </div>
+      <div className="w-2/4 px-2">
+        <div className="flex flex-col">
+          <div className="flex">
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Tooltip placement="top-left" label="Top-Left tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Top-Left</Button>
+            </Tooltip>
+            <Tooltip placement="top" label="TTop tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Top</Button>
+            </Tooltip>
+            <Tooltip placement="top-right" label="Top-Right tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Top-Right</Button>
+            </Tooltip>
+          </div>
+
+          <div className="flex">
+            <Tooltip placement="left-top" label="Left-Top tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Left-Top</Button>
+            </Tooltip>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Tooltip placement="right-top" label="Right-To tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Right-Top</Button>
+            </Tooltip>
+          </div>
+
+          <div className="flex">
+            <Tooltip placement="left" label="Left tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Left</Button>
+            </Tooltip>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}>TOOLTIP</Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Tooltip placement="right" label="Right tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Right</Button>
+            </Tooltip>
+          </div>
+
+          <div className="flex">
+            <Tooltip placement="left-bottom" label="Left-Bottom tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Left-Bottom</Button>
+            </Tooltip>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Tooltip placement="right-bottom" label="Right-Bottom tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Right-Bottom</Button>
+            </Tooltip>
+          </div>
+
+          <div className="flex">
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+            <Tooltip placement="bottom-left" label="Bottom-Left tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Bottom-Left</Button>
+            </Tooltip>
+            <Tooltip placement="bottom" label="Bottom tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Bottom</Button>
+            </Tooltip>
+            <Tooltip placement="bottom-right" label="Bottom-Right tooltip">
+              <Button className="m-2" style={{ width: '9em' }}>Bottom-Right</Button>
+            </Tooltip>
+            <Button transparent disabled className="m-2" style={{ width: '9em' }}></Button>
+          </div>
+        </div>
       </div>
     </div>
   )
