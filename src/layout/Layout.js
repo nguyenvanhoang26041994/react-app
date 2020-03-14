@@ -2,6 +2,8 @@ import React from 'react';
 import Menubar from './Menubar';
 import ScrollUp from '../components/ScrollUp';
 
+require('./Layout.scss');
+
 const Layout = ({ children }) => {
   return (
     <div id="layout">
