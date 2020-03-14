@@ -2,12 +2,13 @@ import React from 'react';
 import Textarea from '../../components/Textarea';
 import Textbox from '../../components/Textbox';
 import Select from '../../components/Select';
+import Button from '../../components/Button';
 
 const FormDocumentPage = ({ children }) => {
   return (
     <div id="form-document-page" className="flex mt-20">
       <div className="w-1/4 px-2">
-        <h2 className="mb-3">TEXTBOX</h2>
+        <Button className="mb-3">TEXTBOX</Button>
         <Textbox
           className="mb-2"
           label="Tên tài khoản"
@@ -34,7 +35,7 @@ const FormDocumentPage = ({ children }) => {
         />
       </div>
       <div className="w-1/4 px-3">
-      <h2 className="mb-3">PASSWORD</h2>
+      <Button className="mb-3">PASSWORD</Button>
         <Textbox
           className="mb-2"
           type="password"
@@ -63,7 +64,7 @@ const FormDocumentPage = ({ children }) => {
         />
       </div>
       <div className="w-1/4 px-3">
-        <h2 className="mb-3">TEXTAREA</h2>
+        <Button className="mb-3">TEXTAREA</Button>
         <Textarea
           className="mb-2"
           label="Lời nhắn"
@@ -88,7 +89,7 @@ const FormDocumentPage = ({ children }) => {
         />
       </div>
       <div className="w-1/4 px-3">
-        <h2 className="mb-3">SELECTBOX</h2>
+        <Button className="mb-3">SELECTBOX</Button>
         <Select
           className="mb-2"
           label="Giới tính"

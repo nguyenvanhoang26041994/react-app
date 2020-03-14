@@ -50,7 +50,7 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
       <div
         ref={ref}
         className={cn(
-          'rc-select',
+          'rc-select neumorphism',
           {
             'rc-select--drop': isDrop,
             'rc-select--close-animation': !isDrop,
@@ -70,7 +70,7 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
         <Portal>
           <div
             ref={dropdownRef}
-            className={cn('rc-select-dropdown', { 'rc-select-dropdown--close-animation': !isDrop })}
+            className={cn('rc-select-dropdown neumorphism', { 'rc-select-dropdown--close-animation': !isDrop })}
             style={{ left: pageX, top: pageY, width: clientWidth }}
           >
             <ul>

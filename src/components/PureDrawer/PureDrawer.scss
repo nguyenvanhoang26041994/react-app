@@ -4,8 +4,7 @@
   position: relative;
   min-width: 24em;
   max-width: 100vw;
-  background-color: $form-input-bg-color;
-  color: #000;
+  background-color: $root-bg-color;
   border-radius: $border-radius;
 }
 
@@ -18,10 +17,6 @@
   font-size: 1.125em;
 }
 
-.rc-pure-drawer-toggle {
-  color: $primary-color;
-}
-
 .rc-pure-drawer-content {
   padding: 0.5em 1em;
 }
@@ -29,11 +24,6 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-pure-drawer {
-    background-color: #2f2f2f;
-    color: #fff;
-  }
-
-  .rc-pure-drawer-toggle:not(:hover) {
-    background-color: #2f2f2f;
+    background-color: $root-darkmode-bg-color;
   }
 }

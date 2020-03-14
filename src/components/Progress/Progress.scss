@@ -5,12 +5,11 @@
   border-radius: 100em;
   user-select: none;
   transition: all 0.25s;
-  box-shadow: 0.125em 0.125em 0.5em rgba(0, 0, 0, 0.05);
+  background-color: inherit;
 
   &:hover {
     background-color: $primary-color;
     color: #fff;
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
 
     circle.rc-progress-percent {
       stroke: #fff;
@@ -57,8 +56,6 @@ circle.rc-progress-percent {
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-progress:not(:hover) {
-    background-color: $background-color-dark-mode;
-
     circle.rc-progress-percent {
       stroke: $primary-color;
     }

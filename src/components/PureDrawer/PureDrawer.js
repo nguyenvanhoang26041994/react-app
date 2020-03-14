@@ -10,7 +10,7 @@ require('./PureDrawer.scss');
 
 const PureDrawer = ({ drawerRef, children, header, onCloseClick, className, ...otherProps }) => {
   return (
-    <div className={cn('rc-pure-drawer', className)} ref={drawerRef} {...otherProps}>
+    <div className={cn('rc-pure-drawer neumorphism', className)} ref={drawerRef} {...otherProps}>
       <div className="rc-pure-drawer-header">
         <span>{header}</span>
         <Button circle className="rc-pure-drawer-toggle" onClick={onCloseClick}>

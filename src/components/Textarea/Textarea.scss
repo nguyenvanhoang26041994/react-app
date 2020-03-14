@@ -7,18 +7,12 @@
   position: relative;
   border-radius: $border-radius;
   padding: 0.5em 1em;
-  background-color: #f9f9f9;
+  background-color: $root-bg-color;
   transition: all 0.25s;
 
   &:hover,
   &.rc-textarea--focus  {
-    background-color: $primary-color;
-
-    .rc-textarea-label,
-    .rc-textarea-error,
-    > textarea {
-      color: #fff;
-    }
+    background-color: #ffffff;
   }
 }
 
@@ -27,7 +21,6 @@
   font-weight: 500;
   display: flex;
   align-items: center;
-  color: #000;
   user-select: none;
 }
 
@@ -51,12 +44,11 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-textarea:not(:hover):not(.rc-textarea--focus) {
-    background-color: $background-color-dark-mode;
-  }
-
-  .rc-textarea > textarea,
-  .rc-textarea-label {
-    color: #fff;
+  .rc-textarea {
+    background-color: $root-darkmode-bg-color;
+    
+    &:hover {
+      background-color: $background-color-dark-mode;
+    }
   }
 }

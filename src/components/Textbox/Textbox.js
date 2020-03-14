@@ -28,7 +28,7 @@ const Textbox = ({ type, placeholder, label, className, error, require, onFocus,
     <div
       ref={ref}
       className={cn(
-        'rc-textbox',
+        'rc-textbox neumorphism',
         mSizes[size],
         {
           'rc-textbox--focus': isFocus,

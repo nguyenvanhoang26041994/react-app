@@ -6,9 +6,8 @@
   min-height: 2em;
   min-width: 25.5em;
   max-width: calc(100vw - 1em);
-  border-radius: $border-radius;
+  border-radius: $border-radius-medium;
   background-color: $primary-color;
-  box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
   color: #fff;
   user-select: none;
   transition: all 0.25s;
@@ -16,17 +15,14 @@
 
 .rc-pure-alert--success {
   background-color: $success-color;
-  color: #fff;
 }
 
 .rc-pure-alert--warning {
   background-color: $warning-color;
-  color: #fff;
 }
 
 .rc-pure-alert--error {
   background-color: $error-color;
-  color: #fff;
 }
 
 .rc-pure-alert-close {
@@ -44,5 +40,3 @@
   font-weight: 500;
   padding-right: 1.25em;
 }
-
-// DARK MODE SUPPORT

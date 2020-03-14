@@ -7,7 +7,7 @@
   justify-content: center;
   height: $basic-height;
   min-width: $basic-height;
-  background-color: $form-input-bg-color;
+  background-color: inherit;
   border-radius: $border-radius;
   padding-left: 1.25em;
   padding-right: 1.25em;
@@ -18,9 +18,9 @@
   cursor: pointer;
   transition: all 0.25s;
 
-  &:hover {
-    box-shadow: 0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  &:hover:not(:disabled) {
     background-color: $primary-color;
+    box-shadow: none;
     color: #fff;
   }
 
@@ -29,13 +29,13 @@
   }
 
   &:disabled {
-    box-shadow: none;
     cursor: not-allowed;
   }
 }
 
 .rc-button--transparent {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .rc-button--circle {
@@ -46,8 +46,8 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-button:not(:hover):not(.rc-button--transparent) {
-    background-color: $background-color-dark-mode;
-    color: #fff;
+  .neumorphism.rc-button--transparent:not(:hover) {
+    background-color: transparent;
+    box-shadow: none;
   }
 }

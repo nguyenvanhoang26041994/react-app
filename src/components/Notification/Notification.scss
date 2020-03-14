@@ -3,12 +3,15 @@
 
 .rc-notification {
   position: fixed;
-  top: 0;
+  top: 6em;
   right: 0;
   height: 0;
   z-index: 1000;
 
   .rc-pure-notification {
+    background-color: $primary-color;
+    box-shadow: none;
+    color: #fff;
     animation: zoomIn 0.25s;
     margin: 0.5em;
   }

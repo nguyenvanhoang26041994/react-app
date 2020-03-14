@@ -14,9 +14,9 @@ const User = ({ className, avatarUrl, name }) => {
       <div className="flex flex-col ml-4 justify-center items-center">
         <a className="rc-menubar-user-name">{name}</a>
       </div>
-      <ActionButton transparent icon="bell" className="ml-2" />
-      <ActionButton transparent icon="comments" className="ml-2" />
-      <ActionButton transparent icon="power-off" className="ml-2" />
+      <ActionButton icon="bell" className="ml-5" />
+      <ActionButton icon="comments" className="ml-2" />
+      <ActionButton icon="power-off" className="ml-2" />
     </div>
   );
 };

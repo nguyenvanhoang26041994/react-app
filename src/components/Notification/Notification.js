@@ -40,7 +40,7 @@ const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
 
 Notification.defaultProps = {
   onClose: f => f,
-  duration: 3000,
+  duration: 5000,
 };
 
 export default Notification;

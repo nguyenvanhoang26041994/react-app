@@ -8,20 +8,11 @@
   border-radius: $border-radius;
   padding: 0.5em 1em;
   transition: all 0.25s;
-  background-color: #f9f9f9;
+  background-color: $root-bg-color;
 
   &:hover,
   &.rc-textbox--focus  {
-    background-color: $primary-color;
-
-    .rc-textbox-label,
-    .rc-textbox-error {
-      color: #fff;
-    }
-
-    > input {
-      color: #fff;
-    }
+    background-color: #ffffff;
   }
 }
 
@@ -57,12 +48,11 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-textbox:not(:hover):not(.rc-textbox--focus) {
-    background-color: $background-color-dark-mode;
-  }
+  .rc-textbox {
+    background-color: $root-darkmode-bg-color;
 
-  .rc-textbox > input,
-  .rc-textbox-label {
-    color: #fff;
+    &:hover {
+      background-color: $background-color-dark-mode;
+    }
   }
 }

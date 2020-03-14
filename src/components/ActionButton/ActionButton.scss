@@ -3,12 +3,4 @@
 
 .rc-action-button {
   font-size: 1.25rem;
-  box-shadow: none;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-action-button:not(:hover):not(.rc-button--transparent) {
-    background-color: $background-color-dark-mode;
-  }
 }
