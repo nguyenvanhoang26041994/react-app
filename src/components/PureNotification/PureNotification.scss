@@ -4,8 +4,8 @@
   display: block;
   position: relative;
   min-height: 2em;
-  min-width: 25.5em;
-  max-width: calc(100vw - 1em);
+  width: 30em;
+  max-width: 100%;
   border-radius: $border-radius-medium;
   background-color: $primary-color;
   color: #fff;

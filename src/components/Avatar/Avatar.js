@@ -9,13 +9,15 @@ const mShape = Object.freeze({
   circle: 'rc-avatar--circle',
 });
 
-const Avatar = ({ className, src, shape, style, ...otherProps }) => {
+const Avatar = ({ className, src, shape, style, name, ...otherProps }) => {
   return (
     <div
-      className={cn('rc-avatar', mShape[shape], className)}
+      className={cn('rc-avatar', { 'neumorphism rc-avatar--just-name': !src }, mShape[shape], className)}
       style={{ backgroundImage: `url(${src})`, ...style }}
       {...otherProps}
-    />
+    >
+      {(!src && name) && <span className="rc-avatar-name">{name[0].toUpperCase()}</span>}
+    </div>
   );
 };
 

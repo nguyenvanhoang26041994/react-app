@@ -7,6 +7,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rc-avatar-name {
+  font-size: 1.5em;
 }
 
 .rc-avatar--square {

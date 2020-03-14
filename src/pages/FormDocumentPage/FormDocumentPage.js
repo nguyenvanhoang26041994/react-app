@@ -4,9 +4,9 @@ import Textbox from '../../components/Textbox';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 
-const FormDocumentPage = ({ children }) => {
+const FormDocumentPage = () => {
   return (
-    <div id="form-document-page" className="flex mt-20">
+    <div id="form-document-page" className="flex">
       <div className="w-1/4 px-2">
         <Button className="mb-3">TEXTBOX</Button>
         <Textbox

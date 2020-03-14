@@ -3,14 +3,15 @@
 
 .rc-alert {
   position: fixed;
-  top: 0;
+  bottom: 6em;
   left: 0;
   height: 0;
   z-index: 1000;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
 
   .rc-pure-alert {
     animation: zoomIn 0.25s;
-    margin: 0.5em;
   }
 }
 
