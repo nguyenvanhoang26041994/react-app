@@ -10,6 +10,7 @@ import RatingBox from '../documents/Rating.box';
 import ProgressBox from '../documents/Progress.box';
 import AvatarBox from '../documents/Avatar.box';
 import TabsBox from '../documents/Tabs.box';
+import TooltipBox from '../documents/Tooltip.box';
 
 export default () => {
   return (
@@ -34,7 +35,8 @@ export default () => {
         </div>
 
         <ProgressBox className="mb-20" />
-        <TabsBox />
+        <TabsBox className="mb-20" />
+        <TooltipBox className="mb-20" />
       </div>
     </div>
   );

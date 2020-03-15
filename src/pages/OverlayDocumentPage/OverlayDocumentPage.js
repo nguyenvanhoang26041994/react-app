@@ -69,70 +69,7 @@ const OverlayDocumentPage = ({ children }) => {
         </Alert>
       </div>
       <div className="w-2/4 px-2">
-        <div className="flex flex-col">
-          <div className="flex">
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Tooltip placement="top-left" label="Top-Left tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>TL</Button>
-            </Tooltip>
-            <Tooltip placement="top" label="TTop tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>Top</Button>
-            </Tooltip>
-            <Tooltip placement="top-right" label="Top-Right tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>TR</Button>
-            </Tooltip>
-          </div>
-
-          <div className="flex">
-            <Tooltip placement="left-top" label="Left-Top tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>Left-Top</Button>
-            </Tooltip>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Tooltip placement="right-top" label="Right-To tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>RT</Button>
-            </Tooltip>
-          </div>
-
-          <div className="flex">
-            <Tooltip placement="left" label="Left tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>Left</Button>
-            </Tooltip>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}>TOOLTIP</Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Tooltip placement="right" label="Right tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>Right</Button>
-            </Tooltip>
-          </div>
-
-          <div className="flex">
-            <Tooltip placement="left-bottom" label="Left-Bottom tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>LB</Button>
-            </Tooltip>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Tooltip placement="right-bottom" label="Right-Bottom tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>RB</Button>
-            </Tooltip>
-          </div>
-
-          <div className="flex">
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-            <Tooltip placement="bottom-left" label="Bottom-Left tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>BL</Button>
-            </Tooltip>
-            <Tooltip placement="bottom" label="Bottom tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>Bottom</Button>
-            </Tooltip>
-            <Tooltip placement="bottom-right" label="Bottom-Right tooltip">
-              <Button className="m-2" style={{ width: '7em' }}>BR</Button>
-            </Tooltip>
-            <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
-          </div>
-        </div>
+        
       </div>
     </div>
   )
