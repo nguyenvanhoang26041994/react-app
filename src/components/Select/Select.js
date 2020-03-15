@@ -13,7 +13,7 @@ import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 require('./Select.scss');
 
 const mapToObject = arr => arr.reduce((rs, item) => {
-  rs[item.value] = item.label;
+  rs[item.props.value] = item.props.children;
   return rs;
 }, {});
 
@@ -41,7 +41,7 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
 
   useOnClickOutside(ref, handleClickOutside);
   const delayIsDrop = useSupportCloseAnimation(isDrop);
-  const options = useMemo(() => mapToObject(React.Children.map(children, elm => ({ value: elm.props.value, label: elm.props.children }))), [children]);
+  const options = useMemo(() => mapToObject(React.Children.toArray(children)), [children]);
 
   const { pageX, pageY, clientHeight, clientWidth } = usePosition(ref, [isDrop]);
 

@@ -19,7 +19,7 @@ const App = () => {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route exact path="/" component={MusicComponentPage} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/lap-music" component={MusicComponentPage} />
           <Route exact path="/ui-system" component={SystemDesign} />
           <Route exact path="/document/form" component={FormDocumentPage} />

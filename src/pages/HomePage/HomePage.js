@@ -1,14 +1,17 @@
 import React from 'react';
+import ButtonBox from '../documents/Button.box';
+import TextboxBox from '../documents/Textbox.box';
+import TextareaBox from '../documents/Textarea.box';
+import SelectBox from '../documents/Select.box';
 
 export default () => {
-
   return (
-    <div className="flex mt-10">
-      <div className="w-1/3"></div>
-      <div className="w-1/3 flex flex-wrap">
-        <div className="mr-5 neumorphism" style={{ height: '7em', width: '7em', borderRadius: '100em' }}></div>
-        <div className="mr-5 neumorphism" style={{ height: '7em', width: '12em', borderRadius: '100em' }}></div>
-        <div className="neumorphism" style={{ height: '7em', width: '15em', borderRadius: '100em' }}></div>
+    <div className="container mx-auto">
+      <div className="w-1/3">
+        <ButtonBox className="mb-20" />
+        <TextboxBox className="mb-20" />
+        <TextareaBox className="mb-20" />
+        <SelectBox className="mb-20" />
       </div>
     </div>
   );
