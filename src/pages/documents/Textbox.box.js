@@ -18,12 +18,12 @@ export default ({ className }) => {
           placeholder="Password placeholder"
         />
       </PracticeBox>
-      <PracticeBox className="flex flex-col" note="WITHOUT LABEL" wrapperClassName="mb-2">
+      <PracticeBox className="flex flex-col" wrapperClassName="mb-2">
         <Textbox
           placeholder="Textbox placeholder"
         />
       </PracticeBox>
-      <PracticeBox className="flex flex-col" note="WITH ERROR" wrapperClassName="mb-2">
+      <PracticeBox className="flex flex-col" wrapperClassName="mb-2">
         <Textbox
           className="mb-2"
           label="Textbox Label"

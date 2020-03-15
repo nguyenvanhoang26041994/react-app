@@ -34,7 +34,6 @@ class Tabs extends React.Component {
 
   componentDidMount() {
     this.memo[this.state.currentTab] = true;
-    console.log(this.memo);
   }
 
   componentDidUpdate() {
@@ -52,7 +51,7 @@ class Tabs extends React.Component {
     const { tabs, currentTab } = this.state;
 
     return (
-      <div className="rc-tabs">
+      <div className={cn('rc-tabs', className)}>
         <div className="rc-tabs-nav">
           {tabs.map(tab => (
             <button

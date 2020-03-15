@@ -16,7 +16,7 @@ export default ({ className }) => {
           <Select.Option value="third-option">Third Option</Select.Option>
         </Select>
       </PracticeBox>
-      <PracticeBox className="flex flex-col" note="WITHOUT LABEL" wrapperClassName="mb-2">
+      <PracticeBox className="flex flex-col" wrapperClassName="mb-2">
         <Select
           placeholder="--Select placeholder--"
         >
@@ -25,7 +25,7 @@ export default ({ className }) => {
           <Select.Option value="third-option">Third Option</Select.Option>
         </Select>
       </PracticeBox>
-      <PracticeBox className="flex flex-col" note="WITH ERROR" wrapperClassName="mb-2">
+      <PracticeBox className="flex flex-col" wrapperClassName="mb-2">
         <Select
           className="mb-2"
           error="Select error"
