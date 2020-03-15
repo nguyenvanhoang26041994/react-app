@@ -10,6 +10,8 @@ import Pagination from '../../components/Pagination';
 import Avatar from '../../components/Avatar';
 import Tabs from '../../components/Tabs';
 
+import Table from '../../components/Table';
+
 const avatarLink = 'https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-1/p320x320/83290506_984513715279336_4057640429858848768_o.jpg?_nc_cat=101&_nc_sid=dbb9e7&_nc_ohc=RBZa-mAgWzkAX9PXXVp&_nc_ht=scontent-hkt1-1.xx&_nc_tp=6&oh=1bbbfc45c4eef77cad5eee9361ded2db&oe=5E926A7C';
 
 const TimeRender = () => {
@@ -26,9 +28,89 @@ const TimeRender = () => {
   );
 }
 
+const data = [
+  {
+    id: '001',
+    name: 'Nguyễn Văn Hoàng',
+    sex: 'male',
+  },
+  {
+    id: '002',
+    name: 'Nguyễn Văn Minh',
+    sex: 'male',
+  },
+  {
+    id: '003',
+    name: 'Cao Văn Giang',
+    sex: 'male',
+  },
+  {
+    id: '004',
+    name: 'Thanh Thu',
+    sex: 'female',
+  },
+  {
+    id: '005',
+    name: 'Hero Master',
+    sex: 'female',
+  },
+  // {
+  //   id: '006',
+  //   name: 'Nguyễn Văn Hoàng',
+  //   sex: 'male',
+  // },
+  // {
+  //   id: '007',
+  //   name: 'Nguyễn Văn Hoàng',
+  //   sex: 'male',
+  // },
+  // {
+  //   id: '008',
+  //   name: 'Nguyễn Văn Hoàng',
+  //   sex: 'male',
+  // },
+  // {
+  //   id: '009',
+  //   name: 'Nguyễn Văn Hoàng',
+  //   sex: 'male',
+  // },
+  // {
+  //   id: '010',
+  //   name: 'Nguyễn Văn Hoàng',
+  //   sex: 'male',
+  // },
+]
+
 const TableDemo = ({ className }) => {
   return (
-    <div className={className}></div>
+    <Table className="w-full">
+      <Table.THead>
+        <Table.TR>
+          <Table.TH>ID</Table.TH>
+          <Table.TH>Tên</Table.TH>
+          <Table.TH>Giới tính</Table.TH>
+        </Table.TR>
+        <tr className="rc-table-expander rc-table-expander--header" style={{ height: '0.5em' }} />
+      </Table.THead>
+      <Table.TBody>
+        {data.map(item => (
+          <React.Fragment>
+            <Table.TR key={item.id}>
+              <Table.TD>{item.id}</Table.TD>
+              <Table.TD>{item.name}</Table.TD>
+              <Table.TD>{item.sex}</Table.TD>
+            </Table.TR>
+            <tr className="rc-table-expander" style={{ height: '0.15em' }} />
+          </React.Fragment>
+        ))}
+      </Table.TBody>
+      <Table.TFoot>
+        <tr className="rc-table-expander rc-table-expander--footer" style={{ height: '0.35em' }} />
+        <Table.TR isFooter>
+          <Table.TD colspan={4}>WELLCOME</Table.TD>
+        </Table.TR>
+      </Table.TFoot>
+    </Table>
   )
 };
 
@@ -79,7 +161,7 @@ const CommonDocumentPage = ({ children }) => {
           </Tabs>
         </div>
       </div>
-      <div className="w-2/3 px-3">
+      <div className="w-2/3 px-10">
         <TableDemo className="w-full" />
       </div>
     </div>

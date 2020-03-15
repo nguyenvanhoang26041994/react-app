@@ -1,0 +1,25 @@
+@import '../../../scss/vars.scss';
+
+.rc-table-tr {
+  box-shadow: $neumorphism;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.rc-table-tr--header {
+  box-shadow: $neumorphism;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-table-tr:not(:hover) {
+    box-shadow: $neumorphism-darkmode;
+  }
+
+  .rc-table-tr--header:not(:hover)
+  .rc-table-tr--footer:not(:hover) {
+    box-shadow: $neumorphism-darkmode;
+  }
+}

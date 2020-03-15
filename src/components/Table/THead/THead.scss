@@ -1,0 +1,16 @@
+@import '../../../scss/vars.scss';
+
+.rc-table-thead {
+  .rc-table-tr {
+    box-shadow: $neumorphism;
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-table-thead {
+    .rc-table-tr {
+      box-shadow: $neumorphism-darkmode;
+    }
+  }
+}
