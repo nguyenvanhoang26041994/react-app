@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import { Alert, PureAlert, Button } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
+import { pushAlert } from '../../components/neumorphism';
 
 export default ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +27,9 @@ export default ({ className }) => {
         <Alert open={isOpen} onClose={() => setIsOpen(false)}>
           Alert content!
         </Alert>
-        <div>
-          <Button onClick={() => setIsOpen(true)}>Show Alert</Button>
+        <div className="flex">
+          <Button onClick={() => setIsOpen(true)} className="mr-2">Show Alert</Button>
+          <Button onClick={() => pushAlert({ children: 'Alert Pusher' })}>Push Alert</Button>
         </div>
       </PracticeBox>
     </div>

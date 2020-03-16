@@ -1,20 +1,24 @@
 @import '../../scss/vars.scss';
 .rc-alert {
-  position: fixed;
-  bottom: 6em;
-  left: 0;
-  height: 0;
-  z-index: 1000;
-  padding-bottom: 0.5em;
-  padding-left: 0.5em;
-
-  .rc-pure-alert {
-    animation: zoomIn 0.25s;
-  }
+  animation: zoomIn 0.25s;
 }
 
 .rc-alert.--close-animation {
-  .rc-pure-alert {
-    animation: zoomOut 0.25s;
+  animation: zoomOut 0.25s;
+}
+
+
+#root-alert {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#root-alert {
+  .rc-alert {
+    margin-bottom: 1em;
+    margin-left: 1em;
   }
 }

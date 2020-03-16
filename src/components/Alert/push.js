@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import Notification from './Notification';
+import Alert from './Alert';
 
-const PusherNotification = ({ temporary, ...otherProps }) => {
+const PusherAlert = ({ temporary, ...otherProps }) => {
   const [open, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const PusherNotification = ({ temporary, ...otherProps }) => {
   } ,[open]);
 
   return (
-    <Notification
+    <Alert
       {...otherProps}
       open={open}
       onClose={() => setIsOpen(false)}
@@ -26,5 +26,5 @@ export default (data) => {
   const temporary = document.createElement('div');
   document.body.appendChild(temporary);
 
-  ReactDOM.render(<PusherNotification {...data} temporary={temporary} />, temporary);
+  ReactDOM.render(<PusherAlert {...data} temporary={temporary} />, temporary);
 };

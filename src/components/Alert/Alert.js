@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import Portal from '../Portal';
 import PureAlert from '../PureAlert';
+import { rootAlert } from '../Portal/portalNode';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
 require('./Alert.scss');
@@ -21,15 +22,14 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
   return (
     <React.Fragment>
       {delayOpen && (
-        <Portal>
-          <div className={cn('rc-alert', { '--close-animation': !open })}>
-            <PureAlert
-              onCloseClick={onClose}
-              {...otherProps}
-            >
-              {children}
-            </PureAlert>
-          </div>
+        <Portal node={rootAlert}>
+          <PureAlert
+            onCloseClick={onClose}
+            className={cn('rc-alert', { '--close-animation': !open })}
+            {...otherProps}
+          >
+            {children}
+          </PureAlert>
         </Portal>
       )}
     </React.Fragment>
