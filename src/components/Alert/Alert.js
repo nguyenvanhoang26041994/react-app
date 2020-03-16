@@ -13,7 +13,7 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
   const delayOpen = useSupportCloseAnimation(open);
 
   useEffect(() => {
-    if (open) {
+    if (open && duration > 0) {
       const timer = setTimeout(() => onClose(), duration);
       return () => clearTimeout(timer);
     }
