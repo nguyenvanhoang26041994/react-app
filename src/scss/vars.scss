@@ -17,14 +17,20 @@ $placeholder-text-color: #a0aebf;
 /**
 * Status color
 */
+$primary-color: #0099ff;
 $success-color: #32e232;
 $warning-color: #f7aa37;
 $error-color: #ec4c1d;
+$gradient-primary-color: linear-gradient(145deg, #008ae6, #00a4ff);
+$gradient-success-color: linear-gradient(145deg, #2dcb2d, #36f236);
+$gradient-warning-color: linear-gradient(145deg, #de9932, #ffb63b);
+$gradient-error-color: linear-gradient(145deg, #d4441a, #fd511f);
 
 /**
 * Overlay background-color
 */
 $overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
+$gradient-overlay-bg-color: linear-gradient(145deg, #008ae6, #00a4ff);
 $select-option-bg-color: #0099ff;
 $overlay-wrapper-bg-color: rgba(0, 0, 0, 0.5);
 
