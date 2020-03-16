@@ -7,7 +7,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $overlay-wrapper-bg-color;
   width: 100vw;
   height: 100vh;
   z-index: 1000;
@@ -19,7 +19,7 @@
   }
 }
 
-.rc-confirm--close-animation {
+.rc-confirm.--close-animation {
   background-color: transparent;
 
   .rc-pure-confirm {

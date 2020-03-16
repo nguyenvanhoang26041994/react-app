@@ -15,13 +15,13 @@
   }
 }
 
-.rc-rating-item--light {
+.rc-rating-item.--light {
   color: $rating-active-color;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-rating-item:not(.rc-rating-item--light) {
-    color: rgba(255, 255, 255, 0.2);
+  .rc-rating-item:not(.--light) {
+    color: $rating-darkmode-color;
   }
 }

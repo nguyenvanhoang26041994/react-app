@@ -22,14 +22,7 @@ const Rating = ({ className, max, starRef, icon, defaultStar, onStarChange, ...o
       rs.push(
         <div
           key={i}
-          className={
-            cn(
-              'rc-rating-item',
-              {
-                'rc-rating-item--light': isLighted,
-              }
-            )
-          }
+          className={cn('rc-rating-item', { '--light': isLighted })}
           onMouseEnter={() => setCurrentStarHover(i + 1)}
           onClick={() => setStar(i + 1)}
         >
@@ -59,6 +52,8 @@ Rating.propTypes = {
   max: PropTypes.number,
   onStarChange: PropTypes.func,
   defaultStar: PropTypes.number,
+  className: PropTypes.string,
+  starRef: PropTypes.any,
 };
 Rating.defaultProps = {
   icon: 'star',

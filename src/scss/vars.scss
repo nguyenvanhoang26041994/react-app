@@ -25,18 +25,19 @@ $error-color: #ec4c1d;
 */
 $overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
 $select-option-bg-color: #0099ff;
+$overlay-wrapper-bg-color: rgba(0, 0, 0, 0.5);
 
 /**
 * Rating color
 */
 $rating-color: #e4e4e4;
+$rating-darkmode-color: rgba(255, 255, 255, 0.2);
 $rating-active-color: #ffc107;
-
 
 /**
 * Progress circle stoke color
 */
-$progress-circle-store-color: #0099ff;
+$progress-circle-stroke-color: #0099ff;
 
 
 /**

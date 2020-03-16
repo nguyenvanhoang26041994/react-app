@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureConfirm from '../PureConfirm';
@@ -9,16 +10,23 @@ import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
 require('./Confirm.scss');
 
-const Confirm = ({ children, onClose, open, canOutsideClickClose, ...otherProps }) => {
+const Confirm = ({ children, onClose, open, canOutsideClickClose, onOk, onCancel, ...otherProps }) => {
   const confirmRef = useRef();
 
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
       onClose();
     }
-  }, [canOutsideClickClose]);
-  const onOkClick = useCallback(() => onClose(), [onClose]);
-  const onCancelClick = useCallback(() => onClose(), [onClose]);
+  }, []);
+
+  const onOkClick = useCallback(() => {
+    onOk();
+    onClose();
+  }, []);
+  const onCancelClick = useCallback(() => {
+    onCancel();
+    onClose();
+  }, []);
 
   useOnClickOutside(confirmRef, handleClickOutside);
   const delayOpen = useSupportCloseAnimation(open);
@@ -27,7 +35,7 @@ const Confirm = ({ children, onClose, open, canOutsideClickClose, ...otherProps 
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-confirm', { 'rc-confirm--close-animation': !open })}>
+          <div className={cn('rc-confirm', { '--close-animation': !open })}>
             <PureConfirm
               confirmRef={confirmRef}
               onOkClick={onOkClick}
@@ -43,9 +51,18 @@ const Confirm = ({ children, onClose, open, canOutsideClickClose, ...otherProps 
   );
 };
 
+Confirm.displayName = 'Confirm';
+Confirm.propTypes = {
+  children: PropTypes.any,
+  onClose: PropTypes.func,
+  onOk: PropTypes.func,
+  onCancel: PropTypes.func,
+  open: PropTypes.bool,
+  canOutsideClickClose: PropTypes.func,
+};
 Confirm.defaultProps = {
-  onOk: () => false,
-  onCancel: () => false,
+  onOk: f => f,
+  onCancel: f => f,
   onClose: f => f,
 };
 

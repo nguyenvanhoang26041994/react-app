@@ -8,7 +8,8 @@ const useSupportAnimation = time => {
   const [waiting, setWaiting] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setWaiting(false), time) ;
+    const timer = setTimeout(() => setWaiting(false), time);
+    return () => clearTimeout(timer);
   }, []);
 
   return waiting;
@@ -58,7 +59,6 @@ Progress.propTypes = {
   className: PropTypes.string,
   percent: PropTypes.number,
   r: PropTypes.number, // rank from 40 to 60
-  inverted: PropTypes.bool,
 };
 Progress.defaultProps = {
   percent: 0,

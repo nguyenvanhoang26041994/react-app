@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $overlay-wrapper-bg-color;
 
   .rc-pure-drawer {
     position: absolute;
@@ -19,7 +19,7 @@
   }
 }
 
-.rc-drawer--close-animation {
+.rc-drawer.--close-animation {
   background-color: transparent;
 
   .rc-pure-drawer {

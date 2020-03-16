@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import Button from '../Button';
 
 require('./PureConfirm.scss');
 
@@ -16,7 +15,7 @@ const PureConfirm = ({
 }) => {
   return (
     <div className={cn('rc-pure-confirm', className)} ref={confirmRef} {...otherProps}>
-      <div className="rc-pure-confirm-inside-wraper">
+      <div className="rc-pure-confirm-inside-wrapper">
         <div className="rc-pure-confirm-header">{header}</div>
         <div className="rc-pure-confirm-content">{children}</div>
       </div>
@@ -29,7 +28,17 @@ const PureConfirm = ({
 };
 
 PureConfirm.displayName = 'PureConfirm';
-PureConfirm.propTypes = {};
-PureConfirm.defaultProps = {};
+PureConfirm.propTypes = {
+  confirmRef: PropTypes.any,
+  children: PropTypes.any,
+  header: PropTypes.any,
+  className: PropTypes.string,
+  onOkClick: PropTypes.func,
+  onCancelClick: PropTypes.func,
+};
+PureConfirm.defaultProps = {
+  onOkClick: f => f,
+  onCancelClick: f => f,
+};
 
 export default PureConfirm;

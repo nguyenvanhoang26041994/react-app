@@ -5,7 +5,6 @@
   border-radius: 100em;
   user-select: none;
   transition: all 0.25s;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism-inset;
 }
 
@@ -14,7 +13,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
   border-radius: 100em;
 }
@@ -33,7 +31,7 @@ circle.rc-progress-percent {
   transition: stroke-dashoffset 0.5s;
   transform: translate(10px, 10px);
   stroke-linecap: round;
-  stroke: $progress-circle-store-color;
+  stroke: $progress-circle-stroke-color;
 }
 
 .rc-progress-number {
@@ -41,7 +39,6 @@ circle.rc-progress-percent {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: $root-text-color;
   display: flex;
   align-items: center;
   vertical-align: middle;
@@ -50,16 +47,10 @@ circle.rc-progress-percent {
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-progress {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode-inset;
   }
 
   .rc-progress-inner {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
-  }
-
-  .rc-progress-number {
-    color: $root-text-color;
   }
 }

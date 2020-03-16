@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import cn from 'classnames';
-import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+
 import ActionButton from '../ActionButton';
 
 require('./ScrollUp.scss');
 
-const ScrollUp = ({ className }) => {
+const ScrollUp = () => {
   const scrollToTop = useCallback(() => window.scrollTo({top: 0, behavior: 'smooth'}), []);
 
   return (

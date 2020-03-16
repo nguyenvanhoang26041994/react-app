@@ -10,4 +10,10 @@ const Divider = ({ className }) => {
   );
 };
 
+Divider.displayName = 'Divider';
+Divider.propTypes = {
+  className: PropTypes.string,
+};
+Divider.defaultProps = {};
+
 export default Divider;

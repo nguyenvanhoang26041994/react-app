@@ -16,7 +16,7 @@ const PureNotification = ({
 }) => {
   return (
     <div className={cn('rc-pure-notification', className)} ref={notificationRef} {...otherProps}>
-      <div className="rc-pure-notification-inside-wraper">
+      <div className="rc-pure-notification-inside-wrapper">
         <div className="rc-pure-notification-content">{children}</div>
       </div>
       <Icon name="bell" className="rc-pure-notification-bell" onClick={onBellClick} />

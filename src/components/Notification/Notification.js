@@ -1,16 +1,15 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureNotification from '../PureNotification';
 
-import useOnClickOutside from '../../hooks/useOnClickOutside';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
 require('./Notification.scss');
 
-const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
-  const onBellClick = useCallback(() => onClose(), [onClose]);
+const Notification = ({ onClose, open, duration, ...otherProps }) => {
   const delayOpen = useSupportCloseAnimation(open);
 
   useEffect(() => {
@@ -24,13 +23,11 @@ const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-notification', { 'rc-notification--close-animation': !open })}>
+          <div className={cn('rc-notification', { '--close-animation': !open })}>
             <PureNotification
-              onBellClick={onBellClick}
+              onBellClick={onClose}
               {...otherProps}
-            >
-              {children}
-            </PureNotification>
+            />
           </div>
         </Portal>
       )}
@@ -38,6 +35,12 @@ const Notification = ({ children, onClose, open, duration, ...otherProps }) => {
   );
 };
 
+Notification.displayName = 'Notification';
+Notification.propTypes = {
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
+  duration: PropTypes.number,
+};
 Notification.defaultProps = {
   onClose: f => f,
   duration: 5000,

@@ -23,9 +23,9 @@
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  border-radius: 100em;//$border-radius;
+  border-radius: 100em;
   cursor: pointer;
-  transition: color 0, background-color 0.25s;
+  transition: all 0.25s;
   box-shadow: $neumorphism;
 
   &:hover {
@@ -33,7 +33,7 @@
   }
 }
 
-.rc-pagination-item--active.rc-pagination-item--active {
+.rc-pagination-item.--active.--active {
   background-color: $active-color-1;
   color: #fff;
   box-shadow: none;
@@ -52,14 +52,14 @@
   }
 }
 
-.rc-pagination-next--hidden,
-.rc-pagination-prev--hidden {
+.rc-pagination-next.--hidden,
+.rc-pagination-prev.--hidden {
   display: none;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-pagination-item:not(.rc-pagination-item--active),
+  .rc-pagination-item:not(.--active),
   .rc-pagination-next,
   .rc-pagination-prev {
     box-shadow: $neumorphism-darkmode;

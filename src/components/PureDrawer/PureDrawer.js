@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import Divider from '../Divider';
 
 require('./PureDrawer.scss');
 
@@ -23,7 +22,15 @@ const PureDrawer = ({ drawerRef, children, header, onCloseClick, className, ...o
 };
 
 PureDrawer.displayName = 'PureDrawer';
-PureDrawer.propTypes = {};
-PureDrawer.defaultProps = {};
+PureDrawer.propTypes = {
+  drawerRef: PropTypes.any,
+  children: PropTypes.any,
+  header: PropTypes.any,
+  onCloseClick: PropTypes.func,
+  className: PropTypes.string,
+};
+PureDrawer.defaultProps = {
+  onCloseClick: f => f,
+};
 
 export default PureDrawer;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef, useEffect } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,7 @@ const Option = ({ className, value, children, selected, ...otherProps }) => {
   return (
     <li
       value={value}
-      className={cn('rc-select-option', { 'rc-select-option--selected': selected })}
+      className={cn('rc-select-option', { '--selected': selected })}
       {...otherProps}
     >
       {children}
@@ -19,6 +19,9 @@ const Option = ({ className, value, children, selected, ...otherProps }) => {
 Option.displayName = 'Option';
 Option.propTypes = {
   className: PropTypes.string,
+  value: PropTypes.value,
+  children: PropTypes.any,
+  selected: PropTypes.bool,
 };
 Option.defaultProps = {};
 
