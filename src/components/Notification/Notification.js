@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureNotification from '../PureNotification';
+import { rootNotification } from '../Portal/portalNode';
 
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
 
@@ -13,7 +14,7 @@ const Notification = ({ onClose, open, duration, ...otherProps }) => {
   const delayOpen = useSupportCloseAnimation(open);
 
   useEffect(() => {
-    if (open) {
+    if (open && duration > 0) {
       const timer = setTimeout(() => onClose(), duration);
       return () => clearTimeout(timer);
     }
@@ -22,13 +23,12 @@ const Notification = ({ onClose, open, duration, ...otherProps }) => {
   return (
     <React.Fragment>
       {delayOpen && (
-        <Portal>
-          <div className={cn('rc-notification', { '--close-animation': !open })}>
-            <PureNotification
-              onBellClick={onClose}
-              {...otherProps}
-            />
-          </div>
+        <Portal node={rootNotification}>
+          <PureNotification
+            onBellClick={onClose}
+            className={cn('rc-notification', { '--close-animation': !open })}
+            {...otherProps}
+          />
         </Portal>
       )}
     </React.Fragment>

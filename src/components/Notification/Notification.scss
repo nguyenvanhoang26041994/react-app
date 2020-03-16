@@ -1,21 +1,24 @@
 @import '../../scss/vars.scss';
 
 .rc-notification {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 0;
-  z-index: 1000;
-  padding-top: 6em;
-  padding-right: 0.5em;
-
-  .rc-pure-notification {
-    animation: zoomIn 0.25s;
-  }
+  animation: zoomIn 0.25s;
 }
 
 .rc-notification.--close-animation {
-  .rc-pure-notification {
-    animation: zoomOut 0.25s;
+  animation: zoomOut 0.25s;
+}
+
+#root-notification {
+  position: fixed;
+  top: 6em;
+  right: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#root-notification {
+  .rc-notification {
+    margin-bottom: 1em;
+    margin-right: 1em;
   }
 }
