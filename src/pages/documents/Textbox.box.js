@@ -13,7 +13,7 @@ export default ({ className }) => {
           placeholder="Textbox placeholder"
         />
         <Textbox
-          type="password"
+          htmlType="password"
           label="Password Label"
           placeholder="Password placeholder"
         />

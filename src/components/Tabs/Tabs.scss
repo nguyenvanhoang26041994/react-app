@@ -14,14 +14,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3em;
+  height: 2.5em;
   width: 10em;
   border-radius: 0;
   cursor: pointer;
   outline: 0 !important;
   border: none;
   margin-right: 0.125em;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism-inset;
   transition: all 0.5s;
 }
@@ -30,8 +29,7 @@
   margin-right: 0;
 }
 
-.rc-tabs-nav-item--active {
-  background-color: $root-bg-color;
+.rc-tabs-nav-item.--active {
   box-shadow: $neumorphism;
 }
 
@@ -47,11 +45,10 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-tabs-nav-item {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode-inset;
   }
 
-  .rc-tabs-nav-item--active {
+  .rc-tabs-nav-item.--active {
     box-shadow: $neumorphism-darkmode;
   }
 

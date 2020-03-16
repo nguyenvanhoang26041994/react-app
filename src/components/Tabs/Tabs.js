@@ -1,5 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
+
 import Tab from './Tab';
 
 require('./Tabs.scss');
@@ -24,7 +26,7 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: props.defaultCurrentTab,
+      currentTab: props.defaultTab,
     };
 
     this.setCurrentTab = this.setCurrentTab.bind(this);
@@ -55,9 +57,7 @@ class Tabs extends React.Component {
         <div className="rc-tabs-nav">
           {tabs.map(tab => (
             <button
-              className={cn('rc-tabs-nav-item', {
-                'rc-tabs-nav-item--active': currentTab === tab.value,
-              })}
+              className={cn('rc-tabs-nav-item', { '--active': currentTab === tab.value })}
               disabled={tab.disabled}
               onClick={() => this.setCurrentTab(tab.value)}
             >
@@ -69,13 +69,13 @@ class Tabs extends React.Component {
          {React.Children.map(children, chl => {
            if (this.memo[chl.props.value]) {
             return injectDataToChildren(chl, {
-              className: cn({ 'rc-tab--active': currentTab === chl.props.value }, chl.props.className),
+              className: cn({ '--active': currentTab === chl.props.value }, chl.props.className),
             });
            }
 
            if (currentTab === chl.props.value) {
             return injectDataToChildren(chl, {
-              className: cn({ 'rc-tab--active': currentTab === chl.props.value }, chl.props.className),
+              className: cn({ '--active': currentTab === chl.props.value }, chl.props.className),
             });
            }
            return null;
@@ -87,5 +87,11 @@ class Tabs extends React.Component {
 }
 
 Tabs.Tab = Tab;
+Tabs.displayName = 'Tabs';
+Tabs.propTypes = {
+  className: PropTypes.string,
+  defaultTab: PropTypes.string,
+};
+Tabs.defaultProps = {};
 
 export default Tabs;

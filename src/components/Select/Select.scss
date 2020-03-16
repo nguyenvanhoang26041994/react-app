@@ -9,7 +9,6 @@
   padding: 0.5em 1em;
   transition: all 0.25s;
   user-select: none;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
 
   &:hover,
@@ -18,7 +17,7 @@
   }
 }
 
-.rc-select--drop {
+.rc-select.--drop {
   .rc-select-icon {
     transform: rotate(-180deg);
   }
@@ -42,7 +41,7 @@
 }
 
 .rc-select-input-placeholder {
-  color: #a0aebf;
+  color: $placeholder-text-color;
 }
 
 .rc-select-label {
@@ -71,18 +70,17 @@
   z-index: 1050;
 }
 
-.rc-select-dropdown--close-animation {
+.rc-select-dropdown.--close-animation {
   animation: zoomOut 0.25s;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-select {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
 
     &:hover,
-    &.rc-select--drop {
+    &.rc-select.--drop {
       background-color: $root-darkmode-bg-color;
       box-shadow: $neumorphism-darkmode-inset;
     }

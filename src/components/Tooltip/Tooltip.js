@@ -4,7 +4,6 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
-
 import getPosition from '../../utils/getPosition';
 
 require('./Tooltip.scss');
@@ -85,18 +84,18 @@ const renderPlacement = {
 };
 
 const mPlacements = Object.freeze({
-  'top': 'rc-tooltip--top',
-  'top-right': 'rc-tooltip--top-right',
-  'right-top': 'rc-tooltip--right-top',
-  'right-bottom': 'rc-tooltip--right-bottom',
-  'bottom-right': 'rc-tooltip--bottom-right',
-  'bottom': 'rc-tooltip--bottom',
-  'bottom-left': 'rc-tooltip--bottom-left',
-  'left-bottom': 'rc-tooltip--left-bottom',
-  'left': 'rc-tooltip--left',
-  'left-top': 'rc-tooltip--left-top',
-  'top-left': 'rc-tooltip--top-left',
-  'right': 'rc-tooltip--right',
+  'top': '--top',
+  'top-right': '--top-right',
+  'right-top': '--right-top',
+  'right-bottom': '--right-bottom',
+  'bottom-right': '--bottom-right',
+  'bottom': '--bottom',
+  'bottom-left': '--bottom-left',
+  'left-bottom': '--left-bottom',
+  'left': '--left',
+  'left-top': '--left-top',
+  'top-left': '--top-left',
+  'right': '--right',
 });
 
 class Tooltip extends React.Component {
@@ -211,7 +210,7 @@ class Tooltip extends React.Component {
           <Portal {...otherProps}>
             <div
               ref={this.overlayRef}
-              className={cn('rc-tooltip', mPlacements[placement], { 'rc-tooltip--hidden': !visible })}
+              className={cn('rc-tooltip', mPlacements[placement], { '--hidden': !visible })}
               style={overlayStyle}
             >
               {label}
@@ -222,10 +221,18 @@ class Tooltip extends React.Component {
     );
   }
 }
+
+Tooltip.displayName = 'Tooltip';
+Tooltip.propTypes = {
+  placement: PropTypes.oneOf(Object.keys(mPlacements)),
+  gap: PropTypes.number,
+  defaultVisible: PropTypes.bool,
+  label: PropTypes.string,
+  children: PropTypes.any,
+};
 Tooltip.defaultProps = {
   placement: 'top',
   gap: 15,
-  defaultVisible: false,
 };
 
 export default Tooltip;

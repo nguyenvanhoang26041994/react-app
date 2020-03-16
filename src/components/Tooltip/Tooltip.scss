@@ -25,11 +25,11 @@
   }
 }
 
-.rc-tooltip--hidden {
+.rc-tooltip.--hidden {
   display: none;
 }
 
-.rc-tooltip--top {
+.rc-tooltip.--top {
   &:after {
     bottom: 0;
     left: 50%;
@@ -40,7 +40,7 @@
   }
 }
 
-.rc-tooltip--top-right {
+.rc-tooltip.--top-right {
   &:after {
     bottom: 0;
     right: 0;
@@ -51,7 +51,7 @@
   }
 }
 
-.rc-tooltip--right-top {
+.rc-tooltip.--right-top {
   &:after {
     top: 0;
     left: 0;
@@ -62,7 +62,7 @@
   }
 }
 
-.rc-tooltip--bottom-right {
+.rc-tooltip.--bottom-right {
   &:after {
     top: 0;
     right: 0;
@@ -73,7 +73,7 @@
   }
 }
 
-.rc-tooltip--bottom {
+.rc-tooltip.--bottom {
   &:after {
     top: 0;
     left: 50%;
@@ -84,7 +84,7 @@
   }
 }
 
-.rc-tooltip--bottom-left {
+.rc-tooltip.--bottom-left {
   &:after {
     top: 0;
     left: 0;
@@ -95,7 +95,7 @@
   }
 }
 
-.rc-tooltip--left-bottom {
+.rc-tooltip.--left-bottom {
   &:after {
     bottom: 0;
     right: 0;
@@ -106,7 +106,7 @@
   }
 }
 
-.rc-tooltip--left {
+.rc-tooltip.--left {
   &:after {
     top: 50%;
     right: 0;
@@ -117,7 +117,7 @@
   }
 }
 
-.rc-tooltip--left-top {
+.rc-tooltip.--left-top {
   &:after {
     top: 0;
     right: 0;
@@ -128,7 +128,7 @@
   }
 }
 
-.rc-tooltip--top-left {
+.rc-tooltip.--top-left {
   &:after {
     bottom: 0;
     left: 0;
@@ -139,7 +139,7 @@
   }
 }
 
-.rc-tooltip--right {
+.rc-tooltip.--right {
   &:after {
     top: 50%;
     left: 0;
@@ -150,7 +150,7 @@
   }
 }
 
-.rc-tooltip--right-bottom {
+.rc-tooltip.--right-bottom {
   &:after {
     bottom: 0;
     left: 0;

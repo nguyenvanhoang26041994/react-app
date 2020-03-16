@@ -20,7 +20,7 @@ const TimeRender = () => {
 export default ({ className }) => {
   return (
     <PracticeBox wrapperClassName={className} className="flex items-center" header="TABS">
-      <Tabs className="w-full" defaultCurrentTab="tab-1">
+      <Tabs className="w-full" defaultTab="tab-1">
         <Tabs.Tab value="tab-1" label="ONE"><TimeRender /></Tabs.Tab>
         <Tabs.Tab value="tab-2" label="TWO"><TimeRender /></Tabs.Tab>
         <Tabs.Tab value="tab-3" label="THREE"><TimeRender /></Tabs.Tab>

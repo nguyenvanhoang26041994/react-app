@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -6,19 +6,17 @@ import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 require('./Textarea.scss');
 
-const mSizes = Object.freeze({
-  small: 'rc-textarea--small',
-  large: 'rc-textarea--large',
-});
-
-const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, ...otherProps }) => {
+const Textarea = ({ label, textareaRef, className, error, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
-  const _onFocus = useCallback(e => {
-    onFocus(e);
-    setIsFocus(true);
-  }, [onFocus, setIsFocus]);
+  useEffect(() => {
+    const handler = () => setIsFocus(true);
+    const targetRef = ref.current.querySelector('textarea');
+    targetRef.addEventListener('focus', handler);
+
+    return () => targetRef.removeEventListener('focus', handler);
+  }, []);
 
   const handleClickOutside = useCallback(() => setIsFocus(false), [setIsFocus]);
 
@@ -27,21 +25,10 @@ const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, .
   return (
     <div
       ref={ref}
-      className={cn(
-        'rc-textarea',
-        mSizes[size],
-        {
-          'rc-textarea--focus': isFocus,
-        },
-        className,
-      )}
+      className={cn('rc-textarea', { '--focus': isFocus }, className)}
     >
       {error && (<div className="rc-textarea-error">{error}</div>)}
-      <textarea
-        onFocus={_onFocus}
-        ref={textareaRef}
-        {...otherProps}
-      />
+      <textarea ref={textareaRef} {...otherProps} />
       {label && (<label className="rc-textarea-label">{label}</label>)}
     </div>
   );
@@ -49,9 +36,11 @@ const Textarea = ({ type, label, textareaRef, className, error, onFocus, size, .
 
 Textarea.displayName = 'Textarea';
 Textarea.propTypes = {
-  onFocus: PropTypes.func,
+  label: PropTypes.string,
+  textareaRef: PropTypes.any,
+  className: PropTypes.string,
+  error: PropTypes.string,
 };
-Textarea.defaultProps = {
-  onFocus: f => f,
-};
+Textarea.defaultProps = {};
+
 export default Textarea;

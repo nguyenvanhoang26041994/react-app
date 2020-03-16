@@ -6,19 +6,17 @@ import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 require('./Textbox.scss');
 
-const mSizes = Object.freeze({
-  small: 'rc-textbox--small',
-  large: 'rc-textbox--large',
-});
-
-const Textbox = ({ type, placeholder, label, className, error, require, onFocus, size, ...otherProps }) => {
+const Textbox = ({ htmlType, placeholder, label, className, error, ...otherProps }) => {
   const [isFocus, setIsFocus] = useState(false);
   const ref = useRef();
 
-  const _onFocus = useCallback(e => {
-    onFocus(e);
-    setIsFocus(true);
-  }, [onFocus, setIsFocus]);
+  useEffect(() => {
+    const handler = () => setIsFocus(true);
+    const targetRef = ref.current.querySelector('input');
+    targetRef.addEventListener('focus', handler);
+
+    return () => targetRef.removeEventListener('focus', handler);
+  }, []);
 
   const handleClickOutside = useCallback(() => setIsFocus(false), [setIsFocus]);
 
@@ -27,21 +25,12 @@ const Textbox = ({ type, placeholder, label, className, error, require, onFocus,
   return (
     <div
       ref={ref}
-      className={cn(
-        'rc-textbox',
-        mSizes[size],
-        {
-          'rc-textbox--focus': isFocus,
-        },
-        className,
-      )}
+      className={cn('rc-textbox', { '--focus': isFocus }, className)}
     >
       {error && (<div className="rc-textbox-error">{error}</div>)}
       <input
-        type={type}
+        type={htmlType}
         placeholder={placeholder}
-        onFocus={_onFocus}
-        require={require}
         {...otherProps}
       />
       {label && (<label className="rc-textbox-label">{label}</label>)}
@@ -52,13 +41,13 @@ const Textbox = ({ type, placeholder, label, className, error, require, onFocus,
 Textbox.displayName = 'Textbox';
 Textbox.propTypes = {
   className: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(mSizes)),
-  type: PropTypes.string,
-  onFocus: PropTypes.func,
+  htmlType: PropTypes.string,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  error: PropTypes.string,
 };
 Textbox.defaultProps = {
-  type: 'text',
-  onFocus: f => f,
+  htmlType: 'text',
 };
 
 export default Textbox;

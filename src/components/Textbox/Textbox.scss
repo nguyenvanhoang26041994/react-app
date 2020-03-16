@@ -8,11 +8,10 @@
   border-radius: $border-radius;
   padding: 0.5em 1em;
   transition: all 0.25s;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
 
   &:hover,
-  &.rc-textbox--focus {
+  &.--focus {
     box-shadow: $neumorphism-inset;
   }
 }
@@ -50,12 +49,10 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-textbox {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
 
     &:hover,
-    &.rc-textbox--focus {
-      background-color: $root-darkmode-bg-color;
+    &.--focus {
       box-shadow: $neumorphism-darkmode-inset;
     }
   }
