@@ -11,8 +11,7 @@ const TheRest = ({ className, avatarUrl, name }) => {
   return (
     <div className={cn('rc-menubar-the-rest neumorphism', className)}>
       <ActionButton className="mr-3" icon="home" onClick={() => push('/')} />
-      <ActionButton className="mr-3" icon="comment-alt-music" onClick={() => push('/lap-music')} />
-      <ActionButton className="mr-3" icon="heart" onClick={() => push('/document/overlay')} />
+      <ActionButton className="mr-3" icon="comment-alt-music" onClick={() => push('/lap-music-components')} />
     </div>
   );
 };

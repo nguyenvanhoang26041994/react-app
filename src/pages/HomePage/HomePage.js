@@ -11,6 +11,10 @@ import ProgressBox from '../documents/Progress.box';
 import AvatarBox from '../documents/Avatar.box';
 import TabsBox from '../documents/Tabs.box';
 import TooltipBox from '../documents/Tooltip.box';
+import ConfirmBox from '../documents/Confirm.box';
+import NotificationBox from '../documents/Notification.box';
+import AlertBox from '../documents/Alert.box';
+import DrawerBox from '../documents/Drawer.box';
 
 export default () => {
   return (
@@ -20,6 +24,10 @@ export default () => {
         <TextboxBox className="mb-20" />
         <TextareaBox className="mb-20" />
         <SelectBox className="mb-20" />
+        <ConfirmBox className="mb-20" />
+        <NotificationBox className="mb-20" />
+        <AlertBox className="mb-20" />
+        <DrawerBox className="mb-20" />
       </div>
       <div className="w-2/3 px-5">
         <TableBox className="w-full mb-20" />

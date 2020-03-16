@@ -7,7 +7,6 @@ import Layout from './layout/Layout';
 require('./scss/utils.scss');
 
 const HomePage = loadable(() => import('./pages/HomePage'));
-const OverlayDocumentPage = loadable(() => import('./pages/OverlayDocumentPage'));
 const MusicComponentPage = loadable(() => import('./pages/MusicComponentPage'));
 
 const App = () => {
@@ -16,8 +15,9 @@ const App = () => {
       <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/lap-music" component={MusicComponentPage} />
-          <Route exact path="/document/overlay" component={OverlayDocumentPage} />
+          <Route exact path="/lap-music-components" component={MusicComponentPage} />
+          <Route exact path="/lap-1" component={MusicComponentPage} />
+          <Route exact path="/lap-2" component={MusicComponentPage} />
           <Route path="" component={HomePage} />
         </Switch>
       </Layout>

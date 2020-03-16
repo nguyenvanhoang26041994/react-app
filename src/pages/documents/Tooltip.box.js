@@ -25,7 +25,7 @@ export default ({ className }) => {
 
         <div className="flex">
           <Tooltip placement="left-top" label="Left-Top tooltip">
-            <Button className="m-2" style={{ width: '7em' }}>Left-Top</Button>
+            <Button className="m-2" style={{ width: '7em' }}>LT</Button>
           </Tooltip>
           <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
           <Button transparent disabled className="m-2" style={{ width: '7em' }}></Button>
