@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import { Confirm, PureConfirm, Button } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
+import { pushConfirm } from '../../components/neumorphism';
 
 export default ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +20,9 @@ export default ({ className }) => {
           Confirm Firm Content. This is a concept of Confirm.
           Please click the button to show the real Confirm
         </Confirm>
-        <div>
-          <Button onClick={() => setIsOpen(true)}>Show Confirm</Button>
+        <div className="flex">
+          <Button onClick={() => setIsOpen(true)} className="mr-2">Show Confirm</Button>
+          <Button onClick={() => pushConfirm({ children: 'Push Confirm Content' })}>Push Confirm</Button>
         </div>
       </PracticeBox>
     </div>

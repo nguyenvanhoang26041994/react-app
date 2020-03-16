@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import Alert from './Alert';
+import Confirm from './Confirm';
 
-const PusherAlert = ({ temporary, ...otherProps }) => {
+const PusherConfirm = ({ temporary, ...otherProps }) => {
   const [open, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const PusherAlert = ({ temporary, ...otherProps }) => {
   } ,[open]);
 
   return (
-    <Alert
+    <Confirm
       {...otherProps}
       open={open}
       onClose={() => setIsOpen(false)}
@@ -30,5 +30,5 @@ export default (data) => {
   const temporary = document.createElement('div');
   document.body.appendChild(temporary);
 
-  ReactDOM.render(<PusherAlert {...data} temporary={temporary} />, temporary);
+  ReactDOM.render(<PusherConfirm {...data} temporary={temporary} />, temporary);
 };

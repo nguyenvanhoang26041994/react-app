@@ -8,8 +8,12 @@ const PusherNotification = ({ temporary, ...otherProps }) => {
 
   useEffect(() => {
     if (!open) {
-      ReactDOM.unmountComponentAtNode(temporary);
-      document.body.removeChild(temporary);
+      const timer = setTimeout(() => {
+        ReactDOM.unmountComponentAtNode(temporary);
+        document.body.removeChild(temporary);
+      }, 500);
+
+      return () => clearTimeout(timer);
     }
   } ,[open]);
 
