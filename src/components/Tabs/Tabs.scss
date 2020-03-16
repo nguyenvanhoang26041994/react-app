@@ -21,9 +21,9 @@
   cursor: pointer;
   outline: 0 !important;
   border: none;
-  margin-right: 0.75em;
+  margin-right: 0.125em;
   background-color: $root-bg-color;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-inset;
   transition: all 0.5s;
 }
 
@@ -33,11 +33,12 @@
 
 .rc-tabs-nav-item--active {
   background-color: $root-bg-color;
-  box-shadow: $neumorphism-inset;
+  box-shadow: $neumorphism;
 }
 
 .rc-tabs-contents {
-  margin-top: 0.75em;
+  margin-top: 0.25em;
+  box-shadow: $neumorphism;
 }
 
 .rc-tabs-contents > * {
@@ -48,10 +49,14 @@
 .dark-mode {
   .rc-tabs-nav-item {
     background-color: $root-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-inset;
   }
 
   .rc-tabs-nav-item--active {
-    box-shadow: $neumorphism-darkmode-inset;
+    box-shadow: $neumorphism-darkmode;
+  }
+
+  .rc-tabs-contents {
+    box-shadow: $neumorphism-darkmode;
   }
 }

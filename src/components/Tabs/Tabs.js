@@ -37,7 +37,7 @@ class Tabs extends React.Component {
   }
 
   componentDidUpdate() {
-    this.memo[this.state.currentTab] = true;console.log(this.memo);
+    this.memo[this.state.currentTab] = true;
   }
 
   setCurrentTab(val) {
@@ -65,7 +65,7 @@ class Tabs extends React.Component {
             </button>
           ))}
         </div>
-       <div className="rc-tabs-contents" style={{ height: '20em' }}>
+       <div className="rc-tabs-contents">
          {React.Children.map(children, chl => {
            if (this.memo[chl.props.value]) {
             return injectDataToChildren(chl, {

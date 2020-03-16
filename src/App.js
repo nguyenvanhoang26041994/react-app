@@ -8,6 +8,7 @@ require('./scss/utils.scss');
 
 const HomePage = loadable(() => import('./pages/HomePage'));
 const MusicComponentPage = loadable(() => import('./pages/MusicComponentPage'));
+const HoangLap = loadable(() => import('./pages/HoangLap'));
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/lap-music-components" component={MusicComponentPage} />
-          <Route exact path="/lap-1" component={MusicComponentPage} />
+          <Route exact path="/hoang-lap" component={HoangLap} />
           <Route exact path="/lap-2" component={MusicComponentPage} />
           <Route path="" component={HomePage} />
         </Switch>

@@ -11,7 +11,7 @@ const TimeRender = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center items-center text-xl neumorphism" style={{ height: '10em' }}>
+    <div className="w-full flex justify-center items-center text-xl" style={{ height: '10em' }}>
       {(new Date(time).toUTCString())}
     </div>
   );
