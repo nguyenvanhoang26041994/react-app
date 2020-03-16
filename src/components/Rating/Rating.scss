@@ -6,7 +6,7 @@
 }
 
 .rc-rating-item {
-  color: $form-input-bg-color;
+  color: $rating-color;
   transition: all 0.25s;
   padding: 0.25em;
 
@@ -16,7 +16,7 @@
 }
 
 .rc-rating-item--light {
-  color: #ffc107;
+  color: $rating-active-color;
 }
 
 // DARK MODE SUPPORT

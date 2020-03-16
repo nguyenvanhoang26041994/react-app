@@ -1,29 +1,55 @@
+/**
+* Spacing
+*/
 $basic-height: 2.5em;
-
-$font-small: 0.85rem;
-$font-large: 1.25rem;
 $border-radius: 0.5em;
 $border-radius-medium: 1em;
 
-$secondary-color: #0099ff;
-$primary-color: #2f2f2f;
+/**
+* Root color
+*/
+$root-bg-color: #f3f3f3;
+$root-darkmode-bg-color: #595959;
+$root-text-color: #2f2f2f;
+
+
+/**
+* Status color
+*/
 $success-color: #32e232;
 $warning-color: #f7aa37;
 $error-color: #ec4c1d;
-$background-color-dark-mode: #656565;
-$form-input-bg-color: #e4e4e4;
-$textbox-bg: #f9f9f9;
-$textbox-bg: #f9f9f9;
-$selectbox-bg: #f9f9f9;
 
-$root-bg-color: #f3f3f3;
-$root-darkmode-bg-color: #595959;
+/**
+* Overlay background-color
+*/
+$overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
+$select-option-bg-color: #0099ff;
 
+/**
+* Rating color
+*/
+$rating-color: #e4e4e4;
+$rating-active-color: #ffc107;
+
+
+/**
+* Progress circle stoke color
+*/
+$progress-circle-store-color: #0099ff;
+
+
+/**
+* Active background color
+*/
+$active-color-1: #0099ff; // Pagination | Switch | Checkbox | Radio
+
+
+/**
+* Neumorphism support
+*/
 $neumorphism: 1.5px 1.5px 1.5px #e4e4e4, -1px -1px 1px #ffffff;
 $neumorphism-darkmode: 1.5px 1.5px 1.5px #494949, -1px -1px 1px #696969;
 $neumorphism-inset: inset 2px 2px 1px #e7e7e7, inset -2px -2px 1px #ffffff;
 $neumorphism-darkmode-inset: inset 2px 2px 1px #515151, inset -2px -2px 1px #5d5d5d;
 
-
-$overlay-bg-color: #0099ff;
-$text-color: #2f2f2f;

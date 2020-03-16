@@ -30,7 +30,7 @@
 
     + * + .rc-radio-second-inner {
       box-shadow: $neumorphism;
-      background-color: $primary-color;
+      background-color: $active-color-1;
     }
   }
 
@@ -82,7 +82,7 @@
       }
   
       + * + .rc-radio-second-inner {
-        background-color: $primary-color;
+        background-color: $active-color-1;
         box-shadow: $neumorphism-darkmode;
       }
     }

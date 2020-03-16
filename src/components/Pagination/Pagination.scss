@@ -26,17 +26,15 @@
   border-radius: 100em;//$border-radius;
   cursor: pointer;
   transition: color 0, background-color 0.25s;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
 
   &:hover {
-    background-color: $root-bg-color;
     box-shadow: $neumorphism-inset;
   }
 }
 
 .rc-pagination-item--active.rc-pagination-item--active {
-  background-color: $primary-color;
+  background-color: $active-color-1;
   color: #fff;
   box-shadow: none;
 }
@@ -64,11 +62,9 @@
   .rc-pagination-item:not(.rc-pagination-item--active),
   .rc-pagination-next,
   .rc-pagination-prev {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
 
     &:hover {
-      background-color: $root-darkmode-bg-color;
       box-shadow: $neumorphism-darkmode-inset;
     }
   }

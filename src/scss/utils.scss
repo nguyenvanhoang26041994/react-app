@@ -13,19 +13,3 @@
 .neumorphism-darmode {
   box-shadow: $neumorphism-darkmode;
 }
-
-html {
-  font-size: 14px;
-  font-family: "Josefin Sans", sans-serif;
-}
-
-body {
-  display: flex;
-  background-color: $root-bg-color;
-  color: $text-color;
-}
-
-body.dark-mode {
-  background-color: $root-darkmode-bg-color;
-  color: #fff;
-}

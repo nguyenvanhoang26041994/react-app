@@ -4,7 +4,7 @@ import loadable from './utils/loadable';
 
 import Layout from './layout/Layout';
 
-require('./scss/utils.scss');
+require('./scss/begin.scss');
 
 const HomePage = loadable(() => import('./pages/HomePage'));
 const MusicComponentPage = loadable(() => import('./pages/MusicComponentPage'));

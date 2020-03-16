@@ -33,7 +33,7 @@ circle.rc-progress-percent {
   transition: stroke-dashoffset 0.5s;
   transform: translate(10px, 10px);
   stroke-linecap: round;
-  stroke: $primary-color;
+  stroke: $progress-circle-store-color;
 }
 
 .rc-progress-number {
@@ -41,7 +41,7 @@ circle.rc-progress-percent {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: $primary-color;
+  color: $root-text-color;
   display: flex;
   align-items: center;
   vertical-align: middle;
@@ -60,6 +60,6 @@ circle.rc-progress-percent {
   }
 
   .rc-progress-number {
-    color: $primary-color;
+    color: $root-text-color;
   }
 }

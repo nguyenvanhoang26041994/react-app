@@ -3,7 +3,7 @@
 .rc-tooltip {
   position: absolute;
   z-index: 10;
-  background-color: $secondary-color;
+  background-color: $overlay-bg-color;
   color: #fff;
   min-width: 5em;
   max-width: 20em;
@@ -20,7 +20,7 @@
     height: 1em;
     box-sizing: border-box;
     overflow: hidden;
-    border: 0.5em solid $secondary-color;
+    border: 0.5em solid $overlay-bg-color;
     position: absolute;
   }
 }
