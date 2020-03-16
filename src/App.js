@@ -13,6 +13,7 @@ const DisplayDocumentPage = loadable(() => import('./pages/DisplayDocumentPage')
 const OverlayDocumentPage = loadable(() => import('./pages/OverlayDocumentPage'));
 const SystemDesign = loadable(() => import('./pages/SystemDesign'));
 const MusicComponentPage = loadable(() => import('./pages/MusicComponentPage'));
+const DateTimePage = loadable(() => import ('./pages/DateTimePage'));
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path="/" component={MusicComponentPage} />
           <Route exact path="/lap-music" component={MusicComponentPage} />
           <Route exact path="/ui-system" component={SystemDesign} />
+          <Route exact path="/document/date-time" component={DateTimePage} />
           <Route exact path="/document/form" component={FormDocumentPage} />
           <Route exact path="/document/common" component={CommonDocumentPage} />
           <Route exact path="/document/display" component={DisplayDocumentPage} />

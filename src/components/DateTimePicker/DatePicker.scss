@@ -1,0 +1,52 @@
+@import '../../scss/vars.scss';
+
+.dp-wrapper {
+  position: relative;
+}
+
+.dp-wrapper * {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently */
+}
+
+.dp-input{
+  width: 150px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: $border-radius;
+  box-shadow: $neumorphism;
+}
+
+.dp-input input:focus{
+  outline: none;
+}
+
+.dp-input input{
+  width: 125%;
+  background-color: $root-bg-color;
+  border: none;
+  height: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.dp-container {
+  float: left;
+  position: absolute;
+  left:0;
+  top: 40px;
+  width: 300px;
+  min-height: 350px;
+  background: $root-bg-color;
+  box-shadow: $neumorphism-inset;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 25px 30px;
+}
