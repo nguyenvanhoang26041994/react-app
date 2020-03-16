@@ -2,8 +2,6 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Icon from '../Icon';
-
 require('./Radio.scss');
 
 const Radio = ({ className, radioRef, ...otherProps }) => {
@@ -22,7 +20,10 @@ const Radio = ({ className, radioRef, ...otherProps }) => {
 };
 
 Radio.displayName = 'Radio';
-Radio.propTypes = {};
+Radio.propTypes = {
+  className: PropTypes.string,
+  radioRef: PropTypes.any,
+};
 Radio.defaultProps = {};
 
 export default Radio;

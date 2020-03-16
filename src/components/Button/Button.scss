@@ -16,11 +16,10 @@
   touch-action: manipulation;
   cursor: pointer;
   transition: all 0.25s;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
 
   &:hover:not(:disabled),
-  &:focus:not(:hover) {
+  &:focus {
     box-shadow: $neumorphism-inset;
   }
 
@@ -29,35 +28,31 @@
   }
 }
 
-.rc-button--transparent {
+.rc-button.--transparent {
   background-color: transparent;
   box-shadow: none;
 }
 
-.rc-button--circle {
+.rc-button.--circle {
   padding-left: 0;
   padding-right: 0;
   border-radius: 100em;
 }
 
-.rc-button--rounded {
+.rc-button.--rounded {
   border-radius: 100em;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-button {
-    background-color: $root-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode;
+    &:not(.--transparent) {
+      box-shadow: $neumorphism-darkmode;
+    }
 
     &:hover:not(:disabled),
-    &:focus:not(:hover):not(:disabled) {
+    &:focus {
       box-shadow: $neumorphism-darkmode-inset;
     }
-  }
-
-  .rc-button--transparent {
-    background-color: transparent;
-    box-shadow: none;
   }
 }

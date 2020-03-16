@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Button from '../Button';
@@ -15,7 +15,10 @@ const ActionButton = ({ className, icon, ...otherProps }) => {
 };
 
 ActionButton.displayName = 'ActionButton';
-ActionButton.propTypes = {};
+ActionButton.propTypes = {
+  className: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+};
 ActionButton.defaultProps = {};
 
 export default ActionButton;

@@ -20,4 +20,11 @@ const Checkbox = ({ checkboxRef, className, ...otherProps }) => {
   );
 };
 
+Checkbox.displayName = 'Checkbox';
+Checkbox.propTypes = {
+  className: PropTypes.string,
+  checkboxRef: PropTypes.any,
+};
+Checkbox.defaultProps = {};
+
 export default Checkbox;

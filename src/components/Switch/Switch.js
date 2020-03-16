@@ -17,7 +17,7 @@ const Switch = ({ switchRef, defaultChecked, className, ...otherProps }) => {
   }, []);
 
   return (
-    <span className={cn('rc-switch', { 'rc-switch--checked': checked }, className)} ref={ref}>
+    <span className={cn('rc-switch', { '--checked': checked }, className)} ref={ref}>
       <input
         type="checkbox"
         className="rc-switch-input"
@@ -31,7 +31,10 @@ const Switch = ({ switchRef, defaultChecked, className, ...otherProps }) => {
 };
 
 Switch.displayName = 'Switch';
-Switch.propTypes = {};
+Switch.propTypes = {
+  switchRef: PropTypes.any,
+  className: PropTypes.string,
+};
 Switch.defaultProps = {};
 
 export default Switch;

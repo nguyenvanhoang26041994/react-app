@@ -24,12 +24,11 @@
 
   &:checked {
     + .rc-checkbox-inner {
-      background-color: $root-bg-color;
       box-shadow: $neumorphism-inset;
     }
 
     + * + .rc-checkbox-check {
-      fill: $active-color-1;
+      color: $active-color-1;
     }
   }
 
@@ -45,7 +44,6 @@
   width: 100%;
   transition: all 0.25s;
   border-radius: $border-radius;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
 }
 
@@ -53,8 +51,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  fill: $root-bg-color;
+  color: $root-bg-color;
   transform: translate(-50%, -50%);
+  transition: all 0.25s;
 }
 
 // DARK MODE SUPPORT
@@ -62,22 +61,16 @@
   .rc-checkbox-input {
     &:checked {
       + .rc-checkbox-inner {
-        background-color: $root-darkmode-bg-color;
         box-shadow: $neumorphism-darkmode-inset;
-      }
-  
-      + * + .rc-checkbox-check {
-        fill: $active-color-1;
       }
     }
   }
   
   .rc-checkbox-inner  {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
   }
 
-  .rc-checkbox-check {
-    fill: $root-darkmode-bg-color;
+  .rc-checkbox-check:not(.rc-checkbox-input:checked + * + .rc-checkbox-check) {
+    color: $root-darkmode-bg-color;
   }
 }

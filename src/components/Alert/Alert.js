@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Portal from '../Portal';
@@ -21,7 +22,7 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-alert', { 'rc-alert--close-animation': !open })}>
+          <div className={cn('rc-alert', { '--close-animation': !open })}>
             <PureAlert
               onCloseClick={onClose}
               {...otherProps}
@@ -35,6 +36,13 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
   );
 };
 
+Alert.displayName = 'Alert';
+Alert.propTypes = {
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
+  duration: PropTypes.number,
+  children: PropTypes.any,
+};
 Alert.defaultProps = {
   onClose: f => f,
   duration: 3000,

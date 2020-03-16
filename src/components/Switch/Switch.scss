@@ -8,7 +8,6 @@
   width: 3.75em;
   height: 2em;
   border-radius: 100em;
-  background-color: $root-bg-color;
   box-shadow: $neumorphism;
   transition: all 0.25s;
   cursor: pointer;
@@ -16,12 +15,11 @@
   align-items: center;
 }
 
-.rc-switch--checked {
-  background-color: $root-bg-color;
+.rc-switch.--checked {
   box-shadow: $neumorphism-inset;
 
   .rc-switch-inner {
-    background-color: $active-color-1;
+    background: $active-bg-color-neumorphism;
     box-shadow: $neumorphism;
     transform: translateX(1.75em);
   }
@@ -45,7 +43,6 @@
 }
 
 .rc-switch-inner {
-  background-color: $root-bg-color;
   box-shadow: $neumorphism-inset;
   height: 1.5em;
   width: 1.5em;
@@ -57,22 +54,18 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-switch {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode;
   }
 
-  .rc-switch--checked {
-    background-color: $root-darkmode-bg-color;
+  .rc-switch.--checked {
     box-shadow: $neumorphism-darkmode-inset;
 
     .rc-switch-inner {
-      background-color: $active-color-1;
-      box-shadow: $neumorphism-darkmode;
+      box-shadow: none;
     }
   }
 
   .rc-switch-inner {
-    background-color: $root-darkmode-bg-color;
     box-shadow: $neumorphism-darkmode-inset;
   }
 }

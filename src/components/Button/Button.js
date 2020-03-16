@@ -9,9 +9,9 @@ const Button = ({ className, circle, rounded, transparent, buttonRef, ...otherPr
     className={cn(
       'rc-button',
       {
-        'rc-button--circle': circle,
-        'rc-button--transparent': transparent,
-        'rc-button--rounded': rounded,
+        '--circle': circle,
+        '--transparent': transparent,
+        '--rounded': rounded,
       },
       className,
     )}
@@ -23,6 +23,10 @@ const Button = ({ className, circle, rounded, transparent, buttonRef, ...otherPr
 Button.displayName = 'Button';
 Button.propTypes = {
   className: PropTypes.string,
+  circle: PropTypes.bool,
+  rounded: PropTypes.bool,
+  transparent: PropTypes.bool,
+  buttonRef: PropTypes.any,
 };
 Button.defaultProps = {};
 
