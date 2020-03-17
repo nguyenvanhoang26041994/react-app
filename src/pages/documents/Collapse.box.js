@@ -10,7 +10,7 @@ import ButtonBox from './Button.box';
 export default ({ className }) => {
   return (
     <PracticeBox wrapperClassName={className} header="COLLAPSE">
-      <Collapse defaultKeys={['key-2']}>
+      <Collapse defaultActiveKey={['key-2']} accordion>
         <Collapse.Panel key="key-1" header="Button Box Header">
          <ButtonBox />
         </Collapse.Panel>

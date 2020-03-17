@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
+import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,11 +7,23 @@ import Button from '../Button';
 
 require('./Panel.scss');
 
-const Panel = ({ className, header, children, defaultActive, ...otherProps }) => {
-  const [active, setActive] = useState(defaultActive);
+const Panel = ({ className, header, children, defaultActive, onChange, ...otherProps }) => {
+  const isControlled = useMemo(() => otherProps.hasOwnProperty('active'), []);
+
+  const [active, setActive] = useState(isControlled ? otherProps.active : defaultActive);
   const handleToggle = useCallback(() => setActive(prev => !prev));
 
-  const [contentStyle,_ , contentRef] = useCollapseStyle(active)
+  const [contentStyle, contentRef] = useCollapseStyle(active);
+
+  useEffect(() => {
+    onChange(active);
+  }, [active]);
+
+  useMemo(() => {
+    if (isControlled) {
+      setActive(otherProps.active);
+    }
+  }, [otherProps.active]);
 
   return (
     <div
@@ -40,11 +52,13 @@ const Panel = ({ className, header, children, defaultActive, ...otherProps }) =>
 Panel.displayName = 'Panel';
 Panel.propTypes = {
   header: PropTypes.any.isRequired,
-  active: PropTypes.bool,
   className: PropTypes.string,
   defaultActive: PropTypes.bool,
+  onChange: PropTypes.func,
 };
-Panel.defaultProps = {};
+Panel.defaultProps = {
+  onChange: f => f,
+};
 
 export default Panel;
 
@@ -104,5 +118,5 @@ function useCollapseStyle(active) {
   }
   , [active]);
 
-  return [style, contentHeight, contentRef];
+  return [style, contentRef];
 }
