@@ -1,0 +1,51 @@
+@import '../../scss/vars.scss';
+
+.rc-collapse-panel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.15em;
+}
+
+.rc-collapse-panel.--active {
+  .rc-collapse-panel-icon {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+}
+
+.rc-collapse-panel-header {
+  position: relative;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  box-shadow: $neumorphism;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rc-collapse-panel-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+  margin-right: 1em;
+}
+
+.rc-collapse-panel-content {
+  display: block;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.rc-collapse-panel-box {
+  padding: 1.5em;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-collapse-panel-header {
+    box-shadow: $neumorphism-darkmode;
+  }
+}

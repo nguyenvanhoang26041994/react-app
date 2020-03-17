@@ -88,6 +88,7 @@ const Select = ({ className, label, selectRef, children, name, defaultValue, err
               {React.Children.map(children, elm => React.cloneElement(elm, {
                 selected: _value === elm.props.value,
                 onClick: () => handleOptionSelected(elm.props.value),
+                ...elm.props
               }))}
             </ul>
           </div>

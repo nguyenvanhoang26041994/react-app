@@ -20,7 +20,6 @@
   cursor: pointer;
   outline: 0 !important;
   border: none;
-  margin-right: 0.125em;
   box-shadow: $neumorphism-inset;
   transition: all 0.5s;
 }
@@ -34,7 +33,7 @@
 }
 
 .rc-tabs-contents {
-  margin-top: 0.25em;
+  margin-top: 0.15em;
   box-shadow: $neumorphism;
 }
 
