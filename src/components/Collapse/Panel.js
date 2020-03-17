@@ -15,6 +15,7 @@ const Panel = ({ className, header, children, defaultActive, onChange, ...otherP
 
   const [contentStyle, contentRef] = useCollapseStyle(active);
 
+  // SUPPORT CONTROLED COMPONENT
   useEffect(() => {
     onChange(active);
   }, [active]);
@@ -55,6 +56,7 @@ Panel.propTypes = {
   className: PropTypes.string,
   defaultActive: PropTypes.bool,
   onChange: PropTypes.func,
+  children: PropTypes.any,
 };
 Panel.defaultProps = {
   onChange: f => f,
