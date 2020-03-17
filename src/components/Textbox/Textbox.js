@@ -18,8 +18,7 @@ const Textbox = ({ htmlType, placeholder, label, className, error, ...otherProps
     return () => targetRef.removeEventListener('focus', handler);
   }, []);
 
-  const handleClickOutside = useCallback(() => setIsFocus(false), [setIsFocus]);
-
+  const handleClickOutside = useCallback(() => setIsFocus(false), []);
   useOnClickOutside(ref, handleClickOutside);
 
   return (

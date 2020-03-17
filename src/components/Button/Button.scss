@@ -1,8 +1,7 @@
 @import '../../scss/vars.scss';
 
 .rc-button {
-  font-size: 1rem;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: $basic-height;

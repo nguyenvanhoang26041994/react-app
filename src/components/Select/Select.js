@@ -23,11 +23,11 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
   const ref = useRef();
   const dropdownRef = useRef();
 
-  const toggleIsDrop = useCallback(() => setIsDrop(prev => !prev), [setIsDrop]);
+  const toggleIsDrop = useCallback(() => setIsDrop(prev => !prev), []);
   const handleOptionSelected = useCallback(val => {
     setValue(val);
     setIsDrop(false);
-  }, [setValue, setIsDrop]);
+  }, []);
 
   const handleClickOutside = useCallback(e => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -67,15 +67,10 @@ const Select = ({ className, label, children, defaultValue, error, placeholder, 
             style={{ left: pageX, top: pageY, width: clientWidth }}
           >
             <ul>
-              {React.Children.map(children, elm => {
-                if (!React.isValidElement(elm)) {
-                  return null;
-                }
-                return React.cloneElement(elm, {
-                  selected: value === elm.props.value,
-                  onClick: () => handleOptionSelected(elm.props.value),
-                });
-              })}
+              {React.Children.map(children, elm => React.cloneElement(elm, {
+                selected: value === elm.props.value,
+                onClick: () => handleOptionSelected(elm.props.value),
+              }))}
             </ul>
           </div>
         </Portal>

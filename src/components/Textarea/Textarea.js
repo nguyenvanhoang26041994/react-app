@@ -18,15 +18,11 @@ const Textarea = ({ label, textareaRef, className, error, ...otherProps }) => {
     return () => targetRef.removeEventListener('focus', handler);
   }, []);
 
-  const handleClickOutside = useCallback(() => setIsFocus(false), [setIsFocus]);
-
+  const handleClickOutside = useCallback(() => setIsFocus(false), []);
   useOnClickOutside(ref, handleClickOutside);
 
   return (
-    <div
-      ref={ref}
-      className={cn('rc-textarea', { '--focus': isFocus }, className)}
-    >
+    <div ref={ref} className={cn('rc-textarea', { '--focus': isFocus }, className)}>
       {error && (<div className="rc-textarea-error">{error}</div>)}
       <textarea ref={textareaRef} {...otherProps} />
       {label && (<label className="rc-textarea-label">{label}</label>)}

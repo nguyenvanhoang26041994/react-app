@@ -32,13 +32,12 @@
 
 .rc-textbox > input {
   width: 100%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: $basic-height;
   outline: 0 !important;
   border: none;
-  touch-action: manipulation;
   background-color: transparent;
 }
 
