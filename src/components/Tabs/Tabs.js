@@ -19,6 +19,7 @@ class Tabs extends React.Component {
       tabs: React.Children.map(props.children, i => ({
         value: i.props.value,
         label: i.props.label,
+        disabled: i.props.disabled,
       })),
     };
   }

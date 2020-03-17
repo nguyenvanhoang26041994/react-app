@@ -14,10 +14,12 @@ const loop = (start, end, cb) => {
   return rs;
 };
 
-const Pagination = ({ className, total, pageSize, max, defaultPage, onPageChange }) => {
+const Pagination = ({ className, total, pageSize, max, defaultPage, onPageChange, ...otherProps }) => {
+  const isControlled = useMemo(() => otherProps.hasOwnProperty('page'), []);
+
   const itemCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
-  const [currentPage, setCurrentPage] = useState(defaultPage);
-  const [currentFlag, setCurrentFlag] = useState(Math.ceil(defaultPage / max));
+  const [currentPage, setCurrentPage] = useState(isControlled ? otherProps.page : defaultPage);
+  const [currentFlag, setCurrentFlag] = useState(Math.ceil(currentPage / max));
   const maxCurrentFlag = useMemo(() => Math.ceil(itemCount / max), [itemCount, max]);
 
   const startIndex = useMemo(() => (currentFlag - 1) * max + 1, [currentFlag, currentPage, max]);
@@ -37,9 +39,24 @@ const Pagination = ({ className, total, pageSize, max, defaultPage, onPageChange
     return nextState > 1 ? nextState : 1;
   }), []);
 
+  const handlePageSelected = useCallback(val => {
+    if (isControlled) {
+      onPageChange(val);
+    } else {
+      setCurrentPage(val);
+    }
+  }, []);
+
+  // SUPPORT CONTROLED COMPONENT
   useEffect(() => {
     onPageChange(currentPage);
   }, [currentPage]);
+
+  useMemo(() => {
+    if (isControlled) {
+      setCurrentPage(otherProps.page);
+    }
+  }, [otherProps.page]);
 
   return (
     <ul className={cn('rc-pagination', className )}>
@@ -53,7 +70,7 @@ const Pagination = ({ className, total, pageSize, max, defaultPage, onPageChange
           <li
             key={pageNumber}
             className={cn('rc-pagination-item', { '--active': pageNumber === currentPage })}
-            onClick={() => setCurrentPage(pageNumber)}
+            onClick={() => handlePageSelected(pageNumber)}
           >
             <a>{pageNumber}</a>
           </li>
@@ -76,6 +93,7 @@ Pagination.propTypes = {
   defaultPage: PropTypes.number,
   max: PropTypes.number,
   onPageChange: PropTypes.func,
+  page: PropTypes.number,
 };
 Pagination.defaultProps = {
   defaultPage: 1,

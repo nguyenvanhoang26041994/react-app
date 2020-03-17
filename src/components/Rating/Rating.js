@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,12 +7,29 @@ import Icon from '../Icon';
 require('./Rating.scss');
 
 const Rating = ({ className, max, starRef, icon, defaultStar, onStarChange, ...otherProps }) => {
-  const [star, setStar] = useState(defaultStar);
+  const isControlled = useMemo(() => otherProps.hasOwnProperty('star'), []);
+
+  const [star, setStar] = useState(isControlled ? otherProps.star : defaultStar);
   const [currentStarHover, setCurrentStarHover] = useState('outside');
 
+  const handleStarSelected = useCallback(val => {
+    if (isControlled) {
+      onStarChange(val);
+    } else {
+      setStar(val);
+    }
+  }, []);
+
+  // SUPPORT CONTROLED COMPONENT
   useEffect(() => {
     onStarChange(star);
   }, [star]);
+
+  useMemo(() => {
+    if (isControlled) {
+      setStar(otherProps.star);
+    }
+  }, [otherProps.star]);
 
   const stars = useMemo(() => {
     const rs = [];
@@ -24,7 +41,7 @@ const Rating = ({ className, max, starRef, icon, defaultStar, onStarChange, ...o
           key={i}
           className={cn('rc-rating-item', { '--light': isLighted })}
           onMouseEnter={() => setCurrentStarHover(i + 1)}
-          onClick={() => setStar(i + 1)}
+          onClick={() => handleStarSelected(i + 1)}
         >
           <Icon name={icon} />
         </div>
@@ -35,11 +52,11 @@ const Rating = ({ className, max, starRef, icon, defaultStar, onStarChange, ...o
 
   return (
     <div
-      star={star}
       className={cn('rc-rating', className)}
       ref={starRef}
       onMouseLeave={() => setCurrentStarHover('outside')}
       {...otherProps}
+      star={star}
     >
       {stars}
     </div>
@@ -54,6 +71,7 @@ Rating.propTypes = {
   defaultStar: PropTypes.number,
   className: PropTypes.string,
   starRef: PropTypes.any,
+  star: PropTypes.number,
 };
 Rating.defaultProps = {
   icon: 'star',
