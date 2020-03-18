@@ -60,6 +60,10 @@ $rail-size: 0.15em;
     color: #fff;
   }
 
+  .rc-step-label {
+    color: $primary-color;
+  }
+
   .rc-step-note {
     display: none;
   }
@@ -74,6 +78,26 @@ $rail-size: 0.15em;
   .rc-step-avatar {
     background: $gradient-primary-color;
     color: #fff;
+  }
+
+  .rc-step-note {
+    display: block;
+  }
+}
+
+// CANCELED
+.rc-step.--canceled {
+  .rc-step-rail {
+    background: $gradient-error-color;
+  }
+
+  .rc-step-avatar {
+    background: $gradient-error-color;
+    color: #fff;
+  }
+
+  .rc-step-label {
+    color: $error-color;
   }
 
   .rc-step-note {

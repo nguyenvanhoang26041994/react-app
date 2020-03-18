@@ -6,6 +6,7 @@ export default ({ className, hiddenHeader }) => {
   const [activeStep, setActiveStep] = useState(1);
 
   const handleNext = useCallback(() => setActiveStep(prev => prev + 1), []);
+  const handlePrev = useCallback(() => setActiveStep(prev => prev - 1), []);
   const handleFinish = useCallback(() => setActiveStep(5), []);
 
   return (
@@ -13,13 +14,15 @@ export default ({ className, hiddenHeader }) => {
       <Stepper activeStep={activeStep} className="mb-5">
         <Stepper.Step key={1} label="Step One" />
         <Stepper.Step key={2} label="Step Two" />
-        <Stepper.Step key={3} label="Notification" icon="bell" />
+        <Stepper.Step key={3} label="Notification" icon="bell" status="canceled" />
         <Stepper.Step key={4} label="Shutdown" icon="power-off" />
       </Stepper>
       <div className="flex">
         <Button className="mr-2" onClick={() => setActiveStep(1)}>Reset</Button>
+        <Button className="mr-2" onClick={handlePrev} disabled={activeStep >= 4}>Prev</Button>
         <Button className="mr-2" onClick={handleNext} disabled={activeStep >= 4}>Next</Button>
-        <Button className="mr-2" disabled={activeStep >= 4}>Skip</Button>
+        <Button className="mr-2">Skip</Button>
+        <Button className="mr-2">Cancel</Button>
         <Button className="mr-2" onClick={handleFinish}>Finish</Button>
       </div>
     </PracticeBox>
