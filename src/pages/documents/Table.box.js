@@ -67,22 +67,21 @@ export default ({ className }) => {
             <Table.TH>Tên</Table.TH>
             <Table.TH>Giới tính</Table.TH>
           </Table.TR>
-          <tr className="rc-table-expander rc-table-expander--header" style={{ height: '0.5em' }} />
+          <tr className="rc-table-expander --header" style={{ height: '0.5em' }} />
         </Table.THead>
         <Table.TBody>
           {data.map(item => (
             <React.Fragment>
-              <Table.TR key={item.id}>
+              <Table.TR key={item.id} belongBody>
                 <Table.TD>{item.id}</Table.TD>
                 <Table.TD>{item.name}</Table.TD>
                 <Table.TD>{item.sex}</Table.TD>
               </Table.TR>
-              <tr className="rc-table-expander" style={{ height: '0.15em' }} />
             </React.Fragment>
           ))}
         </Table.TBody>
         <Table.TFoot>
-          <tr className="rc-table-expander rc-table-expander--footer" style={{ height: '0.35em' }} />
+          <tr className="rc-table-expander --footer" style={{ height: '0.35em' }} />
           <Table.TR isFooter>
             <Table.TD colspan={4}>WELLCOME</Table.TD>
           </Table.TR>

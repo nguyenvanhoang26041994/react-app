@@ -16,6 +16,7 @@ import NotificationBox from '../documents/Notification.box';
 import AlertBox from '../documents/Alert.box';
 import DrawerBox from '../documents/Drawer.box';
 import CollapseBox from '../documents/Collapse.box';
+import CarouselBox from '../documents/Carousel.box';
 
 export default () => {
   return (
@@ -47,6 +48,7 @@ export default () => {
         <TabsBox className="mb-20" />
         <CollapseBox className="mb-20" />
         <TooltipBox className="mb-20" />
+        <CarouselBox className="mb-20" />
       </div>
     </div>
   );

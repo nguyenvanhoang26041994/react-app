@@ -8,7 +8,7 @@
   }
 }
 
-.rc-table-tr--header {
+.rc-table-tr.--header {
   box-shadow: $neumorphism;
 }
 
@@ -18,8 +18,8 @@
     box-shadow: $neumorphism-darkmode;
   }
 
-  .rc-table-tr--header:not(:hover)
-  .rc-table-tr--footer:not(:hover) {
+  .rc-table-tr.--header:not(:hover)
+  .rc-table-tr.--footer:not(:hover) {
     box-shadow: $neumorphism-darkmode;
   }
 }
