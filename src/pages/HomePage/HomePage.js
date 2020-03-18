@@ -17,39 +17,46 @@ import AlertBox from '../documents/Alert.box';
 import DrawerBox from '../documents/Drawer.box';
 import CollapseBox from '../documents/Collapse.box';
 import CarouselBox from '../documents/Carousel.box';
+import StepperBox from '../documents/Stepper.box';
 
 export default () => {
   return (
-    <div className="container mx-auto flex">
-      <div className="w-1/3 px-5">
-        <ButtonBox className="mb-20" />
-        <TextboxBox className="mb-20" />
-        <TextareaBox className="mb-20" />
-        <SelectBox className="mb-20" />
-        <ConfirmBox className="mb-20" />
-        <NotificationBox className="mb-20" />
-        <AlertBox className="mb-20" />
-        <DrawerBox className="mb-20" />
-      </div>
-      <div className="w-2/3 px-5">
-        <TableBox className="w-full mb-20" />
-        <div className="flex w-full mb-20">
-          <div className="w-1/2">
-            <CheckboxBox className="mb-10" />
-            <AvatarBox />
-          </div>
-          <div className="w-1/2">
-            <PaginationBox className="mb-10"/>
-            <RatingBox />
-          </div>
+    <div className="container mx-auto flex flex-col">
+      <div className="flex">
+        <div className="w-1/3 px-5">
+          <ButtonBox className="mb-20" />
+          <TextboxBox className="mb-20" />
+          <TextareaBox className="mb-20" />
+          <SelectBox className="mb-20" />
+          <ConfirmBox className="mb-20" />
+          <NotificationBox className="mb-20" />
+          <AlertBox className="mb-20" />
+          <DrawerBox className="mb-20" />
         </div>
+        <div className="w-2/3 px-5">
+          <TableBox className="w-full mb-20" />
+          <div className="flex w-full mb-20">
+            <div className="w-1/2">
+              <CheckboxBox className="mb-10" />
+              <AvatarBox />
+            </div>
+            <div className="w-1/2">
+              <PaginationBox className="mb-10"/>
+              <RatingBox />
+            </div>
+          </div>
 
-        <ProgressBox className="mb-20" />
-        <TabsBox className="mb-20" />
-        <CollapseBox className="mb-20" />
-        <TooltipBox className="mb-20" />
-        <CarouselBox className="mb-20" />
+          <ProgressBox className="mb-20" />
+          <TabsBox className="mb-20" />
+          <CollapseBox className="mb-20" />
+          <TooltipBox className="mb-20" />
+          <CarouselBox className="mb-20" />
+          <StepperBox className="mb-20" />
+        </div>
       </div>
+      {/* <div className="flex flex-col px-5">
+        <StepperBox className="mb-20" />
+      </div> */}
     </div>
   );
 };

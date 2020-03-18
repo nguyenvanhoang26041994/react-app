@@ -9,6 +9,7 @@ export { default as Tabs } from './Tabs';
 export { default as Table } from './Table';
 export { default as Tooltip } from './Tooltip';
 export { default as Select } from './Select';
+export { default as Stepper } from './Stepper';
 export { default as Checkbox } from './Checkbox';
 export { default as Radio } from './Radio';
 export { default as Rating } from './Rating';

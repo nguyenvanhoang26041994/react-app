@@ -7,7 +7,7 @@ import Icon from '../Icon';
 
 require('./Carousel.scss');
 
-const Carousel = ({ className, children, slideWidth, auto }) => {
+const Carousel = ({ className, children, slideWidth, auto, loop }) => {
   const [page, setPage] = useState(1);
   const [body, setBody] = useState({ height: 0, width: 0 });
   const [boxBody, setBoxBody] = useState({ height: 0, width: 0 });
@@ -45,6 +45,14 @@ const Carousel = ({ className, children, slideWidth, auto }) => {
     return () => clearInterval(timer);
   }, [handleNext]);
 
+  useEffect(() => {
+    if (auto && loop && page >= maxPage) {
+      const timer = setTimeout(() => setPage(1), auto);
+
+      return () => clearTimeout(timer);
+    }
+  }, [auto, loop, page, maxPage]);
+
   return (
     <div ref={ref} className={cn('rc-carousel', className)} style={{ height: carouselHeight }}>
       <div ref={boxRef} className="rc-carousel-box" style={{ left }} >
@@ -66,6 +74,7 @@ Carousel.propTypes = {
   children: PropTypes.any,
   slideWidth: PropTypes.number,
   auto: PropTypes.number,
+  loop: PropTypes.bool,
 };
 Carousel.defaultProps = {
   slideWidth: 0.75,
