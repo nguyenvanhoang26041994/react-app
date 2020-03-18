@@ -26,6 +26,7 @@ export default ({ className, hiddenHeader }) => {
     activeStep,
     handleReset,
     handleNext,
+    handleCancel,
     handleSkip,
     handleFinish,
     getStatus,
@@ -33,7 +34,7 @@ export default ({ className, hiddenHeader }) => {
 
   return (
     <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'COMPLEX STEPPER'}>
-      <Stepper className="mb-5" activeStep={activeStep}>
+      <Stepper className="mb-5">
         {Object.keys(_steps).map((key, idx) => (
           <Stepper.Step
             key={key}
@@ -48,7 +49,7 @@ export default ({ className, hiddenHeader }) => {
         <Button className="mr-2" onClick={handleReset}>Reset</Button>
         <Button className="mr-2" onClick={handleNext}>Next</Button>
         {activeStep < stepLength - 1 && <Button className="mr-2" onClick={handleSkip}>Skip</Button>}
-        <Button className="mr-2">Cancel</Button>
+        <Button className="mr-2" onClick={handleCancel}>Cancel</Button>
         <Button className="mr-2" onClick={handleFinish}>Finish</Button>
       </div>
     </PracticeBox>

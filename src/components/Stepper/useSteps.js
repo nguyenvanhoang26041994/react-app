@@ -49,6 +49,17 @@ export default (stepsLength) => {
     setActiveStep(stepsLength);
   }, [stepsLength, activeStep, steps]);
 
+  const handleCancel = useCallback(() => {
+    if (activeStep > stepsLength - 1 || activeStep < 0) {
+      return;
+    }
+    setSteps(prev => ({
+      ...prev,
+      [activeStep]: 'canceled',
+    }));
+    handleSkip();
+  }, [activeStep, stepsLength, handleSkip]);
+
   const getStatus = useCallback((idx) => {
     if (idx === activeStep) {
       return 'processing';
@@ -63,6 +74,7 @@ export default (stepsLength) => {
     handleReset,
     handleNext,
     handleSkip,
+    handleCancel,
     handleFinish,
   };
 };
