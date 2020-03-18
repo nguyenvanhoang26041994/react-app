@@ -25,22 +25,41 @@ export default ({ className, hiddenHeader }) => {
   const [activeStep, setActive] = useState(0);
 
   return (
-    <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'SIMPLE STEPPER'}>
-      <Stepper className="mb-5" activeStep={activeStep}>
-        {Object.keys(_steps).map((key) => (
-          <Stepper.Step
-            key={key}
-            name={key}
-            label={_steps[key].label}
-            icon={_steps[key].icon}
-          />
-        ))}
-      </Stepper>
-      <div className="flex">
-        <Button className="mr-2" onClick={() => setActive(0)}>Reset</Button>
-        <Button className="mr-2" onClick={() => setActive(prev => prev + 1)} disabled={activeStep >= stepLength -1}>Next</Button>
-        <Button className="mr-2" onClick={() => setActive(stepLength)}>Finish</Button>
-      </div>
-    </PracticeBox>
+    <div>
+      <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'STEPPER'}>
+        <Stepper className="mb-5" activeStep={activeStep}>
+          {Object.keys(_steps).map((key) => (
+            <Stepper.Step
+              key={key}
+              name={key}
+              label={_steps[key].label}
+              icon={_steps[key].icon}
+            />
+          ))}
+        </Stepper>
+        <div className="flex mb-5">
+          <Button className="mr-2" onClick={() => setActive(0)}>Reset</Button>
+          <Button className="mr-2" onClick={() => setActive(prev => prev + 1)} disabled={activeStep >= stepLength -1}>Next</Button>
+          <Button className="mr-2" onClick={() => setActive(stepLength)}>Finish</Button>
+        </div>
+      </PracticeBox>
+      <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'VERTICAL STEPPER'}>
+        <Stepper className="mb-5" activeStep={activeStep} vertical>
+          {Object.keys(_steps).map((key) => (
+            <Stepper.Step
+              key={key}
+              name={key}
+              label={_steps[key].label}
+              icon={_steps[key].icon}
+            />
+          ))}
+        </Stepper>
+        <div className="flex mb-5">
+          <Button className="mr-2" onClick={() => setActive(0)}>Reset</Button>
+          <Button className="mr-2" onClick={() => setActive(prev => prev + 1)} disabled={activeStep >= stepLength -1}>Next</Button>
+          <Button className="mr-2" onClick={() => setActive(stepLength)}>Finish</Button>
+        </div>
+      </PracticeBox>
+    </div>
   );
 };

@@ -23,7 +23,6 @@ export default ({ className, hiddenHeader }) => {
   const maxStep = useMemo(() => Object.keys(_steps).length - 1, [_steps]);
 
   const {
-    activeStep,
     handleReset,
     handleNext,
     handleCancel,

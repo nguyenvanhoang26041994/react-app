@@ -19,14 +19,16 @@ const getStatus = (activeStep, idx) => {
   return '';
 };
 
-const Stepper = ({ className, children, activeStep }) => {
+const Stepper = ({ className, children, activeStep, vertical }) => {
+  const _customChildren = React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
+    stepNumber: idx + 1,
+    status: getStatus(activeStep, idx),
+    ...elm.props,
+  }));
+
   return (
-    <div className={cn('rc-stepper', className)}>
-      {React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
-        stepNumber: idx + 1,
-        status: getStatus(activeStep, idx),
-        ...elm.props,
-      }))}
+    <div className={cn('rc-stepper', { '--vertical': vertical }, className)}>
+      {vertical ? _customChildren.reverse() : _customChildren}
     </div>
   );
 };
@@ -39,6 +41,7 @@ Stepper.propTypes = {
   className: PropTypes.string,
   activeStep: PropTypes.object,
   children: PropTypes.any,
+  vertical: PropTypes.bool,
 };
 Stepper.defaultProps = {
   activeStep: 0,

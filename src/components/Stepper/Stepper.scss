@@ -4,3 +4,7 @@
   width: 100%;
   display: flex;
 }
+
+.rc-stepper.--vertical {
+  flex-direction: column-reverse;
+}

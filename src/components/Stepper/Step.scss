@@ -52,10 +52,12 @@ $rail-size: 0.15em;
 // COMPLETED
 .rc-step.--completed {
   .rc-step-rail {
+    background-color: $primary-color;
     background: $gradient-primary-color;
   }
 
   .rc-step-avatar {
+    background-color: $primary-color;
     background: $gradient-primary-color;
     color: #fff;
   }
@@ -72,10 +74,12 @@ $rail-size: 0.15em;
 // PROCESSING
 .rc-step.--processing {
   .rc-step-rail {
+    background-color: $primary-color;
     background: $gradient-primary-color;
   }
 
   .rc-step-avatar {
+    background-color: $primary-color;
     background: $gradient-primary-color;
     color: #fff;
   }
@@ -88,10 +92,12 @@ $rail-size: 0.15em;
 // CANCELED
 .rc-step.--canceled {
   .rc-step-rail {
+    background-color: $error-color;
     background: $gradient-error-color;
   }
 
   .rc-step-avatar {
+    background-color: $error-color;
     background: $gradient-error-color;
     color: #fff;
   }
@@ -107,6 +113,49 @@ $rail-size: 0.15em;
 
 .rc-stepper > .rc-step:nth-child(1) .rc-step-rail {
   display: none;
+}
+
+// VERTICAL SUPPORT
+.rc-stepper.--vertical {
+  > .rc-step:nth-child(1) {
+    min-height: 0;
+  }
+
+  .rc-step {
+    flex-direction: row;
+    min-height: 5em;
+    align-items: flex-start;
+
+    &.--processing,
+    &.--completed {
+      + .rc-step {
+        .rc-step-rail {
+          background-color: $primary-color;
+          background: $gradient-primary-color;
+        }
+      }
+    }
+  }
+
+  .rc-step-rail {
+    background-color: transparent;
+    background: transparent;
+    height: 100%;
+    width: $rail-size;
+    left: $avatar-size / 2 - $rail-size;
+    top: calc(0 + 1.75em);
+  }
+
+  .rc-step-content {
+    flex-grow: 1;
+    align-items: flex-start;
+    margin-left: 0.75em;
+    margin-top: 0;
+  }
+
+  .rc-step-label {
+    margin-top: 1em;
+  }
 }
 
 // DARK MODE SUPPORT
