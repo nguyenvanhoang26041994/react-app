@@ -1,13 +1,14 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { Stepper, Button } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
+import NotificationBox from './Notification.box';
 
 const _steps = {
   'step-1': {
     label: 'Step One',
   },
   'step-2': {
-    label: 'Step One',
+    label: 'Step Two',
   },
   'step-3': {
     label: 'Notification',
@@ -16,6 +17,10 @@ const _steps = {
   'step-4': {
     label: 'Shutdown',
     icon : 'power-off',
+  },
+  'step-5': {
+    label: 'Finish',
+    icon : 'home',
   },
 };
 
@@ -51,7 +56,9 @@ export default ({ className, hiddenHeader }) => {
               name={key}
               label={_steps[key].label}
               icon={_steps[key].icon}
-            />
+            >
+              <NotificationBox />
+            </Stepper.Step>
           ))}
         </Stepper>
         <div className="flex mb-5">
