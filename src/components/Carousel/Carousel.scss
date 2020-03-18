@@ -26,6 +26,7 @@
 
   &:hover {
     box-shadow: none;
+    background-color: $overlay-bg-color;
   }
 }
 
@@ -55,6 +56,7 @@
 
     &:hover {
       box-shadow: none;
+      background-color: $overlay-bg-color;
     }
   }
 }
