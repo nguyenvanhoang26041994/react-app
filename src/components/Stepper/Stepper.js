@@ -7,11 +7,24 @@ import useSteps from './useSteps';
 
 require('./Stepper.scss');
 
-const Stepper = ({ className, children }) => {
+const getStatus = (activeStep, idx) => {
+  if (activeStep === idx) {
+    return 'processing';
+  }
+
+  if (activeStep > idx) {
+    return 'completed';
+  }
+
+  return '';
+};
+
+const Stepper = ({ className, children, activeStep }) => {
   return (
     <div className={cn('rc-stepper', className)}>
       {React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
         stepNumber: idx + 1,
+        status: getStatus(activeStep, idx),
         ...elm.props,
       }))}
     </div>

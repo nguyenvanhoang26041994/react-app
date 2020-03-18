@@ -18,6 +18,7 @@ import DrawerBox from '../documents/Drawer.box';
 import CollapseBox from '../documents/Collapse.box';
 import CarouselBox from '../documents/Carousel.box';
 import StepperBox from '../documents/Stepper.box';
+import StepperSimpleBox from '../documents/StepperSimple.box';
 
 export default () => {
   return (
@@ -51,6 +52,7 @@ export default () => {
           <CollapseBox className="mb-20" />
           <TooltipBox className="mb-20" />
           <CarouselBox className="mb-20" />
+          <StepperSimpleBox className="mb-20" />
           <StepperBox className="mb-20" />
         </div>
       </div>

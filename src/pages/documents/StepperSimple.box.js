@@ -22,34 +22,24 @@ const _steps = {
 export default ({ className, hiddenHeader }) => {
   const stepLength = useMemo(() => Object.keys(_steps).length, [_steps]);
 
-  const {
-    activeStep,
-    handleReset,
-    handleNext,
-    handleSkip,
-    handleFinish,
-    getStatus,
-  } = Stepper.useSteps(stepLength);
+  const [activeStep, setActive] = useState(0);
 
   return (
-    <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'COMPLEX STEPPER'}>
+    <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'SIMPLE STEPPER'}>
       <Stepper className="mb-5" activeStep={activeStep}>
-        {Object.keys(_steps).map((key, idx) => (
+        {Object.keys(_steps).map((key) => (
           <Stepper.Step
             key={key}
             name={key}
             label={_steps[key].label}
             icon={_steps[key].icon}
-            status={getStatus(idx)}
           />
         ))}
       </Stepper>
       <div className="flex">
-        <Button className="mr-2" onClick={handleReset}>Reset</Button>
-        <Button className="mr-2" onClick={handleNext}>Next</Button>
-        {activeStep < stepLength - 1 && <Button className="mr-2" onClick={handleSkip}>Skip</Button>}
-        <Button className="mr-2">Cancel</Button>
-        <Button className="mr-2" onClick={handleFinish}>Finish</Button>
+        <Button className="mr-2" onClick={() => setActive(0)}>Reset</Button>
+        <Button className="mr-2" onClick={() => setActive(prev => prev + 1)} disabled={activeStep >= stepLength -1}>Next</Button>
+        <Button className="mr-2" onClick={() => setActive(stepLength)}>Finish</Button>
       </div>
     </PracticeBox>
   );
