@@ -11,9 +11,9 @@ const Item = ({ children }) => {
   );
 };
 
-export default ({ className }) => {
+export default ({ className, hiddenHeader }) => {
   return (
-    <PracticeBox wrapperClassName={className} header="CAROUSEL">
+    <PracticeBox wrapperClassName={className} header={hiddenHeader ? '' : 'CAROUSEL'}>
       <Carousel auto={3000} loop>
         <Item>{1}</Item>
         <Item>{2}</Item>
