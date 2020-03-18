@@ -1,1 +1,87 @@
 @import '../../scss/vars.scss';
+
+$avatar-size: 3.5em;
+$rail-size: 0.15em;
+
+.rc-step {
+  flex: 1;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.rc-step-rail {
+  box-shadow: $neumorphism;
+  position: absolute;
+  top: $avatar-size / 2 - $rail-size;
+  left: -50%;
+  height: $rail-size;
+  width: 100%;
+}
+
+.rc-step-avatar {
+  height: $avatar-size;
+  width: $avatar-size;
+  z-index: 2;
+  box-shadow: $neumorphism;
+  border-radius: 100em;
+  background-color: $root-bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rc-step-content {
+  margin-top: 0.75em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rc-step-label {
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.rc-step-note {
+  display: none;
+}
+
+// COMPLETED
+.rc-step.--completed {
+  .rc-step-rail {
+    background: $gradient-primary-color;
+  }
+
+  .rc-step-avatar {
+    background: $gradient-primary-color;
+    color: #fff;
+  }
+
+  .rc-step-note {
+    display: none;
+  }
+}
+
+// PROCESSING
+.rc-step.--processing {
+  .rc-step-rail {
+    background: $gradient-primary-color;
+  }
+
+  .rc-step-avatar {
+    background: $gradient-primary-color;
+    color: #fff;
+  }
+
+  .rc-step-note {
+    display: block;
+  }
+}
+
+.rc-stepper > .rc-step:nth-child(1) .rc-step-rail {
+  display: none;
+}
