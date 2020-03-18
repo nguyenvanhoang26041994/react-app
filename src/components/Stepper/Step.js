@@ -13,13 +13,13 @@ const mStatus = Object.freeze({
   canceled: '--canceled',
 });
 
-const Step = ({ className, status, label, children, stepNumber }) => {
+const Step = ({ className, status, label, children, icon, stepNumber }) => {
   return (
     <div className={cn('rc-step', mStatus[status], className)}>
       <div className="rc-step-rail" />
       <div className="rc-step-avatar">
         {status === 'completed' && (<Icon name="check" />)}
-        {status !== 'completed' && (<span>{stepNumber}</span>)}
+        {status !== 'completed' && (<span>{icon ? <Icon name={icon} /> : stepNumber}</span>)}
       </div>
       <div className="rc-step-content">
         <div className="rc-step-label">{label}</div>
@@ -32,6 +32,7 @@ const Step = ({ className, status, label, children, stepNumber }) => {
 Step.displayName = 'Step';
 Step.propTypes = {
   className: PropTypes.string,
+  icon: PropTypes.string,
   status: PropTypes.oneOf(Object.keys(mStatus)),
 };
 Step.defaultProps = {};
