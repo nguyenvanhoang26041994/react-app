@@ -33,6 +33,9 @@ Step.displayName = 'Step';
 Step.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
+  label: PropTypes.any,
+  children: PropTypes.any,
+  stepNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   status: PropTypes.oneOf(Object.keys(mStatus)),
 };
 Step.defaultProps = {};

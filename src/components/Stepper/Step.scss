@@ -108,3 +108,15 @@ $rail-size: 0.15em;
 .rc-stepper > .rc-step:nth-child(1) .rc-step-rail {
   display: none;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-step-rail {
+    box-shadow: $neumorphism-darkmode;
+  }
+
+  .rc-step-avatar {
+    box-shadow: $neumorphism-darkmode;
+    background-color: $root-darkmode-bg-color;
+  }
+}

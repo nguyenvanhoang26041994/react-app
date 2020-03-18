@@ -37,10 +37,11 @@ Stepper.useSteps = useSteps;
 Stepper.displayName = 'Stepper';
 Stepper.propTypes = {
   className: PropTypes.string,
-  steps: PropTypes.object,
+  activeStep: PropTypes.object,
+  children: PropTypes.any,
 };
 Stepper.defaultProps = {
-  steps: {},
+  activeStep: 0,
 };
 
 export default Stepper;
