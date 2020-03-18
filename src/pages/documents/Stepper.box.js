@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import cn from 'classnames';
-import { Stepper, Button } from '../../components/core';
+import { Stepper, Button, Icon } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
 
 export default ({ className }) => {
@@ -23,24 +23,17 @@ export default ({ className }) => {
 
   return (
     <PracticeBox wrapperClassName={className} header="STEPPER">
-      <Stepper activeStep={activeStep}>
-        <Stepper.Step key={1} label="Step One">
-          <Button rounded className="mr-2" onClick={handleNext} disabled={activeStep >= 4}>Next</Button>
-        </Stepper.Step>
-        <Stepper.Step key={2} label="Step Two">
-          <Button rounded className="mr-2" onClick={handleNext} disabled={activeStep >= 4}>Next</Button>
-        </Stepper.Step>
-        <Stepper.Step key={3} label="Step Three">
-          <Button rounded className="mr-2" onClick={handleNext} disabled={activeStep >= 4}>Next</Button>
-        </Stepper.Step>
-        <Stepper.Step key={4} label="Step Four">
-          <Button rounded className="mr-2" onClick={handleFinish} disabled={activeStep < 4}>Finish</Button>
-        </Stepper.Step>
+      <Stepper activeStep={activeStep} className="mb-5">
+        <Stepper.Step key={1} label="Step One" />
+        <Stepper.Step key={2} label="Step Two" />
+        <Stepper.Step key={3} label="Step Three" />
+        <Stepper.Step key={4} label="Step Four" />
       </Stepper>
       <div className="flex">
         <Button className="mr-2" onClick={() => setActiveStep(1)}>Reset</Button>
         <Button className="mr-2" onClick={handleNext} disabled={activeStep >= 4}>Next</Button>
-        <Button className="mr-2" onClick={handleFinish} disabled={activeStep < 4}>Finish</Button>
+        <Button className="mr-2" disabled={activeStep >= 4}>Skip</Button>
+        <Button className="mr-2" onClick={handleFinish}>Finish</Button>
       </div>
     </PracticeBox>
   );
