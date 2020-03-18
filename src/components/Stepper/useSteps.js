@@ -1,25 +1,34 @@
 import { useCallback, useState, useMemo } from "react";
 
+const toObject = (length) => {
+  const rs = {};
+  for (let i = 0; i < length; i ++) {
+    rs[i] = '';
+  }
+
+  return rs;
+};
+
 export default (stepsLength) => {
   const [activeStep, setActiveStep] = useState(0);
-  const [completed, setCompleted] = useState(new Set());
-  const [skipped, setSkipped] = useState(new Set());
-  const [canceled, setCanceled] = useState(new Set());
+  const [steps, setSteps] = useState(toObject(stepsLength));
 
   const handleReset = useCallback(() => {
     setActiveStep(0);
-    setCompleted(new Set());
-    setSkipped(new Set());
-    setCanceled(new Set());
-  }, []);
+    setSteps(toObject(stepsLength));
+  }, [stepsLength]);
 
   const handleNext = useCallback(() => {
     if (activeStep === stepsLength - 1) {
       return;
     }
-    setCompleted((new Set(completed)).add(activeStep));
+
+    setSteps(prev => ({
+      ...prev,
+      [activeStep]: 'completed',
+    }));
     setActiveStep(prev => prev + 1);
-  }, [stepsLength, activeStep, completed]);
+  }, [stepsLength, activeStep]);
 
   const handleSkip = useCallback(() => {
     if (activeStep === stepsLength - 1) {
@@ -27,35 +36,30 @@ export default (stepsLength) => {
     }
     setActiveStep(prev => prev + 1);
   }, [stepsLength, activeStep]);
-  const handleFinish = useCallback(() => {
 
-  }, []);
+  const handleFinish = useCallback(() => {
+    if (stepsLength - 1 !== activeStep) {
+      return;
+    }
+
+    setSteps(prev => ({
+      ...prev,
+      [stepsLength - 1]: 'completed',
+    }));
+    setActiveStep(stepsLength);
+  }, [stepsLength, activeStep, steps]);
 
   const getStatus = useCallback((idx) => {
     if (idx === activeStep) {
       return 'processing';
     }
 
-    if (completed.has(idx)) {
-      return 'completed';
-    }
-
-    if (canceled.has(idx)) {
-      return 'canceled';
-    }
-
-    if (skipped.has(idx)) {
-      return 'skipped';
-    }
-
-  }, [activeStep, canceled, skipped, completed]);
+    return steps[idx];
+  }, [activeStep]);
 
   return {
     getStatus,
     activeStep,
-    completed,
-    skipped,
-    canceled,
     handleReset,
     handleNext,
     handleSkip,
