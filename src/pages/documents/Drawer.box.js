@@ -9,13 +9,8 @@ export default ({ className }) => {
 
   return (
     <div className={cn('flex flex-col', className)}>
-      <PracticeBox className="flex flex-col" header="DRAWER" wrapperClassName="mb-2">
-        <PureDrawer className="neumorphism" header="Drawer Header">
-          <StepperBox hiddenHeader className="mt-2" />
-        </PureDrawer>
-      </PracticeBox>
-      <PracticeBox className="flex flex-col" wrapperClassName="mb-2">
-        <Drawer className="mb-2 w-1/3" header="Drawer Header" open={isOpen} onClose={() => setIsOpen(false)}>
+      <PracticeBox className="flex flex-col" wrapperClassName="mb-2" header="DRAWER">
+        <Drawer className="mb-2 w-1/2" header="Drawer Header" open={isOpen} onClose={() => setIsOpen(false)}>
           <StepperBox hiddenHeader className="mt-2" />
         </Drawer>
         <div>
