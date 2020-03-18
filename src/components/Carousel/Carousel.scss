@@ -1,15 +1,52 @@
 @import '../../scss/vars.scss';
 
 .rc-carousel {
-  height: 400px;
   width: 100%;
-  overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: $neumorphism;
-  border-radius: $border-radius-medium;
+  overflow-x: hidden;
+
+  &:hover {
+    .rc-carousel-prev,
+    .rc-carousel-next {
+      background-color: rgba(0, 0, 0, 0.2) !important;
+      color: #fff;
+    }
+  }
+}
+
+.rc-carousel-box {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: all 0.5s;
+  position: absolute;
+}
+
+.rc-carousel-prev,
+.rc-carousel-next {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+
+  &:hover {
+    box-shadow: none !important;
+  }
+}
+
+.rc-carousel-prev.--hidden,
+.rc-carousel-next.--hidden {
+  visibility: hidden;
+}
+
+.rc-carousel-prev {
+  left: 0;
+  transform: translate(50%, -50%);
+}
+
+.rc-carousel-next {
+  left: 100%;
+  transform: translate(-150%, -50%);
 }
 
 // DARK MODE SUPPORT

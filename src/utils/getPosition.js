@@ -4,8 +4,8 @@ export default node => {
   let pageY = 0;
 
   do {
-    pageX += _nextNode.offsetLeft;
-    pageY += _nextNode.offsetTop;
+    pageX += _nextNode.offsetLeft - _nextNode.scrollLeft;
+    pageY += _nextNode.offsetTop - _nextNode.scrollTop;
     _nextNode = _nextNode.offsetParent;
   } while(_nextNode && _nextNode.offsetParent)
 
