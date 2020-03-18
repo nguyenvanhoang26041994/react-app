@@ -1,25 +1,27 @@
 import { useCallback, useState, useMemo } from "react";
 
-const toObject = (length) => {
+const toObject = (maxStep) => {
   const rs = {};
-  for (let i = 0; i < length; i ++) {
+  for (let i = 0; i <= maxStep; i ++) {
     rs[i] = '';
   }
 
   return rs;
 };
 
-export default (stepsLength) => {
+export default ({ maxStep, optional }) => {
+  const _optional = useMemo(() => new Set(optional), [optional]);
+
   const [activeStep, setActiveStep] = useState(0);
-  const [steps, setSteps] = useState(toObject(stepsLength));
+  const [steps, setSteps] = useState(toObject(maxStep));
 
   const handleReset = useCallback(() => {
     setActiveStep(0);
-    setSteps(toObject(stepsLength));
-  }, [stepsLength]);
+    setSteps(toObject(maxStep));
+  }, [maxStep]);
 
   const handleNext = useCallback(() => {
-    if (activeStep === stepsLength - 1) {
+    if (activeStep === maxStep) {
       return;
     }
 
@@ -28,37 +30,39 @@ export default (stepsLength) => {
       [activeStep]: 'completed',
     }));
     setActiveStep(prev => prev + 1);
-  }, [stepsLength, activeStep]);
+  }, [maxStep, activeStep]);
 
   const handleSkip = useCallback(() => {
-    if (activeStep === stepsLength - 1) {
+    if (!_optional.has(activeStep) || activeStep === maxStep) {
       return;
     }
     setActiveStep(prev => prev + 1);
-  }, [stepsLength, activeStep]);
+  }, [maxStep, activeStep, _optional]);
 
   const handleFinish = useCallback(() => {
-    if (stepsLength - 1 !== activeStep) {
+    if (maxStep !== activeStep) {
       return;
     }
 
     setSteps(prev => ({
       ...prev,
-      [stepsLength - 1]: 'completed',
+      [maxStep]: 'completed',
     }));
-    setActiveStep(stepsLength);
-  }, [stepsLength, activeStep, steps]);
+    setActiveStep(maxStep + 1);
+  }, [maxStep, activeStep, steps]);
 
   const handleCancel = useCallback(() => {
-    if (activeStep > stepsLength - 1 || activeStep < 0) {
+    if (!_optional.has(activeStep) || activeStep > maxStep || activeStep < 0) {
       return;
     }
+
     setSteps(prev => ({
       ...prev,
       [activeStep]: 'canceled',
     }));
+
     handleSkip();
-  }, [activeStep, stepsLength, handleSkip]);
+  }, [activeStep, maxStep, handleSkip, _optional]);
 
   const getStatus = useCallback((idx) => {
     if (idx === activeStep) {

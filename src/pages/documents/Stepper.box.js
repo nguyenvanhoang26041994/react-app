@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Stepper, Button } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
 
@@ -7,10 +7,10 @@ const _steps = {
     label: 'Step One',
   },
   'step-2': {
-    label: 'Step One',
+    label: 'Optional Step',
   },
   'step-3': {
-    label: 'Notification',
+    label: 'Optional Step',
     icon : 'bell',
   },
   'step-4': {
@@ -20,7 +20,7 @@ const _steps = {
 };
 
 export default ({ className, hiddenHeader }) => {
-  const stepLength = useMemo(() => Object.keys(_steps).length, [_steps]);
+  const maxStep = useMemo(() => Object.keys(_steps).length - 1, [_steps]);
 
   const {
     activeStep,
@@ -30,7 +30,7 @@ export default ({ className, hiddenHeader }) => {
     handleSkip,
     handleFinish,
     getStatus,
-  } = Stepper.useSteps(stepLength);
+  } = Stepper.useSteps({ maxStep, optional: [1, 2] });
 
   return (
     <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'COMPLEX STEPPER'}>
@@ -48,7 +48,7 @@ export default ({ className, hiddenHeader }) => {
       <div className="flex">
         <Button className="mr-2" onClick={handleReset}>Reset</Button>
         <Button className="mr-2" onClick={handleNext}>Next</Button>
-        {activeStep < stepLength - 1 && <Button className="mr-2" onClick={handleSkip}>Skip</Button>}
+        <Button className="mr-2" onClick={handleSkip}>Skip</Button>
         <Button className="mr-2" onClick={handleCancel}>Cancel</Button>
         <Button className="mr-2" onClick={handleFinish}>Finish</Button>
       </div>
