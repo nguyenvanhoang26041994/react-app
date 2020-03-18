@@ -7,12 +7,15 @@ import Icon from '../Icon';
 
 require('./Carousel.scss');
 
-const Carousel = ({ className, children }) => {
+const Carousel = ({ className, children, slideWidth }) => {
   const [page, setPage] = useState(1);
   const [body, setBody] = useState({ height: 0, width: 0 });
   const [boxBody, setBoxBody] = useState({ height: 0, width: 0 });
 
-  const maxPage = useMemo(() => Math.ceil(boxBody.width / body.width), [body.width, boxBody.width]);
+  // One page equal 75% carousel width
+  const maxPage = useMemo(() => Math.ceil(boxBody.width / (body.width * slideWidth)), [body.width, boxBody.width]);
+  const left = useMemo(() => -(page - 1) * body.width * slideWidth, [page, body.width]);
+  const carouselHeight = useMemo(() => boxBody.height + 5, [boxBody.height]);
 
   const ref = useRef();
   const boxRef = useRef();
@@ -30,31 +33,22 @@ const Carousel = ({ className, children }) => {
   const handleNext = useCallback(() => setPage(prev => {
     const _page = prev + 1;
     return _page > maxPage ? maxPage : _page;
-  }), []);
+  }), [maxPage]);
+
   const handlePrev = useCallback(() => setPage(prev => {
     const _page = prev - 1;
     return _page < 1 ? 1 : _page;
   }), []);
 
   return (
-    <div
-      ref={ref}
-      className={cn('rc-carousel', className)}
-      style={{ height: boxBody.height }}
-    >
-      <div
-        ref={boxRef}
-        className="rc-carousel-box"
-        style={{
-          left: -(page - 1) * body.width,
-        }}
-      >
+    <div ref={ref} className={cn('rc-carousel', className)} style={{ height: carouselHeight }}>
+      <div ref={boxRef} className="rc-carousel-box" style={{ left }} >
         {children}
       </div>
-      <Button className={cn('rc-carousel-prev', { '--hidden': page <= 1 })} circle transparent onClick={handlePrev}>
+      <Button className={cn('rc-carousel-prev', { '--hidden': page <= 1 })} circle onClick={handlePrev}>
         <Icon name="chevron-left" />
       </Button>
-      <Button className={cn('rc-carousel-next', { '--hidden': page >= maxPage })} circle transparent onClick={handleNext}>
+      <Button className={cn('rc-carousel-next', { '--hidden': page >= maxPage })} circle onClick={handleNext}>
         <Icon name="chevron-right" />
       </Button>
     </div>
@@ -65,7 +59,10 @@ Carousel.displayName = 'Carousel';
 Carousel.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
+  slideWidth: PropTypes.number,
 };
-Carousel.defaultProps = {};
+Carousel.defaultProps = {
+  slideWidth: 0.75,
+};
 
 export default Carousel;
