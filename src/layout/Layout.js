@@ -7,10 +7,10 @@ require('./Layout.scss');
 const Layout = ({ children }) => {
   return (
     <div id="layout">
-      <Menubar />
+      {/* <Menubar /> */}
       <DarkModeToggle />
-      <ScrollUp />
-      <main className="pt-10">
+      {/* <ScrollUp /> */}
+      <main className="">
         {children}
       </main>
     </div>

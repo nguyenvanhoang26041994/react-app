@@ -26,8 +26,8 @@ const DarkModeToggle = (props) => {
       style={{
         fontSize: '1.25em',
         position: 'fixed',
-        bottom: '4em',
-        right: '1em',
+        bottom: '0.5em',
+        right: '0.5em',
       }}
       circle
       onClick={handleToogleDarkMode}
