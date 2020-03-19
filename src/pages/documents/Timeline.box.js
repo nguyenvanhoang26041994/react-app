@@ -30,11 +30,11 @@ export default ({ className }) => {
         </Timeline.Timestone>
         <Timeline.Timestone>
           <Comment name="Hoang Nguyen" displayTime="March 14">Day 3, I'm create some neumorphism components</Comment>
-        </Timeline.Timestone>
-        <Timeline.Timestone>
+        </Timeline.Timestone >
+        <Timeline.Timestone icon="comments">
           <Comment name="Jenifer" displayTime="March 15">Day 4, I' Reset rc-components</Comment>
         </Timeline.Timestone>
-        <Timeline.Timestone>
+        <Timeline.Timestone icon="power-off">
           <Comment name="Hoang Nguyen" displayTime="March 16">Day 5, I' code so many components with neumorphism style</Comment>
         </Timeline.Timestone>
       </Timeline>

@@ -6,11 +6,11 @@ import Icon from '../Icon';
 
 require('./Timestone.scss');
 
-const Timestone = ({ className, children, ...otherProps }) => {
+const Timestone = ({ className, children, icon, ...otherProps }) => {
   return (
     <div className={cn('rc-timestone', className)} {...otherProps}>
       <div className="rc-timestone-rail" />
-      <Icon name="clock" className="rc-timestone-stone-icon"/>
+      <Icon name={icon} className="rc-timestone-stone-icon"/>
       <div className="rc-timestone-content">
         {children}
       </div>
@@ -22,7 +22,10 @@ Timestone.displayName = 'Timeline.Timestone';
 Timestone.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
+  icon: PropTypes.string,
 };
-Timestone.defaultProps = {};
+Timestone.defaultProps = {
+  icon: 'clock',
+};
 
 export default Timestone;

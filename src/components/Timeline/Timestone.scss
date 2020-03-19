@@ -29,15 +29,13 @@
 }
 
 .rc-timeline > .rc-timestone {
-  &:nth-child(1) {
+  &:last-child {
+    min-height: 0;
+
     .rc-timestone-stone-icon {
       background-color: $primary-color;
       color: #fff;
     }
-  }
-
-  &:last-child {
-    min-height: 0;
 
     .rc-timestone-rail {
       display: none;
@@ -73,22 +71,12 @@
     &:nth-child(1) {
       min-height: 0;
 
-      .rc-timestone-stone-icon {
-        background-color: $root-bg-color;
-        color: $primary-color;
-      }
-  
       .rc-timestone-rail {
         display: none;
       }
     }
   
     &:last-child {
-      .rc-timestone-stone-icon {
-        background-color: $primary-color;
-        color: #fff;
-      }
-
       .rc-timestone-rail {
         display: block;
       }
