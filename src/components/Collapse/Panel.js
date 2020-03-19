@@ -77,7 +77,7 @@ function useCollapseStyle(active) {
 
   useEffect(() => {
     setContentHeight(contentRef.current.clientHeight);
-  }, []);
+  }, [contentHeight]);
 
   useEffect(() => {
     let begin;
@@ -118,7 +118,7 @@ function useCollapseStyle(active) {
       clearTimeout(end);
     }
   }
-  , [active]);
+  , [active, contentHeight]);
 
   return [style, contentRef];
 }
