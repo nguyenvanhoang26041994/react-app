@@ -23,7 +23,12 @@ const DarkModeToggle = (props) => {
 
   return (
     <Button
-      style={{ fontSize: '1.25em' }}
+      style={{
+        fontSize: '1.25em',
+        position: 'fixed',
+        bottom: '4em',
+        right: '1em',
+      }}
       circle
       onClick={handleToogleDarkMode}
       icon={isDark ? 'sun' : 'moon-stars' }

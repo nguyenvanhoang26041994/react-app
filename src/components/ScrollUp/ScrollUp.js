@@ -9,7 +9,12 @@ const ScrollUp = () => {
 
   return (
     <Button
-      style={{ fontSize: '1.25em' }}
+      style={{
+        fontSize: '1.25em',
+        position: 'fixed',
+        bottom: '1em',
+        right: '1em',
+      }}
       circle
       className="rc-scroll-up" onClick={scrollToTop} icon="home"
     />
