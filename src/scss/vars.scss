@@ -8,7 +8,7 @@ $border-radius-medium: 1em;
 /**
 * Root color
 */
-$root-bg-color: #f3f3f3;
+$root-bg-color: #f0f2f5;
 $root-darkmode-bg-color: #17181a;
 $root-text-color: #2f2f2f;
 $placeholder-text-color: #a0aebf;
@@ -56,8 +56,15 @@ $active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Swit
 /**
 * Neumorphism support
 */
-$neumorphism: 1.5px 1.5px 1.5px #e4e4e4, -1px -1px 1px #ffffff;
-$neumorphism-darkmode: 1.5px 1.5px 1.5px #111213, -1px -1px 1px #1d1e21;
-$neumorphism-inset: inset 2px 2px 1px #e7e7e7, inset -2px -2px 1px #ffffff;
-$neumorphism-darkmode-inset: inset 2px 2px 1px #111213, inset -2px -2px 1px #1d1e21;
+$neumorphism: 1.5px 1.5px 1.5px #d6d7da, -1px -1px 1px #ffffff;
+$neumorphism-darkmode: 1.5px 1.5px 1.5px #0c0c0e, -1px -1px 1px #222426;
+$neumorphism-inset: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
+$neumorphism-darkmode-inset: inset 2px 2px 1px #0c0c0e, inset -2px -2px 1px #222426;
 
+// FLAT
+$neumorphism-flat: 1.5px 1.5px 1.5px #d6d7da, -1px -1px 1px #ffffff;
+$neumorphism-darkmode-flat: 1.5px 1.5px 1.5px #0c0c0e, -1px -1px 1px #222426;
+
+// PRESSED
+$neumorphism-pressed: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
+$neumorphism-darkmode-pressed: inset 2px 2px 1px #0c0c0e, inset -2px -2px 1px #222426;

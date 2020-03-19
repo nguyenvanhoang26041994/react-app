@@ -5,16 +5,11 @@
   flex-direction: column-reverse;
   align-items: flex-start;
   position: relative;
-  border-radius: $border-radius;
+  border-radius: $border-radius-medium;
   padding: 0.5em 1em;
   transition: all 0.25s;
   user-select: none;
-  box-shadow: $neumorphism;
-
-  &:hover,
-  &.rc-select--drop {
-    box-shadow: $neumorphism-inset;
-  }
+  box-shadow: $neumorphism-pressed;
 }
 
 .rc-select.--drop {
@@ -62,10 +57,10 @@
 .rc-select-dropdown {
   position: absolute;
   background-color: $root-bg-color;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   max-height: 20em;
   overflow: scroll;
-  border-radius: $border-radius;
+  border-radius: $border-radius-medium;
   animation: zoomIn 0.125s;
   z-index: 1050;
 }
@@ -77,17 +72,11 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-select {
-    box-shadow: $neumorphism-darkmode;
-
-    &:hover,
-    &.rc-select.--drop {
-      background-color: $root-darkmode-bg-color;
-      box-shadow: $neumorphism-darkmode-inset;
-    }
+    box-shadow: $neumorphism-darkmode-pressed;
   }
 
   .rc-select-dropdown {
     background-color: $root-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }

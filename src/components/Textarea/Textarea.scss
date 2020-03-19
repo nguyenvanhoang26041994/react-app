@@ -5,15 +5,10 @@
   flex-direction: column-reverse;
   align-items: flex-start;
   position: relative;
-  border-radius: $border-radius;
+  border-radius: $border-radius-medium;
   padding: 0.5em 1em;
   transition: all 0.25s;
-  box-shadow: $neumorphism;
-
-  &:hover,
-  &.--focus {
-    box-shadow: $neumorphism-inset;
-  }
+  box-shadow: $neumorphism-pressed;
 }
 
 .rc-textarea-label {
@@ -45,11 +40,6 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-textarea {
-    box-shadow: $neumorphism-darkmode;
-
-    &:hover,
-    &.rc-textarea--focus {
-      box-shadow: $neumorphism-darkmode-inset;
-    }
+    box-shadow: $neumorphism-darkmode-pressed;
   }
 }
