@@ -18,7 +18,8 @@
   box-shadow: $neumorphism-flat;
 
   &:hover:not(:disabled),
-  &:focus {
+  &:focus,
+  &.--pressed {
     box-shadow: $neumorphism-pressed;
   }
 
@@ -55,7 +56,8 @@
     }
 
     &:hover:not(:disabled),
-    &:focus {
+    &:focus,
+    &.--pressed {
       box-shadow: $neumorphism-darkmode-pressed;
     }
   }

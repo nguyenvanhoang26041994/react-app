@@ -23,7 +23,7 @@ const LoginUserSection = () => {
 const TopNavigation = () => {
   return (
     <div id="top-navigation" className="neumorphism flex items-center px-5" style={{ marginBottom: '0.25em', height: '5em', borderTopLeftRadius: '3em' }}>
-      <Button icon="home" circle className="mr-2" style={{ fontSize: '1.5em' }} />
+      <Button icon="home" circle className="mr-2" style={{ fontSize: '1.5em' }} transparent />
     </div>
   );
 };
