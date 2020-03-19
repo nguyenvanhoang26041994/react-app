@@ -12,9 +12,7 @@ const PureDrawer = ({ drawerRef, children, header, onCloseClick, className, ...o
     <div className={cn('rc-pure-drawer', className)} ref={drawerRef} {...otherProps}>
       <div className="rc-pure-drawer-header">
         <span>{header}</span>
-        <Button circle className="rc-pure-drawer-toggle" onClick={onCloseClick}>
-          <Icon name="times" />
-        </Button>
+        <Button icon="times" circle className="rc-pure-drawer-toggle" onClick={onCloseClick} />
       </div>
       <div className="rc-pure-drawer-content">{children}</div>
     </div>

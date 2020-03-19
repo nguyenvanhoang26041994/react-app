@@ -58,12 +58,8 @@ const Carousel = ({ className, children, slideWidth, auto, loop }) => {
       <div ref={boxRef} className="rc-carousel-box" style={{ left }} >
         {children}
       </div>
-      <Button className={cn('rc-carousel-prev', { '--hidden': page <= 1 })} circle onClick={handlePrev}>
-        <Icon name="chevron-left" />
-      </Button>
-      <Button className={cn('rc-carousel-next', { '--hidden': page >= maxPage })} circle onClick={handleNext}>
-        <Icon name="chevron-right" />
-      </Button>
+      <Button icon="chevron-left" className={cn('rc-carousel-prev', { '--hidden': page <= 1 })} circle onClick={handlePrev} />
+      <Button icon="chevron-right" className={cn('rc-carousel-next', { '--hidden': page >= maxPage })} circle onClick={handleNext} />
     </div>
   );
 };

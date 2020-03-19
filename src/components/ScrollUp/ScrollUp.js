@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import ActionButton from '../ActionButton';
+import Button from '../Button';
 
 require('./ScrollUp.scss');
 
@@ -8,7 +8,11 @@ const ScrollUp = () => {
   const scrollToTop = useCallback(() => window.scrollTo({top: 0, behavior: 'smooth'}), []);
 
   return (
-    <ActionButton className="rc-scroll-up" onClick={scrollToTop} icon="home" />
+    <Button
+      style={{ fontSize: '1.25em' }}
+      circle
+      className="rc-scroll-up" onClick={scrollToTop} icon="home"
+    />
   );
 };
 

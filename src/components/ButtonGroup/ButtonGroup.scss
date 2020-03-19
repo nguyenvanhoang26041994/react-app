@@ -1,0 +1,23 @@
+@import '../../scss/vars.scss';
+
+.rc-button-group {
+  display: flex;
+
+  > .rc-button {
+    border-radius: 0;
+  }
+
+  > .rc-button:not(:last-child) {
+    margin-right: 0.15em;
+  }
+
+  > .rc-button:nth-child(1) {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  > .rc-button:last-child {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}

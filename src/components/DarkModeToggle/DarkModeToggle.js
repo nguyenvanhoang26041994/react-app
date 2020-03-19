@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import ActionButton from '../ActionButton';
+import Button from '../Button';
 
 require('./DarkModeToggle.scss');
 
@@ -22,7 +22,13 @@ const DarkModeToggle = (props) => {
   }, [isDark]);
 
   return (
-    <ActionButton onClick={handleToogleDarkMode} icon={isDark ? 'sun' : 'moon-stars' } {...props} />
+    <Button
+      style={{ fontSize: '1.25em' }}
+      circle
+      onClick={handleToogleDarkMode}
+      icon={isDark ? 'sun' : 'moon-stars' }
+      {...props}
+    />
   );
 };
 
