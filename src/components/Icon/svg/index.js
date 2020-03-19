@@ -26,7 +26,8 @@ const icons = {
   'keyboard': require('./keyboard').default,
   'mouse': require('./mouse').default,
   'desktop': require('./desktop').default,
-  'comment-alt-music': require('./comment-alt-music').default
+  'comment-alt-music': require('./comment-alt-music').default,
+  'clock': require('./clock').default,
 };
 
 export default icons;
