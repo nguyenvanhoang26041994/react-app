@@ -46,7 +46,7 @@ export default ({ className, hiddenHeader }) => {
           />
         ))}
       </Stepper>
-      <div className="flex">
+      <div className="flex items-center">
         <Button className="mr-2" onClick={handleReset}>Reset</Button>
         <Button className="mr-2" onClick={handleNext}>Next</Button>
         <Button className="mr-2" onClick={handleSkip}>Skip</Button>

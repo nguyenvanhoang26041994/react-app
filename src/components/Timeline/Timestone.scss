@@ -72,6 +72,11 @@
   & > .rc-timestone {
     &:nth-child(1) {
       min-height: 0;
+
+      .rc-timestone-stone-icon {
+        background-color: $root-bg-color;
+        color: $primary-color;
+      }
   
       .rc-timestone-rail {
         display: none;
@@ -83,6 +88,20 @@
         background-color: $primary-color;
         color: #fff;
       }
+
+      .rc-timestone-rail {
+        display: block;
+      }
+    }
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-timeline {
+    .rc-timestone-stone-icon,
+    &.--reverse > .rc-timestone:nth-child(1) .rc-timestone-stone-icon{
+      background-color: $root-darkmode-bg-color;
     }
   }
 }
