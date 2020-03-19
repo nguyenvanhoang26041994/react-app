@@ -56,10 +56,6 @@ $active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Swit
 /**
 * Neumorphism support
 */
-$neumorphism: 1.5px 1.5px 1.5px #d6d7da, -1px -1px 1px #ffffff;
-$neumorphism-darkmode: 1.5px 1.5px 1.5px #0c0c0e, -1px -1px 1px #222426;
-$neumorphism-inset: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
-$neumorphism-darkmode-inset: inset 2px 2px 1px #0c0c0e, inset -2px -2px 1px #222426;
 
 // FLAT
 $neumorphism-flat: 1.5px 1.5px 1.5px #d6d7da, -1px -1px 1px #ffffff;

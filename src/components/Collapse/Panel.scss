@@ -19,7 +19,7 @@
   align-items: center;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   cursor: pointer;
   user-select: none;
 }
@@ -46,6 +46,6 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-collapse-panel-header {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }

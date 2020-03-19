@@ -24,7 +24,7 @@
 
   &:checked {
     + .rc-radio-inner {
-      box-shadow: $neumorphism-inset;
+      box-shadow: $neumorphism-pressed;
     }
 
     + * + .rc-radio-second-inner {
@@ -45,7 +45,7 @@
   width: 100%;
   transition: all 0.25s;
   border-radius: 100em;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   transition: all 0.25s;
 }
 
@@ -58,7 +58,7 @@
   width: 50%;
   transition: all 0.25s;
   border-radius: 100em;
-  box-shadow: $neumorphism-inset;
+  box-shadow: $neumorphism-pressed;
 }
 
 // DARK MODE SUPPORT
@@ -66,7 +66,7 @@
   .rc-radio-input {
     &:checked {
       + .rc-radio-inner {
-        box-shadow: $neumorphism-darkmode-inset;
+        box-shadow: $neumorphism-darkmode-pressed;
       }
 
       + * + .rc-radio-second-inner {
@@ -76,10 +76,10 @@
   }
   
   .rc-radio-inner {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 
   .rc-radio-second-inner {
-    box-shadow: $neumorphism-darkmode-inset;
+    box-shadow: $neumorphism-darkmode-pressed;
   }
 }

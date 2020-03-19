@@ -1,15 +1,15 @@
 @import './vars.scss';
 
 .neumorphism {
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 }
 
 .dark-mode {
   .neumorphism {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }
 
 .neumorphism-darmode {
-  box-shadow: $neumorphism-darkmode;
+  box-shadow: $neumorphism-darkmode-flat;
 }

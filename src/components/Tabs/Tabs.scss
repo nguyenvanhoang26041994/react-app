@@ -20,7 +20,7 @@
   cursor: pointer;
   outline: 0 !important;
   border: none;
-  box-shadow: $neumorphism-inset;
+  box-shadow: $neumorphism-pressed;
   transition: all 0.5s;
 }
 
@@ -29,12 +29,12 @@
 }
 
 .rc-tabs-nav-item.--active {
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 }
 
 .rc-tabs-contents {
   margin-top: 0.15em;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 }
 
 .rc-tabs-contents > * {
@@ -44,14 +44,14 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-tabs-nav-item {
-    box-shadow: $neumorphism-darkmode-inset;
+    box-shadow: $neumorphism-darkmode-pressed;
   }
 
   .rc-tabs-nav-item.--active {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 
   .rc-tabs-contents {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }

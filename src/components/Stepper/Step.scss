@@ -12,7 +12,7 @@ $rail-size: 0.15em;
 }
 
 .rc-step-rail {
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   position: absolute;
   top: $avatar-size / 2 - $rail-size;
   left: -50%;
@@ -24,7 +24,7 @@ $rail-size: 0.15em;
   height: $avatar-size;
   width: $avatar-size;
   z-index: 2;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   border-radius: 100em;
   background-color: $root-bg-color;
   display: flex;
@@ -161,11 +161,11 @@ $rail-size: 0.15em;
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-step-rail {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 
   .rc-step-avatar {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
     background-color: $root-darkmode-bg-color;
   }
 }

@@ -12,7 +12,7 @@
 }
 
 .rc-avatar.--neumorphism {
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 }
 
 .rc-avatar-name {
@@ -30,6 +30,6 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-avatar.--neumorphism {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }

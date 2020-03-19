@@ -26,10 +26,10 @@
   border-radius: 100em;
   cursor: pointer;
   transition: all 0.25s;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 
   &:hover {
-    box-shadow: $neumorphism-inset;
+    box-shadow: $neumorphism-pressed;
   }
 }
 
@@ -62,10 +62,10 @@
   .rc-pagination-item:not(.--active),
   .rc-pagination-next,
   .rc-pagination-prev {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
 
     &:hover {
-      box-shadow: $neumorphism-darkmode-inset;
+      box-shadow: $neumorphism-darkmode-pressed;
     }
   }
 }

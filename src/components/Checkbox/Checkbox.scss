@@ -24,7 +24,7 @@
 
   &:checked {
     + .rc-checkbox-inner {
-      box-shadow: $neumorphism-inset;
+      box-shadow: $neumorphism-pressed;
     }
 
     + * + .rc-checkbox-check {
@@ -44,7 +44,7 @@
   width: 100%;
   transition: all 0.25s;
   border-radius: $border-radius;
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
 }
 
 .rc-checkbox-check {
@@ -61,13 +61,13 @@
   .rc-checkbox-input {
     &:checked {
       + .rc-checkbox-inner {
-        box-shadow: $neumorphism-darkmode-inset;
+        box-shadow: $neumorphism-darkmode-pressed;
       }
     }
   }
   
   .rc-checkbox-inner  {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 
   .rc-checkbox-check:not(.rc-checkbox-input:checked + * + .rc-checkbox-check) {

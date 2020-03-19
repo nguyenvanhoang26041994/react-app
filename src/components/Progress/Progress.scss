@@ -5,7 +5,7 @@
   border-radius: 100em;
   user-select: none;
   transition: all 0.25s;
-  box-shadow: $neumorphism-inset;
+  box-shadow: $neumorphism-pressed;
 }
 
 .rc-progress-inner {
@@ -13,7 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: $neumorphism;
+  box-shadow: $neumorphism-flat;
   border-radius: 100em;
 }
 
@@ -47,10 +47,10 @@ circle.rc-progress-percent {
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-progress {
-    box-shadow: $neumorphism-darkmode-inset;
+    box-shadow: $neumorphism-darkmode-pressed;
   }
 
   .rc-progress-inner {
-    box-shadow: $neumorphism-darkmode;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 }
