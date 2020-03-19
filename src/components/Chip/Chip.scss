@@ -8,6 +8,30 @@
   display: flex;
   align-items: center;
   border-radius: 100em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  white-space: nowrap;
+
+  .rc-avatar {
+    height: 1.65em;
+    width: 1.65em;
+    margin-left: 0.25em;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.rc-chip-label {
+  padding-left: 0.65em;
+  padding-right: 0.65em;
+}
+
+.rc-chip-close {
+  margin-right: 0.25em;
+  height: 1.65em;
+  width: 1.65em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 100em;
 }
