@@ -1,0 +1,6 @@
+@import '../../scss/vars.scss';
+
+.rc-timeline {
+  display: flex;
+  flex-direction: column-reverse; // lastest will go up
+}

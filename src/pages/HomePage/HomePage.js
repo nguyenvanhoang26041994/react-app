@@ -19,6 +19,7 @@ import CollapseBox from '../documents/Collapse.box';
 import CarouselBox from '../documents/Carousel.box';
 import StepperBox from '../documents/Stepper.box';
 import StepperSimpleBox from '../documents/StepperSimple.box';
+import TimelineBox from '../documents/Timeline.box';
 
 export default () => {
   return (
@@ -33,6 +34,7 @@ export default () => {
           <NotificationBox className="mb-20" />
           <AlertBox className="mb-20" />
           <DrawerBox className="mb-20" />
+          <TimelineBox className="mb-20" />
         </div>
         <div className="w-2/3 px-5">
           <TableBox className="w-full mb-20" />

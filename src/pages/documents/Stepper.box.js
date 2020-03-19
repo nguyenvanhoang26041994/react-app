@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { Stepper, Button } from '../../components/core';
+import React, { useMemo, useState } from 'react';
+import { Stepper, Button, Switch } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
 
 const _steps = {
@@ -20,6 +20,8 @@ const _steps = {
 };
 
 export default ({ className, hiddenHeader }) => {
+  const [vertical, setVertical] = useState(false);
+
   const maxStep = useMemo(() => Object.keys(_steps).length - 1, [_steps]);
 
   const {
@@ -33,7 +35,7 @@ export default ({ className, hiddenHeader }) => {
 
   return (
     <PracticeBox wrapperClassName={className} header={hiddenHeader ? null : 'COMPLEX STEPPER'}>
-      <Stepper className="mb-5">
+      <Stepper className="mb-5" vertical={vertical}>
         {Object.keys(_steps).map((key, idx) => (
           <Stepper.Step
             key={key}
@@ -50,6 +52,7 @@ export default ({ className, hiddenHeader }) => {
         <Button className="mr-2" onClick={handleSkip}>Skip</Button>
         <Button className="mr-2" onClick={handleCancel}>Cancel</Button>
         <Button className="mr-2" onClick={handleFinish}>Finish</Button>
+        <Switch defaultChecked={vertical} onChange={e => setVertical(e.target.checked)} />
       </div>
     </PracticeBox>
   );
