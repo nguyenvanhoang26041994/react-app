@@ -6,9 +6,9 @@ import Timestone from './Timestone';
 
 require('./Timeline.scss');
 
-const Timeline = ({ className, children, ...otherProps }) => {
+const Timeline = ({ className, children, right, reverse, ...otherProps }) => {
   return (
-    <div className={cn('rc-timeline', className)} {...otherProps}>
+    <div className={cn('rc-timeline', { '--right': right, '--reverse': reverse }, className)} {...otherProps}>
       {children}
     </div>
   );
@@ -20,6 +20,8 @@ Timeline.displayName = 'Timeline';
 Timeline.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
+  right: PropTypes.bool,
+  reverse: PropTypes.bool,
 };
 Timeline.defaultProps = {};
 

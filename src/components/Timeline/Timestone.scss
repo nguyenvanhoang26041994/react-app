@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.rc-timestone-stone-icon {
+.rc-timestone-stone-icon.rc-timestone-stone-icon {
   z-index: 2;
   color: $primary-color;
   background-color: $root-bg-color;
@@ -30,17 +30,59 @@
 
 .rc-timeline > .rc-timestone {
   &:nth-child(1) {
+    .rc-timestone-stone-icon {
+      background-color: $primary-color;
+      color: #fff;
+    }
+  }
+
+  &:last-child {
     min-height: 0;
 
     .rc-timestone-rail {
       display: none;
     }
   }
+}
 
-  &:last-child {
-    .rc-timestone-stone-icon {
-      background-color: $primary-color;
-      color: #fff;
+
+// RIGHT
+.rc-timeline.--right {
+  .rc-timestone {
+    flex-direction: row-reverse;
+  }
+
+  .rc-timestone-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0;
+    margin-right: 1em;
+  }
+
+  .rc-timestone-rail {
+    left: unset;
+    right: 0.6em;
+  }
+}
+
+//REVERSE
+.rc-timeline.--reverse {
+  flex-direction: column-reverse; // lastest will go up
+
+  & > .rc-timestone {
+    &:nth-child(1) {
+      min-height: 0;
+  
+      .rc-timestone-rail {
+        display: none;
+      }
+    }
+  
+    &:last-child {
+      .rc-timestone-stone-icon {
+        background-color: $primary-color;
+        color: #fff;
+      }
     }
   }
 }

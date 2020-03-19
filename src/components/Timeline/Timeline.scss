@@ -2,5 +2,9 @@
 
 .rc-timeline {
   display: flex;
+  flex-direction: column;
+}
+
+.rc-timeline.--reverse {
   flex-direction: column-reverse; // lastest will go up
 }
