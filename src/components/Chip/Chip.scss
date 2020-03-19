@@ -1,0 +1,13 @@
+@import '../../scss/vars.scss';
+
+.rc-chip {
+  font-size: 0.9rem;
+  height: 2.125em;
+  background-color: $primary-color;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 100em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
