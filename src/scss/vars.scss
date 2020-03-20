@@ -9,10 +9,11 @@ $content-spacing: 1.5em;
 // Z_INDEX
 $zindex-notification: 1000;
 $zindex-alert: 1000;
-$zindex-modal: 900;
+$zindex-modal: 1000;
 $zindex-confirm: 1000;
-$zindex-drawer: 800;
-$zindex-tooltip: 100;
+$zindex-drawer: 1000;
+$zindex-tooltip: 1050;
+$zindex-overlay: 1010;
 
 /**
 * Root color

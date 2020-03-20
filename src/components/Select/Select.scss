@@ -62,7 +62,7 @@
   overflow: scroll;
   border-radius: $border-radius-medium;
   animation: zoomIn 0.125s;
-  z-index: 1050;
+  z-index: $zindex-overlay;
 }
 
 .rc-select-dropdown.--close-animation {

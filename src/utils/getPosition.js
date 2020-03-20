@@ -14,8 +14,6 @@ export default node => {
   let pageX = 0;
   let pageY = 0;
 
-  console.dir(node);
-
   do {
     pageX += _nextNode.offsetLeft - _nextNode.scrollLeft;
     pageY += _nextNode.offsetTop - _nextNode.scrollTop;

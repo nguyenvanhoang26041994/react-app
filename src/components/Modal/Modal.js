@@ -4,36 +4,31 @@ import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 
-import useOnClickOutside from '../../hooks/useOnClickOutside';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useClickOutsideOverlay from '../../hooks/useClickOutsideOverlay';
+import useStopBodyScroll from '../../hooks/useStopBodyScroll';
 
 require('./Modal.scss');
 
 const Modal = ({ className, containerClass, open, onClose, canOutsideClickClose, ...otherProps }) => {
   const ref = useRef();
+
   const delayOpen = useSupportCloseAnimation(open);
 
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
       onClose();
     }
-  }, []);
+  }, [canOutsideClickClose]);
 
-  useEffect(() => {
-    if (open) {
-      document.body.classList.add('overflow-hidden');
-
-      return () => document.body.classList.remove('overflow-hidden');
-    }
-  }, [open]);
-
-  useOnClickOutside(ref, handleClickOutside);
+  useStopBodyScroll(delayOpen);
+  const wrapperRef = useClickOutsideOverlay({ overlayRef: ref, open: delayOpen, handleClickOutside });
 
   return (
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-modal-container', containerClass)}>
+          <div className={cn('rc-modal-container', containerClass)} ref={wrapperRef}>
             <div
               ref={ref}
               className={cn('rc-modal', { '--close-animation': !open }, className)}

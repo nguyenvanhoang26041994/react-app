@@ -11,20 +11,19 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: $overlay-wrapper-bg-color;
 }
 
 .rc-modal {
-  width: 20em;
   border-radius: $border-radius-medium;
   background-color: $root-bg-color;
   animation: zoomIn 0.25s;
+  position: absolute;
+  top: 15%;
 }
 
 .rc-modal.--close-animation {
-  .rc-pure-confirm {
-    animation: zoomOut 0.25s;
-  }
+  animation: zoomOut 0.25s;
 }
 
 // DARK MODE SUPPORT

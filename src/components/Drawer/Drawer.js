@@ -1,25 +1,20 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureDrawer from '../PureDrawer';
 
-import useOnClickOutside from '../../hooks/useOnClickOutside';
 import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useClickOutsideOverlay from '../../hooks/useClickOutsideOverlay';
+import useStopBodyScroll from '../../hooks/useStopBodyScroll';
 
 require('./Drawer.scss');
 
 const Drawer = ({ className, onClose, open, canOutsideClickClose, ...otherProps }) => {
-  const drawerRef = useRef();
+  const ref = useRef();
 
-  useEffect(() => {
-    if (open) {
-      document.body.classList.add('overflow-hidden');
-
-      return () => document.body.classList.remove('overflow-hidden');
-    }
-  }, [open]);
+  const delayOpen = useSupportCloseAnimation(open);
 
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
@@ -27,17 +22,17 @@ const Drawer = ({ className, onClose, open, canOutsideClickClose, ...otherProps 
     }
   }, []);
 
-  useOnClickOutside(drawerRef, handleClickOutside);
-  const delayOpen = useSupportCloseAnimation(open);
+  useStopBodyScroll(delayOpen);
+  const wrapperRef = useClickOutsideOverlay({ overlayRef: ref, open: delayOpen, handleClickOutside });
 
   return (
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-drawer', { '--close-animation': !open })}>
+          <div className={cn('rc-drawer', { '--close-animation': !open })} ref={wrapperRef}>
             <PureDrawer
               className={className}
-              drawerRef={drawerRef}
+              drawerRef={ref}
               onCloseClick={onClose}
               {...otherProps}
             />
