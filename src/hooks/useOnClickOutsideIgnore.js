@@ -11,8 +11,6 @@ export default function useOnClickOutside(ref, handler) {
           return;
         }
 
-        console.log(event.target);
-
         handler(event);
       };
 
