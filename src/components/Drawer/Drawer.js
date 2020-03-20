@@ -13,6 +13,14 @@ require('./Drawer.scss');
 const Drawer = ({ className, onClose, open, canOutsideClickClose, ...otherProps }) => {
   const drawerRef = useRef();
 
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add('overflow-hidden');
+
+      return () => document.body.classList.remove('overflow-hidden');
+    }
+  }, [open]);
+
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
       onClose();

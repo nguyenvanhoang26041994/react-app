@@ -7,7 +7,9 @@ export default node => {
     pageX += _nextNode.offsetLeft - _nextNode.scrollLeft;
     pageY += _nextNode.offsetTop - _nextNode.scrollTop;
     _nextNode = _nextNode.offsetParent;
-  } while(_nextNode && _nextNode.offsetParent)
+  } while(_nextNode && _nextNode.offsetParent);
+
+  console.log({pageX, pageY});
 
   return { pageX, pageY, clientHeight: node.clientHeight, clientWidth: node.clientWidth };
 }

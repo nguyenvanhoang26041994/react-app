@@ -14,6 +14,7 @@
   right: 0;
   display: flex;
   flex-direction: column-reverse;
+  z-index: $zindex-notification;
 }
 
 #root-notification {

@@ -4,6 +4,15 @@
 $basic-height: 2.5em;
 $border-radius: 0.5em;
 $border-radius-medium: 1em;
+$content-spacing: 1.5em;
+
+// Z_INDEX
+$zindex-notification: 1000;
+$zindex-alert: 1000;
+$zindex-modal: 900;
+$zindex-confirm: 1000;
+$zindex-drawer: 800;
+$zindex-tooltip: 100;
 
 /**
 * Root color

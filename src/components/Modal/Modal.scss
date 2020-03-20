@@ -1,0 +1,35 @@
+@import '../../scss/vars.scss';
+
+.rc-modal-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.rc-modal {
+  width: 20em;
+  border-radius: $border-radius-medium;
+  background-color: $root-bg-color;
+  animation: zoomIn 0.25s;
+}
+
+.rc-modal.--close-animation {
+  .rc-pure-confirm {
+    animation: zoomOut 0.25s;
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-modal {
+    background-color: $root-darkmode-bg-color;
+  }
+}

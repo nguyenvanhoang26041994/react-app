@@ -21,6 +21,7 @@ import StepperBox from '../documents/Stepper.box';
 import StepperSimpleBox from '../documents/StepperSimple.box';
 import TimelineBox from '../documents/Timeline.box';
 import ChipBox from '../documents/Chip.box';
+import ModalBox from '../documents/Modal.box';
 
 export default () => {
   return (
@@ -32,6 +33,7 @@ export default () => {
           <TextareaBox className="mb-20" />
           <SelectBox className="mb-20" />
           <ConfirmBox className="mb-20" />
+          <ModalBox className="mb-20" />
           <NotificationBox className="mb-20" />
           <AlertBox className="mb-20" />
           <DrawerBox className="mb-20" />

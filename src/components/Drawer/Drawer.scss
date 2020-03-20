@@ -6,7 +6,7 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: $zindex-drawer;
   background-color: $overlay-wrapper-bg-color;
 
   .rc-pure-drawer {

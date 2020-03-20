@@ -18,3 +18,7 @@ body.dark-mode {
   background-color: $root-darkmode-bg-color;
   color: #fff;
 }
+
+.overflow-hidden {
+  overflow: hidden !important;
+}

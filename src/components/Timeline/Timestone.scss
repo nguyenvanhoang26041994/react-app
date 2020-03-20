@@ -7,7 +7,6 @@
 }
 
 .rc-timestone-stone-icon.rc-timestone-stone-icon {
-  z-index: 2;
   background-color: $root-bg-color;
   border-radius: 100em;
   overflow: visible;
@@ -19,6 +18,7 @@
 }
 
 .rc-timestone-rail {
+  z-index: -1;
   position: absolute;
   width: 0.0725em;
   height: 100%;

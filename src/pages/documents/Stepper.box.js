@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Stepper, Button, Switch } from '../../components/core';
+import { Stepper, Button, Switch, Tooltip } from '../../components/core';
 import PracticeBox from '../../components/PracticeBox';
 
 const _steps = {
@@ -52,7 +52,9 @@ export default ({ className, hiddenHeader }) => {
         <Button className="mr-2" onClick={handleSkip}>Skip</Button>
         <Button className="mr-2" onClick={handleCancel}>Cancel</Button>
         <Button className="mr-2" onClick={handleFinish}>Finish</Button>
-        <Switch defaultChecked={vertical} onChange={e => setVertical(e.target.checked)} />
+        <Tooltip label="Vertical">
+          <Switch defaultChecked={vertical} onChange={e => setVertical(e.target.checked)} />
+        </Tooltip>
       </div>
     </PracticeBox>
   );

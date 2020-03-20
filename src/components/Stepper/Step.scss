@@ -23,13 +23,13 @@ $rail-size: 0.15em;
 .rc-step-avatar {
   height: $avatar-size;
   width: $avatar-size;
-  z-index: 2;
   box-shadow: $neumorphism-flat;
   border-radius: 100em;
   background-color: $root-bg-color;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .rc-step-content {
