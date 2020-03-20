@@ -11,6 +11,6 @@
   &:hover,
   &.--selected {
     background-color: $select-option-bg-color;
-    color: #fff;
+    color: $root-text-inverted-color;
   }
 }

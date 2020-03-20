@@ -6,3 +6,11 @@
   overflow: hidden;
   box-shadow: $neumorphism-flat;
 }
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-menu {
+    background-color: $root-darkmode-bg-color;
+    box-shadow: $neumorphism-darkmode-flat;
+  }
+}

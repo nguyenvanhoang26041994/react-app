@@ -35,7 +35,7 @@
 
 .rc-pagination-item.--active.--active {
   background-color: $active-color-1;
-  color: #fff;
+  color: $root-text-inverted-color;
   box-shadow: none;
 }
 

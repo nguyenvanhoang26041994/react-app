@@ -22,7 +22,7 @@
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
-  color: #fff;
+  color: $root-text-inverted-color;
 
   &:hover {
     box-shadow: none;
@@ -52,7 +52,7 @@
   .rc-carousel-next.rc-carousel-next {
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
-    color: #fff;
+    color: $root-text-inverted-color;
 
     &:hover {
       box-shadow: none;

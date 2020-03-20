@@ -33,7 +33,7 @@
 
     .rc-timestone-stone-icon {
       background-color: $primary-color;
-      color: #fff;
+      color: $root-text-inverted-color;
     }
 
     .rc-timestone-rail {
@@ -93,6 +93,6 @@
   }
 
   .rc-timestone-rail {
-    background-color: #fff;
+    background-color: $root-text-inverted-color;
   }
 }
