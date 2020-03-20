@@ -319,13 +319,13 @@ Overlay.propTypes = {
   arrow: PropTypes.bool,
   trigger: PropTypes.array,
   visible: PropTypes.bool,
-  onChange: PropTypes.func,
+  onVisibleChange: PropTypes.func,
 };
 Overlay.defaultProps = {
   placement: 'top',
   gap: 5,
   trigger: ['click'],
-  onChange: f => f,
+  onVisibleChange: f => f,
 };
 
 export default Overlay;
