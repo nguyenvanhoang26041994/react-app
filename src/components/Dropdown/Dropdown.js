@@ -100,7 +100,11 @@ const mPlacements = Object.freeze({
 
 class Dropdown extends React.Component {
   static getDerivedStateFromProps(props, state) {
-    return renderPlacement[props.placement](state.targetPosition, state.overlayPosition, props.gap);
+    return {
+      ...renderPlacement[props.placement](state.targetPosition, state.overlayPosition, props.gap),
+      applyHover: props.trigger.indexOf('hover') >= 0,
+      applyClick: props.trigger.indexOf('click') >= 0,
+    };
   }
 
   constructor(props) {
@@ -121,16 +125,26 @@ class Dropdown extends React.Component {
       },
       isOverlayHover: false,
     };
+
     this.overlayRef = createRef();
+
     this.setVisible = this.setVisible.bind(this);
+    this.toggleVisible = this.toggleVisible.bind(this);
+
     this.setPosition = this.setPosition.bind(this);
     this.setOverlayHover = this.setOverlayHover.bind(this);
+
     this.renderPositionOverlay = this.renderPositionOverlay.bind(this);
+    this.addTriggerListener = this.addTriggerListener.bind(this);
+    this.removeTriggerListener = this.removeTriggerListener.bind(this);
+    this.eventOverlayClickOutside = this.eventOverlayClickOutside.bind(this);
   }
 
   componentDidMount() {
+    const _self = this;
     this.renderPositionOverlay();
-  
+
+    this._eventClickHandler = () => this.toggleVisible();
     this._eventMouseEnterHandler = () => this.setVisible(true);
     this._eventMouseLeaveHandler = () => {
       const timer = setTimeout(() => this.setState(function(prevState) {
@@ -150,35 +164,80 @@ class Dropdown extends React.Component {
       this.setOverlayHover(false);
       this.setVisible(false);
     };
-  
-    // children node alway exist
-    this.targetNode.addEventListener('mouseenter', this._eventMouseEnterHandler);
-    this.targetNode.addEventListener('mouseleave', this._eventMouseLeaveHandler);
 
-    // overlay node exist when visible equal true
-    this.overlayRef && this.overlayRef.current && this.overlayRef.current.addEventListener('mouseenter', this._eventMouseEnterOverlayHandler);
-    this.overlayRef && this.overlayRef.current &&  this.overlayRef.current.addEventListener('mouseleave', this._eventMouseLeaveOverlayHandler);
+    this._events = {
+      overlayClickOutside: {
+        add: () => {
+          document.addEventListener('mousedown', _self.eventOverlayClickOutside);
+          document.addEventListener('touchstart', _self.eventOverlayClickOutside);
+        },
+        remove: () => {
+          document.removeEventListener('mousedown', _self.eventOverlayClickOutside);
+          document.removeEventListener('touchstart', _self.eventOverlayClickOutside);
+        },
+      },
+      targetClick: {
+        add: () => {
+          _self.targetNode.addEventListener('click', _self.toggleVisible);
+        },
+        remove: () => {
+          _self.targetNode.removeEventListener('click', _self.toggleVisible);
+        },
+      },
+      targetHover: {
+        add: () => {
+          _self.targetNode.addEventListener('mouseenter', _self._eventMouseEnterHandler);
+          _self.targetNode.addEventListener('mouseleave', _self._eventMouseLeaveHandler);
+        },
+        remove: () => {
+          _self.targetNode.removeEventListener('mouseenter', _self._eventMouseEnterHandler);
+          _self.targetNode.removeEventListener('mouseleave', _self._eventMouseLeaveHandler);
+        },
+      },
+      overlayHover: {
+        add: () => {
+          // overlay node exist when visible equal true
+          _self.overlayRef && _self.overlayRef.current && _self.overlayRef.current.addEventListener('mouseenter', _self._eventMouseEnterOverlayHandler);
+          _self.overlayRef && _self.overlayRef.current &&  _self.overlayRef.current.addEventListener('mouseleave', _self._eventMouseLeaveOverlayHandler);
+        },
+        remove: () => {
+          // overlay node exist when visible equal true
+          _self.overlayRef && _self.overlayRef.current && _self.overlayRef.current.removeEventListener('mouseenter', _self._eventMouseEnterOverlayHandler);
+          _self.overlayRef && _self.overlayRef.current &&  _self.overlayRef.current.removeEventListener('mouseleave', _self._eventMouseLeaveOverlayHandler);
+        },
+      },
+    };
+
+    this.addTriggerListener();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.visible && this.state.visible !== prevState.visible) {
-      // overlay node exist when visible equal true
-      this.overlayRef && this.overlayRef.current && this.overlayRef.current.addEventListener('mouseenter', this._eventMouseEnterOverlayHandler);
-      this.overlayRef && this.overlayRef.current &&  this.overlayRef.current.addEventListener('mouseleave', this._eventMouseLeaveOverlayHandler);
+      this.removeTriggerListener();
+      this.addTriggerListener();
       this.renderPositionOverlay();
     }
   }
 
   componentWillUnmount() {
-    this.targetNode.removeEventListener('mouseenter', this._eventMouseEnterHandler);
-    this.targetNode.removeEventListener('mouseleave', this._eventMouseLeaveHandler);
+    this.removeTriggerListener();
+  }
 
-    this.overlayRef && this.overlayRef.current &&  this.overlayRef.current.removeEventListener('mouseenter', this._eventMouseEnterOverlayHandler);
-    this.overlayRef && this.overlayRef.current &&  this.overlayRef.current.removeEventListener('mouseleave', this._eventMouseLeaveOverlayHandler);
+  eventOverlayClickOutside(event) {
+    if (this.overlayRef && this.overlayRef.current) {
+      if (this.overlayRef.current.contains(event.target)) {
+        return;
+      }
+      this.setVisible(false);
+    }
   }
 
   setVisible(val) {
     this.setState({ visible: val });
+  }
+
+  toggleVisible() {
+    this.setState(prev => ({ ...prev, visible: !prev.visible }));
   }
 
   setPosition(position) {
@@ -197,6 +256,32 @@ class Dropdown extends React.Component {
     this.targetNode = this.targetNode || ReactDOM.findDOMNode(this);
     this.targetNode && this.setPosition(getPosition(this.targetNode));
     this.overlayRef && this.overlayRef.current && this.setPositionOverlay(getPosition(this.overlayRef.current));
+  }
+
+  addTriggerListener() {
+    if (this.state.applyHover) {
+      this._events.targetHover.add();
+      this._events.overlayHover.add();
+    }
+
+    if (this.state.applyClick) {
+      this._events.targetClick.add();
+    }
+
+    this._events.overlayClickOutside.add();
+  }
+
+  removeTriggerListener() {
+    if (this.state.applyHover) {
+      this._events.targetHover.remove();
+      this._events.overlayHover.remove();
+    }
+
+    if (this.state.applyClick) {
+      this._events.targetClick.remove();
+    }
+
+    this._events.overlayClickOutside.remove();
   }
 
   render() {
