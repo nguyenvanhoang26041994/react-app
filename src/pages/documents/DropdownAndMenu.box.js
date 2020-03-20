@@ -15,7 +15,6 @@ export default ({ className }) => {
           </Menu>
         )}
         placement="bottom-right"
-        trigger={['click']}
       >
         <Button className="mr-2">Buttom</Button>
       </Dropdown>

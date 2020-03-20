@@ -1,0 +1,159 @@
+@import '../../scss/vars.scss';
+
+.rc-overlay {
+  position: absolute;
+  z-index: $zindex-overlay;
+
+  &:after {
+    content: " ";
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 0.5em solid $overlay-bg-color;
+    position: absolute;
+    display: none;
+  }
+}
+
+.rc-overlay.--arrow {
+  &:after {
+    display: block;
+  }
+}
+
+.rc-overlay.--hidden {
+  display: none;
+}
+
+.rc-overlay.--arrow.--top {
+  &:after {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--top-right {
+  &:after {
+    bottom: 0;
+    right: 0;
+    transform: translate(-100%, 100%);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--right-top {
+  &:after {
+    top: 0;
+    left: 0;
+    transform: translate(-100%, 100%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}
+
+.rc-rc-overlay.--arrow.--bottom-right {
+  &:after {
+    top: 0;
+    right: 0;
+    transform: translate(-100%, -100%);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--bottom {
+  &:after {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--bottom-left {
+  &:after {
+    top: 0;
+    left: 0;
+    transform: translate(100%, -100%);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--left-bottom {
+  &:after {
+    bottom: 0;
+    right: 0;
+    transform: translate(100%, -100%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--left {
+  &:after {
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--left-top {
+  &:after {
+    top: 0;
+    right: 0;
+    transform: translate(100%, 100%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--top-left {
+  &:after {
+    bottom: 0;
+    left: 0;
+    transform: translate(100%, 100%);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--right {
+  &:after {
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}
+
+.rc-overlay.--arrow.--right-bottom {
+  &:after {
+    bottom: 0;
+    left: 0;
+    transform: translate(-100%, -100%);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}

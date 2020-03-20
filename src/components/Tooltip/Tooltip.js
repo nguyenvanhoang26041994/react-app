@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
-import Dropdown from '../Dropdown';
+import Overlay from '../Overlay';
 
 require('./Tooltip.scss');
 
-const Tooltip = ({ children, label, ...otherProps }) => {
+const Tooltip = ({ className, children, label, ...otherProps }) => {
   return (
-    <Dropdown
+    <Overlay
       arrow
       trigger={['hover']}
       {...otherProps}
       overlay={label}
-      className="rc-tooltip"
+      className={cn('rc-tooltip', className)}
       gap={10}
     >
       {children}
-    </Dropdown>
+    </Overlay>
   );
 };
 
@@ -24,6 +25,7 @@ Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
   label: PropTypes.string,
   children: PropTypes.any,
+  className: PropTypes.string,
 };
 Tooltip.defaultProps = {
   placement: 'top',

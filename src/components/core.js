@@ -20,6 +20,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as Radio } from './Radio';
 export { default as Rating } from './Rating';
 export { default as Switch } from './Switch';
+export { default as Overlay } from './Overlay';
 export { default as Pagination } from './Pagination';
 export { default as Progress } from './Progress';
 export { default as PureAlert } from './PureAlert';
