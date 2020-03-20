@@ -13,7 +13,7 @@ const LoginUserSection = () => {
       <h2 className="text-lg mb-5">Hoàng Nguyễn</h2>
       <div className="flex items-center">
         <Button rounded className="mr-2">Update your profile</Button>
-        <Button circle icon="bell" className="mr-2" />
+        {/* <Button circle icon="bell" className="mr-2" /> */}
         <Button circle icon="power-off" />
       </div>
     </div>
@@ -22,25 +22,59 @@ const LoginUserSection = () => {
 
 const TopNavigation = () => {
   return (
-    <div id="top-navigation" className="neumorphism flex items-center px-5" style={{ marginBottom: '0.25em', height: '5em', borderTopLeftRadius: '3em' }}>
-      <Button icon="home" circle className="mr-2" style={{ fontSize: '1.5em' }} transparent />
+    <div
+      style={{
+        marginBottom: '0.25em',
+        height: '5em',
+      }}
+    >
+      <div
+        id="top-navigation"
+        className="neumorphism flex items-center px-5"
+        style={{
+          // position: 'fixed',
+          width: 'inherit',
+          height: 'inherit',
+          borderTopLeftRadius: '3em',
+        }}
+      >
+        <Button icon="home" circle className="mr-2" style={{ fontSize: '1.5em' }} transparent />
+      </div>
     </div>
   );
 };
 
 const MainWorkingSpace = () => {
   return (
-    <div id="mdl-working-space" className="neumorphism" style={{ flexGrow: '1', height: '80vh', borderBottomLeftRadius: '3em' }}>
-
+    <div id="mdl-working-space" className="flex flex-col" style={{ flexGrow: '1',  borderBottomLeftRadius: '3em' }}>
+      <div className="mx-auto neumorphism mt-5" style={{ width: '35em', height: '35em', borderRadius: '1em' }}></div>
+      <div className="mx-auto neumorphism mt-5" style={{ width: '35em', height: '35em', borderRadius: '1em' }}></div>
+      <div className="mx-auto neumorphism mt-5" style={{ width: '35em', height: '35em', borderRadius: '1em' }}></div>
+      <div className="mx-auto neumorphism mt-5" style={{ width: '35em', height: '35em', borderRadius: '1em' }}></div>
     </div>
   );
 };
 
 const MobileMain = () => {
   return (
-    <div id="mobile-main" className="neumorphism flex flex-col" style={{ width: '27em', height: 'calc(100vh - 2em)', borderTopRightRadius: '3em', borderBottomRightRadius: '3em' }}>
-      <LoginUserSection />
-      <div className="flex-1"></div>
+    <div
+      style={{
+        width: '17em', height: 'calc(100vh - 2em)',
+      }}
+    >
+      <div
+        id="mobile-main"
+        className="neumorphism flex flex-col"
+        style={{
+          width: 'inherit',
+          height: 'inherit',
+          position: 'fixed',
+          borderTopRightRadius: '3em',
+          borderBottomRightRadius: '3em',
+        }}>
+        <LoginUserSection />
+        <div className="flex-1"></div>
+      </div>
     </div>
   );
 }
