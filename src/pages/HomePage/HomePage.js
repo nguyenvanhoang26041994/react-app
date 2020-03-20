@@ -22,6 +22,7 @@ import StepperSimpleBox from '../documents/StepperSimple.box';
 import TimelineBox from '../documents/Timeline.box';
 import ChipBox from '../documents/Chip.box';
 import ModalBox from '../documents/Modal.box';
+import DropdownAndMenuBox from '../documents/DropdownAndMenu.box';
 
 export default () => {
   return (
@@ -57,6 +58,7 @@ export default () => {
           <TabsBox className="mb-20" />
           <CollapseBox className="mb-20" />
           <TooltipBox className="mb-20" />
+          <DropdownAndMenuBox className="mb-20" />
           <CarouselBox className="mb-20" />
           <StepperSimpleBox className="mb-20" />
           <StepperBox className="mb-20" />

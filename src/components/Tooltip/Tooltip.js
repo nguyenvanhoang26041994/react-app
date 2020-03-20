@@ -13,6 +13,7 @@ const Tooltip = ({ children, label, ...otherProps }) => {
       {...otherProps}
       overlay={label}
       className="rc-tooltip"
+      gap={10}
     >
       {children}
     </Dropdown>

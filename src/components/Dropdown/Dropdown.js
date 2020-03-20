@@ -230,10 +230,12 @@ Dropdown.propTypes = {
   overlay: PropTypes.any,
   children: PropTypes.any,
   arrow: PropTypes.bool,
+  trigger: PropTypes.array,
 };
 Dropdown.defaultProps = {
   placement: 'top',
-  gap: 15,
+  gap: 5,
+  trigger: ['click'],
 };
 
 export default Dropdown;
