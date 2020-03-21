@@ -25,7 +25,7 @@ export default ({ className }) => {
         )}
         placement="bottom-right"
       >
-        <Button className="mr-2" style={{ width: '10em' }}>{value}</Button>
+        <Button className="mr-2" style={{ width: '10em' }} pressed>{value}</Button>
       </Dropdown>
       <Dropdown
         overlay={(
@@ -45,7 +45,7 @@ export default ({ className }) => {
         )}
         placement="bottom-left"
       >
-        <Button className="mr-2">{value}</Button>
+        <Button className="mr-2" pressed>{value}</Button>
       </Dropdown>
     </PracticeBox>
   );

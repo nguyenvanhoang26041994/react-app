@@ -82,7 +82,7 @@ const Select = ({ className, label, selectRef, children, name, defaultValue, err
           <div
             ref={dropdownRef}
             className={cn('rc-select-dropdown', { '--close-animation': !isDrop })}
-            style={{ left: pageX, top: pageY, width: clientWidth }}
+            style={{ left: pageX, top: pageY, minWidth: clientWidth }}
           >
             <ul>
               {React.Children.map(children, elm => React.cloneElement(elm, {
