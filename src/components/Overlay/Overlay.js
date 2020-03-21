@@ -227,7 +227,7 @@ class Overlay extends React.Component {
 
   eventOverlayClickOutside(event) {
     if (this.overlayRef && this.overlayRef.current) {
-      if (this.overlayRef.current.contains(event.target)) {
+      if (this.targetNode.contains(event.target) || this.overlayRef.current.contains(event.target)) {
         return;
       }
       this.setVisible(false);
