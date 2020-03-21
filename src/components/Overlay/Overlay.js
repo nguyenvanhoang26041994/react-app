@@ -109,10 +109,8 @@ class Overlay extends React.Component {
 
   constructor(props) {
     super(props);
-    this.isControlled = props.hasOwnProperty('visible');
-
     this.state = {
-      visible: this.isControlled ? props.visible : props.defaultVisible,
+      visible: props.defaultVisible,
       targetPosition: {
         pageX: 0,
         pageY: 0,
@@ -214,10 +212,14 @@ class Overlay extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.state.visible !== prevState.visible) {
+      this.props.onVisibleChange(this.state.visible);
+    }
+
     if (this.state.visible && this.state.visible !== prevState.visible) {
+      this.renderPositionOverlay();
       this.removeTriggerListener();
       this.addTriggerListener();
-      this.renderPositionOverlay();
     }
   }
 
@@ -318,7 +320,6 @@ Overlay.propTypes = {
   children: PropTypes.any,
   arrow: PropTypes.bool,
   trigger: PropTypes.array,
-  visible: PropTypes.bool,
   onVisibleChange: PropTypes.func,
 };
 Overlay.defaultProps = {

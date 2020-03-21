@@ -135,6 +135,15 @@ $rail-size: 0.15em;
         }
       }
     }
+
+    &.--canceled {
+      + .rc-step {
+        .rc-step-rail {
+          background-color: $error-color;
+          background: $gradient-error-color;
+        }
+      }
+    }
   }
 
   .rc-step-rail {
