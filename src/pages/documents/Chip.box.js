@@ -8,10 +8,10 @@ const src = 'https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-1/p320x320/83290506_984
 export default ({ className }) => {
   return (
     <PracticeBox wrapperClassName={className} className="flex items-center flex-wrap" header="CHIP">
-      <Chip label="Hoang Nguyen" className="m-1" />
-      <Chip label="Hoang Nguyen" avatar={<Avatar name="Hoang Nguyen" src={src} />} className="m-1" closable />
-      <Chip closable label="Hoang Nguyen" className="m-1" />
-      <Chip label="Hoang Nguyen" avatar={<Avatar name="Hoang Nguyen" src={src} />} className="m-1" color="#9c27b0" />
+      <Chip label="Hoang" className="m-1" />
+      <Chip label="Hoang" avatar={<Avatar name="Hoang" src={src} />} className="m-1" />
+      <Chip closable label="Hoang" className="m-1" />
+      <Chip label="Hoang" avatar={<Avatar name="Hoang" src={src} />} className="m-1" closable />
     </PracticeBox>
   );
 };
