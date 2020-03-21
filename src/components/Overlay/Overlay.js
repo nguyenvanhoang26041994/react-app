@@ -272,7 +272,9 @@ class Overlay extends React.Component {
       this._events.targetClick.add();
     }
 
-    this._events.overlayClickOutside.add();
+    if (this.props.canOutsideClickClose) {
+      this._events.overlayClickOutside.add();
+    }
   }
 
   removeTriggerListener() {
@@ -285,7 +287,9 @@ class Overlay extends React.Component {
       this._events.targetClick.remove();
     }
 
-    this._events.overlayClickOutside.remove();
+    if (this.props.canOutsideClickClose) {
+      this._events.overlayClickOutside.remove();
+    }
   }
 
   render() {
@@ -321,6 +325,7 @@ Overlay.propTypes = {
   arrow: PropTypes.bool,
   trigger: PropTypes.array,
   onVisibleChange: PropTypes.func,
+  canOutsideClickClose: PropTypes.bool,
 };
 Overlay.defaultProps = {
   placement: 'top',

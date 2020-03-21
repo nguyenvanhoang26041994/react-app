@@ -16,6 +16,7 @@ const Dropdown = ({ children, className, ...otherProps }) => {
       visible={visible}
       onVisibleChange={onVisibleChange}
       className={cn('rc-dropdown', className )}
+      canOutsideClickClose
       {...otherProps}
     >
       {children}
