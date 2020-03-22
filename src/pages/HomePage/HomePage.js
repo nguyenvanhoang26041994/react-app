@@ -18,15 +18,15 @@ import DrawerBox from '../documents/Drawer.box';
 import CollapseBox from '../documents/Collapse.box';
 import CarouselBox from '../documents/Carousel.box';
 import StepperBox from '../documents/Stepper.box';
-import StepperSimpleBox from '../documents/StepperSimple.box';
 import TimelineBox from '../documents/Timeline.box';
 import ChipBox from '../documents/Chip.box';
 import ModalBox from '../documents/Modal.box';
 import DropdownAndMenuBox from '../documents/DropdownAndMenu.box';
+import BreadcrumbBox from '../documents/Breadcrumb.box';
 
 export default () => {
   return (
-    <div className="container mx-auto flex flex-col">
+    <div className="container mx-auto flex flex-col relative">
       <div className="flex mb-20">
         <ButtonBox className="w-1/3" />
         <PaginationBox className="w-1/3" />
@@ -55,7 +55,7 @@ export default () => {
         <CollapseBox className="w-2/3" />
       </div>
       <div className="flex mb-20">
-        <CarouselBox className="w-1/3" />
+        <BreadcrumbBox className="w-1/3" />
         <TooltipBox className="w-2/3" />
       </div>
       <div className="flex mb-20">
@@ -68,7 +68,9 @@ export default () => {
         <AvatarBox className="w-1/3" />
         <ChipBox className="w-1/3" />
       </div>
-
+      <div className="flex mb-20">
+        <CarouselBox className="w-2/3" />
+      </div>
     </div>
   );
 }

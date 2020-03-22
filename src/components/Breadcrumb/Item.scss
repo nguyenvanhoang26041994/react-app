@@ -1,0 +1,79 @@
+@import '../../scss/vars.scss';
+
+.rc-breadcrumb-item {
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em 0 1.75em;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  box-shadow: $neumorphism-flat;
+  background-color: $root-bg-color;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    height: 1.725em;
+    width: 1.725em;
+    box-shadow: $neumorphism-flat;
+    background-color: inherit;
+    border-top-right-radius: 0.25em;
+    z-index: 1;
+  }
+
+  &:before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 1.5em;
+    background-color: inherit;
+    z-index: 2;
+  }
+
+  &:hover,
+  &.--active {
+    box-shadow: $neumorphism-pressed;
+
+    &:after {
+      box-shadow: $neumorphism-pressed;
+    }
+    &:before {
+      border-top: 2px solid $neumorphism-light-from-color;
+      border-bottom: 2px solid $neumorphism-light-to-color;
+    }
+  }
+}
+
+.rc-breadcrumb-item-content {
+  max-width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-breadcrumb-item {
+    background-color: $root-darkmode-bg-color;
+    box-shadow: $neumorphism-darkmode-flat;
+
+    &:after {
+      box-shadow: $neumorphism-darkmode-flat;
+    }
+
+    &:hover {
+      box-shadow: $neumorphism-darkmode-pressed;
+  
+      &:after {
+        box-shadow: $neumorphism-darkmode-pressed;
+      }
+      &:before {
+        border-top: 2px solid $neumorphism-dark-from-color;
+        border-bottom: 2px solid $neumorphism-dark-to-color;
+      }
+    }
+  }
+}
