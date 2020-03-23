@@ -15,6 +15,7 @@ import ConfirmBox from '../documents/Confirm.box';
 import NotificationBox from '../documents/Notification.box';
 import AlertBox from '../documents/Alert.box';
 import DrawerBox from '../documents/Drawer.box';
+import Sticky from "../documents/Sticky.box";
 
 export default () => {
   return (
@@ -45,6 +46,10 @@ export default () => {
         <ProgressBox className="mb-20" />
         <TabsBox className="mb-20" />
         <TooltipBox className="mb-20" />
+<<<<<<< Updated upstream
+=======
+        <Sticky />
+>>>>>>> Stashed changes
       </div>
     </div>
   );

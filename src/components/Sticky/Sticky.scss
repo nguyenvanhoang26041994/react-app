@@ -1,0 +1,9 @@
+.rc-sticky-wrapper {
+  position: relative;
+  height: 3rem;
+}
+
+.rc-sticky .rc-sticky-inner {
+  position: fixed;
+  z-index: 100;
+}

@@ -21,3 +21,4 @@ export { default as Alert } from './Alert';
 export { default as Confirm } from './Confirm';
 export { default as Notification } from './Notification';
 export { default as Drawer } from './Drawer';
+export { default as Sticky } from './Sticky';
