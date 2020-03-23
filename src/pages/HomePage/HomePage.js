@@ -46,10 +46,7 @@ export default () => {
         <ProgressBox className="mb-20" />
         <TabsBox className="mb-20" />
         <TooltipBox className="mb-20" />
-<<<<<<< Updated upstream
-=======
         <Sticky />
->>>>>>> Stashed changes
       </div>
     </div>
   );
