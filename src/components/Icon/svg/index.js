@@ -30,6 +30,7 @@ const icons = {
   'clock': require('./clock').default,
   'angle-down': require('./angle-down').default,
   'caret-down': require('./caret-down').default,
+  'table': require('./table').default,
 };
 
 export default icons;

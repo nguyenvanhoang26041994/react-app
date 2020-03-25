@@ -1,0 +1,42 @@
+@import '../../scss/vars.scss';
+
+.rc-menu-sub-title {
+  padding: 0 $content-spacing;
+  height: 3em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover,
+  &.--selected {
+    background-color: $menu-item-bg-color;
+    color: $root-text-inverted-color;
+  }
+}
+
+.rc-menu-sub-title-icon {
+  margin-right: 1rem;
+}
+
+.rc-menu-sub-list {
+  display: none;
+  background-color: #f3f3f3;
+}
+
+.rc-menu-sub.--expanded {
+  .rc-menu-sub-icon {
+    transform: rotate(180deg);
+  }
+
+  .rc-menu-sub-list {
+    display: block;
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-menu-sub-list {
+    background-color: #383838;
+  }
+}

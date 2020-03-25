@@ -21,7 +21,7 @@ import StepperBox from '../documents/Stepper.box';
 import TimelineBox from '../documents/Timeline.box';
 import ChipBox from '../documents/Chip.box';
 import ModalBox from '../documents/Modal.box';
-import DropdownAndMenuBox from '../documents/DropdownAndMenu.box';
+import MenuBox from '../documents/Menu.box';
 import BreadcrumbBox from '../documents/Breadcrumb.box';
 
 export default () => {
@@ -69,6 +69,7 @@ export default () => {
         <ChipBox className="w-full sm:w-full md:w-:full lg:w-1/3 xl:w-1/3 mb-10" />
       </div>
       <div className="flex mb-20 flex-wrap">
+        <MenuBox className="w-full sm:w-full md:w-:full lg:w-1/3 xl:w-1/3 mb-10" />
         <CarouselBox className="w-full sm:w-full md:w-:full lg:w-2/3 xl:w-2/3 mb-10" />
       </div>
     </div>

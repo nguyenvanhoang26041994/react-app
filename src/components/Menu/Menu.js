@@ -3,23 +3,22 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Item from './Item';
+import ItemGroup from './ItemGroup';
+import Sub from './Sub';
 
 require('./Menu.scss');
 
 const Menu = ({ className, children }) => {
-  const handleOptionSelected = useCallback(() => {}, []);
-
   return (
     <ul className={cn('rc-menu', className)}>
-      {React.Children.map(children, elm => React.cloneElement(elm, {
-        // onClick: () => handleOptionSelected(elm.props.name),
-        ...elm.props
-      }))}
+      {children}
     </ul>
   );
 };
 
 Menu.Item = Item;
+Menu.ItemGroup = ItemGroup;
+Menu.Sub = Sub;
 
 Menu.displayName = 'Menu';
 Menu.propTypes = {

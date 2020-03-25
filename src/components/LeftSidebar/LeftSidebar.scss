@@ -1,0 +1,41 @@
+@import '../../scss/vars.scss';
+
+#left-sidebar-container {
+  width: 6rem;
+  height: 100vh;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  box-sizing: border-box;
+  transition: all 0.5s;
+
+  &.--expanded {
+    width: 16rem;
+  }
+}
+
+.left-sidebar {
+  position: fixed;
+  height: 100%;
+  width: 5rem;
+  transition: all 0.5s;
+  background-color: $root-bg-color;
+  border-radius: 1rem;
+  
+
+  &.--expanded {
+    width: 15rem;
+  }
+}
+
+.left-sidebar-list-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10rem 0;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .left-sidebar {
+    background-color: #191e3a;
+  }
+}
