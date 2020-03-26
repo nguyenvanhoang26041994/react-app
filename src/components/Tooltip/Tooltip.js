@@ -6,13 +6,13 @@ import Overlay from '../Overlay';
 
 require('./Tooltip.scss');
 
-const Tooltip = ({ className, children, label, ...otherProps }) => {
+const Tooltip = ({ className, children, title, ...otherProps }) => {
   return (
     <Overlay
       arrow
       trigger={['hover']}
       {...otherProps}
-      overlay={label}
+      overlay={title}
       className={cn('rc-tooltip', className)}
       gap={10}
     >
@@ -23,7 +23,7 @@ const Tooltip = ({ className, children, label, ...otherProps }) => {
 
 Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
-  label: PropTypes.string,
+  title: PropTypes.string,
   children: PropTypes.any,
   className: PropTypes.string,
 };

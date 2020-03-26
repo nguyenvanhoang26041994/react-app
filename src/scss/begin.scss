@@ -4,7 +4,7 @@
 
 
 html {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 body.dark-mode {
-  background-color: $root-darkmode-bg-color;
+  background-color: $body-dark-bg-color;
   color: $root-darkmode-text-color;
 }
 

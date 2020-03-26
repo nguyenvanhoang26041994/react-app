@@ -18,8 +18,14 @@ $zindex-overlay: 1010;
 /**
 * Root color
 */
+
+$dark-bg-color--500: #1a1b1d;
+$dark-bg-color--400: #2c2d31;
+
+$body-dark-bg-color: #17181a;
+
 $root-bg-color: #f0f2f5;
-$root-darkmode-bg-color: #17181a;
+$root-darkmode-bg-color: $dark-bg-color--500;
 $root-text-color: #2f2f2f;
 $root-text-inverted-color: rgb(228, 230, 235);
 $root-darkmode-text-color: rgb(228, 230, 235);
@@ -84,8 +90,8 @@ $active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Swit
 
 $neumorphism-light-from-color: #d6d7da;
 $neumorphism-light-to-color: #ffffff;
-$neumorphism-dark-from-color: #0c0c0e;
-$neumorphism-dark-to-color: #222426;
+$neumorphism-dark-from-color: #0e0f10;
+$neumorphism-dark-to-color: #26272a;
 // FLAT
 $neumorphism-flat: 1.5px 1.5px 1.5px $neumorphism-light-from-color, -1px -1px 1px $neumorphism-light-to-color;
 $neumorphism-primary-flat: 1.5px 1.5px 1.5px #0084db, -1px -1px 1px #00aeff;
@@ -93,5 +99,6 @@ $neumorphism-darkmode-flat: 1.5px 1.5px 1.5px $neumorphism-dark-from-color, -1px
 
 // PRESSED
 $neumorphism-pressed: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
-$neumorphism-darkmode-pressed: inset 2px 2px 1px #0c0c0e, inset -2px -2px 1px #222426;
+$neumorphism-darkmode-pressed: inset 2px 2px 1px $neumorphism-dark-from-color, inset -2px -2px 1px $neumorphism-dark-to-color;
 $neumorphism-primary-pressed: inset 1.5px 1.5px 1.5px #0084db, inset -1px -1px 1px #00aeff;
+

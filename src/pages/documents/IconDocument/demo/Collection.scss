@@ -1,0 +1,24 @@
+@import '../../../../scss/vars.scss';
+
+.icon-box {
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: $border-radius;
+
+  &:hover {
+    box-shadow: $neumorphism-pressed
+  }
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .icon-box {
+    &:hover {
+      box-shadow: $neumorphism-darkmode-pressed
+    }
+  }
+}

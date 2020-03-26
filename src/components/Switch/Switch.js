@@ -1,28 +1,33 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 require('./Switch.scss');
 
-const Switch = ({ switchRef, defaultChecked, className, ...otherProps }) => {
-  const [checked, setChecked] = useState(defaultChecked);
-  const ref = useRef();
+const Switch = ({ switchRef, defaultChecked, onChange, className, ...otherProps }) => {
+  const isControlled = useMemo(() => otherProps.hasOwnProperty('checked'), []);
 
-  useEffect(() => {
-    const listener = e => setChecked(e.target.checked);
-    const checkbox = ref.current.querySelector('input[type=checkbox]');
+  const [checked, setChecked] = useState(isControlled ? otherProps.checked : defaultChecked);
 
-    checkbox.addEventListener('change', listener);
-    return () => checkbox.removeEventListener('change', listener);
+  const _onChange = useCallback((e) => {
+    onChange(e);
+    setChecked(e.target.checked);
   }, []);
 
+  useMemo(() => {
+    if (isControlled) {
+      setChecked(otherProps.checked);
+    }
+  } ,[otherProps.checked]);
+
   return (
-    <span className={cn('rc-switch', { '--checked': checked }, className)} ref={ref}>
+    <span className={cn('rc-switch', { '--checked': checked }, className)}>
       <input
         type="checkbox"
         className="rc-switch-input"
         ref={switchRef}
         defaultChecked={defaultChecked}
+        onChange={_onChange}
         {...otherProps}
       />
       <span className="rc-switch-inner" />
@@ -34,7 +39,11 @@ Switch.displayName = 'Switch';
 Switch.propTypes = {
   switchRef: PropTypes.any,
   className: PropTypes.string,
+  onChange: PropTypes.func,
+  defaultChecked: PropTypes.bool,
 };
-Switch.defaultProps = {};
+Switch.defaultProps = {
+  onChange: f => f,
+};
 
 export default Switch;

@@ -1,0 +1,20 @@
+@import '../../../scss/vars.scss';
+
+.icon-card {
+  width: 5rem;
+  height: 5rem;
+  border-radius: $border-radius;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.icon-list {
+  background-color: $dark-bg-color--500;
+}

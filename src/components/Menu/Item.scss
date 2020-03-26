@@ -12,4 +12,21 @@
     background-color: $menu-item-bg-color;
     color: $root-text-inverted-color;
   }
+
+  &.--icon-only {
+    display: flex;
+    justify-content: center;
+
+    .rc-menu-item-title-icon {
+      margin-right: 0;
+    }
+
+    .rc-menu-item-content {
+      display: none;
+    }
+  }
+}
+
+.rc-menu-item-title-icon {
+  margin-right: 1rem;
 }

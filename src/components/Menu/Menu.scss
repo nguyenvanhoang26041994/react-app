@@ -1,16 +1,15 @@
 @import '../../scss/vars.scss';
 
 .rc-menu {
-  background-color: $root-bg-color;
   border-radius: $border-radius;
   overflow: hidden;
-  box-shadow: $neumorphism-flat;
+  background-color: #dfe1e4;
+  user-select: none;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-menu {
     background-color: $secondary-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode-flat;
   }
 }

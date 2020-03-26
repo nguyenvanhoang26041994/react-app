@@ -1,0 +1,42 @@
+@import '../../scss/vars.scss';
+
+.code-box {
+  width: 100%;
+  background-color: $dark-bg-color--500;
+  border-radius: $border-radius;
+  padding: 2rem
+}
+
+.code-box-header {
+  margin-bottom: 2rem;
+}
+
+.code-box-demo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.code-box-guide {
+  display: flex;
+  flex-direction: column;
+
+  &.--hidden {
+    display: none;
+  }
+
+  &.--expanded {
+    .code-box-code {
+      display: block;
+    }
+  }
+}
+
+.code-box-collapse-code-header {
+  cursor: pointer;
+  align-self: flex-end;
+  user-select: none;
+}
+
+.code-box-code {
+  display: none;
+}

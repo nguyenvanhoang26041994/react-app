@@ -1,0 +1,36 @@
+@import '../../../scss/vars.scss';
+
+.top-navigation-container {
+  height: 7rem;
+  width: 100%;
+}
+
+.top-navigation-wrapper {
+  position: fixed;
+  z-index: 10;
+  height: 6rem;
+  width: calc(100vw - 7rem);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  transition: all 0.25s;
+
+  &.--expanded {
+    width: calc(100vw - 21rem);
+  }
+}
+
+.top-navigation {
+  height: 100%;
+  width: 100%;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .top-navigation {
+    background-color: $dark-bg-color--400;
+  }
+}

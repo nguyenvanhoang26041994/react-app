@@ -156,7 +156,7 @@ class Overlay extends React.Component {
         return {
           visible: false,
         };
-      }), 300);
+      }), 100);
     };
 
     this._eventMouseEnterOverlayHandler = () => this.setOverlayHover(true);

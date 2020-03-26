@@ -1,0 +1,13 @@
+@import '../../scss/vars.scss';
+
+#ui-system {
+  background-color: $root-bg-color;
+  border-radius: 1rem;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  #ui-system {
+    background-color: $root-darkmode-bg-color;
+  }
+}
