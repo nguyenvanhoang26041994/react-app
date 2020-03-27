@@ -9,11 +9,15 @@ import { isArray, isObject } from './helpers';
  */
 
 export default (props = {}, deps = []) => {
-  const result = '';
+  const fallBack = '';
 
-  if (!isObject(props) || !isArray(deps)) return result;
+  if (!isObject(props) || !isArray(deps)) {
+    return fallBack;
+  }
 
-  if (deps.length === 0) return result;
+  if (deps.length === 0) {
+    return fallBack;
+  }
 
   const propsKey = Object.keys(props);
   for (let i = propsKey.length - 1; i >= 0; i -= 1) {
@@ -21,4 +25,6 @@ export default (props = {}, deps = []) => {
       return propsKey[i];
     }
   }
+
+  return fallBack;
 };
