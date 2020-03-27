@@ -3,7 +3,7 @@
  *
  * @param {object} props - The input props.
  * @param {array} deps - The array has value to find.
- * @return {string} The latest object value.
+ * @return {string} The latest string value.
  */
 
 export default (props = {}, deps = []) => {
