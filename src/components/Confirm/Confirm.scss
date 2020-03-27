@@ -1,28 +1,28 @@
 @import '../../scss/vars.scss';
 
+@import '../../scss/vars.scss';
+
 .rc-confirm {
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   top: 0;
   left: 0;
-  background-color: $overlay-wrapper-bg-color;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: $zindex-drawer;
+  background-color: $overlay-wrapper-bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .rc-pure-confirm {
-    top: -20%;
+    position: absolute;
+    top: 15%;
     animation: zoomIn 0.25s;
     box-shadow: none;
   }
-}
 
-.rc-confirm.--close-animation {
-  background-color: transparent;
-
-  .rc-pure-confirm {
+  &.--close-animation {
+    background-color: transparent;
     animation: zoomOut 0.25s;
   }
 }

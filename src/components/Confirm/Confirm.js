@@ -1,36 +1,28 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureConfirm from '../PureConfirm';
 
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useDebounce from '../../hooks/useDebounce';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
+import push from './push';
 
 require('./Confirm.scss');
 
-const Confirm = ({ children, onClose, open, canOutsideClickClose, onOk, onCancel, ...otherProps }) => {
-  const confirmRef = useRef();
-
-  const handleClickOutside = useCallback(() => {
-    if (canOutsideClickClose) {
-      onClose();
-    }
-  }, []);
-
-  const onOkClick = useCallback(() => {
+const Confirm = ({ className, open, onClose, onOk, onCancel, ...otherProps }) => {
+  const delayOpen = useDebounce(open, 100);
+  const _onOk = useCallback(() => {
+    onClose();
     onOk();
-    onClose();
-  }, []);
-  const onCancelClick = useCallback(() => {
-    onCancel();
-    onClose();
   }, []);
 
-  useOnClickOutside(confirmRef, handleClickOutside);
-  const delayOpen = useSupportCloseAnimation(open);
+  const _onCancel = useCallback(() => {
+    onClose();
+    onCancel();
+  }, []);
+
   useLockBodyScroll(delayOpen);
 
   return (
@@ -39,13 +31,11 @@ const Confirm = ({ children, onClose, open, canOutsideClickClose, onOk, onCancel
         <Portal>
           <div className={cn('rc-confirm', { '--close-animation': !open })}>
             <PureConfirm
-              confirmRef={confirmRef}
-              onOkClick={onOkClick}
-              onCancelClick={onCancelClick}
+              className={className}
+              onOk={_onOk}
+              onCancel={_onCancel}
               {...otherProps}
-            >
-              {children}
-            </PureConfirm>
+            />
           </div>
         </Portal>
       )}
@@ -53,19 +43,18 @@ const Confirm = ({ children, onClose, open, canOutsideClickClose, onOk, onCancel
   );
 };
 
+Confirm.push = push;
 Confirm.displayName = 'Confirm';
 Confirm.propTypes = {
-  children: PropTypes.any,
-  onClose: PropTypes.func,
-  onOk: PropTypes.func,
-  onCancel: PropTypes.func,
+  className: PropTypes.string,
   open: PropTypes.bool,
-  canOutsideClickClose: PropTypes.func,
+  onClose: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
+  onOk: PropTypes.func,
 };
 Confirm.defaultProps = {
-  onOk: f => f,
   onCancel: f => f,
-  onClose: f => f,
+  onOk: f => f,
 };
 
 export default Confirm;

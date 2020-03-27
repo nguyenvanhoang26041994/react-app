@@ -13,6 +13,9 @@ const mapRouter = Object.freeze({
   '/document/checkbox': 'checkbox',
   '/document/radio': 'radio',
   '/document/switch': 'switch',
+  '/document/drawer': 'drawer',
+  '/document/modal': 'modal',
+  '/document/confirm': 'confirm',
 });
 
 const LeftSidebar = ({ isExpanded, ...otherProps }) => {
@@ -60,7 +63,7 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="angle-right" key="select">Select</Menu.Item>
             </Menu.Sub>
             <Menu.Sub title="Overlay" key="sub-overlay" icon="bell">
-              <Menu.Item icon="angle-right" key="confirm">Confirm</Menu.Item>
+              <Menu.Item icon="angle-right" key="confirm" onClick={() => history.push('/document/confirm')}>Confirm</Menu.Item>
               <Menu.Item icon="angle-right" key="tooltip" onClick={() => history.push('/document/tooltip')}>Tooltip</Menu.Item>
               <Menu.Item icon="angle-right" key="alert">Alert</Menu.Item>
               <Menu.Item icon="angle-right" key="notification">Notification</Menu.Item>

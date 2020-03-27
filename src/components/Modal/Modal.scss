@@ -1,34 +1,27 @@
 @import '../../scss/vars.scss';
 
-.rc-modal-container {
+.rc-modal {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
   top: 0;
   left: 0;
-  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  z-index: $zindex-drawer;
+  background-color: $overlay-wrapper-bg-color;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  background-color: $overlay-wrapper-bg-color;
-}
 
-.rc-modal {
-  border-radius: $border-radius-medium;
-  background-color: $root-bg-color;
-  animation: zoomIn 0.25s;
-  position: absolute;
-  top: 15%;
-}
-
-.rc-modal.--close-animation {
-  animation: zoomOut 0.25s;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-modal {
-    background-color: $root-darkmode-bg-color;
+  .rc-pure-modal {
+    position: absolute;
+    top: 15%;
+    animation: zoomIn 0.25s;
+    box-shadow: none;
   }
+
+  &.--close-animation {
+    background-color: transparent;
+    animation: zoomOut 0.25s;
+  }
+  
 }

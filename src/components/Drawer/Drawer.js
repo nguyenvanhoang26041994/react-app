@@ -1,20 +1,24 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import PureDrawer from '../PureDrawer';
 
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useDebounce from '../../hooks/useDebounce';
 import useClickOutsideOverlay from '../../hooks/useClickOutsideOverlay';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 
 require('./Drawer.scss');
 
-const Drawer = ({ className, onClose, open, canOutsideClickClose, ...otherProps }) => {
-  const ref = useRef();
+const mPlacements = Object.freeze({
+  left: '--left',
+  right: '--right',
+});
 
-  const delayOpen = useSupportCloseAnimation(open);
+const Drawer = ({ className, onClose, open, canOutsideClickClose, placement, ...otherProps }) => {
+  const ref = useRef();
+  const delayOpen = useDebounce(open, 100);
 
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
@@ -29,7 +33,16 @@ const Drawer = ({ className, onClose, open, canOutsideClickClose, ...otherProps 
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-drawer', { '--close-animation': !open })} ref={wrapperRef}>
+          <div
+            className={cn(
+              'rc-drawer',
+              mPlacements[placement],
+              {
+                '--close-animation': !open,
+              }
+            )}
+              ref={wrapperRef}
+            >
             <PureDrawer
               className={className}
               drawerRef={ref}
@@ -49,9 +62,11 @@ Drawer.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool,
   canOutsideClickClose: PropTypes.bool,
+  placement: PropTypes.oneOf(Object.keys(mPlacements))
 };
 Drawer.defaultProps = {
   onClose: f => f,
+  placement: 'right',
 };
 
 export default Drawer;

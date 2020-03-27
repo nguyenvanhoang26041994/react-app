@@ -26,6 +26,7 @@ export { default as Overlay } from './Overlay';
 export { default as Pagination } from './Pagination';
 export { default as Progress } from './Progress';
 export { default as PureAlert } from './PureAlert';
+export { default as PureModal } from './PureModal';
 export { default as PureConfirm } from './PureConfirm';
 export { default as PureNotification } from './PureNotification';
 export { default as PureDrawer } from './PureDrawer';

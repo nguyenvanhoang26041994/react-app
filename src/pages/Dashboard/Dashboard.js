@@ -13,7 +13,9 @@ const SwitchDocument = loadable(() => import('../documents/SwitchDocument'));
 const IconDocument = loadable(() => import('../documents/IconDocument'));
 const ButtonDocument = loadable(() => import('../documents/ButtonDocument'));
 const TooltipDocument = loadable(() => import('../documents/TooltipDocument'));
-const UISystem = loadable(() => import('../UISystem'));
+const DrawerDocument = loadable(() => import('../documents/DrawerDocument'));
+const ModalDocument = loadable(() => import('../documents/ModalDocument'));
+const ConfirmDocument = loadable(() => import('../documents/ConfirmDocument'));
 
 require('./Dashboard.scss');
 
@@ -29,27 +31,15 @@ const Dashboard = ({}) => {
         <div className="flex">
           <div className="flex-1">
             <Switch>
-              <Route exact path="/">
-                {/* <UISystem /> */}
-              </Route>
-              <Route path="/document/checkbox">
-                <CheckboxDocument />
-              </Route>
-              <Route path="/document/switch">
-                <SwitchDocument />
-              </Route>
-              <Route path="/document/radio">
-                <RadioDocument />
-              </Route>
-              <Route path="/document/icon">
-                <IconDocument />
-              </Route>
-              <Route path="/document/button">
-                <ButtonDocument />
-              </Route>
-              <Route path="/document/tooltip">
-                <TooltipDocument />
-              </Route>
+              <Route path="/document/checkbox" component={CheckboxDocument} />
+              <Route path="/document/switch" component={SwitchDocument} />
+              <Route path="/document/radio" component={RadioDocument} />
+              <Route path="/document/icon" component={IconDocument} />
+              <Route path="/document/button" component={ButtonDocument} />
+              <Route path="/document/tooltip" component={TooltipDocument} />
+              <Route path="/document/drawer" component={DrawerDocument} />
+              <Route path="/document/modal" component={ModalDocument} />
+              <Route path="/document/confirm" component={ConfirmDocument} />
             </Switch>
           </div>
         </div>

@@ -1,63 +1,42 @@
 @import '../../scss/vars.scss';
 
 .rc-pure-confirm {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
-  min-height: 12em;
-  width: 30em;
-  max-width: 100%;
-  border-radius: $border-radius-medium;
-  background-color: $overlay-bg-color;
-  background: $gradient-overlay-bg-color;
-  color: $root-text-inverted-color;
-  user-select: none;
-  transition: all 0.25s;
+  width: 35em;
+  max-width: 100vw;
+  background-color: $root-bg-color;
+  border-radius: $border-radius;
 }
 
-.rc-pure-confirm-inside-wrapper {
-  padding: 1.5em;
-}
-
-.rc-pure-confirm-header {
-  font-weight: 600;
-  font-size: 1.125em;
-  margin-bottom: 1em;
+.rc-pure-confirm-title {
+  padding: 1em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
 }
 
 .rc-pure-confirm-content {
-  font-weight: 500;
+  padding: 1.5em 1em;
+  overflow: scroll;
 }
 
-.rc-pure-confirm-buttons {
-  width: 100%;
+.rc-pure-confirm-handler {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding: 1.5em;
+  justify-content: flex-end;
+  padding: 1rem;
 }
 
-.rc-pure-confirm-ok.rc-pure-confirm-ok,
-.rc-pure-confirm-cancel.rc-pure-confirm-cancel {
-  margin-right: 0.5em;
-  box-shadow: $neumorphism-primary-flat;
-
-  &:hover,
-  &:focus {
-    box-shadow: $neumorphism-primary-pressed;
-  }
-}
-
-// ANTI DARK MODE
+// DARK MODE SUPPORT
 .dark-mode {
-  .rc-pure-confirm-ok.rc-pure-confirm-ok,
-  .rc-pure-confirm-cancel.rc-pure-confirm-cancel {
-    box-shadow: $neumorphism-primary-flat;
+  .rc-pure-confirm {
+    background-color: $dark-bg-color--500;
+    box-shadow: $neumorphism-darkmode-flat;
+  }
 
-    &:hover,
-    &:focus {
-      box-shadow: $neumorphism-primary-pressed;
-    }
+  .rc-pure-confirm-title {
+    border-bottom: 1px dashed $dark-bg-color--300;
   }
 }

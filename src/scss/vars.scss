@@ -19,10 +19,14 @@ $zindex-overlay: 1010;
 * Root color
 */
 
-$dark-bg-color--500: #1a1b1d;
-$dark-bg-color--400: #2c2d31;
+$dark-bg-color--700: #252629;
+$dark-bg-color--600: #2b2c30;
+$dark-bg-color--500: #313236; // main
+$dark-bg-color--400: #38393e;
+$dark-bg-color--300: #42444a;
 
-$body-dark-bg-color: #17181a;
+
+$body-dark-bg-color: #242529;
 
 $root-bg-color: #f0f2f5;
 $root-darkmode-bg-color: $dark-bg-color--500;
@@ -57,7 +61,7 @@ $gradient-error-color: linear-gradient(145deg, #d4441a, #fd511f);
 $overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
 $gradient-overlay-bg-color: linear-gradient(145deg, #008ae6, #00a4ff);
 $select-option-bg-color: #0099ff;
-$overlay-wrapper-bg-color: rgba(0, 0, 0, 0.5);
+$overlay-wrapper-bg-color: rgba(0, 0, 0, 0.8);
 
 /**
 * MENU
@@ -90,8 +94,8 @@ $active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Swit
 
 $neumorphism-light-from-color: #d6d7da;
 $neumorphism-light-to-color: #ffffff;
-$neumorphism-dark-from-color: #0e0f10;
-$neumorphism-dark-to-color: #26272a;
+$neumorphism-dark-from-color: #1f2023;
+$neumorphism-dark-to-color: #434449;
 // FLAT
 $neumorphism-flat: 1.5px 1.5px 1.5px $neumorphism-light-from-color, -1px -1px 1px $neumorphism-light-to-color;
 $neumorphism-primary-flat: 1.5px 1.5px 1.5px #0084db, -1px -1px 1px #00aeff;

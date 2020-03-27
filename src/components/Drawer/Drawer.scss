@@ -3,7 +3,7 @@
 .rc-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: $zindex-drawer;
@@ -11,18 +11,40 @@
 
   .rc-pure-drawer {
     position: absolute;
-    right: 0;
-    animation: slideInRight 0.5s;
     height: 100vh;
     max-width: 100vw;
     overflow: scroll;
   }
+
+  &.--close-animation {
+    background-color: transparent;
+  }
+  
 }
 
-.rc-drawer.--close-animation {
-  background-color: transparent;
-
+.rc-drawer.--left {
   .rc-pure-drawer {
-    animation: slideOutRight 0.5s;
+    left: 0;
+    animation: slideInLeft 0.5s;
+  }
+
+  &.--close-animation {
+    .rc-pure-drawer {
+      animation: slideOutLeft 0.5s;
+    }
+  }
+}
+
+
+.rc-drawer.--right {
+  .rc-pure-drawer {
+    right: 0;
+    animation: slideInRight 0.5s;
+  }
+
+  &.--close-animation {
+    .rc-pure-drawer {
+      animation: slideOutRight 0.5s;
+    }
   }
 }

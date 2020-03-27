@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 
 import Confirm from './Confirm';
 
 const PusherConfirm = ({ temporary, ...otherProps }) => {
   const [open, setIsOpen] = useState(true);
+  const onClose = useCallback(() => setIsOpen(false), []);
+
 
   useEffect(() => {
     if (!open) {
@@ -21,7 +23,7 @@ const PusherConfirm = ({ temporary, ...otherProps }) => {
     <Confirm
       {...otherProps}
       open={open}
-      onClose={() => setIsOpen(false)}
+      onClose={onClose}
     />
   );
 };

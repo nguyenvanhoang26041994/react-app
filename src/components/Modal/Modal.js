@@ -1,25 +1,25 @@
-import React, { useCallback, useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
+import PureModal from '../PureModal';
 
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useDebounce from '../../hooks/useDebounce';
 import useClickOutsideOverlay from '../../hooks/useClickOutsideOverlay';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 
 require('./Modal.scss');
 
-const Modal = ({ className, containerClass, open, onClose, canOutsideClickClose, ...otherProps }) => {
+const Modal = ({ className, onClose, open, canOutsideClickClose, ...otherProps }) => {
   const ref = useRef();
-
-  const delayOpen = useSupportCloseAnimation(open);
+  const delayOpen = useDebounce(open, 100);
 
   const handleClickOutside = useCallback(() => {
     if (canOutsideClickClose) {
       onClose();
     }
-  }, [canOutsideClickClose]);
+  }, []);
 
   useLockBodyScroll(delayOpen);
   const wrapperRef = useClickOutsideOverlay({ overlayRef: ref, open: delayOpen, handleClickOutside });
@@ -28,10 +28,14 @@ const Modal = ({ className, containerClass, open, onClose, canOutsideClickClose,
     <React.Fragment>
       {delayOpen && (
         <Portal>
-          <div className={cn('rc-modal-container', containerClass)} ref={wrapperRef}>
-            <div
-              ref={ref}
-              className={cn('rc-modal', { '--close-animation': !open }, className)}
+          <div
+            className={cn('rc-modal', { '--close-animation': !open })}
+            ref={wrapperRef}
+          >
+            <PureModal
+              className={className}
+              modalRef={ref}
+              onCloseClick={onClose}
               {...otherProps}
             />
           </div>
@@ -44,8 +48,8 @@ const Modal = ({ className, containerClass, open, onClose, canOutsideClickClose,
 Modal.displayName = 'Modal';
 Modal.propTypes = {
   className: PropTypes.string,
-  containerClass: PropTypes.string,
   onClose: PropTypes.func,
+  open: PropTypes.bool,
   canOutsideClickClose: PropTypes.bool,
 };
 Modal.defaultProps = {

@@ -1,13 +1,13 @@
 @import '../../scss/vars.scss';
 
-.rc-pure-drawer {
+.rc-pure-modal {
   position: relative;
   min-width: 24em;
   background-color: $root-bg-color;
   border-radius: $border-radius;
 }
 
-.rc-pure-drawer-title {
+.rc-pure-modal-title {
   padding: 1em;
   font-weight: 500;
   display: flex;
@@ -16,18 +16,19 @@
   text-transform: uppercase;
 }
 
-.rc-pure-drawer-content {
+.rc-pure-modal-content {
   padding: 1.5em 1em;
   overflow: scroll;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
-  .rc-pure-drawer {
+  .rc-pure-modal {
     background-color: $dark-bg-color--500;
+    box-shadow: $neumorphism-darkmode-flat;
   }
 
-  .rc-pure-drawer-title {
+  .rc-pure-modal-title {
     border-bottom: 1px dashed $dark-bg-color--300;
   }
 }
