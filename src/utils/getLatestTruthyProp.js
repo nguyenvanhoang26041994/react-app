@@ -1,15 +1,19 @@
+/**
+ * Find latest truthy props based on dependencies.
+ *
+ * @param {object} props - The input props.
+ * @param {array} deps - The array has value to find.
+ * @return {string} The latest object value.
+ */
+
 export default (props = {}, deps = []) => {
   if (props && deps.length > 0) {
     const propsKey = Object.keys(props);
     for (let i = propsKey.length - 1; i >= 0; i -= 1) {
-      for (let j = 0; j < deps.length; j += 1) {
-        if ((deps[j] === propsKey[i]) && props[propsKey[i]]) {
-          return {
-            [propsKey[i]]: props[propsKey[i]]
-          };
-        }
+      if (deps.indexOf(propsKey[i]) >= 0 && props[propsKey[i]]) {
+        return propsKey[i];
       }
     }
   }
-  return false;
+  return '';
 };
