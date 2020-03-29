@@ -16,6 +16,7 @@ const mapRouter = Object.freeze({
   '/document/drawer': 'drawer',
   '/document/modal': 'modal',
   '/document/confirm': 'confirm',
+  '/document/affix': 'affix'
 });
 
 const LeftSidebar = ({ isExpanded, ...otherProps }) => {
@@ -39,6 +40,7 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="browser" key="modal" onClick={() => history.push('/document/modal')}>Modal</Menu.Item>
             </Menu.ItemGroup>
             <Menu.Sub key="sub-components" title="Components" icon="desktop">
+              <Menu.Item key="affix" icon="angle-right" onClick={() => history.push('/document/affix')}>Affix</Menu.Item>
               <Menu.Item key="checkbox" icon="angle-right" onClick={() => history.push('/document/checkbox')}>Checkbox</Menu.Item>
               <Menu.Item key="radio" icon="angle-right" onClick={() => history.push('/document/radio')}>Radio</Menu.Item>
               <Menu.Item key="swicth" icon="angle-right" onClick={() => history.push('/document/switch')}>Swicth</Menu.Item>

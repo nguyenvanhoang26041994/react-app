@@ -7,6 +7,7 @@ import LeftSidebar from './LeftSidebar';
 import TopNavigation from './TopNavigation';
 import loadable from '../../utils/loadable';
 
+const AffixDocument = loadable(() => import('../documents/AffixDocument'));
 const CheckboxDocument = loadable(() => import('../documents/CheckboxDocument'));
 const RadioDocument = loadable(() => import('../documents/RadioDocument'));
 const SwitchDocument = loadable(() => import('../documents/SwitchDocument'));
@@ -27,10 +28,11 @@ const Dashboard = ({}) => {
     <div id="main-admin" className="flex pr-2">
       <LeftSidebar isExpanded={isExpanded} />
       <div className="flex-1 flex flex-col">
-        <TopNavigation toggleExpand={toggleExpand} isExpanded={isExpanded} />
+        {/*<TopNavigation toggleExpand={toggleExpand} isExpanded={isExpanded} />*/}
         <div className="flex">
           <div className="flex-1">
             <Switch>
+              <Route path="/document/affix" component={AffixDocument} />
               <Route path="/document/checkbox" component={CheckboxDocument} />
               <Route path="/document/switch" component={SwitchDocument} />
               <Route path="/document/radio" component={RadioDocument} />
