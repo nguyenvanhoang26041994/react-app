@@ -81,6 +81,7 @@ export default class Affix extends PureComponent {
 
   calculate() {
     let affixStyle = {};
+    let placeHolderStyle = {};
     const { offsetTop } = this.props;
     const { top, left, height, width } = this.state;
 
@@ -93,16 +94,23 @@ export default class Affix extends PureComponent {
         zIndex: 10,
         top: offsetTop
       };
+      placeHolderStyle = {
+        height,
+        width,
+      };
     }
-    return { affixStyle };
+    return { affixStyle, placeHolderStyle };
   }
 
   render() {
     const { children } = this.props;
-    const { affixStyle } = this.calculate();
+    const { placeHolderStyle, affixStyle } = this.calculate();
     return (
-      <div ref={this.fixedNode} style={affixStyle}>
-        {children}
+      <div>
+        <div style={placeHolderStyle}></div>
+        <div ref={this.fixedNode} style={affixStyle}>
+          {children}
+        </div>
       </div>
     );
   }
