@@ -7,7 +7,6 @@ import PureConfirm from '../PureConfirm';
 
 import useDebounce from '../../hooks/useDebounce';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
-import push from './push';
 
 require('./Confirm.scss');
 
@@ -43,7 +42,6 @@ const Confirm = ({ className, open, onClose, onOk, onCancel, ...otherProps }) =>
   );
 };
 
-Confirm.push = push;
 Confirm.displayName = 'Confirm';
 Confirm.propTypes = {
   className: PropTypes.string,
@@ -51,6 +49,9 @@ Confirm.propTypes = {
   onClose: PropTypes.func.isRequired,
   onCancel: PropTypes.func,
   onOk: PropTypes.func,
+  confirmRef: PropTypes.any,
+  children: PropTypes.any,
+  title: PropTypes.any,
 };
 Confirm.defaultProps = {
   onCancel: f => f,

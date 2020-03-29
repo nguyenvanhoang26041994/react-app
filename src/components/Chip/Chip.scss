@@ -1,22 +1,28 @@
 @import '../../scss/vars.scss';
 
 .rc-chip {
-  font-size: 0.9rem;
   height: 2.125em;
-  background-color: $secondary-bg-color;
-  color: $root-text-inverted-color;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
   display: flex;
   align-items: center;
   border-radius: 100em;
   white-space: nowrap;
   cursor: pointer;
+  user-select: none;
 
-  .rc-avatar {
+  // anti dark-mode
+  .rc-avatar.rc-avatar {
     height: 1.65em;
     width: 1.65em;
-    margin-left: 0.25em;
     box-shadow: none;
     background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.rc-chip.--custom {
+  &:hover {
+    opacity: 0.8;
   }
 }
 
@@ -26,7 +32,6 @@
 }
 
 .rc-chip-close {
-  margin-right: 0.25em;
   height: 1.65em;
   width: 1.65em;
   display: flex;
@@ -40,6 +45,10 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-chip {
-    background-color: $secondary-darkmode-bg-color;
+    background-color: $dark-bg-color--200;
+
+    &:hover {
+      background-color: $dark-bg-color--300;
+    }
   }
 }

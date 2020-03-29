@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
+import usePagination from './usePagination';
 
 require('./Pagination.scss');
 
@@ -16,68 +17,36 @@ const loop = (start, end, cb) => {
   return rs;
 };
 
-const Pagination = ({ className, total, pageSize, max, defaultPage, onPageChange, ...otherProps }) => {
-  const isControlled = useMemo(() => otherProps.hasOwnProperty('page'), []);
-
-  const itemCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
-  const [currentPage, setCurrentPage] = useState(isControlled ? otherProps.page : defaultPage);
-  const [currentFlag, setCurrentFlag] = useState(Math.ceil(currentPage / max));
-  const maxCurrentFlag = useMemo(() => Math.ceil(itemCount / max), [itemCount, max]);
-
-  const startIndex = useMemo(() => (currentFlag - 1) * max + 1, [currentFlag, currentPage, max]);
-  const endIndex = useMemo(() => {
-    let end = (currentFlag - 1) * max + max;
-
-    return itemCount < end ? itemCount : end;
-  }, [currentFlag, currentPage, max]);
-
-  const onNextItems = useCallback(() => setCurrentFlag(prev => {
-    const nextState = prev + 1;
-    return nextState > maxCurrentFlag ? maxCurrentFlag : nextState;
-  }), [maxCurrentFlag]);
-
-  const onPrevItems = useCallback(() => setCurrentFlag(prev => {
-    const nextState = prev - 1;
-    return nextState > 1 ? nextState : 1;
-  }), []);
-
-  const handlePageSelected = useCallback(val => {
-    if (isControlled) {
-      onPageChange(val);
-    } else {
-      setCurrentPage(val);
-    }
-  }, []);
-
-  // SUPPORT CONTROLED COMPONENT
-  useEffect(() => {
-    onPageChange(currentPage);
-  }, [currentPage]);
-
-  useMemo(() => {
-    if (isControlled) {
-      setCurrentPage(otherProps.page);
-    }
-  }, [otherProps.page]);
+const Pagination = ({ className, total, pageSize, max, activePage, onChange, ...otherProps }) => {
+  const {
+    activeFlag,
+    startIndex,
+    endIndex,
+    maxActiveFlag,
+    onNextItems,
+    onPrevItems,
+  } = usePagination({ total, pageSize, max, activePage });
 
   return (
-    <ButtonGroup className={cn('rc-pagination', className )}>
+    <ButtonGroup className={cn('rc-pagination', className )} {...otherProps}>
       <Button
-        className={cn('rc-pagination-prev', { '--hidden': currentFlag <= 1 })}
+        className="rc-pagination-prev"
+        disabled={activeFlag <= 1}
         onClick={onPrevItems}
         icon="chevron-left"
       />
         {loop(startIndex, endIndex, pageNumber => (
           <Button
             key={pageNumber}
-            className={cn('rc-pagination-item', { '--active': pageNumber === currentPage })}
-            onClick={() => handlePageSelected(pageNumber)}
+            className={cn('rc-pagination-item', { '--active': pageNumber === activePage })}
+            onClick={() => onChange(pageNumber)}
           >
             <a>{pageNumber}</a>
           </Button>
         ))}
       <Button
-        className={cn('rc-pagination-next', { '--hidden': currentFlag >= maxCurrentFlag })}
+        className="rc-pagination-next"
+        disabled={activeFlag >= maxActiveFlag}
         onClick={onNextItems}
         icon="chevron-right"
       />
@@ -90,17 +59,15 @@ Pagination.propTypes = {
   className: PropTypes.string,
   total: PropTypes.number,
   pageSize: PropTypes.number,
-  defaultPage: PropTypes.number,
   max: PropTypes.number,
-  onPageChange: PropTypes.func,
-  page: PropTypes.number,
+  onChange: PropTypes.func,
+  activePage: PropTypes.number,
 };
 Pagination.defaultProps = {
-  defaultPage: 1,
   total: 0,
   pageSize: 0,
   max: 5,
-  onPageChange: f => f,
+  onChange: f => f,
 };
 
 export default Pagination;

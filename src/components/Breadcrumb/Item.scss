@@ -1,25 +1,41 @@
 @import '../../scss/vars.scss';
 
+.rc-breadcrumb > .rc-breadcrumb-item:last-child {
+  color: $primary-color;
+  background-color: $dark-bg-color--300;
+
+  &:after {
+    border: none;
+  }
+}
+
+.rc-breadcrumb > .rc-breadcrumb-item:nth-child(1) {
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
 .rc-breadcrumb-item {
-  height: 2.5em;
+  height: $basic-height;
   display: flex;
   align-items: center;
   padding: 0 1.5em 0 1.75em;
   cursor: pointer;
   user-select: none;
   position: relative;
-  box-shadow: $neumorphism-flat;
-  background-color: $root-bg-color;
-  color: $primary-color;
+  background-color: $dark-bg-color--400;
+
+  &:hover {
+    background-color: $dark-bg-color--300;
+  }
 
   &:after {
     content: " ";
     position: absolute;
     right: 0;
     transform: translateX(50%) rotate(45deg);
-    height: 1.725em;
-    width: 1.725em;
-    box-shadow: $neumorphism-flat;
+    border: 1px dashed $dark-bg-color--200;
+    height: 1.75em;
+    width: 1.75em;
     background-color: inherit;
     border-top-right-radius: 0.25em;
     z-index: 1;
@@ -34,48 +50,12 @@
     background-color: inherit;
     z-index: 2;
   }
-
-  &:hover,
-  &.--active {
-    box-shadow: $neumorphism-pressed;
-
-    &:after {
-      box-shadow: $neumorphism-pressed;
-    }
-    &:before {
-      border-top: 2px solid $neumorphism-light-from-color;
-      border-bottom: 2px solid $neumorphism-light-to-color;
-    }
-  }
 }
 
-.rc-breadcrumb-item-content {
+.rc-breadcrumb-item-title {
   max-width: 10em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 // DARK MODE SUPPORT
-.dark-mode {
-  .rc-breadcrumb-item {
-    background-color: $root-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode-flat;
-
-    &:after {
-      box-shadow: $neumorphism-darkmode-flat;
-    }
-
-    &:hover,
-    &.--active {
-      box-shadow: $neumorphism-darkmode-pressed;
-  
-      &:after {
-        box-shadow: $neumorphism-darkmode-pressed;
-      }
-      &:before {
-        border-top: 2px solid $neumorphism-dark-from-color;
-        border-bottom: 2px solid $neumorphism-dark-to-color;
-      }
-    }
-  }
-}

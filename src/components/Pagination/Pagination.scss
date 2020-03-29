@@ -8,12 +8,7 @@
 }
 
 .rc-pagination-item.--active.--active {
-  background-color: $active-color-1;
+  background-color: $primary-color;
   color: $root-text-inverted-color;
   box-shadow: none;
-}
-
-.rc-pagination-next.--hidden,
-.rc-pagination-prev.--hidden {
-  display: none;
 }

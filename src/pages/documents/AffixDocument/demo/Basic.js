@@ -12,7 +12,7 @@ const Demo = () => {
         <h1>test</h1>
         <h1>test</h1>
         <h1>test</h1>
-        <Affix offsetTop={40}>
+        <Affix offsetTop={200}>
           <button>Affix Me</button>
         </Affix>
       </div>

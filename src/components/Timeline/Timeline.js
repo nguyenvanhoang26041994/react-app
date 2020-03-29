@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Timestone from './Timestone';
+import Item from './Item';
 
 require('./Timeline.scss');
 
@@ -14,7 +14,7 @@ const Timeline = ({ className, children, right, reverse, ...otherProps }) => {
   );
 }
 
-Timeline.Timestone = Timestone;
+Timeline.Item = Item;
 
 Timeline.displayName = 'Timeline';
 Timeline.propTypes = {

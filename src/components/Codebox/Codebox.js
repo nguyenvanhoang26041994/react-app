@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
-import { Icon } from '../core';
+import { Icon, Divider } from '../core';
 
 require('./Codebox.scss');
 
@@ -16,10 +15,15 @@ const Codebox = ({ children, header, href, code, className }) => {
         {children}
       </div>
       <div className={cn('code-box-guide', { '--expanded': expanded, '--hidden': !code })}>
-        <div className="code-box-collapse-code-header" onClick={toggleExpanded}>
-          <span className="mr-2">Code</span>
-          <Icon name="caret-down" />
-        </div>
+        <Divider
+          dashed
+          right
+          title={(
+            <span onClick={toggleExpanded} className="code-box-collapse-code-header">
+              <Icon name="caret-down" /> Code
+            </span>
+          )}
+        />
         <pre className="code-box-code">
           {code}
         </pre>

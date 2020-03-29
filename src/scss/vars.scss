@@ -24,6 +24,7 @@ $dark-bg-color--600: #2b2c30;
 $dark-bg-color--500: #313236; // main
 $dark-bg-color--400: #38393e;
 $dark-bg-color--300: #42444a;
+$dark-bg-color--200: #5f5f5f;
 
 
 $body-dark-bg-color: #242529;
@@ -72,9 +73,9 @@ $menu-item-bg-color: #0099ff;
 /**
 * Rating color
 */
-$rating-color: #e4e4e4;
-$rating-darkmode-color: rgba(255, 255, 255, 0.2);
-$rating-active-color: #ffc107;
+$rater-color: #e4e4e4;
+$rater-darkmode-color: rgba(255, 255, 255, 0.2);
+$rater-active-color: #ffc107;
 
 /**
 * Progress circle stoke color
@@ -106,3 +107,10 @@ $neumorphism-pressed: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
 $neumorphism-darkmode-pressed: inset 2px 2px 1px $neumorphism-dark-from-color, inset -2px -2px 1px $neumorphism-dark-to-color;
 $neumorphism-primary-pressed: inset 1.5px 1.5px 1.5px #0084db, inset -1px -1px 1px #00aeff;
 
+/**************************************/
+$dark-left-sidebar-bg-color: $dark-bg-color--400;
+
+$neumorphism-dark-from-color--300: #333439;
+$neumorphism-dark-to-color--300: #51545b;
+$neumorphism-darkmode-flat--300: 1.5px 1.5px 1.5px $neumorphism-dark-from-color--300, -1px -1px 1px $neumorphism-dark-to-color--300;
+$neumorphism-darkmode-pressed--300: inset 2px 2px 1px $neumorphism-dark-from-color--300, inset -2px -2px 1px $neumorphism-dark-to-color--300;

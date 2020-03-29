@@ -1,9 +1,6 @@
 @import '../../scss/vars.scss';
 
 .rc-tooltip {
-  background-color: $overlay-bg-color;
-  background: $gradient-overlay-bg-color;
-  color: $root-text-inverted-color;
   min-width: 5em;
   max-width: 20em;
   min-height: 2.5em;
@@ -12,4 +9,11 @@
   justify-content: center;
   align-items: center;
   border-radius: $border-radius;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-tooltip {
+    background-color: $dark-bg-color--200;
+  }
 }

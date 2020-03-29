@@ -4,21 +4,22 @@
   width: 100%;
   background-color: $dark-bg-color--500;
   border-radius: $border-radius;
-  padding: 2rem
 }
 
 .code-box-header {
-  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px dashed $dark-bg-color--400;
 }
 
 .code-box-demo {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  padding: 2rem;
 }
 .code-box-guide {
   display: flex;
   flex-direction: column;
+  padding: 1rem 2rem;
 
   &.--hidden {
     display: none;
@@ -33,10 +34,11 @@
 
 .code-box-collapse-code-header {
   cursor: pointer;
-  align-self: flex-end;
   user-select: none;
 }
 
 .code-box-code {
   display: none;
+  font-size: 0.9rem;
+  font-family: monospace;
 }

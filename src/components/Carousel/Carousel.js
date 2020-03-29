@@ -3,7 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Button from '../Button';
-import Icon from '../Icon';
+import Item from './Item';
 
 require('./Carousel.scss');
 
@@ -41,8 +41,10 @@ const Carousel = ({ className, children, slideWidth, auto, loop }) => {
   }), []);
 
   useEffect(() => {
-    const timer = setInterval(() => handleNext(), auto);
-    return () => clearInterval(timer);
+    if (auto) {
+      const timer = setInterval(() => handleNext(), auto);
+      return () => clearInterval(timer);
+    }
   }, [handleNext]);
 
   useEffect(() => {
@@ -63,6 +65,8 @@ const Carousel = ({ className, children, slideWidth, auto, loop }) => {
     </div>
   );
 };
+
+Carousel.Item = Item;
 
 Carousel.displayName = 'Carousel';
 Carousel.propTypes = {

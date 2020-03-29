@@ -2,8 +2,8 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Button from '../Button';
 import Icon from '../Icon';
+import useSemanticProp from '../../hooks/useSemanticProp';
 
 require('./Step.scss');
 
@@ -13,7 +13,14 @@ const mStatus = Object.freeze({
   canceled: '--canceled',
 });
 
-const Step = ({ className, status, label, children, icon, stepNumber }) => {
+const Step = ({ className, title, children, icon, stepNumber, ...otherProps }) => {
+  const status = useSemanticProp('status', otherProps, Object.keys(mStatus), [
+    otherProps.processing,
+    otherProps.completed,
+    otherProps.canceled,
+    otherProps.status,
+  ]);
+
   return (
     <div className={cn('rc-step', mStatus[status], className)}>
       <div className="rc-step-rail" />
@@ -22,8 +29,8 @@ const Step = ({ className, status, label, children, icon, stepNumber }) => {
         {status !== 'completed' && (<span>{icon ? <Icon name={icon} /> : stepNumber}</span>)}
       </div>
       <div className="rc-step-content">
-        <div className="rc-step-label">{label}</div>
-        <div className="rc-step-note">{children}</div>
+        <div className="rc-step-title">{title}</div>
+        <div className="rc-step-description">{children}</div>
       </div>
     </div>
   );
@@ -33,10 +40,13 @@ Step.displayName = 'Step';
 Step.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
-  label: PropTypes.any,
+  title: PropTypes.any,
   children: PropTypes.any,
   stepNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   status: PropTypes.oneOf(Object.keys(mStatus)),
+  processing: PropTypes.bool,
+  completed: PropTypes.bool,
+  canceled: PropTypes.bool,
 };
 Step.defaultProps = {};
 

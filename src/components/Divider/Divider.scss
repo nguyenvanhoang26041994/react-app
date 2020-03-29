@@ -1,7 +1,50 @@
 @import '../../scss/vars.scss';
 
+@import '../../scss/vars.scss';
+
 .rc-divider {
-  height: 1px;
   width: 100%;
-  background-color: #fff;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  &:after,
+  &:before {
+    flex-grow: 1;
+    content: " ";
+    border-bottom: 1px solid $dark-bg-color--300;
+  }
+}
+
+.rc-divider-title {
+  padding: 0 0.5em;
+}
+
+.rc-divider.--dashed {
+  &:after,
+  &:before {
+    border-bottom-style: dashed;
+  }
+}
+
+.rc-divider.--dotted {
+  &:after,
+  &:before {
+    border-bottom-style: dotted;
+  }
+}
+
+.rc-divider.--left {
+  &:before {
+    width: 1em;
+    flex-grow: unset;
+  }
+}
+
+.rc-divider.--right {
+  &:after {
+    width: 1em;
+    flex-grow: unset;
+  }
 }

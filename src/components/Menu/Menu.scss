@@ -5,11 +5,16 @@
   overflow: hidden;
   background-color: #dfe1e4;
   user-select: none;
+  min-width: 12em;
+}
+
+.rc-menu.--icon-only {
+  min-width: unset;
 }
 
 // DARK MODE SUPPORT
 .dark-mode {
   .rc-menu {
-    background-color: $secondary-darkmode-bg-color;
+    background-color: $dark-bg-color--300;
   }
 }

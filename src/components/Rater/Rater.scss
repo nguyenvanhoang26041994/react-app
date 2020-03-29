@@ -1,0 +1,27 @@
+@import '../../scss/vars.scss';
+
+.rc-rater {
+  display: flex;
+  align-items: center;
+}
+
+.rc-rater-item {
+  color: $rater-color;
+  transition: all 0.25s;
+  padding: 0.25em;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.rc-rater-item.--light {
+  color: $rater-active-color;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-rater-item:not(.--light) {
+    color: $rater-darkmode-color;
+  }
+}

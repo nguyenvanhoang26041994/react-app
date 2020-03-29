@@ -49,14 +49,6 @@
 // DARK MODE SUPPORT
 .dark-mode {
   .left-sidebar {
-    background-color: $dark-bg-color--400;
-
-    > .__menu {
-      background-color: $dark-bg-color--400;
-
-      .rc-menu-sub-list {
-        background-color: $dark-bg-color--500;
-      }
-    }
+    background-color: $dark-left-sidebar-bg-color;
   }
 }

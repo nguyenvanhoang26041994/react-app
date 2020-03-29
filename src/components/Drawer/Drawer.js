@@ -62,7 +62,10 @@ Drawer.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool,
   canOutsideClickClose: PropTypes.bool,
-  placement: PropTypes.oneOf(Object.keys(mPlacements))
+  placement: PropTypes.oneOf(Object.keys(mPlacements)),
+  children: PropTypes.any,
+  title: PropTypes.any,
+  closable: PropTypes.bool,
 };
 Drawer.defaultProps = {
   onClose: f => f,

@@ -5,12 +5,13 @@ import cn from 'classnames';
 import Portal from '../Portal';
 import PureAlert from '../PureAlert';
 import { rootAlert } from '../Portal/portalNode';
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+
+import useDebounce from '../../hooks/useDebounce';
 
 require('./Alert.scss');
 
-const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
-  const delayOpen = useSupportCloseAnimation(open);
+const Alert = ({ onClose, open, duration, ...otherProps }) => {
+  const delayOpen = useDebounce(open, 100);
 
   useEffect(() => {
     if (open && duration > 0) {
@@ -27,9 +28,7 @@ const Alert = ({ children, onClose, open, duration, ...otherProps }) => {
             onCloseClick={onClose}
             className={cn('rc-alert', { '--close-animation': !open })}
             {...otherProps}
-          >
-            {children}
-          </PureAlert>
+          />
         </Portal>
       )}
     </React.Fragment>
@@ -41,7 +40,10 @@ Alert.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool,
   duration: PropTypes.number,
+  alertRef: PropTypes.any,
   children: PropTypes.any,
+  title: PropTypes.any,
+  closable: PropTypes.bool,
 };
 Alert.defaultProps = {
   onClose: f => f,

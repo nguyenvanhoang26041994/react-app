@@ -7,9 +7,12 @@
   height: 3em;
   cursor: pointer;
 
-  &:hover,
+  &:hover {
+    background-color: $dark-bg-color--400;
+  }
+
   &.--selected {
-    background-color: $menu-item-bg-color;
+    background-color: $primary-color;
     color: $root-text-inverted-color;
   }
 
@@ -24,6 +27,20 @@
     .rc-menu-item-content {
       display: none;
     }
+
+    &.--title-only {
+      .rc-menu-item-title-icon {
+        display: none;
+      }
+    }
+  }
+}
+
+.rc-menu-item.--disabled {
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: inherit;
   }
 }
 

@@ -6,12 +6,12 @@ import Portal from '../Portal';
 import PureNotification from '../PureNotification';
 import { rootNotification } from '../Portal/portalNode';
 
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
+import useDebounce from '../../hooks/useDebounce';
 
 require('./Notification.scss');
 
 const Notification = ({ onClose, open, duration, ...otherProps }) => {
-  const delayOpen = useSupportCloseAnimation(open);
+  const delayOpen = useDebounce(open);
 
   useEffect(() => {
     if (open && duration > 0) {
@@ -25,7 +25,7 @@ const Notification = ({ onClose, open, duration, ...otherProps }) => {
       {delayOpen && (
         <Portal node={rootNotification}>
           <PureNotification
-            onBellClick={onClose}
+            onCloseClick={onClose}
             className={cn('rc-notification', { '--close-animation': !open })}
             {...otherProps}
           />
@@ -40,10 +40,12 @@ Notification.propTypes = {
   onClose: PropTypes.func,
   open: PropTypes.bool,
   duration: PropTypes.number,
+  title: PropTypes.any,
+  onContentClick: PropTypes.func,
 };
 Notification.defaultProps = {
   onClose: f => f,
-  duration: 5000,
+  duration: 10000,
 };
 
 export default Notification;

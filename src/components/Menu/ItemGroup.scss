@@ -1,8 +1,8 @@
 @import '../../scss/vars.scss';
 
 .rc-menu-item-group {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
   &.--icon-only {
     .rc-menu-item-group-title {
@@ -12,11 +12,27 @@
 }
 
 .rc-menu-item-group-title {
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 $content-spacing;
   height: 3em;
   text-transform: uppercase;
-  color: #a9a9a9;
+
+  > span {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+  }
+
+  &:after,
+  &:before {
+    flex-grow: 1;
+    content: " ";
+    border-bottom: 1px dashed $dark-bg-color--500;
+  }
+
+  &:before {
+    width: $content-spacing - 0.5em;
+    flex-grow: unset;
+  }
 }
 

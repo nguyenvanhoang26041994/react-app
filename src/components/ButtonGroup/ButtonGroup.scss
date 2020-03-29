@@ -21,3 +21,11 @@
     border-bottom-right-radius: $border-radius;
   }
 }
+
+.rc-button-group.--fluid {
+  width: 100%;
+
+  > .rc-button {
+    flex-grow: 1;
+  }
+}

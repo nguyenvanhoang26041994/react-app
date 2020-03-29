@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
 import Notification from './Notification';
 
-const PusherNotification = ({ temporary, ...otherProps }) => {
+const PusherNotification = ({ temporary, children, render, ...otherProps }) => {
   const [open, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -22,8 +23,19 @@ const PusherNotification = ({ temporary, ...otherProps }) => {
       {...otherProps}
       open={open}
       onClose={() => setIsOpen(false)}
-    />
+    >
+      {children || render(setIsOpen)}
+    </Notification>
   );
+};
+
+PusherNotification.propTypes = {
+  temporary: PropTypes.any.isRequired,
+  children: PropTypes.any,
+  render: PropTypes.func,
+};
+PusherNotification.defaultProps = {
+  render: f => f,
 };
 
 export default (data) => {

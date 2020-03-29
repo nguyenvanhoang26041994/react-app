@@ -1,46 +1,57 @@
 @import '../../scss/vars.scss';
 
 .rc-pure-alert {
-  display: block;
   position: relative;
-  min-height: 2em;
-  width: 30em;
-  max-width: 100%;
-  border-radius: $border-radius-medium;
-  background-color: $overlay-bg-color;
-  background: $gradient-overlay-bg-color;
-  color: $root-text-inverted-color;
-  user-select: none;
-  transition: all 0.25s;
+  min-width: 30rem;
+  width: 100%;
+  border-radius: $border-radius;
+}
+
+.rc-pure-alert.--info {
+  .rc-pure-alert-title {
+    color: $primary-color;
+  }
 }
 
 .rc-pure-alert.--success {
-  background-color: $success-color;
-  background: $gradient-success-color;
+  .rc-pure-alert-title {
+    color: $success-color;
+  }
 }
 
 .rc-pure-alert.--warning {
-  background-color: $warning-color;
-  background: $gradient-warning-color;
+  .rc-pure-alert-title {
+    color: $warning-color;
+  }
 }
 
 .rc-pure-alert.--error {
-  background-color: $error-color;
-  background: $gradient-error-color;
+  .rc-pure-alert-title {
+    color: $error-color;
+  }
 }
 
-.rc-pure-alert-close {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  font-size: 1.25em;
-}
-
-.rc-pure-alert-inside-wrapper {
-  padding: 1.5em;
-}
-
-.rc-pure-alert-content {
+.rc-pure-alert-title {
+  padding: 1em;
   font-weight: 500;
-  padding-right: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+.rc-pure-alert-content {
+  padding: 1.5em 1em;
+  overflow: scroll;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-pure-alert {
+    background-color: $dark-bg-color--500;
+    box-shadow: $neumorphism-darkmode-flat;
+  }
+
+  .rc-pure-alert-content {
+    border-top: 1px dashed $dark-bg-color--400;
+  }
 }

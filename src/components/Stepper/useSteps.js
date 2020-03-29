@@ -1,27 +1,27 @@
 import { useCallback, useState, useMemo } from "react";
 
-const toObject = (maxStep) => {
+const toObject = (maxStepIdx) => {
   const rs = {};
-  for (let i = 0; i <= maxStep; i ++) {
+  for (let i = 0; i <= maxStepIdx; i ++) {
     rs[i] = '';
   }
 
   return rs;
 };
 
-export default ({ maxStep, optional }) => {
+export default ({ maxStepIdx, optional }) => {
   const _optional = useMemo(() => new Set(optional), [optional]);
 
   const [activeStep, setActiveStep] = useState(0);
-  const [steps, setSteps] = useState(toObject(maxStep));
+  const [steps, setSteps] = useState(toObject(maxStepIdx));
 
   const handleReset = useCallback(() => {
     setActiveStep(0);
-    setSteps(toObject(maxStep));
-  }, [maxStep]);
+    setSteps(toObject(maxStepIdx));
+  }, [maxStepIdx]);
 
   const handleNext = useCallback(() => {
-    if (activeStep === maxStep) {
+    if (activeStep === maxStepIdx) {
       return;
     }
 
@@ -30,29 +30,29 @@ export default ({ maxStep, optional }) => {
       [activeStep]: 'completed',
     }));
     setActiveStep(prev => prev + 1);
-  }, [maxStep, activeStep]);
+  }, [maxStepIdx, activeStep]);
 
   const handleSkip = useCallback(() => {
-    if (!_optional.has(activeStep) || activeStep === maxStep) {
+    if (!_optional.has(activeStep) || activeStep === maxStepIdx) {
       return;
     }
     setActiveStep(prev => prev + 1);
-  }, [maxStep, activeStep, _optional]);
+  }, [maxStepIdx, activeStep, _optional]);
 
   const handleFinish = useCallback(() => {
-    if (maxStep !== activeStep) {
+    if (maxStepIdx !== activeStep) {
       return;
     }
 
     setSteps(prev => ({
       ...prev,
-      [maxStep]: 'completed',
+      [maxStepIdx]: 'completed',
     }));
-    setActiveStep(maxStep + 1);
-  }, [maxStep, activeStep, steps]);
+    setActiveStep(maxStepIdx + 1);
+  }, [maxStepIdx, activeStep, steps]);
 
   const handleCancel = useCallback(() => {
-    if (!_optional.has(activeStep) || activeStep > maxStep || activeStep < 0) {
+    if (!_optional.has(activeStep) || activeStep > maxStepIdx || activeStep < 0) {
       return;
     }
 
@@ -62,7 +62,7 @@ export default ({ maxStep, optional }) => {
     }));
 
     handleSkip();
-  }, [activeStep, maxStep, handleSkip, _optional]);
+  }, [activeStep, maxStepIdx, handleSkip, _optional]);
 
   const getStatus = useCallback((idx) => {
     if (idx === activeStep) {

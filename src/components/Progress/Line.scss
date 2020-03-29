@@ -1,0 +1,75 @@
+@import '../../scss/vars.scss';
+
+.rc-line-progress {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.rc-line-progress.--bottom {
+  .rc-line-progress-percent-text {
+    top: unset;
+    bottom: -4rem;
+
+    &:after {
+      bottom: unset;
+      top: 0;
+      transform: translate(-50%, -100%);
+      border-top-color: transparent;
+      border-bottom-color: $dark-bg-color--200;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+  }
+}
+
+.rc-line-progress-rail {
+  height: 0.3rem;
+  width: 100%;
+  position: absolute;
+  border-radius: 100em;
+  box-shadow: $neumorphism-darkmode-pressed;
+}
+
+.rc-line-progress-rail-percent {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  border-radius: 100em;
+  background-color: $primary-color;
+  transition: width 0.25s;
+}
+
+.rc-line-progress-percent-text {
+  position: absolute;
+  top: -4rem;
+  right: -1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: $dark-bg-color--200;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s;
+
+  &:after {
+    content: " ";
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 0.5em solid $dark-bg-color--200;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 90%);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.rc-line-progress-percent-text.--hidden {
+  opacity: 0;
+}

@@ -6,34 +6,14 @@
   flex-wrap: nowrap;
 }
 
-.rc-tabs-nav {
-  display: flex;
-}
-
 .rc-tabs-nav-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5em;
-  width: 10em;
-  border-radius: 0;
-  cursor: pointer;
-  outline: 0 !important;
-  border: none;
-  box-shadow: $neumorphism-pressed;
-  transition: all 0.5s;
-}
-
-.rc-tabs-nav .rc-tabs-nav-item:last-child {
-  margin-right: 0;
-}
-
-.rc-tabs-nav-item.--active {
-  box-shadow: $neumorphism-flat;
+  &:focus {
+    box-shadow: $neumorphism-flat;
+  }
 }
 
 .rc-tabs-contents {
-  margin-top: 0.15em;
+  margin-top: 2px;
 }
 
 .rc-tabs-contents > * {
@@ -42,11 +22,10 @@
 
 // DARK MODE SUPPORT
 .dark-mode {
+  // anti .dark-mode .rc-button
   .rc-tabs-nav-item {
-    box-shadow: $neumorphism-darkmode-pressed;
-  }
-
-  .rc-tabs-nav-item.--active {
-    box-shadow: $neumorphism-darkmode-flat;
+    &:focus {
+      box-shadow: $neumorphism-darkmode-flat;
+    }
   }
 }

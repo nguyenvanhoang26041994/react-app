@@ -1,0 +1,61 @@
+@import '../../scss/vars.scss';
+
+.rc-panel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+.rc-panel.--disabled {
+  .rc-panel-title {
+    cursor: not-allowed;
+  }
+}
+.rc-panel.--active {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .rc-panel-icon {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+}
+
+.rc-panel-title {
+  position: relative;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rc-panel-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 1em;
+}
+
+.rc-panel-content {
+  display: block;
+  transition: height 0.25s, opacity 0.25s;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rc-panel-box {
+  padding: 1em;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-panel {
+    box-shadow: $neumorphism-darkmode-flat;
+  }
+
+  .rc-panel-title {
+    border-bottom: 1px dashed $dark-bg-color--400;
+  }
+}

@@ -1,33 +1,43 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+
 import Icon from '../Icon';
-import Button from '../Button';
 
 require('./PureNotification.scss');
 
-const PureNotification = ({
-  notificationRef,
-  children,
-  header,
-  className,
-  onBellClick,
-  ...otherProps
-}) => {
+const PureNotification = ({ notificationRef, children, title, className, onCloseClick, onContentClick, ...otherProps }) => {
   return (
     <div className={cn('rc-pure-notification', className)} ref={notificationRef} {...otherProps}>
-      <div className="rc-pure-notification-inside-wrapper">
-        <div className="rc-pure-notification-content">{children}</div>
+      
+      {title && (
+        <div className="rc-pure-notification-title">
+          <span style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon name="bell" style={{ marginRight: '0.5em' }} />
+            {title}
+          </span>
+          <Icon name="times" className="rc-pure-modnotificational-close" onClick={onCloseClick} />
+        </div>
+      )}
+      <div className="rc-pure-notification-content" onContentClick={onContentClick}>
+        {children}
       </div>
-      <Icon name="bell" className="rc-pure-notification-bell" onClick={onBellClick} />
     </div>
   );
 };
 
 PureNotification.displayName = 'PureNotification';
-PureNotification.propTypes = {};
+PureNotification.propTypes = {
+  notificationRef: PropTypes.any,
+  children: PropTypes.any,
+  title: PropTypes.any,
+  className: PropTypes.string,
+  onCloseClick: PropTypes.func,
+  onContentClick: PropTypes.func,
+};
 PureNotification.defaultProps = {
-  header: 'Notification',
+  onCloseClick: f => f,
+  onContentClick: f => f,
 };
 
 export default PureNotification;

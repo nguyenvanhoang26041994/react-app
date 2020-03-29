@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import cn from 'classnames';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -16,7 +16,22 @@ const mapRouter = Object.freeze({
   '/document/drawer': 'drawer',
   '/document/modal': 'modal',
   '/document/confirm': 'confirm',
-  '/document/affix': 'affix'
+  '/document/affix': 'affix',
+  '/document/alert': 'alert',
+  '/document/notification': 'notification',
+  '/document/timeline': 'timeline',
+  '/document/stepper': 'stepper',
+  '/document/tabs': 'tabs',
+  '/document/collapse': 'collapse',
+  '/document/pagination': 'pagination',
+  '/document/rater': 'rater',
+  '/document/avatar': 'avatar',
+  '/document/chip': 'chip',
+  '/document/divider': 'divider',
+  '/document/breadcrumb': 'breadcrumb',
+  '/document/carousel': 'carousel',
+  '/document/menu': 'menu',
+  '/document/progress': 'progress',
 });
 
 const LeftSidebar = ({ isExpanded, ...otherProps }) => {
@@ -38,37 +53,37 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="table" key="table">Table</Menu.Item>
               <Menu.Item icon="scroll" key="drawer" onClick={() => history.push('/document/drawer')}>Drawer</Menu.Item>
               <Menu.Item icon="browser" key="modal" onClick={() => history.push('/document/modal')}>Modal</Menu.Item>
+              <Menu.Item icon="list-ul" key="menu" onClick={() => history.push('/document/menu')}>Menu</Menu.Item>
+              <Menu.Item icon="pager"key="tabs" onClick={() => history.push('/document/tabs')}>Tabs</Menu.Item>
+              <Menu.Item icon="caret-down" key="collapse" onClick={() => history.push('/document/collapse')}>Collapse</Menu.Item>
             </Menu.ItemGroup>
             <Menu.Sub key="sub-components" title="Components" icon="desktop">
-              <Menu.Item key="affix" icon="angle-right" onClick={() => history.push('/document/affix')}>Affix</Menu.Item>
-              <Menu.Item key="checkbox" icon="angle-right" onClick={() => history.push('/document/checkbox')}>Checkbox</Menu.Item>
-              <Menu.Item key="radio" icon="angle-right" onClick={() => history.push('/document/radio')}>Radio</Menu.Item>
-              <Menu.Item key="swicth" icon="angle-right" onClick={() => history.push('/document/switch')}>Swicth</Menu.Item>
-              <Menu.Item key="breadcrumb" icon="angle-right">Breadcrumb</Menu.Item>
-              <Menu.Item key="avatar" icon="angle-right">Avatar</Menu.Item>
-              <Menu.Item key="carousel" icon="angle-right">Carousel</Menu.Item>
-              <Menu.Item key="timeline" icon="angle-right">Timeline</Menu.Item>
-              <Menu.Item key="stepper" icon="angle-right">Stepper</Menu.Item>
-              <Menu.Item key="tabs" icon="angle-right">Tabs</Menu.Item>
-              <Menu.Item key="chip" icon="angle-right">Chip</Menu.Item>
-              <Menu.Item key="divider" icon="angle-right">Divider</Menu.Item>
-              <Menu.Item key="collapse" icon="angle-right">Collapse</Menu.Item>
-              <Menu.Item key="menu" icon="angle-right">Menu</Menu.Item>
-              <Menu.Item key="pagination" icon="angle-right">Pagination</Menu.Item>
-              <Menu.Item key="progress" icon="angle-right">Progress</Menu.Item>
-              <Menu.Item key="rating" icon="angle-right">Rating</Menu.Item>
+              <Menu.Item key="affix" icon="angle-right" titleOnly="Affix" onClick={() => history.push('/document/affix')}>Affix</Menu.Item>
+              <Menu.Item key="checkbox" icon="angle-right" titleOnly="Checkbox" onClick={() => history.push('/document/checkbox')}>Checkbox</Menu.Item>
+              <Menu.Item key="radio" icon="angle-right" titleOnly="Radio" onClick={() => history.push('/document/radio')}>Radio</Menu.Item>
+              <Menu.Item key="swicth" icon="angle-right" titleOnly="Swicth" onClick={() => history.push('/document/switch')}>Swicth</Menu.Item>
+              <Menu.Item key="breadcrumb" icon="angle-right" titleOnly="Breadcrumb" onClick={() => history.push('/document/breadcrumb')}>Breadcrumb</Menu.Item>
+              <Menu.Item key="avatar" icon="angle-right" titleOnly="Avatar" onClick={() => history.push('/document/avatar')}>Avatar</Menu.Item>
+              <Menu.Item key="carousel" icon="angle-right" titleOnly="Carousel" onClick={() => history.push('/document/carousel')}>Carousel</Menu.Item>
+              <Menu.Item key="timeline" icon="angle-right" titleOnly="Timeline" onClick={() => history.push('/document/timeline')}>Timeline</Menu.Item>
+              <Menu.Item key="stepper" icon="angle-right" titleOnly="Stepper" onClick={() => history.push('/document/stepper')}>Stepper</Menu.Item>
+              <Menu.Item key="chip" icon="angle-right" titleOnly="Chip" onClick={() => history.push('/document/chip')}>Chip</Menu.Item>
+              <Menu.Item key="divider" icon="angle-right" titleOnly="Divider" onClick={() => history.push('/document/divider')}>Divider</Menu.Item>
+              <Menu.Item key="pagination" icon="angle-right" titleOnly="Pagination" onClick={() => history.push('/document/pagination')}>Pagination</Menu.Item>
+              <Menu.Item key="progress" icon="angle-right" titleOnly="Progress" onClick={() => history.push('/document/progress')}>Progress</Menu.Item>
+              <Menu.Item key="rating" icon="angle-right" titleOnly="Rater" onClick={() => history.push('/document/rater')}>Rater</Menu.Item>
             </Menu.Sub>
             <Menu.Sub title="Form" key="sub-fom" icon="keyboard">
-              <Menu.Item icon="angle-right" key="textbox">Textbox</Menu.Item>
-              <Menu.Item icon="angle-right" key="password">Password</Menu.Item>
-              <Menu.Item icon="angle-right" key="textarea">Textarea</Menu.Item>
-              <Menu.Item icon="angle-right" key="select">Select</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Textbox" key="textbox">Textbox</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Password" key="password">Password</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Textarea" key="textarea">Textarea</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Select" key="select">Select</Menu.Item>
             </Menu.Sub>
             <Menu.Sub title="Overlay" key="sub-overlay" icon="bell">
-              <Menu.Item icon="angle-right" key="confirm" onClick={() => history.push('/document/confirm')}>Confirm</Menu.Item>
-              <Menu.Item icon="angle-right" key="tooltip" onClick={() => history.push('/document/tooltip')}>Tooltip</Menu.Item>
-              <Menu.Item icon="angle-right" key="alert">Alert</Menu.Item>
-              <Menu.Item icon="angle-right" key="notification">Notification</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Confirm" key="confirm" onClick={() => history.push('/document/confirm')}>Confirm</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Tooltip" key="tooltip" onClick={() => history.push('/document/tooltip')}>Tooltip</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Alert" key="alert" onClick={() => history.push('/document/alert')}>Alert</Menu.Item>
+              <Menu.Item icon="angle-right" titleOnly="Notification" key="notification" onClick={() => history.push('/document/notification')}>Notification</Menu.Item>
             </Menu.Sub>
             <Menu.ItemGroup key="group-page" title="PAGES">
               <Menu.Item icon="power-off" key="login-page">Login Page</Menu.Item>

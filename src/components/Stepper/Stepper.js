@@ -1,9 +1,10 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Step from './Step';
 import useSteps from './useSteps';
+import withSteps from './withSteps';
 
 require('./Stepper.scss');
 
@@ -19,10 +20,20 @@ const getStatus = (activeStep, idx) => {
   return '';
 };
 
-const Stepper = ({ className, children, activeStep, vertical }) => {
+const Stepper = ({ className, children, vertical, ...otherProps }) => {
+  const injectProps = useCallback((idx) => {
+    const props = {
+      stepNumber: idx + 1,
+    };
+    if (otherProps.hasOwnProperty('activeStep')) {
+      props.status = getStatus(otherProps.activeStep, idx);
+    }
+
+    return props;
+  }, [otherProps.activeStep]);
+
   const _customChildren = React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
-    stepNumber: idx + 1,
-    status: getStatus(activeStep, idx),
+    ...injectProps(idx),
     ...elm.props,
   }));
 
@@ -35,6 +46,7 @@ const Stepper = ({ className, children, activeStep, vertical }) => {
 
 Stepper.Step = Step;
 Stepper.useSteps = useSteps;
+Stepper.withSteps = withSteps;
 
 Stepper.displayName = 'Stepper';
 Stepper.propTypes = {
@@ -43,8 +55,6 @@ Stepper.propTypes = {
   children: PropTypes.any,
   vertical: PropTypes.bool,
 };
-Stepper.defaultProps = {
-  activeStep: 0,
-};
+Stepper.defaultProps = {};
 
 export default Stepper;

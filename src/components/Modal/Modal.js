@@ -50,7 +50,10 @@ Modal.propTypes = {
   className: PropTypes.string,
   onClose: PropTypes.func,
   open: PropTypes.bool,
+  children: PropTypes.any,
+  title: PropTypes.any,
   canOutsideClickClose: PropTypes.bool,
+  closable: PropTypes.bool,
 };
 Modal.defaultProps = {
   onClose: f => f,

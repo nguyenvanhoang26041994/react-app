@@ -1,32 +1,33 @@
 @import '../../scss/vars.scss';
 
 .rc-pure-notification {
-  display: block;
   position: relative;
-  min-height: 2em;
-  width: 30em;
-  max-width: 100%;
-  border-radius: $border-radius-medium;
-  background-color: $overlay-bg-color;
-  background: $gradient-overlay-bg-color;
-  color: $root-text-inverted-color;
-  user-select: none;
-  transition: all 0.25s;
+  min-width: 30em;
+  border-radius: $border-radius;
 }
 
-.rc-pure-notification-bell {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  font-size: 1.25em;
-}
-
-.rc-pure-notification-inside-wrapper {
-  padding: 1.5em;
-  overflow: hidden;
+.rc-pure-notification-title {
+  padding: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
 }
 
 .rc-pure-notification-content {
-  font-weight: 500;
-  margin-right: 2em;
+  padding: 1em;
+  cursor: pointer;
+}
+
+// DARK MODE SUPPORT
+.dark-mode {
+  .rc-pure-notification {
+    background-color: $dark-bg-color--500;
+    box-shadow: $neumorphism-darkmode-flat;
+  }
+
+  .rc-pure-notification-title {
+    border-bottom: 1px dashed $dark-bg-color--300;
+  }
 }
