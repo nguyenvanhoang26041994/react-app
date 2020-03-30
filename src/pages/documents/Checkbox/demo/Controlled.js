@@ -6,8 +6,16 @@ const Demo = () => {
 
   return (
     <div className="flex">
-      <Checkbox checked={checked} className="mr-5" onChange={e => setChecked(e.target.checked)} />
-      <Checkbox checked={checked} className="mr-5" onChange={e => setChecked(e.target.checked)} />
+      <Checkbox
+        checked={checked}
+        className="mr-5"
+        onChange={e => setChecked(e.target.checked)}
+      />
+      <Checkbox
+        checked={checked}
+        className="mr-5"
+        onChange={e => setChecked(e.target.checked)}
+      />
     </div>
   );
 };

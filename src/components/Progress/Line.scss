@@ -16,7 +16,7 @@
       top: 0;
       transform: translate(-50%, -100%);
       border-top-color: transparent;
-      border-bottom-color: $dark-bg-color--200;
+      border-bottom-color: var(--rc-color--200);
       border-left-color: transparent;
       border-right-color: transparent;
     }
@@ -28,7 +28,8 @@
   width: 100%;
   position: absolute;
   border-radius: 100em;
-  box-shadow: $neumorphism-darkmode-pressed;
+  box-shadow: var(--rc-neu-pressed--500);
+  background-color: var(--rc-color--500);
 }
 
 .rc-line-progress-rail-percent {
@@ -36,7 +37,7 @@
   left: 0;
   height: 100%;
   border-radius: 100em;
-  background-color: $primary-color;
+  background-color: $primary-color--500;
   transition: width 0.25s;
 }
 
@@ -46,7 +47,7 @@
   right: -1.5rem;
   width: 3rem;
   height: 3rem;
-  background-color: $dark-bg-color--200;
+  background-color: var(--rc-color--200);
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
@@ -59,7 +60,7 @@
     height: 1em;
     box-sizing: border-box;
     overflow: hidden;
-    border: 0.5em solid $dark-bg-color--200;
+    border: 0.5em solid var(--rc-color--200);
     position: absolute;
     bottom: 0;
     left: 50%;

@@ -18,7 +18,7 @@ const Demo = () => {
   return (
     <div className="flex flex-wrap">
       {Object.keys(list).map(key => (
-        <IconBox name={key} />
+        <IconBox name={key} key={key} />
       ))}
     </div>
   );

@@ -24,7 +24,7 @@ const PusherNotification = ({ temporary, children, render, ...otherProps }) => {
       open={open}
       onClose={() => setIsOpen(false)}
     >
-      {children || render(setIsOpen)}
+      {render ? render(setIsOpen) : children}
     </Notification>
   );
 };
@@ -34,9 +34,7 @@ PusherNotification.propTypes = {
   children: PropTypes.any,
   render: PropTypes.func,
 };
-PusherNotification.defaultProps = {
-  render: f => f,
-};
+PusherNotification.defaultProps = {};
 
 export default (data) => {
   const temporary = document.createElement('div');

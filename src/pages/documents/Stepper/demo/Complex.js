@@ -10,15 +10,38 @@ const Demo = () => {
     handleSkip,
     handleCancel,
     handleFinish,
-  } = Stepper.useSteps({ maxStepIdx: 3, optional: [1, 2] });
+  } = Stepper.useSteps({
+    maxStepIdx: 3,
+    optional: [1, 2]
+  });
 
   return (
     <div className="flex flex-col w-full">
       <Stepper className="mb-10" activeStep={activeStep}>
-        <Stepper.Step title="Step One" status={getStatus(0)}>Description One</Stepper.Step>
-        <Stepper.Step title="Step Optional" status={getStatus(1)}>Description Two</Stepper.Step>
-        <Stepper.Step title="Step Three" status={getStatus(2)}>Description Three</Stepper.Step>
-        <Stepper.Step title="Step Four" status={getStatus(3)}>Description Four</Stepper.Step>
+        <Stepper.Step
+          title="Step One"
+          status={getStatus(0)}
+        >
+          Description One
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Optional"
+          status={getStatus(1)}
+        >
+          Description Two
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Optional"
+          status={getStatus(2)}
+        >
+          Description Three
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Four"
+          status={getStatus(3)}
+        >
+          Description Four
+        </Stepper.Step>
       </Stepper>
       <ButtonGroup>
         <Button onClick={handleReset}>Reset</Button>
@@ -33,9 +56,9 @@ const Demo = () => {
 
 Demo.code = `
 import React from 'react';
-import { Stepper, ButtonGroup, Button } from '../../../../components/core';
+import { Stepper, ButtonGroup, Button } from '@/components/core';
 
-const Demo = () => {
+export default () => {
   const {
     getStatus,
     activeStep,
@@ -44,15 +67,38 @@ const Demo = () => {
     handleSkip,
     handleCancel,
     handleFinish,
-  } = Stepper.useSteps({ maxStepIdx: 3, optional: [1, 2] });
+  } = Stepper.useSteps({
+    maxStepIdx: 3,
+    optional: [1, 2]
+  });
 
   return (
     <div className="flex flex-col w-full">
       <Stepper className="mb-10" activeStep={activeStep}>
-        <Stepper.Step title="Step One" status={getStatus(0)}>Description One</Stepper.Step>
-        <Stepper.Step title="Step Optional" status={getStatus(1)}>Description Two</Stepper.Step>
-        <Stepper.Step title="Step Three" status={getStatus(2)}>Description Three</Stepper.Step>
-        <Stepper.Step title="Step Four" status={getStatus(3)}>Description Four</Stepper.Step>
+        <Stepper.Step
+          title="Step One"
+          status={getStatus(0)}
+        >
+          Description One
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Optional"
+          status={getStatus(1)}
+        >
+          Description Two
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Optional"
+          status={getStatus(2)}
+        >
+          Description Three
+        </Stepper.Step>
+        <Stepper.Step
+          title="Step Four"
+          status={getStatus(3)}
+        >
+          Description Four
+        </Stepper.Step>
       </Stepper>
       <ButtonGroup>
         <Button onClick={handleReset}>Reset</Button>

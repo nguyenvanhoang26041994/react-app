@@ -22,11 +22,11 @@
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
-  color: $root-text-inverted-color;
+  color: rgb(228, 230, 235);
 
   &:hover {
     box-shadow: none;
-    background-color: $overlay-bg-color;
+    background-color: $primary-color--500;
   }
 }
 
@@ -52,11 +52,11 @@
   .rc-carousel-next.rc-carousel-next {
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: none;
-    color: $root-text-inverted-color;
+    color: rgb(228, 230, 235);
 
     &:hover {
       box-shadow: none;
-      background-color: $overlay-bg-color;
+      background-color:  $primary-color--500;
     }
   }
 }

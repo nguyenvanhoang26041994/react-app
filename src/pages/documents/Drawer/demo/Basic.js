@@ -9,8 +9,12 @@ const Demo = () => {
 
   return (
     <div className="flex">
-      <Drawer open={open} onClose={onClose} title="Drawer Title" className="w-1/3">
-        What is Lorem Ipsum?
+      <Drawer
+        open={open}
+        onClose={onClose}
+        title="Drawer Title"
+        className="w-1/3"
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Drawer>
       <Button onClick={onOpen}>Open Drawer</Button>
@@ -30,8 +34,12 @@ export default () => {
 
   return (
     <div className="flex">
-      <Drawer open={open} onClose={onClose} title="Drawer Title" className="w-1/3">
-        What is Lorem Ipsum?
+      <Drawer
+        open={open}
+        onClose={onClose}
+        title="Drawer Title"
+        className="w-1/3"
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Drawer>
       <Button onClick={onOpen}>Open Drawer</Button>

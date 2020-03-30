@@ -9,7 +9,7 @@ import IconDemo from './demo/Icon';
 export default () => {
   return (
     <div className="flex">
-      <div className="w-1/2 pr-2">
+      <div className="w-1/3 pr-2">
         <Codebox className="mb-5" header="BASIC" href="rater-basic" code={Basic.code}>
           <Basic />
         </Codebox>
@@ -17,10 +17,12 @@ export default () => {
           <Size />
         </Codebox>
       </div>
-      <div className="w-1/2 pl-2">
+      <div className="w-1/3 pl-2">
         <Codebox className="mb-5" header="MAX" href="rater-max" code={Max.code}>
           <Max />
         </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
         <Codebox className="mb-5" header="WITH CUSTOM ICON" href="rater-with-icon" code={IconDemo.code}>
           <IconDemo />
         </Codebox>

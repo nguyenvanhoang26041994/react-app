@@ -2,6 +2,17 @@
 
 .rc-alert {
   animation: zoomIn 0.25s;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .rc-pure-alert-content {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .rc-pure-alert-close {
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
 .rc-alert.--close-animation {
@@ -24,19 +35,5 @@
     margin-right: 0.5em;
     box-shadow: none;
     width: 35rem;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode .rc-alert {
-  background-color: $dark-bg-color--300;
-
-  .rc-pure-alert-close {
-    background-color: $dark-bg-color--300;
-    box-shadow: $neumorphism-darkmode-flat--300;
-
-    &:focus {
-      box-shadow: $neumorphism-darkmode-pressed--300;
-    }
   }
 }

@@ -15,7 +15,6 @@ const Demo = () => {
         title="Modal Title"
         canOutsideClickClose
       >
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Modal>
       <Button onClick={onOpen}>Open Modal</Button>
@@ -41,7 +40,6 @@ export default () => {
         title="Modal Title"
         canOutsideClickClose
       >
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Modal>
       <Button onClick={onOpen}>Open Modal</Button>

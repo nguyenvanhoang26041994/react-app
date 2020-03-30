@@ -8,7 +8,7 @@
 }
 
 .rc-pagination-item.--active.--active {
-  background-color: $primary-color;
-  color: $root-text-inverted-color;
+  background-color: $primary-color--500;
+  color: #e4e6eb;
   box-shadow: none;
 }

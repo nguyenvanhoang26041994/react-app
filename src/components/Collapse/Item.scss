@@ -4,12 +4,16 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 2px;
+  box-shadow: var(--rc-neu-flat--500);
+  background-color: var(--rc-color--500);
 }
+
 .rc-panel.--disabled {
   .rc-panel-title {
     cursor: not-allowed;
   }
 }
+
 .rc-panel.--active {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -28,6 +32,7 @@
   padding-right: 1em;
   cursor: pointer;
   user-select: none;
+  border-bottom: 1px dashed var(--rc-color--400);
 }
 
 .rc-panel-icon {
@@ -47,15 +52,4 @@
 
 .rc-panel-box {
   padding: 1em;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-panel {
-    box-shadow: $neumorphism-darkmode-flat;
-  }
-
-  .rc-panel-title {
-    border-bottom: 1px dashed $dark-bg-color--400;
-  }
 }

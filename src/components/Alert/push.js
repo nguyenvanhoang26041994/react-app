@@ -24,7 +24,7 @@ const PusherAlert = ({ temporary, children, render, ...otherProps }) => {
       open={open}
       onClose={() => setIsOpen(false)}
     >
-      {children || render(setIsOpen)}
+      {render ? render(setIsOpen) : children}
     </Alert>
   );
 };
@@ -34,9 +34,7 @@ PusherAlert.propTypes = {
   children: PropTypes.any,
   render: PropTypes.func,
 };
-PusherAlert.defaultProps = {
-  render: f => f,
-};
+PusherAlert.defaultProps = {};
 
 export default (data) => {
   const temporary = document.createElement('div');

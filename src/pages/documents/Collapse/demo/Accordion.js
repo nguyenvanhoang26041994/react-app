@@ -45,7 +45,7 @@ export default () => {
   );
 };
 
-const Demo = () => {
+export default => {
   return (
     <div className="flex flex-col w-full">
       <Collapse accordion>

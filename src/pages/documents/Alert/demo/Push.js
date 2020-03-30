@@ -6,6 +6,7 @@ const Demo = () => {
     helper.pushAlert({
       success: true,
       title: 'Success Title',
+      duration: 0,
     })
   }, []);
 

@@ -1,118 +1,97 @@
-import React, { useCallback, useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useLayoutEffect, useRef, useCallback } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
-import Portal from '../Portal';
-import Option from './Option';
-
-import usePosition from '../../hooks/usePosition';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import useSupportCloseAnimation from '../../hooks/useSupportCloseAnimation';
-import useFlexibleRef from '../../hooks/useFlexibleRef';
+import Menu from '../Menu';
+import Overlay from '../Overlay';
 
 require('./Select.scss');
 
-const mapToObject = arr => arr.reduce((rs, item) => {
-  rs[item.props.value] = item.props.children;
-  return rs;
-}, {});
-
-const Select = ({ className, label, selectRef, children, name, defaultValue, error, placeholder, onChange, ...otherProps }) => {
-  const isControlled = useMemo(() => otherProps.hasOwnProperty('value'), []);
-
-  const [_value, setValue] = useState(isControlled ? otherProps.value : defaultValue);
+const Select = ({ className, children, placement, placeholder, ...otherProps }) => {
+  const [selectWidth, sestSelectWidth] = useState();
   const [isDrop, setIsDrop] = useState(false);
+  const [value, setValue] = useState();
+  const [_shape, _setShape] = useState({});
+  const ref = useRef();
 
-  const ref = useFlexibleRef(selectRef);
-  const dropdownRef = useRef();
+  useLayoutEffect(() => {
+    sestSelectWidth(ref.current.clientWidth);
+  }, []);
 
-  const toggleIsDrop = useCallback(() => setIsDrop(prev => !prev), []);
-  const handleOptionSelected = useCallback(val => {
-    if (isControlled) {
-      onChange(val);
-    } else {
-      setValue(val);
-    }
+  const onToggleDrop = useCallback(() => setIsDrop(prev => !prev), []);
+  const onItemClick = useCallback((key, itemProps) => {
+    setValue(key);
+    _setShape(itemProps);
     setIsDrop(false);
   }, []);
 
-  // CLOSE DROPDOWN WHEN CLICK OUTSIDE
-  const handleClickOutside = useCallback(e => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+  const onVisibleChange = useCallback(visible => {
+    if (!visible) {
       setIsDrop(false);
     }
-  }, [dropdownRef]);
+  }, []);
 
-  // SUPPORT CONTROLED COMPONENT
-  useEffect(() => {
-    onChange(_value);
-  }, [_value]);
-
-  useMemo(() => {
-    if (isControlled) {
-      setValue(otherProps.value);
+  const renderValue = useCallback(() => {
+    if (!value) {
+      return (
+        <span className="rc-select-input-placeholder">{placeholder}</span>
+      )
     }
-  }, [otherProps.value]);
 
-  useOnClickOutside(ref, handleClickOutside);
-  const delayIsDrop = useSupportCloseAnimation(isDrop);
-  const options = useMemo(() => mapToObject(React.Children.toArray(children)), [children]);
-
-  const { pageX, pageY, clientWidth } = usePosition(ref, [isDrop]);
+    return (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {_shape.icon && <Icon name={_shape.icon} style={{ marginRight: '1rem' }} />}
+        <span>{_shape.title}</span>
+      </div>
+    )
+  }, [value, _shape, placeholder]);
 
   return (
-    <React.Fragment>
+    <Overlay
+      visible={isDrop}
+      onVisibleChange={onVisibleChange}
+      canOutsideClickClose
+      placement={placement}
+      trigger={[]}
+      overlay={(
+        <Menu
+          selectedKeys={[value]}
+          className="rc-select-dropdown"
+          style={{
+            width: selectWidth,
+          }}
+          onItemClick={onItemClick}
+        >
+          {children}
+        </Menu>
+      )}
+    >
       <div
         {...otherProps}
         ref={ref}
-        name={name}
-        className={cn('rc-select', { '--drop': isDrop, '--close-animation': !isDrop }, className)}
-        value={_value}
+        className={cn('rc-select', { '--is-drop': isDrop }, className)}
+        onClick={onToggleDrop}
       >
-        {error && (<div className="rc-select-error">{error}</div>)}
-        <div className="rc-select-input" onClick={toggleIsDrop}>
-          {options[_value] || (<span className="rc-select-input-placeholder">{placeholder}</span>)}
-          <Icon name="caret-down" className="rc-select-icon" />
+        <div className="rc-select-input">
+          {renderValue()}
         </div>
-        {label && (<label className="rc-select-label">{label}</label>)}
+        <Icon name="caret-down" className="rc-select-icon" />
       </div>
-      {delayIsDrop && (
-        <Portal>
-          <div
-            ref={dropdownRef}
-            className={cn('rc-select-dropdown', { '--close-animation': !isDrop })}
-            style={{ left: pageX, top: pageY, minWidth: clientWidth }}
-          >
-            <ul>
-              {React.Children.map(children, elm => React.cloneElement(elm, {
-                selected: _value === elm.props.value,
-                onClick: () => handleOptionSelected(elm.props.value),
-                ...elm.props
-              }))}
-            </ul>
-          </div>
-        </Portal>
-      )}
-    </React.Fragment>
+    </Overlay>
   );
-}
+};
+
+Select.Option = Menu.Item;
+Select.Group = Menu.ItemGroup;
 
 Select.displayName = 'Select';
 Select.propTypes = {
   className: PropTypes.string,
-  label: PropTypes.string,
-  children: PropTypes.any,
-  defaultValue: PropTypes.string,
-  error: PropTypes.string,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
+  placement: PropTypes.string,
 };
 Select.defaultProps = {
-  onChange: f => f,
+  placement: 'bottom-left',
 };
-
-Select.Option = Option;
 
 export default Select;

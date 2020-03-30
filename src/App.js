@@ -2,8 +2,6 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import loadable from './utils/loadable';
 
-import Layout from './layout/Layout';
-
 require('./scss/begin.scss');
 
 const Dashboard = loadable(() => import('./pages/Dashboard'));

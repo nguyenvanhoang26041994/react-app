@@ -1,8 +1,7 @@
-import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Icon from '../Icon';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import usePagination from './usePagination';

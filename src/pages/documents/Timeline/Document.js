@@ -10,20 +10,22 @@ import CustomIcon from './demo/CustomIcon';
 export default () => {
   return (
     <div className="flex">
-      <div className="w-1/2 pr-2">
+      <div className="w-1/3 pr-2">
         <Codebox className="mb-5" header="BASIC" href="timeline-basic" code={Basic.code}>
           <Basic />
         </Codebox>
-        <Codebox className="mb-5" header="REVERSE" href="timeline-reverse" code={Reverse.code}>
-          <Reverse />
-        </Codebox>
-      </div>
-      <div className="w-1/2 pl-2">
         <Codebox className="mb-5" header="RIGHT" href="timeline-right" code={Right.code}>
           <Right />
         </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
         <Codebox className="mb-5" header="CUSTOM ICON" href="timeline-custom-icon" code={CustomIcon.code}>
           <CustomIcon />
+        </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
+        <Codebox className="mb-5" header="REVERSE" href="timeline-reverse" code={Reverse.code}>
+          <Reverse />
         </Codebox>
       </div>
     </div>

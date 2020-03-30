@@ -6,14 +6,16 @@ const Demo = () => {
     <div className="flex">
       <Chip
         closable
-        backgroundColor="teal"
+        backgroundColor="#0089e4"
+        color="#ffffff"
         className="mr-2"
         label="Hoàng Nguyễn"
         onClick={() => console.log('Hoàng Nguyễn')}
       />
       <Chip
         closable
-        color="#0099f5"
+        color="#ffffff"
+        backgroundColor="#ec4c1c"
         className="mr-2"
         label="Sơn Lê"
         onClick={() => console.log('Sơn Lê')}
@@ -39,14 +41,16 @@ export default () => {
     <div className="flex">
       <Chip
         closable
-        backgroundColor="teal"
+        backgroundColor="#0089e4"
+        color="#ffffff"
         className="mr-2"
         label="Hoàng Nguyễn"
         onClick={() => console.log('Hoàng Nguyễn')}
       />
       <Chip
         closable
-        color="#0099f5"
+        color="#ffffff"
+        backgroundColor="#ec4c1c"
         className="mr-2"
         label="Sơn Lê"
         onClick={() => console.log('Sơn Lê')}

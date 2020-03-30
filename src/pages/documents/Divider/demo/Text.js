@@ -4,9 +4,9 @@ import { Divider } from '../../../../components/core';
 const Demo = () => {
   return (
     <div className="w-full">
-      <Divider className="my-10" title="DIVIDER TITLE" />
-      <Divider className="my-10" dashed title="DIVIDER TITLE" />
-      <Divider className="my-10" dotted title="DIVIDER TITLE" />
+      <Divider title="DIVIDER TITLE" />
+      <Divider dashed title="DIVIDER TITLE" />
+      <Divider dotted title="DIVIDER TITLE" />
     </div>
   );
 };
@@ -18,9 +18,9 @@ import { Divider } from '@/components/core';
 export default () => {
   return (
     <div className="w-full">
-      <Divider className="my-10" title="DIVIDER TITLE" />
-      <Divider className="my-10" dashed title="DIVIDER TITLE" />
-      <Divider className="my-10" dotted title="DIVIDER TITLE" />
+      <Divider title="DIVIDER TITLE" />
+      <Divider dashed title="DIVIDER TITLE" />
+      <Divider dotted title="DIVIDER TITLE" />
     </div>
   );
 };

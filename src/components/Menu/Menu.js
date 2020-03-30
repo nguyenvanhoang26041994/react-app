@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,6 +7,7 @@ import ItemGroup from './ItemGroup';
 import Sub from './Sub';
 
 import useUncontrolled from '../../hooks/useUncontrolled';
+import { omit } from '../../utils/helpers';
 
 require('./Menu.scss');
 
@@ -16,12 +17,12 @@ const Menu = ({ className, children, defaultSelectedKeys, onSelectedKeysChange, 
     onChangeState: onSelectedKeysChange,
   });
 
-  const _onItemClick = useCallback((key) => {
+  const _onItemClick = useCallback((key, itemProps) => {
     if (isControlled) {
-      return onItemClick(key);
+      return onItemClick(key, itemProps);
     }
 
-    onItemClick(key);
+    onItemClick(key, itemProps);
     setSelectedKeys((prev) => {
       if (multiple) {
         const next = new Set(prev);
@@ -39,8 +40,10 @@ const Menu = ({ className, children, defaultSelectedKeys, onSelectedKeysChange, 
     });
   }, []);
 
+  const passedProps = useMemo(() => omit(otherProps, ['selectedKeys']), [otherProps]);
+
   return (
-    <ul className={cn('rc-menu',{ '--icon-only': iconOnly }, className)}>
+    <ul className={cn('rc-menu',{ '--icon-only': iconOnly }, className)} {...passedProps}>
       {React.Children.map(children, elm => React.cloneElement(elm, {
         _onItemClick,
         iconOnly,

@@ -15,7 +15,9 @@ const Description = () => {
 const Demo = () => {
   return (
     <div className="flex flex-col w-full">
-      <Collapse onActivePanelsChange={panels => console.log(panels)}>
+      <Collapse
+        onActivePanelsChange={panels => console.log(panels)}
+      >
         <Collapse.Item title="Collapse One" key="panel-1">
           <Description />
         </Collapse.Item>
@@ -45,10 +47,12 @@ export default = () => {
   );
 };
 
-const Demo = () => {
+export default () => {
   return (
     <div className="flex flex-col w-full">
-      <Collapse onActivePanelsChange={panels => console.log(panels)}>
+      <Collapse
+        onActivePanelsChange={panels => console.log(panels)}
+      >
         <Collapse.Item title="Collapse One" key="panel-1">
           <Description />
         </Collapse.Item>

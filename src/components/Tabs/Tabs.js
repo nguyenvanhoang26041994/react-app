@@ -23,6 +23,7 @@ const Tabs = ({ className, children, activeTab, onChange, fluid }) => {
       <ButtonGroup className="rc-tabs-nav" fluid={fluid}>
         {tabs.map(tab => (
           <Button
+            key={tab.key}
             className={cn('rc-tabs-nav-item', { '--active': activeTab === tab.key })}
             pressed={activeTab !== tab.key}
             disabled={tab.disabled}

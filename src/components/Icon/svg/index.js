@@ -29,6 +29,7 @@ const icons = {
   'comment-alt-music': require('./comment-alt-music').default,
   'clock': require('./clock').default,
   'angle-down': require('./angle-down').default,
+  'angle-up': require('./angle-up').default,
   'angle-right': require('./angle-right').default,
   'caret-down': require('./caret-down').default,
   'table': require('./table').default,
@@ -38,6 +39,8 @@ const icons = {
   'list-ul': require('./list-ul').default,
   'pager': require('./pager').default,
   'minus': require('./minus').default,
+  'eye': require('./eye').default,
+  'eye-slash': require('./eye-slash').default,
 };
 
 export default icons;

@@ -1,0 +1,27 @@
+@import '../../scss/vars.scss';
+
+.rc-badge {
+  position: relative;
+}
+
+.rc-badge-count {
+  font-size: 0.85rem;
+  position: absolute;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  background: $red-color--500;
+  color: #fff;
+  border-radius: 100rem;
+  font-family: sans-serif;
+}
+.rc-badge.--top-right {
+  .rc-badge-count {
+    bottom: 100%;
+    left: 100%;
+
+    transform: translateX(-1rem) translateY(1rem);
+  }
+}

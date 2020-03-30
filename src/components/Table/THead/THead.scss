@@ -2,15 +2,6 @@
 
 .rc-table-thead {
   .rc-table-tr {
-    box-shadow: $neumorphism-flat;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-table-thead {
-    .rc-table-tr {
-      box-shadow: $neumorphism-darkmode-flat;
-    }
+    box-shadow: var(--rc-neu-flat--500);
   }
 }

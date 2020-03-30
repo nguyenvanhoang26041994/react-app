@@ -6,7 +6,7 @@
 }
 
 .rc-rater-item {
-  color: $rater-color;
+  color: var(--rc-text-color);
   transition: all 0.25s;
   padding: 0.25em;
 
@@ -16,12 +16,5 @@
 }
 
 .rc-rater-item.--light {
-  color: $rater-active-color;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-rater-item:not(.--light) {
-    color: $rater-darkmode-color;
-  }
+  color: #ffc107;
 }

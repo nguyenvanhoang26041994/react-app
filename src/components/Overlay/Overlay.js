@@ -5,83 +5,9 @@ import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import getPosition from '../../utils/getPosition';
+import renderPlacement from './renderPlacement';
 
 require('./Overlay.scss');
-
-const renderPlacement = {
-  top: (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - overlayPosition.clientWidth / 2 + targetPosition.clientWidth / 2,
-      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
-    },
-  }),
-  'top-right': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - (overlayPosition.clientWidth - targetPosition.clientWidth),
-      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
-    },
-  }),
-  'right-top': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX + targetPosition.clientWidth + gap,
-      top: targetPosition.pageY,
-    },
-  }),
-  'right-bottom': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX + targetPosition.clientWidth + gap,
-      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight),
-    },
-  }),
-  'bottom-right': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - (overlayPosition.clientWidth - targetPosition.clientWidth),
-      top: targetPosition.pageY + targetPosition.clientHeight + gap,
-    },
-  }),
-  bottom: (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - overlayPosition.clientWidth / 2 + targetPosition.clientWidth / 2,
-      top: targetPosition.pageY + targetPosition.clientHeight + gap,
-    },
-  }),
-  'bottom-left': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX,
-      top: targetPosition.pageY + targetPosition.clientHeight + gap,
-    },
-  }),
-  'left-bottom': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
-      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight),
-    },
-  }),
-  left: (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
-      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight) / 2,
-    },
-  }),
-  'left-top': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX - overlayPosition.clientWidth - gap,
-      top: targetPosition.pageY,
-    },
-  }),
-  'top-left': (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX,
-      top: targetPosition.pageY - overlayPosition.clientHeight - gap,
-    },
-  }),
-  right: (targetPosition, overlayPosition, gap) => ({
-    overlayStyle: {
-      left: targetPosition.pageX + targetPosition.clientWidth + gap,
-      top: targetPosition.pageY - (overlayPosition.clientHeight - targetPosition.clientHeight) / 2,
-    },
-  }),
-};
 
 const mPlacements = Object.freeze({
   'top': '--top',
@@ -109,6 +35,8 @@ class Overlay extends React.Component {
 
   constructor(props) {
     super(props);
+    this.isControlled = props.hasOwnProperty('visible');
+
     this.state = {
       visible: props.defaultVisible,
       targetPosition: {
@@ -141,6 +69,10 @@ class Overlay extends React.Component {
   }
 
   componentDidMount() {
+    if (this.isControlled) {
+      this.setVisible(this.props.visible);
+    }
+
     const _self = this;
     this.renderPositionOverlay();
 
@@ -212,6 +144,10 @@ class Overlay extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.isControlled && this.props.visible !== prevProps.visible) {
+      this.setVisible(this.props.visible);
+    }
+
     if (this.state.visible !== prevState.visible) {
       this.props.onVisibleChange(this.state.visible);
     }

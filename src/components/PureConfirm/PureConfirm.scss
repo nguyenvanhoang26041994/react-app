@@ -4,7 +4,8 @@
   position: relative;
   width: 33em;
   max-width: 100vw;
-  background-color: $root-bg-color;
+  background-color: var(--rc-color--500);
+  box-shadow: var(--rc-neu-flat--500);
   border-radius: $border-radius;
 }
 
@@ -15,6 +16,7 @@
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
+  border-bottom: 1px dashed var(--rc-text-color);
 }
 
 .rc-pure-confirm-content {
@@ -27,16 +29,4 @@
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-pure-confirm {
-    background-color: $dark-bg-color--500;
-    box-shadow: $neumorphism-darkmode-flat;
-  }
-
-  .rc-pure-confirm-title {
-    border-bottom: 1px dashed $dark-bg-color--300;
-  }
 }

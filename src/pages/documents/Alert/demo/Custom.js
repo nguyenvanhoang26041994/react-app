@@ -11,19 +11,34 @@ const Demo = () => {
       render: (setOpen) => (
         <div className="flex flex-col">
           <div className="flex mb-5">
-            <Avatar src={avatarLink} name="Hoàng Nguyễn" className="mr-3 text-lg" />
+            <Avatar
+              src={avatarLink}
+              name="Hoàng Nguyễn"
+              className="mr-3 text-lg"
+            />
             <div className="flex flex-col">
               <span>
-                <a className="text-blue-600">Hoàng Nguyễn </a>
+                <a className="text-blue-600 mr-2">
+                  Hoàng Nguyễn 
+                </a>
                 follow you, please be carefull
               </span>
               <div className="mt-1 text-gray-600">
-                <Icon name="globe" className="mr-2" fontSize="0.85em" />
+                <Icon
+                  name="globe"
+                  className="mr-2"
+                  fontSize="0.85em"
+                />
                 5 minues ago
               </div>
             </div>
           </div>
-          <div className="text-orange-500 text-bold self-end cursor-pointer" onClick={() => setOpen(false)}>CLOSE</div>
+          <div
+            className="text-orange-500 self-end cursor-pointer"
+            onClick={() => setOpen(false)}
+          >
+            CLOSE
+          </div>
         </div>
       ),
       duration: 100000,
@@ -50,19 +65,34 @@ export default () => {
       render: (setOpen) => (
         <div className="flex flex-col">
           <div className="flex mb-5">
-            <Avatar src={avatarLink} name="Hoàng Nguyễn" className="mr-3 text-lg" />
+            <Avatar
+              src={avatarLink}
+              name="Hoàng Nguyễn"
+              className="mr-3 text-lg"
+            />
             <div className="flex flex-col">
               <span>
-                <a className="text-blue-600">Hoàng Nguyễn </a>
+                <a className="text-blue-600 mr-2">
+                  Hoàng Nguyễn 
+                </a>
                 follow you, please be carefull
               </span>
               <div className="mt-1 text-gray-600">
-                <Icon name="globe" className="mr-2" fontSize="0.85em" />
+                <Icon
+                  name="globe"
+                  className="mr-2"
+                  fontSize="0.85em"
+                />
                 5 minues ago
               </div>
             </div>
           </div>
-          <div className="text-orange-500 text-bold self-end cursor-pointer" onClick={() => setOpen(false)}>CLOSE</div>
+          <div
+            className="text-orange-500 self-end cursor-pointer"
+            onClick={() => setOpen(false)}
+          >
+            CLOSE
+          </div>
         </div>
       ),
       duration: 100000,

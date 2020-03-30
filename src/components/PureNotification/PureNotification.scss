@@ -4,6 +4,8 @@
   position: relative;
   min-width: 30em;
   border-radius: $border-radius;
+  background-color: var(--rc-color--500);
+  box-shadow: var(--rc-neu-flat--500);
 }
 
 .rc-pure-notification-title {
@@ -13,21 +15,10 @@
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
+  border-bottom: 1px dashed var(--rc-text-color);
 }
 
 .rc-pure-notification-content {
   padding: 1em;
   cursor: pointer;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-pure-notification {
-    background-color: $dark-bg-color--500;
-    box-shadow: $neumorphism-darkmode-flat;
-  }
-
-  .rc-pure-notification-title {
-    border-bottom: 1px dashed $dark-bg-color--300;
-  }
 }

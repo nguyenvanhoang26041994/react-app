@@ -7,6 +7,7 @@ import { Icon, Menu } from '../../../components/core';
 require('./LeftSidebar.scss');
 
 const mapRouter = Object.freeze({
+  '/document/badge': 'badge',
   '/document/button': 'button',
   '/document/icon': 'icon',
   '/document/tooltip': 'tooltip',
@@ -32,6 +33,10 @@ const mapRouter = Object.freeze({
   '/document/menu': 'menu',
   '/document/progress': 'progress',
   '/document/affix': 'affix',
+  '/document/textbox': 'textbox',
+  '/document/password': 'password',
+  '/document/textarea': 'textarea',
+  '/document/input-number': 'input-number',
 });
 
 const LeftSidebar = ({ isExpanded, ...otherProps }) => {
@@ -59,13 +64,14 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="scroll" key="drawer" title="Drawer" />
               <Menu.Item icon="browser" key="modal" title="Modal" />
               <Menu.Item icon="list-ul" key="menu" title="Menu" />
-              <Menu.Item icon="pager"key="tabs" title="Tabs" />
+              <Menu.Item icon="pager" key="tabs" title="Tabs" />
               <Menu.Item icon="caret-down" key="collapse" title="Collapse" />
             </Menu.ItemGroup>
             <Menu.Sub key="sub-components" title="Components" icon="desktop">
+              <Menu.Item key="badge" icon="angle-right" titleOnly title="Badge" />
               <Menu.Item key="checkbox" icon="angle-right" titleOnly title="Checkbox" />
               <Menu.Item key="radio" icon="angle-right" titleOnly title="Radio" />
-              <Menu.Item key="swicth" icon="angle-right" titleOnly title="Swicth" />
+              <Menu.Item key="switch" icon="angle-right" titleOnly title="Switch" />
               <Menu.Item key="breadcrumb" icon="angle-right" titleOnly title="Breadcrumb" />
               <Menu.Item key="avatar" icon="angle-right" titleOnly title="Avatar" />
               <Menu.Item key="carousel" icon="angle-right" titleOnly title="Carousel" />
@@ -81,6 +87,7 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="angle-right" key="textbox" titleOnly title="Textbox" />
               <Menu.Item icon="angle-right" key="password" titleOnly title="Password" />
               <Menu.Item icon="angle-right" key="textarea" titleOnly title="Textarea" />
+              <Menu.Item icon="angle-right" key="input-number" titleOnly title="Input Number" />
               <Menu.Item icon="angle-right" key="select" titleOnly title="Select" />
             </Menu.Sub>
             <Menu.Sub title="Overlay" key="sub-overlay" icon="bell">
@@ -88,7 +95,7 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
               <Menu.Item icon="angle-right" key="confirm" titleOnly title="Confirm" />
               <Menu.Item icon="angle-right" key="tooltip" titleOnly title="Tooltip" />
               <Menu.Item icon="angle-right" key="alert" titleOnly title="Alert" />
-              <Menu.Item icon="angle-right" titleOnly title="Notification" />
+              <Menu.Item icon="angle-right" key="notification" titleOnly title="Notification" />
             </Menu.Sub>
             <Menu.ItemGroup key="group-page" title="PAGES">
               <Menu.Item icon="power-off" key="login-page" titleOnly title="Login Page" />

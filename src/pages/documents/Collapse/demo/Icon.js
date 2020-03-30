@@ -16,13 +16,25 @@ const Demo = () => {
   return (
     <div className="flex flex-col w-full">
       <Collapse>
-        <Collapse.Item title="Collapse One" key="panel-1" icon="comments">
+        <Collapse.Item
+          title="Collapse One"
+          key="panel-1"
+          icon="comments"
+        >
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Collapse Two" key="panel-2" icon="desktop">
+        <Collapse.Item
+          title="Collapse Two"
+          key="panel-2"
+          icon="desktop"
+        >
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Collapse Three" key="panel-3" icon="power-off">
+        <Collapse.Item
+          title="Collapse Three"
+          key="panel-3"
+          icon="power-off"
+        >
           <Description />
         </Collapse.Item>
       </Collapse>
@@ -32,7 +44,7 @@ const Demo = () => {
 
 Demo.code = `
 import React from 'react';
-import { Collapse } from '../../../../components/core';
+import { Collapse } from '@/components/core';
 
 const Description = () => {
   return (
@@ -49,13 +61,25 @@ export default => {
   return (
     <div className="flex flex-col w-full">
       <Collapse>
-        <Collapse.Item title="Collapse One" key="panel-1" icon="comments">
+        <Collapse.Item
+          title="Collapse One"
+          key="panel-1"
+          icon="comments"
+        >
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Collapse Two" key="panel-2" icon="desktop">
+        <Collapse.Item
+          title="Collapse Two"
+          key="panel-2"
+          icon="desktop"
+        >
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Collapse Three" key="panel-3" icon="power-off">
+        <Collapse.Item
+          title="Collapse Three"
+          key="panel-3"
+          icon="power-off"
+        >
           <Description />
         </Collapse.Item>
       </Collapse>

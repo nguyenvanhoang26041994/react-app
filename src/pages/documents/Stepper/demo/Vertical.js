@@ -18,10 +18,18 @@ const Demo = () => {
   return (
     <div className="flex flex-col w-full">
       <Stepper className="mb-10" activeStep={activeStep} vertical>
-        <Stepper.Step title="Step One">Description One</Stepper.Step>
-        <Stepper.Step title="Step Two">Description Two</Stepper.Step>
-        <Stepper.Step title="Step Three">Description Three</Stepper.Step>
-        <Stepper.Step title="Step Four">Description Four</Stepper.Step>
+        <Stepper.Step title="Step One">
+          Description One
+        </Stepper.Step>
+        <Stepper.Step title="Step Two">
+          Description Two
+        </Stepper.Step>
+        <Stepper.Step title="Step Three">
+          Description Three
+        </Stepper.Step>
+        <Stepper.Step title="Step Four">
+          Description Four
+        </Stepper.Step>
       </Stepper>
       <ButtonGroup>
         <Button onClick={reset}>Reset</Button>
@@ -53,10 +61,18 @@ export default () => {
   return (
     <div className="flex flex-col w-full">
       <Stepper className="mb-10" activeStep={activeStep} vertical>
-        <Stepper.Step title="Step One">Description One</Stepper.Step>
-        <Stepper.Step title="Step Two">Description Two</Stepper.Step>
-        <Stepper.Step title="Step Three">Description Three</Stepper.Step>
-        <Stepper.Step title="Step Four">Description Four</Stepper.Step>
+        <Stepper.Step title="Step One">
+          Description One
+        </Stepper.Step>
+        <Stepper.Step title="Step Two">
+          Description Two
+        </Stepper.Step>
+        <Stepper.Step title="Step Three">
+          Description Three
+        </Stepper.Step>
+        <Stepper.Step title="Step Four">
+          Description Four
+        </Stepper.Step>
       </Stepper>
       <ButtonGroup>
         <Button onClick={reset}>Reset</Button>

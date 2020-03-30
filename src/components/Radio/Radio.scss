@@ -24,12 +24,12 @@
 
   &:checked {
     + .rc-radio-inner {
-      box-shadow: $neumorphism-pressed;
+      box-shadow: var(--rc-neu-pressed--500);
     }
 
     + * + .rc-radio-second-inner {
       box-shadow: none;
-      background: $active-bg-color-neumorphism;
+      background: $primary-color--500--gradient;
     }
   }
 
@@ -45,7 +45,8 @@
   width: 100%;
   transition: all 0.25s;
   border-radius: 100em;
-  box-shadow: $neumorphism-flat;
+  box-shadow: var(--rc-neu-flat--500);
+  background-color: var(--rc-color--500);
   transition: all 0.25s;
 }
 
@@ -58,28 +59,5 @@
   width: 50%;
   transition: all 0.25s;
   border-radius: 100em;
-  box-shadow: $neumorphism-pressed;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-radio-input {
-    &:checked {
-      + .rc-radio-inner {
-        box-shadow: $neumorphism-darkmode-pressed;
-      }
-
-      + * + .rc-radio-second-inner {
-        background-color: $active-color-1;
-      }
-    }
-  }
-  
-  .rc-radio-inner {
-    box-shadow: $neumorphism-darkmode-flat;
-  }
-
-  .rc-radio-second-inner {
-    box-shadow: $neumorphism-darkmode-pressed;
-  }
+  box-shadow: var(--rc-neu-pressed--500);
 }

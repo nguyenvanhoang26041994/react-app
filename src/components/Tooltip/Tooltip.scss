@@ -9,11 +9,10 @@
   justify-content: center;
   align-items: center;
   border-radius: $border-radius;
-}
+  background-color: $primary-color--600;
+  color: #fff;
 
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-tooltip {
-    background-color: $dark-bg-color--200;
+  &:after {
+    border-color: $primary-color--600;
   }
 }

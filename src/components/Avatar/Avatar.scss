@@ -10,10 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--rc-color--500);
 }
 
 .rc-avatar.--neumorphism {
-  box-shadow: $neumorphism-flat;
+  box-shadow: var(--rc-neu-flat--500);
 }
 
 .rc-avatar.--square {
@@ -22,11 +23,4 @@
 
 .rc-avatar.--circle {
   border-radius: 100em;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-avatar.--neumorphism {
-    box-shadow: $neumorphism-darkmode-flat;
-  }
 }

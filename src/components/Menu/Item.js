@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -16,8 +16,15 @@ const Item = ({ className, selected, disabled, title, icon, iconOnly, titleOnly,
       return onItemClick();
     }
 
-    return _onItemClick(_key);
-  }, [_key, disabled, onItemClick]);
+    return _onItemClick(_key, { selected, title, disabled, icon });
+  }, [
+    _key,
+    disabled,
+    title,
+    onItemClick,
+    selected,
+    icon,
+  ]);
 
   return (
     <li
@@ -52,7 +59,7 @@ Item.propTypes = {
   children: PropTypes.any,
   icon: PropTypes.string,
   title: PropTypes.string.isRequired, // when Item in iconOnly mode, titleOnly will overide icon by first lettter of this value
-  _key: PropTypes.string.isRequired,
+  _key: PropTypes.string,
 };
 Item.defaultProps = {};
 

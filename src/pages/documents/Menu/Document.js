@@ -15,7 +15,7 @@ import SubInGroup from './demo/SubInGroup';
 export default () => {
   return (
     <div className="flex">
-      <div className="w-1/2 pr-2">
+      <div className="w-1/3 pr-2">
         <Codebox className="mb-5" header="BASIC" href="menu-basic" code={Basic.code}>
           <Basic />
         </Codebox>
@@ -25,17 +25,11 @@ export default () => {
         <Codebox className="mb-5" header="SUB MENU" href="menu-sub" code={Sub.code}>
           <Sub />
         </Codebox>
-        <Codebox className="mb-5" header="ICON ONLY" href="menu-only" code={IconOnly.code}>
-          <IconOnly />
-        </Codebox>
-        <Codebox className="mb-5" header="ICON ONLY BUT NOT SET ICON" href="menu-only-icon-no-icon" code={TitleWithIconOnly.code}>
-          <TitleWithIconOnly />
-        </Codebox>
-      </div>
-      <div className="w-1/2 pl-2">
         <Codebox className="mb-5" header="MULTIPLE" href="menu-multiple" code={Multiple.code}>
           <Multiple />
         </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
         <Codebox className="mb-5" header="DISABLED" href="menu-disabled" code={Disabled.code}>
           <Disabled />
         </Codebox>
@@ -47,6 +41,14 @@ export default () => {
         </Codebox>
         <Codebox className="mb-5" header="SUB IN GROUP MENU" href="menu-sub-group" code={SubInGroup.code}>
           <SubInGroup />
+        </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
+        <Codebox className="mb-5" header="ICON ONLY" href="menu-only" code={IconOnly.code}>
+          <IconOnly />
+        </Codebox>
+        <Codebox className="mb-5" header="ICON ONLY BUT NOT SET ICON" href="menu-only-icon-no-icon" code={TitleWithIconOnly.code}>
+          <TitleWithIconOnly />
         </Codebox>
       </div>
     </div>

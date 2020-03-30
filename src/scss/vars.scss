@@ -1,116 +1,108 @@
-/**
-* Spacing
-*/
+/***********************************************************************************************************************/
+/***************** COMMON VARIABLE *****************************/
+$input-height: 3rem;
+$input-spacing: 1.25em;
+$content-spacing: 1.5em;
 $basic-height: 2.5em;
 $border-radius: 0.5em;
 $border-radius-medium: 1em;
-$content-spacing: 1.5em;
 
-// Z_INDEX
 $zindex-notification: 1000;
 $zindex-alert: 1000;
 $zindex-modal: 1000;
 $zindex-confirm: 1000;
+$zindex-tooltip: 1001;
 $zindex-drawer: 1000;
-$zindex-dropdown: 1050;
 $zindex-overlay: 1010;
 
-/**
-* Root color
-*/
-
-$dark-bg-color--700: #252629;
-$dark-bg-color--600: #2b2c30;
-$dark-bg-color--500: #313236; // main
-$dark-bg-color--400: #38393e;
-$dark-bg-color--300: #42444a;
-$dark-bg-color--200: #5f5f5f;
-
-
-$body-dark-bg-color: #242529;
-
-$root-bg-color: #f0f2f5;
-$root-darkmode-bg-color: $dark-bg-color--500;
-$root-text-color: #2f2f2f;
-$root-text-inverted-color: rgb(228, 230, 235);
-$root-darkmode-text-color: rgb(228, 230, 235);
+$primary-color--500--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
 $placeholder-text-color: #a0aebf;
 
-$secondary-bg-color: #a1a5ab;
-$secondary-darkmode-bg-color: #2f2f2f;
+$primary-color--600: #0089e4;
+$primary-color--500: #0099ff;
 
-/**
-* Chip
-*/
+$green-color--500: #32e232;
+$orange-color--500: #f7aa37;
+$red-color--500: #ec4c1d;
 
-/**
-* Status color
-*/
-$primary-color: #0099ff;
-$success-color: #32e232;
-$warning-color: #f7aa37;
-$error-color: #ec4c1d;
+/***********************************************************************************************************************/
+/***************** DARK VARIABLE *****************************/
+$dark-text-color: #e4e6eb;
 
-$gradient-primary-color: linear-gradient(145deg, #008ae6, #00a4ff);
-$gradient-success-color: linear-gradient(145deg, #2dcb2d, #36f236);
-$gradient-warning-color: linear-gradient(145deg, #de9932, #ffb63b);
-$gradient-error-color: linear-gradient(145deg, #d4441a, #fd511f);
+$dark--700: #252629;
+$dark--600: #2b2c30;
+$dark--500: #313236; // MAIN COLOR
+$dark--400: #38393e;
+$dark--300: #42444a;
+$dark--200: #5f5f5f;
 
-/**
-* Overlay background-color
-*/
-$overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
-$gradient-overlay-bg-color: linear-gradient(145deg, #008ae6, #00a4ff);
-$select-option-bg-color: #0099ff;
-$overlay-wrapper-bg-color: rgba(0, 0, 0, 0.8);
+$dark-from--700: #1b1c1e;
+$dark-to--700: #2f3034;
+$neu-dark-flat--700: 1.5px 1.5px 1.5px $dark-from--700, -1px -1px 1px $dark-to--700;
+$neu-dark-pressed--700: inset 2px 2px 1px $dark-from--700, inset -2px -2px 1px $dark-to--700;
 
-/**
-* MENU
-*/
+$dark-from--600: #1f2023;
+$dark-to--600: #37383d;
+$neu-dark-flat--600: 1.5px 1.5px 1.5px $dark-from--600, -1px -1px 1px $dark-to--600;
+$neu-dark-pressed--600: inset 2px 2px 1px $dark-from--600, inset -2px -2px 1px $dark-to--600;
 
-$menu-item-bg-color: #0099ff;
+$dark-from--500: #242527;
+$dark-to--500: #3e4045;
+$neu-dark-flat--500: 1.5px 1.5px 1.5px $dark-from--500, -1px -1px 1px $dark-to--500;
+$neu-dark-pressed--500: inset 2px 2px 1px $dark-from--500, inset -2px -2px 1px $dark-to--500;
 
-/**
-* Rating color
-*/
-$rater-color: #e4e4e4;
-$rater-darkmode-color: rgba(255, 255, 255, 0.2);
-$rater-active-color: #ffc107;
+$dark-from--400: #292a2d;
+$dark-to--400: #47484f;
+$neu-dark-flat--400: 1.5px 1.5px 1.5px $dark-from--400, -1px -1px 1px $dark-to--400;
+$neu-dark-pressed--400: inset 2px 2px 1px $dark-from--400, inset -2px -2px 1px $dark-to--400;
 
-/**
-* Progress circle stoke color
-*/
-$progress-circle-stroke-color: #0099ff;
+$dark-from--300: #303236;
+$dark-to--300: #54565e;
+$neu-dark-flat--300: 1.5px 1.5px 1.5px $dark-from--300, -1px -1px 1px $dark-to--300;
+$neu-dark-pressed--300: inset 2px 2px 1px $dark-from--300, inset -2px -2px 1px $dark-to--300;
 
+$dark-from--200: #454545;
+$dark-to--200: #797979;
+$neu-dark-flat--200: 1.5px 1.5px 1.5px $dark-from--200, -1px -1px 1px $dark-to--200;
+$neu-dark-pressed--200: inset 2px 2px 1px $dark-from--200, inset -2px -2px 1px $dark-to--200;
 
-/**
-* Active background color
-*/
-$active-color-1: #0099ff; // Pagination | Switch | Checkbox | Radio
-$active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Switch | Checkbox | Radio
+/***********************************************************************************************************************/
+/***************** LIGHT VARIABLE *****************************/
+$light-text-color: #2f2f2f;
 
-/**
-* Neumorphism support
-*/
+$light--700: #bfc0c7;
+$light--600: #cdced5;
+$light--500: #ecedf5; // MAIN COLOR
+$light--400: #f0f2fa;
+$light--300: #f2f5fd;
+$light--200: #ffffff;
 
-$neumorphism-light-from-color: #d6d7da;
-$neumorphism-light-to-color: #ffffff;
-$neumorphism-dark-from-color: #1f2023;
-$neumorphism-dark-to-color: #434449;
-// FLAT
-$neumorphism-flat: 1.5px 1.5px 1.5px $neumorphism-light-from-color, -1px -1px 1px $neumorphism-light-to-color;
-$neumorphism-primary-flat: 1.5px 1.5px 1.5px #0084db, -1px -1px 1px #00aeff;
-$neumorphism-darkmode-flat: 1.5px 1.5px 1.5px $neumorphism-dark-from-color, -1px -1px 1px $neumorphism-dark-to-color;
+$light-from--700: #9b9ca1;
+$light-to--700: #e3e4ed;
+$neu-light-flat--700: 1.5px 1.5px 1.5px $light-from--700, -1px -1px 1px $light-to--700;
+$neu-light-pressed--700: inset 2px 2px 1px $light-from--700, inset -2px -2px 1px $light-to--700;
 
-// PRESSED
-$neumorphism-pressed: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
-$neumorphism-darkmode-pressed: inset 2px 2px 1px $neumorphism-dark-from-color, inset -2px -2px 1px $neumorphism-dark-to-color;
-$neumorphism-primary-pressed: inset 1.5px 1.5px 1.5px #0084db, inset -1px -1px 1px #00aeff;
+$light-from--600: #a6a7ad;
+$light-to--600: #f4f5fd;
+$neu-light-flat--600: 1.5px 1.5px 1.5px $light-from--600, -1px -1px 1px $light-to--600;
+$neu-light-pressed--600: inset 2px 2px 1px $light-from--600, inset -2px -2px 1px $light-to--600;
 
-/**************************************/
-$dark-left-sidebar-bg-color: $dark-bg-color--400;
+$light-from--500: #bfc0c6;
+$light-to--500: #ffffff;
+$neu-light-flat--500: 1.5px 1.5px 1.5px $light-from--500, -1px -1px 1px $light-to--500;
+$neu-light-pressed--500: inset 2px 2px 1px $light-from--500, inset -2px -2px 1px $light-to--500;
 
-$neumorphism-dark-from-color--300: #333439;
-$neumorphism-dark-to-color--300: #51545b;
-$neumorphism-darkmode-flat--300: 1.5px 1.5px 1.5px $neumorphism-dark-from-color--300, -1px -1px 1px $neumorphism-dark-to-color--300;
-$neumorphism-darkmode-pressed--300: inset 2px 2px 1px $neumorphism-dark-from-color--300, inset -2px -2px 1px $neumorphism-dark-to-color--300;
+$light-from--400: #c2c4cb;
+$light-to--400: #ffffff;
+$neu-light-flat--400: 1.5px 1.5px 1.5px $light-from--400, -1px -1px 1px $light-to--400;
+$neu-light-pressed--400: inset 2px 2px 1px $light-from--400, inset -2px -2px 1px $light-to--400;
+
+$light-from--300: #c4c6cd;
+$light-to--300: #ffffff;
+$neu-light-flat--300: 1.5px 1.5px 1.5px $light-from--300, -1px -1px 1px $light-to--300;
+$neu-light-pressed--300: inset 2px 2px 1px $light-from--300, inset -2px -2px 1px $light-to--300;
+
+$light-from--200: #cfcfcf;
+$light-to--200: #ffffff;
+$neu-light-flat--200: 1.5px 1.5px 1.5px $light-from--200, -1px -1px 1px $light-to--200;
+$neu-light-pressed--200: inset 2px 2px 1px $light-from--200, inset -2px -2px 1px $light-to--200;

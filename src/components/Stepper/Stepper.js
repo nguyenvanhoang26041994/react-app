@@ -51,7 +51,7 @@ Stepper.withSteps = withSteps;
 Stepper.displayName = 'Stepper';
 Stepper.propTypes = {
   className: PropTypes.string,
-  activeStep: PropTypes.object,
+  activeStep: PropTypes.number,
   children: PropTypes.any,
   vertical: PropTypes.bool,
 };

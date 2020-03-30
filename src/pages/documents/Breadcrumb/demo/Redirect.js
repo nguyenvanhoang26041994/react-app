@@ -9,8 +9,14 @@ const Demo = () => {
   return (
     <Breadcrumb>
       <Breadcrumb.Item title="No Redirect" />
-      <Breadcrumb.Item title="Reload Page" href="/document/breadcrumb" />
-      <Breadcrumb.Item title="CSR" onClick={() => history.push('/')} />
+      <Breadcrumb.Item
+        title="Reload Page"
+        href="/document/breadcrumb"
+      />
+      <Breadcrumb.Item
+        title="CSR"
+        onClick={() => history.push('/')}
+      />
     </Breadcrumb>
   );
 };
@@ -27,8 +33,14 @@ export default => {
   return (
     <Breadcrumb>
       <Breadcrumb.Item title="No Redirect" />
-      <Breadcrumb.Item title="Reload Page" href="/document/breadcrumb" />
-      <Breadcrumb.Item title="CSR" onClick={() => history.push('/')} />
+      <Breadcrumb.Item
+        title="Reload Page"
+        href="/document/breadcrumb"
+      />
+      <Breadcrumb.Item
+        title="CSR"
+        onClick={() => history.push('/')}
+      />
     </Breadcrumb>
   );
 };

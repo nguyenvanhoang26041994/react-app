@@ -3,7 +3,10 @@ import { Menu } from '../../../../components/core';
 
 const Demo = () => {
   return (
-    <Menu defaultSelectedKeys={['option-2']} onSelectedKeysChange={keys => console.log(keys)}>
+    <Menu
+      defaultSelectedKeys={['option-2']}
+      onSelectedKeysChange={keys => console.log(keys)}
+    >
       <Menu.Item key="option-1" title="Option One" />
       <Menu.Item key="option-2" title="Option Two" />
       <Menu.Item key="option-3" title="Option Three" />
@@ -18,7 +21,10 @@ import { Menu } from '@/components/core';
 
 export default () => {
   return (
-    <Menu defaultSelectedKeys={['option-2']} onSelectedKeysChange={keys => console.log(keys)}>
+    <Menu
+      defaultSelectedKeys={['option-2']}
+      onSelectedKeysChange={keys => console.log(keys)}
+    >
       <Menu.Item key="option-1" title="Option One" />
       <Menu.Item key="option-2" title="Option Two" />
       <Menu.Item key="option-3" title="Option Three" />

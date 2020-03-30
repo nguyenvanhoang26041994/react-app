@@ -11,7 +11,11 @@ const Demo = () => {
           <Menu.Item key="rating" icon="star" title="Rating" />
           <Menu.Item key="follow" icon="bell" title="Follow" />
         </Menu.Sub>
-        <Menu.Item key="comments" icon="comments" title="Comments" />
+        <Menu.Item
+          key="comments"
+          icon="comments"
+          title="Comments"
+        />
         <Menu.Item key="heart" icon="heart" title="Love" />
       </Menu.ItemGroup>
     </Menu>
@@ -32,7 +36,11 @@ export default = () => {
           <Menu.Item key="rating" icon="star" title="Rating" />
           <Menu.Item key="follow" icon="bell" title="Follow" />
         </Menu.Sub>
-        <Menu.Item key="comments" icon="comments" title="Comments" />
+        <Menu.Item
+          key="comments"
+          icon="comments"
+          title="Comments"
+        />
         <Menu.Item key="heart" icon="heart" title="Love" />
       </Menu.ItemGroup>
     </Menu>

@@ -14,7 +14,7 @@
   &:before {
     flex-grow: 1;
     content: " ";
-    border-bottom: 1px solid $dark-bg-color--300;
+    border-bottom: 1px solid var(--rc-text-color);
   }
 }
 

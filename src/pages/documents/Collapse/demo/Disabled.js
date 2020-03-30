@@ -19,7 +19,11 @@ const Demo = () => {
         <Collapse.Item title="Collapse One" key="panel-1">
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Disabled Collapse" key="panel-2" disabled>
+        <Collapse.Item
+          title="Disabled Collapse"
+          key="panel-2"
+          disabled
+        >
           <Description />
         </Collapse.Item>
         <Collapse.Item title="Collapse Three" key="panel-3">
@@ -52,7 +56,11 @@ export default () => {
         <Collapse.Item title="Collapse One" key="panel-1">
           <Description />
         </Collapse.Item>
-        <Collapse.Item title="Disabled Collapse" key="panel-2" disabled>
+        <Collapse.Item
+          title="Disabled Collapse"
+          key="panel-2"
+          disabled
+        >
           <Description />
         </Collapse.Item>
         <Collapse.Item title="Collapse Three" key="panel-3">

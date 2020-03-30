@@ -3,18 +3,11 @@
 .rc-menu {
   border-radius: $border-radius;
   overflow: hidden;
-  background-color: #dfe1e4;
   user-select: none;
   min-width: 12em;
+  background-color: var(--rc-color--300);
 }
 
 .rc-menu.--icon-only {
   min-width: unset;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-menu {
-    background-color: $dark-bg-color--300;
-  }
 }

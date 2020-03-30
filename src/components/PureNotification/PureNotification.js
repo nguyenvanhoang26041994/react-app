@@ -19,7 +19,7 @@ const PureNotification = ({ notificationRef, children, title, className, onClose
           <Icon name="times" className="rc-pure-modnotificational-close" onClick={onCloseClick} />
         </div>
       )}
-      <div className="rc-pure-notification-content" onContentClick={onContentClick}>
+      <div className="rc-pure-notification-content" onClick={onContentClick}>
         {children}
       </div>
     </div>

@@ -11,23 +11,25 @@ import FluidGroupButton from './demo/FluidGroupButton';
 export default () => {
   return (
     <div className="flex">
-      <div className="w-1/2 pr-2">
+      <div className="w-1/3 pr-2">
         <Codebox className="mb-5" header="BASIC" href="button-basic" code={Basic.code}>
           <Basic />
         </Codebox>
         <Codebox className="mb-5" header="GROUP BUTTON" href="button-group-button" code={GroupButton.code}>
           <GroupButton />
         </Codebox>
-        <Codebox className="mb-5" header="FONT SIZE" href="button-font-size" code={Size.code}>
-          <Size />
-        </Codebox>
       </div>
-      <div className="w-1/2 pl-2">
+      <div className="w-1/3 pl-2">
         <Codebox className="mb-5" header="WITH ICON" href="button-with-icon" code={WithIcon.code}>
           <WithIcon />
         </Codebox>
         <Codebox className="mb-5" header="COLOR" href="button-color" code={Color.code}>
           <Color />
+        </Codebox>
+      </div>
+      <div className="w-1/3 pl-2">
+        <Codebox className="mb-5" header="FONT SIZE" href="button-font-size" code={Size.code}>
+          <Size />
         </Codebox>
         <Codebox className="mb-5" header="FLUID GROUP BUTTON" href="button-group-fluid" code={FluidGroupButton.code}>
           <FluidGroupButton />

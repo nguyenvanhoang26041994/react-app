@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   z-index: $zindex-drawer;
-  background-color: $overlay-wrapper-bg-color;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,5 +23,4 @@
     background-color: transparent;
     animation: zoomOut 0.25s;
   }
-  
 }

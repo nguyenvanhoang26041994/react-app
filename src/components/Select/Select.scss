@@ -1,82 +1,40 @@
 @import '../../scss/vars.scss';
 
 .rc-select {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-start;
   position: relative;
-  border-radius: $border-radius-medium;
-  padding: 0.5em 1em;
-  transition: all 0.25s;
+  width: 100%;
   user-select: none;
-  box-shadow: $neumorphism-pressed;
-}
-
-.rc-select.--drop {
-  .rc-select-icon {
-    transform: rotate(-180deg);
-  }
-}
-
-.rc-select-icon {
-  cursor: pointer;
-  transition: transform 0.5s;
-  position: absolute;
-  right: 0;
 }
 
 .rc-select-input {
-  position: relative;
+  height: $input-height;
+  outline: 0 !important;
+  border: 0;
+  width: 100%;
+  border-radius: $border-radius;
+  padding: 0 3em 0 $input-spacing;
+  box-shadow: var(--rc-neu-pressed--500);
+  background-color: var(--rc-color--500);
+  cursor: pointer;
   display: flex;
   align-items: center;
-  width: 100%;
-  height: $basic-height;
-  cursor: pointer;
-  background-color: transparent;
 }
-
 .rc-select-input-placeholder {
   color: $placeholder-text-color;
 }
 
-.rc-select-label {
-  height: $basic-height;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  user-select: none;
-}
-
-.rc-select-error {
-  font-size: 0.85em;
-  font-style: italic;
-  color: $error-color;
-}
-
-// DROP DOWN
-.rc-select-dropdown {
+.rc-select-icon {
   position: absolute;
-  background-color: $root-bg-color;
-  box-shadow: $neumorphism-flat;
-  max-height: 20em;
-  overflow: scroll;
-  border-radius: $border-radius-medium;
-  animation: zoomIn 0.125s;
-  z-index: $zindex-overlay;
+  right: 0.75em;
+  top: 0.75em;
 }
 
-.rc-select-dropdown.--close-animation {
-  animation: zoomOut 0.25s;
+.rc-select.--disabled {
+  cursor: not-allowed;
 }
 
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-select {
-    box-shadow: $neumorphism-darkmode-pressed;
-  }
-
-  .rc-select-dropdown {
-    background-color: $secondary-darkmode-bg-color;
-    box-shadow: $neumorphism-darkmode-flat;
+.rc-select.--is-drop {
+  .rc-select-icon {
+    transform: rotate(180deg);
   }
 }

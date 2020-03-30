@@ -22,15 +22,14 @@
   height: 100%;
   width: 100%;
   border-radius: $border-radius;
+  background-color: var(--rc-color--500);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
 }
 
-// DARK MODE SUPPORT
-.dark-mode {
-  .top-navigation {
-    background-color: $dark-bg-color--400;
-  }
+.top-navigation > .__right {
+  display: flex;
+  align-items: center;
 }

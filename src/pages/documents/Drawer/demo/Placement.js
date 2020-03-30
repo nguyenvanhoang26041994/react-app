@@ -16,7 +16,6 @@ const Demo = () => {
         className="w-1/3"
         placement="left"
       >
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Drawer>
       <Button onClick={onOpen}>Open Drawer</Button>
@@ -43,7 +42,6 @@ export default () => {
         className="w-1/3"
         placement="left"
       >
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Drawer>
       <Button onClick={onOpen}>Open Drawer</Button>

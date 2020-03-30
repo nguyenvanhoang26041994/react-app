@@ -10,6 +10,11 @@
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
+  background-color: var(--rc-color--200);
+
+  &:hover {
+    background-color: var(--rc-color--300);
+  }
 
   // anti dark-mode
   .rc-avatar.rc-avatar {
@@ -40,15 +45,4 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 100em;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-chip {
-    background-color: $dark-bg-color--200;
-
-    &:hover {
-      background-color: $dark-bg-color--300;
-    }
-  }
 }

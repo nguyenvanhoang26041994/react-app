@@ -3,7 +3,7 @@
 .rc-pure-drawer {
   position: relative;
   min-width: 30em;
-  background-color: $root-bg-color;
+  background-color: var(--rc-color--500);
   border-radius: $border-radius;
 }
 
@@ -14,20 +14,10 @@
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
+  border-bottom: 1px dashed var(--rc-text-color);
 }
 
 .rc-pure-drawer-content {
   padding: 1.5em 1em;
   overflow: scroll;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-pure-drawer {
-    background-color: $dark-bg-color--500;
-  }
-
-  .rc-pure-drawer-title {
-    border-bottom: 1px dashed $dark-bg-color--300;
-  }
 }

@@ -10,7 +10,6 @@ const Demo = () => {
   return (
     <div className="flex">
       <Modal open={open} onClose={onClose} title="Modal Title">
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Modal>
       <Button onClick={onOpen}>Open Modal</Button>
@@ -31,7 +30,6 @@ export default () => {
   return (
     <div className="flex">
       <Modal open={open} onClose={onClose} title="Modal Title">
-        What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       </Modal>
       <Button onClick={onOpen}>Open Modal</Button>

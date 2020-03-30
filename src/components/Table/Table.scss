@@ -1,12 +1,5 @@
 @import '../../scss/vars.scss';
 
 .rc-table {
-  background-color: $root-bg-color;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-table {
-    background-color: $root-darkmode-bg-color;
-  }
+  background-color: var(--rc-color--500);
 }

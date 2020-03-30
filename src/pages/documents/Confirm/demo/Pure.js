@@ -11,7 +11,6 @@ const Demo = () => {
       onOk={onOk}
       title="Confirm Title"
     >
-      What is Lorem Ipsum?
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </PureConfirm>
   );
@@ -31,7 +30,6 @@ export default () => {
       onOk={onOk}
       title="Confirm Title"
     >
-      What is Lorem Ipsum?
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </PureConfirm>
   );

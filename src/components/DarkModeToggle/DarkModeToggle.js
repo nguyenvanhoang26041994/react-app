@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import Button from '../Button';
+import Switch from '../Switch';
 
 require('./DarkModeToggle.scss');
 
@@ -22,18 +22,12 @@ const DarkModeToggle = (props) => {
   }, [isDark]);
 
   return (
-    <Button
-      style={{
-        fontSize: '1.25em',
-        position: 'fixed',
-        bottom: '0.5em',
-        right: '0.5em',
-      }}
-      circle
-      onClick={handleToogleDarkMode}
-      icon={isDark ? 'sun' : 'moon-stars' }
-      {...props}
-    />
+    <div style={{ display: 'flex', alignItems: 'center' }} {...props}>
+      <Switch
+        checked={isDark}
+        onChange={handleToogleDarkMode}
+      />
+    </div>
   );
 };
 

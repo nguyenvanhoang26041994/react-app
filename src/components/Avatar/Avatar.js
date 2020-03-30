@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import useSemanticProp from '../../hooks/useSemanticProp';
+import { omit } from '../../utils/helpers';
 
 require('./Avatar.scss');
 
@@ -12,11 +13,13 @@ const mShape = Object.freeze({
 });
 
 const Avatar = ({ className, src, style, name, fontSize, color, ...otherProps }) => {
-  const shape = useSemanticProp('shape', otherProps, Object.keys(mShape), [
-    otherProps.square,
-    otherProps.circle,
-    otherProps.shape,
-  ]);
+  const shape = useSemanticProp('shape', otherProps, Object.keys(mShape));
+
+  const passedProps = useMemo(() => omit(otherProps, [
+    'shape',
+    'square',
+    'circle',
+  ]), [otherProps]);
 
   return (
     <div
@@ -27,7 +30,7 @@ const Avatar = ({ className, src, style, name, fontSize, color, ...otherProps })
         color,
         backgroundImage: `url(${src})`,
       }}
-      {...otherProps}
+      {...passedProps}
     >
       {(!src && name) && <span className="rc-avatar-name">{name[0].toUpperCase()}</span>}
     </div>

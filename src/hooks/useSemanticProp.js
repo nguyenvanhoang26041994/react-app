@@ -1,12 +1,17 @@
 import getLatestTruthyProp from '../utils/getLatestTruthyProp';
 import { useMemo } from 'react';
 
-export default (name, props, deps, tracking = []) => {
+const makeDepsTracking = (props, deps) => deps.map(name => props[name]);
+
+export default (name, props, deps) => {
   return useMemo(() => {
     if (props.hasOwnProperty(`${name}`)) {
       return props[name];
     }
 
     return getLatestTruthyProp(props, deps);
-  }, tracking);
+  }, [
+    ...makeDepsTracking(props, deps),
+    props[name],
+  ]);
 }

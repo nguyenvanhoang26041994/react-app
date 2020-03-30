@@ -44,7 +44,7 @@ const Collapse = ({ className, defaultActivePanels, onActivePanelsChange, onPane
   }, [accordion, isControlled]);
 
   return (
-    <div className={cn('rc-collapse', className)} {...otherProps}>
+    <div className={cn('rc-collapse', className)}>
       {React.Children.map(children, elm => {
         return React.cloneElement(elm, {
           active: activePanelsAsObject[elm.key],

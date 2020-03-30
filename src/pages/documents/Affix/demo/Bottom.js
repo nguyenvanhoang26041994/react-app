@@ -35,7 +35,7 @@ export default () => {
       }}
     >
       <div className="flex w-full">
-        <Affix bottom={100}>
+        <Affix offsetBottom={50}>
           <Button className="mr-10">Bottom 100px</Button>
         </Affix>
         <div className="flex-1">

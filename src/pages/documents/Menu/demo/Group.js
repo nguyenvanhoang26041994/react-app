@@ -7,7 +7,11 @@ const Demo = () => {
       <Menu.ItemGroup key="group-action" title="Action">
         <Menu.Item key="copy" icon="copy" title="Copy" />
         <Menu.Item key="cog" icon="cog" title="Config" />
-        <Menu.Item key="comments" icon="comments" title="Comments" />
+        <Menu.Item
+          key="comments"
+          icon="comments"
+          title="Comments"
+        />
         <Menu.Item key="heart" icon="heart" title="Love" />
       </Menu.ItemGroup>
       <Menu.ItemGroup key="group-other" title="Other">
@@ -28,7 +32,11 @@ export default = () => {
       <Menu.ItemGroup key="group-action" title="Action">
         <Menu.Item key="copy" icon="copy" title="Copy" />
         <Menu.Item key="cog" icon="cog" title="Config" />
-        <Menu.Item key="comments" icon="comments" title="Comments" />
+        <Menu.Item
+          key="comments"
+          icon="comments"
+          title="Comments"
+        />
         <Menu.Item key="heart" icon="heart" title="Love" />
       </Menu.ItemGroup>
       <Menu.ItemGroup key="group-other" title="Other">

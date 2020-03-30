@@ -36,9 +36,9 @@ const Demo = () => {
 
 Demo.code = `
 import React, { useState, useCallback }  from 'react';
-import { Progress, Button, ButtonGroup } from '../../../../components/core';
+import { Progress, Button, ButtonGroup } from '@/components/core';
 
-const Demo = () => {
+export default => {
   const [percent, setPercent] = useState(0.1);
 
   const onMinus = useCallback(() => setPercent(prev => {

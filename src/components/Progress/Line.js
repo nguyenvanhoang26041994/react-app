@@ -48,7 +48,7 @@ LineProgress.displayName = 'Progress.Line';
 LineProgress.propTypes = {
   className: PropTypes.string,
   percent: PropTypes.number,
-  noText: PropTypes.string,
+  noText: PropTypes.bool,
   bottom: PropTypes.bool,
 };
 LineProgress.defaultProps = {

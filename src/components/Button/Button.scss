@@ -15,11 +15,12 @@
   touch-action: manipulation;
   cursor: pointer;
   transition: all 0.25s;
-  box-shadow: $neumorphism-flat;
+  background-color: var(--rc-color--500);
+  box-shadow: var(--rc-neu-flat--500);
 
   &:focus,
   &.--pressed {
-    box-shadow: $neumorphism-pressed;
+    box-shadow: var(--rc-neu-pressed--500);
   }
 
   &:disabled {
@@ -40,16 +41,4 @@
 
 .rc-button.--rounded {
   border-radius: 100em;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-button {
-    box-shadow: $neumorphism-darkmode-flat;
-
-    &:focus,
-    &.--pressed {
-      box-shadow: $neumorphism-darkmode-pressed;
-    }
-  }
 }

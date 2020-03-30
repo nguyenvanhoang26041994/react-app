@@ -41,7 +41,6 @@ Notification.propTypes = {
   open: PropTypes.bool,
   duration: PropTypes.number,
   title: PropTypes.any,
-  onContentClick: PropTypes.func,
 };
 Notification.defaultProps = {
   onClose: f => f,
