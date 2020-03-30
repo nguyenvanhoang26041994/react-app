@@ -11,10 +11,14 @@ const FancyBox = ({ size }) => (
 const Demo = () => {
   return (
     <div className="flex">
-      <Badge count={7} className="mr-5">
+      <Badge
+        count={7}
+        color="#0089e4"
+        className="mr-5"
+      >
         <FancyBox size="50px" />
       </Badge>
-      <Badge count={999}>
+      <Badge count={999} color="#4caf50">
         <FancyBox size="50px" />
       </Badge>
     </div>
@@ -35,10 +39,14 @@ const FancyBox = ({ size }) => (
 export default () => {
   return (
     <div className="flex">
-      <Badge count={7} className="mr-5">
+      <Badge
+        count={7}
+        color="#0089e4"
+        className="mr-5"
+      >
         <FancyBox size="50px" />
       </Badge>
-      <Badge count={999}>
+      <Badge count={999} color="#4caf50">
         <FancyBox size="50px" />
       </Badge>
     </div>

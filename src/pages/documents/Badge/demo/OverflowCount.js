@@ -14,7 +14,7 @@ const Demo = () => {
       <Badge count={7} className="mr-5">
         <FancyBox size="50px" />
       </Badge>
-      <Badge count={999}>
+      <Badge count={999} overflowCount={99}>
         <FancyBox size="50px" />
       </Badge>
     </div>
@@ -38,7 +38,7 @@ export default () => {
       <Badge count={7} className="mr-5">
         <FancyBox size="50px" />
       </Badge>
-      <Badge count={999}>
+      <Badge count={999} overflowCount={99}>
         <FancyBox size="50px" />
       </Badge>
     </div>
