@@ -4,13 +4,17 @@ import Codebox from '../../../components/Codebox';
 import Basic from './demo/Basic';
 import Size from './demo/Size';
 import NoImage from './demo/NoImage';
+import WithOnline from './demo/WithOnline';
 
 export default () => {
   return (
     <div className="flex">
       <div className="w-1/3 pr-2">
-        <Codebox className="mb-5" header="BASIC" href="avatar-basic" code={Basic.code} defaultExpanded>
+        <Codebox className="mb-5" header="BASIC" href="avatar-basic" code={Basic.code}>
           <Basic />
+        </Codebox>
+        <Codebox className="mb-5" header="ONLINE" href="avatar-online" code={WithOnline.code} defaultExpanded>
+          <WithOnline />
         </Codebox>
       </div>
       <div className="w-1/3 pl-2">

@@ -8,6 +8,7 @@ import Dot from './demo/Dot';
 import CountUpAnimation from './demo/CountUpAnimation';
 import CustomColor from './demo/CustomColor';
 import OverflowCount from './demo/OverflowCount';
+import Invisible from './demo/Invisible';
 
 export default () => {
   return (
@@ -24,6 +25,9 @@ export default () => {
         </Codebox>
         <Codebox className="mb-5" header="Overflow Count" href="badge-overflow" code={OverflowCount.code}>
           <OverflowCount />
+        </Codebox>
+        <Codebox className="mb-5" header="INVISIBLE" href="badge-invisible" code={Invisible.code}>
+          <Invisible />
         </Codebox>
         <Codebox className="mb-5" header="COUNT UP ANIMATION" href="badge-dot" code={CountUpAnimation.code}>
           <CountUpAnimation />

@@ -16,6 +16,7 @@ const Badge = ({
   overflowCount,
   color,
   overlap,
+  invisible,
   ...otherProps
 }) => {
   const countRef = useRef();
@@ -36,6 +37,30 @@ const Badge = ({
     }
   }, [count]);
 
+  const isHidden = useMemo(() => {
+    if (invisible) {
+      return true;
+    }
+    if (dot) {
+      return false;
+    }
+
+    if (!count || count < 1) {
+      return true;
+    }
+  }, [dot, invisible, count]);
+
+  const displayCount = useMemo(() => {
+    if (!count) {
+      return null;
+    }
+    if (count > overflowCount) {
+      return `${overflowCount} +`;
+    }
+
+    return count;
+  } ,[count, overflowCount]);
+
   return (
     <span
       className={cn(
@@ -55,9 +80,9 @@ const Badge = ({
         style={{
           backgroundColor: color,
         }}
-        className={cn('rc-badge-count', { '--hidden': !count || count < 1 })}
+        className={cn('rc-badge-count', { '--hidden': isHidden })}
       >
-        <b>{count > overflowCount ? `${overflowCount} +` : count}</b>
+        <b>{displayCount}</b>
       </sub>
     </span>
   );
@@ -68,12 +93,14 @@ Badge.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   dot: PropTypes.bool,
+  invisible: PropTypes.bool,
   count: PropTypes.number,
   overflowCount: PropTypes.number,
   color: PropTypes.string,
   overlap: PropTypes.bool,
   placement: PropTypes.string,
 };
+
 Badge.defaultProps = {
   overflowCount: Infinity,
 };
