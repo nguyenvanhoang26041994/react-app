@@ -11,25 +11,25 @@
 
 .rc-pure-alert.--info {
   .rc-pure-alert-title {
-    color: $primary-color;
+    color: $primary-color--500;
   }
 }
 
 .rc-pure-alert.--success {
   .rc-pure-alert-title {
-    color: $success-color;
+    color: $success-color--500;
   }
 }
 
 .rc-pure-alert.--warning {
   .rc-pure-alert-title {
-    color: $warning-color;
+    color: $warning-color--500;
   }
 }
 
 .rc-pure-alert.--error {
   .rc-pure-alert-title {
-    color: $error-color;
+    color: $error-color--500;
   }
 }
 
@@ -41,8 +41,9 @@
   justify-content: space-between;
   text-transform: uppercase;
 }
+
 .rc-pure-alert-content {
   padding: 1.5em 1em;
   overflow: scroll;
-  border-top: 1px dashed var(--rc-color--400);
+  border-top: 1px dashed var(--rc-text-color);
 }

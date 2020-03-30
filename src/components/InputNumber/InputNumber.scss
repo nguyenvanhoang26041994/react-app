@@ -37,7 +37,7 @@
   border: none;
 
   &:hover:not(:disabled) {
-    background-color: $primary-color;
+    background-color: $primary-color--500;
     box-shadow: none;
   }
 

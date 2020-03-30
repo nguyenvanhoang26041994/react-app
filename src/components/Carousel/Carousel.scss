@@ -26,7 +26,7 @@
 
   &:hover {
     box-shadow: none;
-    background-color: $primary-color;
+    background-color: $primary-color--500;
   }
 }
 
@@ -56,7 +56,7 @@
 
     &:hover {
       box-shadow: none;
-      background-color:  $primary-color;
+      background-color:  $primary-color--500;
     }
   }
 }

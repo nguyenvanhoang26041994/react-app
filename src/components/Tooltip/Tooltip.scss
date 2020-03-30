@@ -9,5 +9,10 @@
   justify-content: center;
   align-items: center;
   border-radius: $border-radius;
-  background-color: var(--rc-color--200);
+  background-color: $primary-color--600;
+  color: #fff;
+
+  &:after {
+    border-color: $primary-color--600;
+  }
 }

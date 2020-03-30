@@ -6,6 +6,7 @@
   user-select: none;
   transition: all 0.25s;
   box-shadow: var(--rc-neu-pressed--500);
+  background-color: var(--rc-color--500);
 }
 
 .rc-circle-progress-inner {
@@ -30,7 +31,7 @@ circle.rc-circle-progress-percent {
   transition: stroke-dashoffset 0.5s;
   transform: translate(10px, 10px);
   stroke-linecap: round;
-  stroke: $primary-color;
+  stroke: $primary-color--500;
 }
 
 .rc-circle-progress-number {

@@ -15,13 +15,15 @@ $zindex-tooltip: 1001;
 $zindex-drawer: 1000;
 $zindex-overlay: 1010;
 
-$primary-color--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
+$primary-color--500--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
 $placeholder-text-color: #a0aebf;
 
-$primary-color: #0099ff;
-$success-color: #32e232;
-$warning-color: #f7aa37;
-$error-color: #ec4c1d;
+$primary-color--600: #0089e4;
+$primary-color--500: #0099ff;
+
+$success-color--500: #32e232;
+$warning-color--500: #f7aa37;
+$error-color--500: #ec4c1d;
 
 /***********************************************************************************************************************/
 /***************** DARK VARIABLE *****************************/
@@ -68,49 +70,39 @@ $neu-dark-pressed--200: inset 2px 2px 1px $dark-from--200, inset -2px -2px 1px $
 /***************** LIGHT VARIABLE *****************************/
 $light-text-color: #2f2f2f;
 
-$light--700: #ffffff;
-$light--600: #f1f1f1;
-$light--500: #f0f2f5; // MAIN COLOR
-$light--400: #f0f2f5;
-$light--300: #ffffff;
-$light--200: #f0f2f5;
+$light--700: #bfc0c7;
+$light--600: #cdced5;
+$light--500: #ecedf5; // MAIN COLOR
+$light--400: #f0f2fa;
+$light--300: #f2f5fd;
+$light--200: #ffffff;
 
-
-$light-from--700: #c0c2c4;
-$light-to--700: #ffffff;
-
-$light-from--700: #1b1c1e;
-$light-to--700: #2f3034;
+$light-from--700: #9b9ca1;
+$light-to--700: #e3e4ed;
 $neu-light-flat--700: 1.5px 1.5px 1.5px $light-from--700, -1px -1px 1px $light-to--700;
 $neu-light-pressed--700: inset 2px 2px 1px $light-from--700, inset -2px -2px 1px $light-to--700;
 
-$light-from--600: #c1c1c1;
-$light-to--600: #ffffff;
+$light-from--600: #a6a7ad;
+$light-to--600: #f4f5fd;
 $neu-light-flat--600: 1.5px 1.5px 1.5px $light-from--600, -1px -1px 1px $light-to--600;
 $neu-light-pressed--600: inset 2px 2px 1px $light-from--600, inset -2px -2px 1px $light-to--600;
 
-$light-from--500: #c0c2c4;
+$light-from--500: #bfc0c6;
 $light-to--500: #ffffff;
 $neu-light-flat--500: 1.5px 1.5px 1.5px $light-from--500, -1px -1px 1px $light-to--500;
 $neu-light-pressed--500: inset 2px 2px 1px $light-from--500, inset -2px -2px 1px $light-to--500;
 
-$light-from--400: #c0c2c4;
+$light-from--400: #c2c4cb;
 $light-to--400: #ffffff;
-$light-from--400: #292a2d;
-$light-to--400: #47484f;
 $neu-light-flat--400: 1.5px 1.5px 1.5px $light-from--400, -1px -1px 1px $light-to--400;
 $neu-light-pressed--400: inset 2px 2px 1px $light-from--400, inset -2px -2px 1px $light-to--400;
 
-$light-from--300: #cccccc;
+$light-from--300: #c4c6cd;
 $light-to--300: #ffffff;
-$light-from--300: #303236;
-$light-to--300: #54565e;
 $neu-light-flat--300: 1.5px 1.5px 1.5px $light-from--300, -1px -1px 1px $light-to--300;
 $neu-light-pressed--300: inset 2px 2px 1px $light-from--300, inset -2px -2px 1px $light-to--300;
 
-$light-from--200: #c0c2c4;
+$light-from--200: #cfcfcf;
 $light-to--200: #ffffff;
-$light-from--200: #454545;
-$light-to--200: #797979;
 $neu-light-flat--200: 1.5px 1.5px 1.5px $light-from--200, -1px -1px 1px $light-to--200;
 $neu-light-pressed--200: inset 2px 2px 1px $light-from--200, inset -2px -2px 1px $light-to--200;

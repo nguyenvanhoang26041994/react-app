@@ -6,7 +6,7 @@
 }
 
 .rc-rater-item {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--rc-text-color);
   transition: all 0.25s;
   padding: 0.25em;
 

@@ -24,7 +24,6 @@ $rail-size: 1px;
   height: $avatar-size;
   width: $avatar-size;
   border-radius: 100em;
-  box-shadow: var(--rc-neu-flat--500);
   background-color: var(--rc-color--500);
   border: 1px dashed currentColor;
   display: flex;
@@ -52,18 +51,18 @@ $rail-size: 1px;
 // COMPLETED
 .rc-step.--completed {
   .rc-step-rail {
-    color: $primary-color;
+    color: $primary-color--500;
   }
 
   .rc-step-avatar {
-    background-color: $primary-color;
+    background-color: $primary-color--500;
     color: rgb(228, 230, 235);
     box-shadow: none;
     border: none;
   }
 
   .rc-step-title {
-    color: $primary-color;
+    color: $primary-color--500;
   }
 
   .rc-step-description {
@@ -74,11 +73,11 @@ $rail-size: 1px;
 // PROCESSING
 .rc-step.--processing {
   .rc-step-rail {
-    color: $primary-color;
+    color: $primary-color--500;
   }
 
   .rc-step-avatar {
-    background-color: $primary-color;
+    background-color: $primary-color--500;
     color: rgb(228, 230, 235);
     box-shadow: none;
   }
@@ -91,18 +90,18 @@ $rail-size: 1px;
 // CANCELED
 .rc-step.--canceled {
   .rc-step-rail {
-    color: $error-color;
+    color: $error-color--500;
   }
 
   .rc-step-avatar {
-    background-color: $error-color;
+    background-color: $error-color--500;
     color: rgb(228, 230, 235);
     box-shadow: none;
     border: none;
   }
 
   .rc-step-title {
-    color: $error-color;
+    color: $error-color--500;
   }
 
   .rc-step-description {
@@ -134,7 +133,7 @@ $rail-size: 1px;
     &.--completed {
       + .rc-step {
         .rc-step-rail {
-          color: $primary-color;
+          color: $primary-color--500;
           border-left: 1px dashed currentColor;
         }
       }
@@ -143,7 +142,7 @@ $rail-size: 1px;
     &.--canceled {
       + .rc-step {
         .rc-step-rail {
-          color: $error-color;
+          color: $error-color--500;
           border-left: 1px dashed currentColor;
         }
       }

@@ -4,8 +4,14 @@
   animation: zoomIn 0.25s;
   background-color: rgba(0, 0, 0, 0.6);
 
+  .rc-pure-alert-content {
+    border-color: #fff;
+    color: #fff;
+  }
+
   .rc-pure-alert-close {
     box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }
 
