@@ -9,8 +9,7 @@ const Demo = () => {
         height: '1300px',
       }}
     >
-
-      <Affix top={200}>
+      <Affix offsetTop={100}>
         <Button className="mr-10">Top 200px</Button>
       </Affix>
       <div className="flex-1">
