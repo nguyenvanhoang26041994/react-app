@@ -8,8 +8,7 @@
   background-color: transparent;
   border-radius: $border-radius;
   padding: 0 $input-spacing;
-  box-shadow: $neu-dark-pressed--500;
-
+  box-shadow: var(--rc-neu-pressed--500);
 
   &:disabled {
     cursor: not-allowed;

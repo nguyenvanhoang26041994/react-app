@@ -9,14 +9,59 @@ html {
 }
 
 body {
-  display: flex;
-  background-color: $root-bg-color;
-  color: $root-text-color;
+  --rc-text-color: #{$light-text-color};
+
+  --rc-color--700: #{$light--700};
+  --rc-color--600: #{$light--600};
+  --rc-color--500: #{$light--500};
+  --rc-color--400: #{$light--400};
+  --rc-color--300: #{$light--300};
+  --rc-color--200: #{$light--200};
+
+  --rc-neu-flat--700: #{$neu-light-flat--700};
+  --rc-neu-flat--600: #{$neu-light-flat--600};
+  --rc-neu-flat--500: #{$neu-light-flat--500};
+  --rc-neu-flat--400: #{$neu-light-flat--400};
+  --rc-neu-flat--300: #{$neu-light-flat--300};
+  --rc-neu-flat--200: #{$neu-light-flat--200};
+
+  --rc-neu-pressed--700: #{$neu-light-pressed--700};
+  --rc-neu-pressed--600: #{$neu-light-pressed--600};
+  --rc-neu-pressed--500: #{$neu-light-pressed--500};
+  --rc-neu-pressed--400: #{$neu-light-pressed--400};
+  --rc-neu-pressed--300: #{$neu-light-pressed--300};
+  --rc-neu-pressed--200: #{$neu-light-pressed--200};
 }
 
 body.dark-mode {
-  background-color: $dark-bg-color--700;
-  color: $root-darkmode-text-color;
+  --rc-text-color: #{$dark-text-color};
+
+  --rc-color--700: #{$dark--700};
+  --rc-color--600: #{$dark--600};
+  --rc-color--500: #{$dark--500};
+  --rc-color--400: #{$dark--400};
+  --rc-color--300: #{$dark--300};
+  --rc-color--200: #{$dark--200};
+
+  --rc-neu-flat--700: #{$neu-dark-flat--700};
+  --rc-neu-flat--600: #{$neu-dark-flat--600};
+  --rc-neu-flat--500: #{$neu-dark-flat--500};
+  --rc-neu-flat--400: #{$neu-dark-flat--400};
+  --rc-neu-flat--300: #{$neu-dark-flat--300};
+  --rc-neu-flat--200: #{$neu-dark-flat--200};
+
+  --rc-neu-pressed--700: #{$neu-dark-pressed--700};
+  --rc-neu-pressed--600: #{$neu-dark-pressed--600};
+  --rc-neu-pressed--500: #{$neu-dark-pressed--500};
+  --rc-neu-pressed--400: #{$neu-dark-pressed--400};
+  --rc-neu-pressed--300: #{$neu-dark-pressed--300};
+  --rc-neu-pressed--200: #{$neu-dark-pressed--200};
+}
+
+body {
+  display: flex;
+  background-color: var(--rc-color--700);
+  color: var(--rc-text-color);
 }
 
 .overflow-hidden {

@@ -5,6 +5,8 @@
   min-width: 30rem;
   width: 100%;
   border-radius: $border-radius;
+  background-color: var(--rc-color--500);
+  box-shadow: var(--rc-neu-flat--500);
 }
 
 .rc-pure-alert.--info {
@@ -42,16 +44,5 @@
 .rc-pure-alert-content {
   padding: 1.5em 1em;
   overflow: scroll;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-pure-alert {
-    background-color: $dark-bg-color--500;
-    box-shadow: $neumorphism-darkmode-flat;
-  }
-
-  .rc-pure-alert-content {
-    border-top: 1px dashed $dark-bg-color--400;
-  }
+  border-top: 1px dashed var(--rc-color--400);
 }

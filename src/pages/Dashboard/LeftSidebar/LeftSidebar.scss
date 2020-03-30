@@ -26,6 +26,7 @@
   width: 100%;
   height: 100%;
   border-radius: $border-radius;
+  background-color: var(--rc-color--400);
   overflow: scroll;
 
   &::-webkit-scrollbar {
@@ -43,12 +44,5 @@
 
   > .__menu {
     border-radius: 0;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .left-sidebar {
-    background-color: $dark-left-sidebar-bg-color;
   }
 }

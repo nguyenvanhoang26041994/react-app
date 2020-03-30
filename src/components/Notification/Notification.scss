@@ -2,7 +2,13 @@
 
 .rc-notification {
   animation: zoomIn 0.25s;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  .rc-pure-notification-title {
+    border-bottom-color: var(--rc-color--500);
+  }
 }
+
 
 .rc-notification.--close-animation {
   animation: zoomOut 0.25s;
@@ -23,14 +29,5 @@
     margin-left: 0.5em;
     box-shadow: none;
     width: 35rem;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode .rc-notification {
-  background-color: rgba(0, 0, 0, 0.65);
-
-  .rc-pure-notification-title {
-    border-bottom-color: $dark-bg-color--500;
   }
 }

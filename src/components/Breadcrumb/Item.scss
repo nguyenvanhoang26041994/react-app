@@ -2,7 +2,7 @@
 
 .rc-breadcrumb > .rc-breadcrumb-item:last-child {
   color: $primary-color;
-  background-color: $dark-bg-color--300;
+  background-color: var(--rc-color--300);
 
   &:after {
     border: none;
@@ -22,10 +22,10 @@
   cursor: pointer;
   user-select: none;
   position: relative;
-  background-color: $dark-bg-color--400;
+  background-color: var(--rc-color--400);
 
   &:hover {
-    background-color: $dark-bg-color--300;
+    background-color: var(--rc-color--300);
   }
 
   &:after {
@@ -33,8 +33,8 @@
     position: absolute;
     right: 0;
     transform: translateX(50%) rotate(45deg);
-    border-top: 1px dashed $dark-bg-color--200;
-    border-right: 1px dashed $dark-bg-color--200;
+    border-top: 1px dashed var(--rc-color--200);
+    border-right: 1px dashed var(--rc-color--200);
     height: 1.75em;
     width: 1.75em;
     background-color: inherit;
@@ -48,5 +48,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-// DARK MODE SUPPORT

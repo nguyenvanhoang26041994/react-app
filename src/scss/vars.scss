@@ -1,122 +1,31 @@
-/**
-* Spacing
-*/
+/***********************************************************************************************************************/
+/***************** COMMON VARIABLE *****************************/
+$input-height: 3rem;
+$input-spacing: 1.25em;
+$content-spacing: 1.5em;
 $basic-height: 2.5em;
 $border-radius: 0.5em;
 $border-radius-medium: 1em;
-$content-spacing: 1.5em;
 
-// Z_INDEX
 $zindex-notification: 1000;
 $zindex-alert: 1000;
 $zindex-modal: 1000;
 $zindex-confirm: 1000;
+$zindex-tooltip: 1001;
 $zindex-drawer: 1000;
-$zindex-dropdown: 1050;
 $zindex-overlay: 1010;
 
-/**
-* Root color
-*/
-
-$dark-bg-color--700: #252629;
-$dark-bg-color--600: #2b2c30;
-$dark-bg-color--500: #313236; // main
-$dark-bg-color--400: #38393e;
-$dark-bg-color--300: #42444a;
-$dark-bg-color--200: #5f5f5f;
-
-
-$body-dark-bg-color: #242529;
-
-$root-bg-color: #f0f2f5;
-$root-darkmode-bg-color: $dark-bg-color--500;
-$root-text-color: #2f2f2f;
-$root-text-inverted-color: rgb(228, 230, 235);
-$root-darkmode-text-color: rgb(228, 230, 235);
+$primary-color--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
 $placeholder-text-color: #a0aebf;
 
-$secondary-bg-color: #a1a5ab;
-$secondary-darkmode-bg-color: #2f2f2f;
-
-/**
-* Chip
-*/
-
-/**
-* Status color
-*/
 $primary-color: #0099ff;
 $success-color: #32e232;
 $warning-color: #f7aa37;
 $error-color: #ec4c1d;
 
-$gradient-primary-color: linear-gradient(145deg, #008ae6, #00a4ff);
-$gradient-success-color: linear-gradient(145deg, #2dcb2d, #36f236);
-$gradient-warning-color: linear-gradient(145deg, #de9932, #ffb63b);
-$gradient-error-color: linear-gradient(145deg, #d4441a, #fd511f);
-
-/**
-* Overlay background-color
-*/
-$overlay-bg-color: #0099ff; // Tooltip | Confirm | Alert
-$gradient-overlay-bg-color: linear-gradient(145deg, #008ae6, #00a4ff);
-$select-option-bg-color: #0099ff;
-$overlay-wrapper-bg-color: rgba(0, 0, 0, 0.8);
-
-/**
-* MENU
-*/
-
-$menu-item-bg-color: #0099ff;
-
-/**
-* Rating color
-*/
-$rater-color: #e4e4e4;
-$rater-darkmode-color: rgba(255, 255, 255, 0.2);
-$rater-active-color: #ffc107;
-
-/**
-* Progress circle stoke color
-*/
-$progress-circle-stroke-color: #0099ff;
-
-
-/**
-* Active background color
-*/
-$active-color-1: #0099ff; // Pagination | Switch | Checkbox | Radio
-$active-bg-color-neumorphism: linear-gradient(145deg, #008ae6, #00a4ff); // Switch | Checkbox | Radio
-
-/**
-* Neumorphism support
-*/
-
-$neumorphism-light-from-color: #d6d7da;
-$neumorphism-light-to-color: #ffffff;
-$neumorphism-dark-from-color: #1f2023;
-$neumorphism-dark-to-color: #434449;
-// FLAT
-$neumorphism-flat: 1.5px 1.5px 1.5px $neumorphism-light-from-color, -1px -1px 1px $neumorphism-light-to-color;
-$neumorphism-primary-flat: 1.5px 1.5px 1.5px #0084db, -1px -1px 1px #00aeff;
-$neumorphism-darkmode-flat: 1.5px 1.5px 1.5px $neumorphism-dark-from-color, -1px -1px 1px $neumorphism-dark-to-color;
-
-// PRESSED
-$neumorphism-pressed: inset 2px 2px 1px #d6d7da, inset -2px -2px 1px #ffffff;
-$neumorphism-darkmode-pressed: inset 2px 2px 1px $neumorphism-dark-from-color, inset -2px -2px 1px $neumorphism-dark-to-color;
-$neumorphism-primary-pressed: inset 1.5px 1.5px 1.5px #0084db, inset -1px -1px 1px #00aeff;
-
-$neumorphism-dark-from-color--300: #333439;
-$neumorphism-dark-to-color--300: #51545b;
-$neumorphism-darkmode-flat--300: 1.5px 1.5px 1.5px $neumorphism-dark-from-color--300, -1px -1px 1px $neumorphism-dark-to-color--300;
-$neumorphism-darkmode-pressed--300: inset 2px 2px 1px $neumorphism-dark-from-color--300, inset -2px -2px 1px $neumorphism-dark-to-color--300;
-
-
-$dark-left-sidebar-bg-color: $dark-bg-color--400;
 /***********************************************************************************************************************/
-$input-height: 3rem;
-$input-spacing: 1.25em;
+/***************** DARK VARIABLE *****************************/
+$dark-text-color: #e4e6eb;
 
 $dark--700: #252629;
 $dark--600: #2b2c30;
@@ -125,14 +34,83 @@ $dark--400: #38393e;
 $dark--300: #42444a;
 $dark--200: #5f5f5f;
 
-$light-from--500: #d6d7da;
-$light-to--500: #ffffff;
+$dark-from--700: #1b1c1e;
+$dark-to--700: #2f3034;
+$neu-dark-flat--700: 1.5px 1.5px 1.5px $dark-from--700, -1px -1px 1px $dark-to--700;
+$neu-dark-pressed--700: inset 2px 2px 1px $dark-from--700, inset -2px -2px 1px $dark-to--700;
 
-$dark-from--500: #1f2023;
-$dark-to--500: #434449;
+$dark-from--600: #1f2023;
+$dark-to--600: #37383d;
+$neu-dark-flat--600: 1.5px 1.5px 1.5px $dark-from--600, -1px -1px 1px $dark-to--600;
+$neu-dark-pressed--600: inset 2px 2px 1px $dark-from--600, inset -2px -2px 1px $dark-to--600;
 
-
-$neu-light-flat--500: 1.5px 1.5px 1.5px $light-from--500, -1px -1px 1px $light-to--500;
-$neu-light-pressed--500: 1.5px 1.5px 1.5px $light-from--500, -1px -1px 1px $light-to--500;
+$dark-from--500: #242527;
+$dark-to--500: #3e4045;
 $neu-dark-flat--500: 1.5px 1.5px 1.5px $dark-from--500, -1px -1px 1px $dark-to--500;
 $neu-dark-pressed--500: inset 2px 2px 1px $dark-from--500, inset -2px -2px 1px $dark-to--500;
+
+$dark-from--400: #292a2d;
+$dark-to--400: #47484f;
+$neu-dark-flat--400: 1.5px 1.5px 1.5px $dark-from--400, -1px -1px 1px $dark-to--400;
+$neu-dark-pressed--400: inset 2px 2px 1px $dark-from--400, inset -2px -2px 1px $dark-to--400;
+
+$dark-from--300: #303236;
+$dark-to--300: #54565e;
+$neu-dark-flat--300: 1.5px 1.5px 1.5px $dark-from--300, -1px -1px 1px $dark-to--300;
+$neu-dark-pressed--300: inset 2px 2px 1px $dark-from--300, inset -2px -2px 1px $dark-to--300;
+
+$dark-from--200: #454545;
+$dark-to--200: #797979;
+$neu-dark-flat--200: 1.5px 1.5px 1.5px $dark-from--200, -1px -1px 1px $dark-to--200;
+$neu-dark-pressed--200: inset 2px 2px 1px $dark-from--200, inset -2px -2px 1px $dark-to--200;
+
+/***********************************************************************************************************************/
+/***************** LIGHT VARIABLE *****************************/
+$light-text-color: #2f2f2f;
+
+$light--700: #ffffff;
+$light--600: #f1f1f1;
+$light--500: #f0f2f5; // MAIN COLOR
+$light--400: #f0f2f5;
+$light--300: #ffffff;
+$light--200: #f0f2f5;
+
+
+$light-from--700: #c0c2c4;
+$light-to--700: #ffffff;
+
+$light-from--700: #1b1c1e;
+$light-to--700: #2f3034;
+$neu-light-flat--700: 1.5px 1.5px 1.5px $light-from--700, -1px -1px 1px $light-to--700;
+$neu-light-pressed--700: inset 2px 2px 1px $light-from--700, inset -2px -2px 1px $light-to--700;
+
+$light-from--600: #c1c1c1;
+$light-to--600: #ffffff;
+$neu-light-flat--600: 1.5px 1.5px 1.5px $light-from--600, -1px -1px 1px $light-to--600;
+$neu-light-pressed--600: inset 2px 2px 1px $light-from--600, inset -2px -2px 1px $light-to--600;
+
+$light-from--500: #c0c2c4;
+$light-to--500: #ffffff;
+$neu-light-flat--500: 1.5px 1.5px 1.5px $light-from--500, -1px -1px 1px $light-to--500;
+$neu-light-pressed--500: inset 2px 2px 1px $light-from--500, inset -2px -2px 1px $light-to--500;
+
+$light-from--400: #c0c2c4;
+$light-to--400: #ffffff;
+$light-from--400: #292a2d;
+$light-to--400: #47484f;
+$neu-light-flat--400: 1.5px 1.5px 1.5px $light-from--400, -1px -1px 1px $light-to--400;
+$neu-light-pressed--400: inset 2px 2px 1px $light-from--400, inset -2px -2px 1px $light-to--400;
+
+$light-from--300: #cccccc;
+$light-to--300: #ffffff;
+$light-from--300: #303236;
+$light-to--300: #54565e;
+$neu-light-flat--300: 1.5px 1.5px 1.5px $light-from--300, -1px -1px 1px $light-to--300;
+$neu-light-pressed--300: inset 2px 2px 1px $light-from--300, inset -2px -2px 1px $light-to--300;
+
+$light-from--200: #c0c2c4;
+$light-to--200: #ffffff;
+$light-from--200: #454545;
+$light-to--200: #797979;
+$neu-light-flat--200: 1.5px 1.5px 1.5px $light-from--200, -1px -1px 1px $light-to--200;
+$neu-light-pressed--200: inset 2px 2px 1px $light-from--200, inset -2px -2px 1px $light-to--200;

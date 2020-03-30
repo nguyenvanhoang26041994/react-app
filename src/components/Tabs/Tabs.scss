@@ -8,7 +8,7 @@
 
 .rc-tabs-nav-item {
   &:focus {
-    box-shadow: $neumorphism-flat;
+    box-shadow: var(--rc-neu-flat--500);
   }
 }
 
@@ -18,14 +18,4 @@
 
 .rc-tabs-contents > * {
   animation: fadeIn 0.5s;
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  // anti .dark-mode .rc-button
-  .rc-tabs-nav-item {
-    &:focus {
-      box-shadow: $neumorphism-darkmode-flat;
-    }
-  }
 }

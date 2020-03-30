@@ -24,7 +24,8 @@ $rail-size: 1px;
   height: $avatar-size;
   width: $avatar-size;
   border-radius: 100em;
-  background-color: $root-bg-color;
+  box-shadow: var(--rc-neu-flat--500);
+  background-color: var(--rc-color--500);
   border: 1px dashed currentColor;
   display: flex;
   justify-content: center;
@@ -56,7 +57,7 @@ $rail-size: 1px;
 
   .rc-step-avatar {
     background-color: $primary-color;
-    color: $root-text-inverted-color;
+    color: rgb(228, 230, 235);
     box-shadow: none;
     border: none;
   }
@@ -78,7 +79,7 @@ $rail-size: 1px;
 
   .rc-step-avatar {
     background-color: $primary-color;
-    color: $root-text-inverted-color;
+    color: rgb(228, 230, 235);
     box-shadow: none;
   }
 
@@ -95,7 +96,7 @@ $rail-size: 1px;
 
   .rc-step-avatar {
     background-color: $error-color;
-    color: $root-text-inverted-color;
+    color: rgb(228, 230, 235);
     box-shadow: none;
     border: none;
   }
@@ -121,7 +122,7 @@ $rail-size: 1px;
 
   .rc-step-rail {
     border-bottom: none;
-    border-left: 1px dashed $root-darkmode-text-color;
+    border-left: 1px dashed rgb(228, 230, 235);
   }
 
   .rc-step {
@@ -167,13 +168,5 @@ $rail-size: 1px;
 
   .rc-step-title {
     margin-top: 0.5em;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode {
-  .rc-step-avatar {
-    box-shadow: $neumorphism-darkmode-flat;
-    background-color: $root-darkmode-bg-color;
   }
 }

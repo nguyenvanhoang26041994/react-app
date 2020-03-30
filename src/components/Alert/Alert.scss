@@ -2,6 +2,11 @@
 
 .rc-alert {
   animation: zoomIn 0.25s;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .rc-pure-alert-close {
+    box-shadow: none;
+  }
 }
 
 .rc-alert.--close-animation {
@@ -24,14 +29,5 @@
     margin-right: 0.5em;
     box-shadow: none;
     width: 35rem;
-  }
-}
-
-// DARK MODE SUPPORT
-.dark-mode .rc-alert {
-  background-color: rgba(0, 0, 0, 0.65);
-
-  .rc-pure-alert-close {
-    box-shadow: none;
   }
 }

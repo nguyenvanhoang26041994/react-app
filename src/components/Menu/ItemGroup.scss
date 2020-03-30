@@ -27,7 +27,7 @@
   &:before {
     flex-grow: 1;
     content: " ";
-    border-bottom: 1px dashed $dark-bg-color--500;
+    border-bottom: 1px dashed var(--rc-color--500);
   }
 
   &:before {
@@ -35,4 +35,3 @@
     flex-grow: unset;
   }
 }
-
