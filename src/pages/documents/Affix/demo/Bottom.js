@@ -10,7 +10,7 @@ const Demo = () => {
       }}
     >
       <div className="flex w-full">
-        <Affix offsetBottom={50}>
+        <Affix bottom={100}>
           <Button className="mr-10">Bottom 100px</Button>
         </Affix>
         <div className="flex-1">
@@ -35,7 +35,7 @@ export default () => {
       }}
     >
       <div className="flex w-full">
-        <Affix offsetBottom={50}>
+        <Affix bottom={100}>
           <Button className="mr-10">Bottom 100px</Button>
         </Affix>
         <div className="flex-1">

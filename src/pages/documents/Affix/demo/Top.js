@@ -9,7 +9,7 @@ const Demo = () => {
         height: '1300px',
       }}
     >
-      <Affix offsetTop={100}>
+      <Affix top={200}>
         <Button className="mr-10">Top 200px</Button>
       </Affix>
       <div className="flex-1">
@@ -32,7 +32,7 @@ export default () => {
       }}
     >
 
-      <Affix offsetTop={100}>
+      <Affix top={200}>
         <Button className="mr-10">Top 200px</Button>
       </Affix>
       <div className="flex-1">

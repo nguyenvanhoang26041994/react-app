@@ -1,137 +1,107 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useMemo, useRef, useLayoutEffect, useCallback, useEffect } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-export default class Affix extends PureComponent {
-  constructor(props) {
-    super(props);
+import getLatestProp from '../../utils/getLatestProp';
 
-    this.state = {
-      top: null,
-      left: null,
-      height: null,
-      width: null,
-      bottom: null
-    };
+require('./Affix.scss');
 
-    this.fixedNode = React.createRef();
-    this.placeHolderNode = React.createRef();
+const mDirections = Object.freeze({
+  top: 'top',
+  bottom: 'bottom',
+});
 
-    this.events = [
-      'resize',
-      'scroll',
-      'touchstart',
-      'touchmove',
-      'touchend',
-      'pageshow',
-      'load'
-    ];
-    this.handleScroll = this.handleScroll.bind(this);
-  }
+const Affix = ({ children, className, ...otherProps }) => {
+  const [sticky, setSticky] = useState(false);
+  const [boxModel, setBoxModel] = useState({});
 
-  componentDidMount() {
-    this.getInitPosition();
-    this.events.forEach(event =>
-      window.addEventListener(event, this.handleScroll)
-    );
-  }
+  const placeHolderRef = useRef();
+  const affixRef = useRef();
 
-  componentWillUnmount() {
-    this.events.forEach(event =>
-      window.removeEventListener(event, this.handleScroll)
-    );
-  }
+  const direction = useMemo(() => mDirections[getLatestProp(otherProps, ['top', 'bottom'])], [
+    otherProps.top,
+    otherProps.bottom,
+  ]);
 
-  getElmRect(elm) {
-    return elm.getBoundingClientRect();
-  }
-
-  getInitPosition() {
-    const { top, left, bottom, height, width } = this.getElmRect(this.fixedNode.current);
-
-    this.setState({
-      top,
-      left,
-      height,
-      width,
-      bottom: window.innerHeight - bottom
-    });
-  }
-
-  handleScroll() {
-    const { top, left, bottom } = this.getElmRect(this.placeHolderNode.current);
-
-    this.setState({
-      top,
-      left,
-      bottom: window.innerHeight - bottom
-    });
-  }
-
-  calculate() {
-    let affixStyle = {};
-    let placeHolderStyle = {};
-    const { offsetTop, offsetBottom } = this.props;
-    const {
-      top,
-      left,
-      height,
-      width,
-      bottom,
-  } = this.state;
-
-    if (offsetTop !== undefined && top && top < offsetTop) {
-      affixStyle = {
-        left,
-        height,
-        width,
-        position: 'fixed',
-        zIndex: 10,
-        top: offsetTop
-      };
-      placeHolderStyle = {
-        height,
-        width
-      };
-    } else if (offsetBottom !== undefined && bottom && bottom < offsetBottom) {
-      affixStyle = {
-        left,
-        height,
-        width,
-        position: 'fixed',
-        zIndex: 10,
-        bottom: offsetBottom
-      };
-      placeHolderStyle = {
-        height,
-        width,
-      };
+  const makeSticky = useCallback(() => {
+    if (!direction) {
+      return null;
     }
 
-    return { affixStyle, placeHolderStyle };
-  }
+    const { top: placeHolderTop, bottom: placeHolderBottom } = placeHolderRef.current.getBoundingClientRect();
 
-  render() {
-    const { children } = this.props;
-    const { affixStyle, placeHolderStyle } = this.calculate();
+    if (direction === 'top') {
+      if(placeHolderTop < otherProps.top) {
+        return setSticky(true);
+      }
+      return setSticky(false);
+    }
 
-    return (
-      <div>
-        <div ref={this.placeHolderNode} style={placeHolderStyle}></div>
-        <div ref={this.fixedNode} style={affixStyle}>
+    if (direction === 'bottom') {
+      if(placeHolderBottom > window.innerHeight - otherProps.bottom) {
+        return setSticky(true);
+      }
+      return setSticky(false);
+    }
+  } ,[direction, otherProps[direction]]);
+
+  useEffect(() => {
+    setBoxModel({
+      clientHeight: affixRef.current.clientHeight,
+      clientWidth: Math.ceil(affixRef.current.clientWidth + 0.1),
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    makeSticky();
+
+    const handler = () => makeSticky();
+    window.addEventListener('scroll', handler);
+
+    return () =>  window.removeEventListener('scroll', handler);
+  }, [makeSticky]);
+
+  const stickyPlaceholderStyle = {
+    width: boxModel.clientWidth,
+    height: boxModel.clientHeight,
+  };
+
+  const stickyStyle = useMemo(() => {
+    return {
+      position: 'fixed',
+      [direction]: otherProps[direction],
+      width: boxModel.clientWidth,
+      height: boxModel.clientHeight,
+    };
+  }, [
+    sticky,
+    direction,
+    otherProps[direction],
+    boxModel.clientWidth,
+    boxModel.clientHeight,
+  ]);
+
+  return (
+      <div className="rc-affix-container">
+        <div style={sticky ? stickyPlaceholderStyle : {}} ref={placeHolderRef} />
+        <div
+            ref={affixRef}
+            className={cn({ 'rc-affix': sticky })}
+            style={sticky ? stickyStyle : {}}
+        >
           {children}
         </div>
       </div>
-    );
-  }
-}
-
-Affix.defaultProps = {
-  offsetTop: undefined,
-  offsetBottom: undefined
+  );
 };
 
+Affix.displayName = 'Affix';
 Affix.propTypes = {
+  top: PropTypes.number,
+  bottom: PropTypes.number,
   children: PropTypes.object,
-  offsetTop: PropTypes.number,
-  offsetBottom: PropTypes.number
+  className: PropTypes.string,
 };
+Affix.defaultProps = {};
+
+export default Affix;
