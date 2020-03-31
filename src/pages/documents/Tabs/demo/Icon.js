@@ -22,7 +22,7 @@ const Demo = () => {
         <Tabs.Item title="Tab One" key="tab-1" icon="desktop">
           <Description content="Description One" />
         </Tabs.Item>
-        <Tabs.Item title="Tab Two" key="tab-2" icon="comments">
+        <Tabs.Item title="Tab Two" key="tab-2" iconRight="comments">
           <Description content="Description Two" />
         </Tabs.Item>
         <Tabs.Item title="Tab Three" key="tab-3" icon="copy">
@@ -61,7 +61,7 @@ export default () => {
         <Tabs.Item title="Tab One" key="tab-1" icon="desktop">
           <Description content="Description One" />
         </Tabs.Item>
-        <Tabs.Item title="Tab Two" key="tab-2" icon="comments">
+        <Tabs.Item title="Tab Two" key="tab-2" iconRight="comments">
           <Description content="Description Two" />
         </Tabs.Item>
         <Tabs.Item title="Tab Three" key="tab-3" icon="copy">
