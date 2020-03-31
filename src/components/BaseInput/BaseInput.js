@@ -6,12 +6,14 @@ require('./BaseInput.scss');
 
 const BaseInput = React.forwardRef(({ className, htmlType, ...otherProps }, ref) => {
   return (
-    <input
-      {...otherProps}
-      ref={ref}
-      className={cn('rc-input', className)}
-      type={htmlType}
-    />
+    <div className="rc-input-container">
+      <input
+        {...otherProps}
+        ref={ref}
+        className={cn('rc-input', className)}
+        type={htmlType}
+      />
+    </div>
   );
 });
 

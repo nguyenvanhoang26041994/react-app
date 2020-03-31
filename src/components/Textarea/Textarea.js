@@ -6,11 +6,13 @@ require('./Textarea.scss');
 
 const Textarea = React.forwardRef(({ className, ...otherProps }, ref) => {
   return (
-    <textarea
-      {...otherProps}
-      ref={ref}
-      className={cn('rc-textarea', className)}
-    />
+    <div className="rc-textarea-container">
+      <textarea
+        {...otherProps}
+        ref={ref}
+        className={cn('rc-textarea', className)}
+      />
+    </div>
   );
 });
 
