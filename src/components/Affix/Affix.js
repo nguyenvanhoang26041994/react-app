@@ -1,4 +1,11 @@
-import React, { useState, useMemo, useRef, useLayoutEffect, useCallback, useEffect } from 'react';
+import React, {
+  useState,
+  useMemo,
+  useRef,
+  useLayoutEffect,
+  useCallback,
+  useEffect
+} from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,100 +14,103 @@ import getLatestProp from '../../utils/getLatestProp';
 require('./Affix.scss');
 
 const mDirections = Object.freeze({
-    top: 'top',
-    bottom: 'bottom',
+  top: 'top',
+  bottom: 'bottom',
 });
 
 const Affix = ({ children, className, ...otherProps }) => {
-    const [sticky, setSticky] = useState(false);
-    const [boxModel, setBoxModel] = useState({});
+  const [sticky, setSticky] = useState(false);
+  const [boxModel, setBoxModel] = useState({});
 
-    const placeHolderRef = useRef();
-    const affixRef = useRef();
+  const placeHolderRef = useRef();
+  const affixRef = useRef();
 
-    const direction = useMemo(() => mDirections[getLatestProp(otherProps, ['top', 'bottom'])], [
-        otherProps.top,
-        otherProps.bottom,
-    ]);
+  const direction = useMemo(
+    () => mDirections[getLatestProp(otherProps, ['top', 'bottom'])],
+    [otherProps.top, otherProps.bottom]
+  );
 
-    const makeSticky = useCallback(() => {
-        if (!direction) {
-            return null;
-        }
+  const makeSticky = useCallback(() => {
+    if (!direction) {
+      return null;
+    }
 
-        const { top: placeHolderTop, bottom: placeHolderBottom } = placeHolderRef.current.getBoundingClientRect();
+    const {
+      top: placeHolderTop,
+      bottom: placeHolderBottom,
+    } = placeHolderRef.current.getBoundingClientRect();
 
-        if (direction === 'top') {
-            if(placeHolderTop < otherProps.top) {
-                return setSticky(true);
-            }
-            return setSticky(false);
-        }
+    if (direction === 'top') {
+      if (placeHolderTop < otherProps.top) {
+        return setSticky(true);
+      }
+      return setSticky(false);
+    }
 
-        if (direction === 'bottom') {
-            if(placeHolderBottom > window.innerHeight - otherProps.bottom) {
-                return setSticky(true);
-            }
-            return setSticky(false);
-        }
-    } ,[direction, otherProps[direction]]);
+    if (direction === 'bottom') {
+      if (placeHolderBottom > window.innerHeight - otherProps.bottom) {
+        return setSticky(true);
+      }
+      return setSticky(false);
+    }
+  }, [direction, otherProps[direction]]);
 
-    useEffect(() => {
-        setBoxModel({
-            clientHeight: affixRef.current.clientHeight,
-            clientWidth: Math.ceil(affixRef.current.clientWidth + 0.1),
-        });
-    }, []);
+  useEffect(() => {
+    setBoxModel({
+      clientHeight: affixRef.current.clientHeight,
+      clientWidth: Math.ceil(affixRef.current.clientWidth + 0.1),
+    });
+  }, []);
 
-    useLayoutEffect(() => {
-        makeSticky();
+  useLayoutEffect(() => {
+    makeSticky();
 
-        const handler = () => makeSticky();
-        window.addEventListener('scroll', handler);
+    const handler = () => makeSticky();
+    window.addEventListener('scroll', handler);
 
-        return () =>  window.removeEventListener('scroll', handler);
-    }, [makeSticky]);
+    return () => window.removeEventListener('scroll', handler);
+  }, [makeSticky]);
 
-    const stickyPlaceholderStyle = {
-        width: boxModel.clientWidth,
-        height: boxModel.clientHeight,
+  const stickyPlaceholderStyle = {
+    width: boxModel.clientWidth,
+    height: boxModel.clientHeight,
+  };
+
+  const stickyStyle = useMemo(() => {
+    return {
+      position: 'fixed',
+      [direction]: otherProps[direction],
+      width: boxModel.clientWidth,
+      height: boxModel.clientHeight,
     };
+  }, [
+    sticky,
+    direction,
+    otherProps[direction],
+    boxModel.clientWidth,
+    boxModel.clientHeight,
+  ]);
 
-    const stickyStyle = useMemo(() => {
-        return {
-            position: 'fixed',
-            [direction]: otherProps[direction],
-            width: boxModel.clientWidth,
-            height: boxModel.clientHeight,
-        };
-    }, [
-        sticky,
-        direction,
-        otherProps[direction],
-        boxModel.clientWidth,
-        boxModel.clientHeight,
-    ]);
-
-    return (
-        <div className="rc-affix-container">
-            <div style={sticky ? stickyPlaceholderStyle : {}} ref={placeHolderRef} />
-            <div
-                ref={affixRef}
-                className={cn({ 'rc-affix': sticky })}
-                style={sticky ? stickyStyle : {}}
-            >
-                {children}
-            </div>
-        </div>
-    );
+  return (
+    <div className="rc-affix-container">
+      <div style={sticky ? stickyPlaceholderStyle : {}} ref={placeHolderRef} />
+      <div
+        ref={affixRef}
+        className={cn({ 'rc-affix': sticky })}
+        style={sticky ? stickyStyle : {}}
+      >
+        {children}
+      </div>
+    </div>
+  );
 };
 
 Affix.displayName = 'Affix';
 Affix.propTypes = {
-    top: PropTypes.number,
-    bottom: PropTypes.number,
-    children: PropTypes.object,
-    className: PropTypes.string,
+  top: PropTypes.number,
+  bottom: PropTypes.number,
+  children: PropTypes.object,
+  className: PropTypes.string,
 };
 Affix.defaultProps = {};
 
