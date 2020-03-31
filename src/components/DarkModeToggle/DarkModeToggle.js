@@ -7,7 +7,7 @@ require('./DarkModeToggle.scss');
 const DarkModeToggle = (props) => {
   const [isDark, setIsDark] = useState();
 
-  const handleToogleDarkMode = useCallback(() => setIsDark(prev => !prev));
+  const onChange = useCallback(e => setIsDark(e.target.checked), []);
 
   useEffect(() => {
     setIsDark(document.body.classList.contains('dark-mode'));
@@ -25,7 +25,7 @@ const DarkModeToggle = (props) => {
     <div style={{ display: 'flex', alignItems: 'center' }} {...props}>
       <Switch
         checked={isDark}
-        onChange={handleToogleDarkMode}
+        onChange={onChange}
       />
     </div>
   );

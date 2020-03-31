@@ -31,6 +31,19 @@ const Demo = () => {
   );
 };
 
+Demo.description = `
+<Stepper.Step completed /> ~ <Stepper.Step status="completed" />
+<Stepper.Step canceled /> ~ <Stepper.Step status="canceled" />
+<Stepper.Step processing /> ~ <Stepper.Step status="processing" />
+Shorter is better
+
+<Stepper.Step completed processing /> ~ <Stepper.Step status="processing" />
+The last one will be work
+
+<Stepper.Step status="canceled" processing /> ~ <Stepper.Step status="canceled" />
+'status' will be overide all semantic prop
+`;
+
 Demo.code = `
 import React from 'react';
 import { Stepper } from '@/components/core';

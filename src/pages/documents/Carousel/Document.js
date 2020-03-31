@@ -7,11 +7,11 @@ export default () => {
   return (
     <div className="flex">
       <div className="w-1/2 pr-2">
-        <Codebox className="mb-5" header="BASIC" href="avatar-basic" code={Basic.code}>
+        <Codebox className="mb-2" header="BASIC" href="avatar-basic" code={Basic.code}>
           <Basic />
         </Codebox>
       </div>
-      <div className="w-1/2 pl-2">
+      <div className="w-1/2">
       </div>
     </div>
   );

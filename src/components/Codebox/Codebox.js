@@ -4,7 +4,7 @@ import { Icon, Divider } from '../core';
 
 require('./Codebox.scss');
 
-const Codebox = ({ children, header, defaultExpanded, href, code, className }) => {
+const Codebox = ({ children, header, defaultExpanded, href, code, description, className }) => {
   const [expanded, setExpanded] = useState(defaultExpanded);
   const toggleExpanded = useCallback(() => setExpanded(prev => !prev), []);
 
@@ -14,9 +14,16 @@ const Codebox = ({ children, header, defaultExpanded, href, code, className }) =
       <div className="code-box-demo">
         {children}
       </div>
+      <div className={cn('code-box-description', { '--hidden': !description })}>
+        <Divider dashed />
+        <pre>
+          {description}
+        </pre>
+      </div>
       <div className={cn('code-box-guide', { '--expanded': expanded, '--hidden': !code })}>
         <Divider
           dashed
+          transparent={!expanded}
           right
           title={(
             <span onClick={toggleExpanded} className="code-box-collapse-code-header">

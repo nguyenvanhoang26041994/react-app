@@ -9,12 +9,12 @@ export default () => {
   return (
     <div className="flex">
       <div className="w-1/3 pr-2">
-        <Codebox className="mb-5" header="UNCONTROLLED" href="checkbox-uncontrolled" code={UnControlled.code}>
+        <Codebox className="mb-2" header="UNCONTROLLED" href="checkbox-uncontrolled" code={UnControlled.code}>
           <UnControlled />
         </Codebox>
       </div>
-      <div className="w-1/3 pl-2">
-        <Codebox className="mb-5" header="CONTROLLED" href="checkbox-controlled" code={Controlled.code}>
+      <div className="w-1/3">
+        <Codebox className="mb-2" header="CONTROLLED" href="checkbox-controlled" code={Controlled.code}>
           <Controlled />
         </Codebox>
       </div>

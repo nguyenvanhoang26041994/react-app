@@ -18,7 +18,7 @@ const mDirections = Object.freeze({
   right: '--right',
 });
 
-const Divider = ({ className, title, ...otherProps }) => {
+const Divider = ({ className, title, transparent,  ...otherProps }) => {
   const type = useSemanticProp('type', otherProps, Object.keys(mTypes));
 
   const direction = useSemanticProp('direction', otherProps, Object.keys(mDirections), [
@@ -38,7 +38,18 @@ const Divider = ({ className, title, ...otherProps }) => {
   ]), [otherProps]);
 
   return (
-    <div className={cn('rc-divider', mTypes[type], mDirections[direction],className)} {...passedProps}>
+    <div className={
+      cn(
+        'rc-divider',
+        {
+          '--transparent': transparent,
+        },
+        mTypes[type],
+        mDirections[direction],
+        className
+      )}
+      {...passedProps}
+    >
       {title && <div className="rc-divider-title">{title}</div>}
     </div>
   );
@@ -52,6 +63,7 @@ Divider.propTypes = {
   solid: PropTypes.bool,
   dashed: PropTypes.bool,
   dotted: PropTypes.bool,
+  transparent: PropTypes.bool,
   direction: PropTypes.string,
 };
 Divider.defaultProps = {};

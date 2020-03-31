@@ -14,12 +14,11 @@
   user-select: none;
   touch-action: manipulation;
   cursor: pointer;
-  transition: all 0.25s;
   background-color: var(--rc-color--500);
   box-shadow: var(--rc-neu-flat--500);
 
-  &:focus,
-  &.--pressed {
+  &:focus:not(.--primary):not(.--danger),
+  &.--pressed:not(.--primary):not(.--danger) {
     box-shadow: var(--rc-neu-pressed--500);
   }
 
@@ -41,4 +40,14 @@
 
 .rc-button.--rounded {
   border-radius: 100em;
+}
+
+.rc-button.--primary {
+  background-color: $primary-color--500;
+  color: $dark-text-color;
+}
+
+.rc-button.--danger {
+  background-color: $red-color--500;
+  color: $dark-text-color;
 }

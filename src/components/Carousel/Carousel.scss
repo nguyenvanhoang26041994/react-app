@@ -11,7 +11,7 @@
 .rc-carousel-box {
   display: flex;
   flex-wrap: nowrap;
-  transition: all 0.5s;
+  transition: left 0.5s, right 0.5s;
   position: absolute;
 }
 

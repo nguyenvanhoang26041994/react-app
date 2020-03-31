@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from 'react';
 
 export default (propName, props, config) => {
   const isControlled = useMemo(() => props.hasOwnProperty(propName), [propName]);

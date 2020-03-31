@@ -11,18 +11,18 @@ export default () => {
   return (
     <div className="flex">
       <div className="w-1/3 pr-2">
-        <Codebox className="mb-5" header="BASIC" href="icon-basic" code={Basic.code}>
+        <Codebox className="mb-2" header="BASIC" href="icon-basic" code={Basic.code}>
           <Basic />
         </Codebox>
-        <Codebox className="mb-5" header="COLOR" href="icon-color" code={Color.code}>
+        <Codebox className="mb-2" header="COLOR" href="icon-color" code={Color.code}>
           <Color />
         </Codebox>
-        <Codebox className="mb-5" header="SIZE" href="icon-size" code={Size.code}>
+        <Codebox className="mb-2" header="SIZE" href="icon-size" code={Size.code}>
           <Size />
         </Codebox>
       </div>
-      <div className="w-2/3 pl-2">
-        <Codebox className="mb-5" header="COLLECTION" href="icon-collection">
+      <div className="w-2/3">
+        <Codebox className="mb-2" header="COLLECTION" href="icon-collection">
           <Collection />
         </Codebox>
       </div>

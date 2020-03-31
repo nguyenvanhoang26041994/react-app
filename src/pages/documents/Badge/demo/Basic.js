@@ -11,7 +11,10 @@ const FancyBox = ({ size }) => (
 const Demo = () => {
   return (
     <div className="flex">
-      <Badge count={20}>
+      <Badge count={7} className="mr-5">
+        <FancyBox size="50px" />
+      </Badge>
+      <Badge count={999}>
         <FancyBox size="50px" />
       </Badge>
     </div>
@@ -24,7 +27,7 @@ import { Badge } from '@/components/core';
 
 const FancyBox = ({ size }) => (
   <div
-    className="neumorphism"
+    className="neumorphism--500"
     style={{ height: size, width: size }}
   />
 );
@@ -32,7 +35,10 @@ const FancyBox = ({ size }) => (
 export default () => {
   return (
     <div className="flex">
-      <Badge count={20}>
+      <Badge count={7} className="mr-5">
+        <FancyBox size="50px" />
+      </Badge>
+      <Badge count={999}>
         <FancyBox size="50px" />
       </Badge>
     </div>

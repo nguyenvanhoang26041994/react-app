@@ -43,11 +43,10 @@
   display: block;
   height: 100%;
   width: 100%;
-  transition: all 0.25s;
+  transition: background-color 0.25s, box-shadow 0.25s;
   border-radius: 100em;
   box-shadow: var(--rc-neu-flat--500);
   background-color: var(--rc-color--500);
-  transition: all 0.25s;
 }
 
 .rc-radio-second-inner {
@@ -57,7 +56,7 @@
   transform: translate(-50%, -50%);
   height: 50%;
   width: 50%;
-  transition: all 0.25s;
+  transition: background-color 0.25s, box-shadow 0.25s;
   border-radius: 100em;
   box-shadow: var(--rc-neu-pressed--500);
 }

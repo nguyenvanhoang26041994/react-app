@@ -35,7 +35,6 @@ Tooltip.propTypes = {
   className: PropTypes.string,
 };
 Tooltip.defaultProps = {
-  placement: 'top',
   gap: 15,
 };
 

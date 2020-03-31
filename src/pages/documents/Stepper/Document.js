@@ -12,24 +12,24 @@ export default () => {
   return (
     <div className="flex">
       <div className="w-1/2 pr-2">
-        <Codebox className="mb-5" header="BASIC" href="stepper-basic" code={Basic.code}>
+        <Codebox className="mb-2" header="BASIC" href="stepper-basic" code={Basic.code}>
           <Basic />
         </Codebox>
-        <Codebox className="mb-5" header="VERTICAL" href="stepper-vertical" code={Vertical.code}>
+        <Codebox className="mb-2" header="VERTICAL" href="stepper-vertical" code={Vertical.code}>
           <Vertical />
         </Codebox>
-        <Codebox className="mb-5" header="WITH ICON" href="stepper-icon" code={IconDemo.code}>
+        <Codebox className="mb-2" header="WITH ICON" href="stepper-icon" code={IconDemo.code}>
           <IconDemo />
         </Codebox>
       </div>
-      <div className="w-1/2 pl-2">
-        <Codebox className="mb-5" header="COMPLEX" href="stepper-complex" code={Complex.code}>
+      <div className="w-1/2">
+        <Codebox className="mb-2" header="COMPLEX" href="stepper-complex" code={Complex.code}>
           <Complex />
         </Codebox>
-        <Codebox className="mb-5" header="STATIC" href="stepper-static" code={Static.code}>
+        <Codebox className="mb-2" header="STATIC" href="stepper-static" code={Static.code}>
           <Static />
         </Codebox>
-        <Codebox className="mb-5" header="SEMANTIC PROPS" href="stepper-semantic-props" code={Semantic.code}>
+        <Codebox className="mb-2" header="SEMANTIC PROPS" href="stepper-semantic-props" code={Semantic.code} description={Semantic.description}>
           <Semantic />
         </Codebox>
       </div>

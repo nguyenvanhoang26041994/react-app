@@ -23,7 +23,7 @@ const Avatar = ({ className, src, style, name, fontSize, color, ...otherProps })
 
   return (
     <div
-      className={cn('rc-avatar', { '--neumorphism': !src }, mShape[shape], className)}
+      className={cn('rc-avatar', { '--neumorphism': !src }, mShape[shape] || '--circle', className)}
       style={{
         ...style,
         fontSize,

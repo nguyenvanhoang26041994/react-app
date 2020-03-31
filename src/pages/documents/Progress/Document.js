@@ -10,18 +10,18 @@ export default () => {
   return (
     <div className="flex">
       <div className="w-1/3 pr-2">
-        <Codebox className="mb-5" header="PROGRESS CIRCLE" href="progress-basic-circle" code={Basic.code}>
+        <Codebox className="mb-2" header="PROGRESS CIRCLE" href="progress-basic-circle" code={Basic.code}>
           <Basic />
         </Codebox>
-        <Codebox className="mb-5" header="PROGRESS CIRCLE SIZE" href="progress-circle-size" code={Size.code}>
+        <Codebox className="mb-2" header="PROGRESS CIRCLE SIZE" href="progress-circle-size" code={Size.code}>
           <Size />
         </Codebox>
       </div>
-      <div className="w-2/3 pl-2">
-        <Codebox className="mb-5" header="PROGRESS LINE" href="progress-basic-line" code={LineBasic.code}>
+      <div className="w-2/3">
+        <Codebox className="mb-2" header="PROGRESS LINE" href="progress-basic-line" code={LineBasic.code}>
           <LineBasic />
         </Codebox>
-        <Codebox className="mb-5" header="PROGRESS LINE NO TEXT" href="progress-notext-line" code={NoText.code}>
+        <Codebox className="mb-2" header="PROGRESS LINE NO TEXT" href="progress-notext-line" code={NoText.code}>
           <NoText />
         </Codebox>
       </div>

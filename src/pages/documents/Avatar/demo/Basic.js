@@ -21,6 +21,17 @@ const Demo = () => {
   );
 };
 
+Demo.description = `
+<Avatar circle /> ~ <Avatar shape="circle" />
+<Avatar square /> ~ <Avatar shape="square" />
+
+<Avatar square circle /> ~ <Avatar shape="circle" />
+The last one will be work
+
+<Avatar shape="square" circle /> ~ <Avatar shape="square" />
+'shape' will override semantic prop
+`;
+
 Demo.code = `
 import React from 'react';
 import { Avatar } from '@/components/core';

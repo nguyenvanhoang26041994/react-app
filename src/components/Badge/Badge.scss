@@ -1,27 +1,151 @@
 @import '../../scss/vars.scss';
 
+@keyframes badgeCountUp {
+  0% {
+   transform: scale(0);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes badgeCountUpOpacity {
+  0% {
+   opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.rc-badge-count.--badge-up-animation {
+  animation: badgeCountUpOpacity 0.5s;
+
+  > b {
+    animation: badgeCountUp 0.35s;
+  }
+}
+
 .rc-badge {
   position: relative;
+  display: inline-block;
 }
 
 .rc-badge-count {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   position: absolute;
-  height: 1.5rem;
-  min-width: 1.5rem;
-  padding: 0 0.5rem;
+  height: 2.25em;
+  min-width: 2.25em;
+  padding: 0 0.5em;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: $red-color--500;
+  border: 2px solid var(--rc-color--500);
   color: #fff;
   border-radius: 100rem;
   font-family: sans-serif;
 }
-.rc-badge.--top-right {
-  .rc-badge-count {
-    bottom: 100%;
-    left: 100%;
 
-    transform: translateX(-1rem) translateY(1rem);
+.rc-badge-count.--hidden {
+  display: none;
+}
+
+.rc-badge.--top-right .rc-badge-count,
+.rc-badge.--right-top .rc-badge-count {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.rc-badge.--right .rc-badge-count {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.rc-badge.--bottom-right .rc-badge-count,
+.rc-badge.--right-bottom .rc-badge-count {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.rc-badge.--bottom .rc-badge-count {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.rc-badge.--bottom-left .rc-badge-count,
+.rc-badge.--left-bottom .rc-badge-count {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.rc-badge.--left .rc-badge-count {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rc-badge.--left-top .rc-badge-count,
+.rc-badge.--top-left .rc-badge-count {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.rc-badge.--top .rc-badge-count {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// OVERLAP SUPPORT
+.rc-badge.--overlap.--top-right,
+.rc-badge.--overlap.--right-top {
+  .rc-badge-count {
+    top: 14%;
+    right: 14%;
+  }
+}
+
+.rc-badge.--overlap.--right-bottom,
+.rc-badge.--overlap.--bottom-right {
+  .rc-badge-count {
+    bottom: 14%;
+    right: 14%;
+  }
+}
+
+.rc-badge.--overlap.--left-bottom,
+.rc-badge.--overlap.--bottom-left {
+  .rc-badge-count {
+    bottom: 14%;
+    left: 14%;
+  }
+}
+
+.rc-badge.--overlap.--left-top,
+.rc-badge.--overlap.--top-left {
+  .rc-badge-count {
+    top: 14%;
+    left: 14%;
+  }
+}
+
+// DOT SUPPORT
+.rc-badge.--dot {
+  .rc-badge-count {
+    > b {
+      display: none;
+    }
+
+    height: 1.25em;
+    width: 1.25em;
+    min-width: 0;
+    padding:0;
   }
 }

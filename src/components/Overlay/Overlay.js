@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { createRef, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
@@ -6,23 +6,11 @@ import PropTypes from 'prop-types';
 import Portal from '../Portal';
 import getPosition from '../../utils/getPosition';
 import renderPlacement from './renderPlacement';
+import mPlacements from '../placements';
+import useSemanticProp from '../../hooks/useSemanticProp';
+import { omit } from '../../utils/helpers';
 
 require('./Overlay.scss');
-
-const mPlacements = Object.freeze({
-  'top': '--top',
-  'top-right': '--top-right',
-  'right-top': '--right-top',
-  'right-bottom': '--right-bottom',
-  'bottom-right': '--bottom-right',
-  'bottom': '--bottom',
-  'bottom-left': '--bottom-left',
-  'left-bottom': '--left-bottom',
-  'left': '--left',
-  'left-top': '--left-top',
-  'top-left': '--top-left',
-  'right': '--right',
-});
 
 class Overlay extends React.Component {
   static getDerivedStateFromProps(props, state) {
@@ -270,4 +258,19 @@ Overlay.defaultProps = {
   onVisibleChange: f => f,
 };
 
-export default Overlay;
+const SupportSemanticPlacement = (props) => {
+  const placement = useSemanticProp('placement', props, Object.keys(mPlacements));
+  const passedProps = useMemo(() => omit(props, [
+    ...Object.keys(mPlacements),
+    'placement',
+  ]), [props]);
+
+  return (
+    <Overlay
+      {...passedProps}
+      placement={placement || 'top'}
+    />
+  );
+};
+
+export default SupportSemanticPlacement;

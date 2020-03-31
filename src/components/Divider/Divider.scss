@@ -18,6 +18,13 @@
   }
 }
 
+.rc-divider.--transparent {
+  &:after,
+  &:before {
+    border-color: transparent;
+  }
+}
+
 .rc-divider-title {
   padding: 0 0.5em;
 }

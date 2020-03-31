@@ -16,6 +16,19 @@
   justify-content: center;
   padding: 2rem;
 }
+
+.code-box-description {
+  padding: 1rem 2rem;
+
+  pre {
+    font-size: 0.9rem;
+  }
+}
+
+.code-box-description.--hidden {
+  display: none;
+}
+
 .code-box-guide {
   display: flex;
   flex-direction: column;

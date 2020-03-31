@@ -10,7 +10,7 @@
   border-radius: 100em;
   box-shadow: var(--rc-neu-flat--500);
   background-color: var(--rc-color--500);
-  transition: all 0.25s;
+  transition: background-color 0.25s, box-shadow 0.25s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -49,5 +49,5 @@
   width: 1.5em;
   margin: 0 0.25em;
   border-radius: 100em;
-  transition: all 0.4s;
+  transition: box-shadow 0.25s, transform 0.25s;
 }
