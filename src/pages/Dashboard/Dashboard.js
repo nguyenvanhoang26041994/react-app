@@ -37,6 +37,7 @@ const TextareaDocument = loadable(() => import('../documents/Textarea'));
 const InputNumberDocument = loadable(() => import('../documents/InputNumber'));
 const SelectDocument = loadable(() => import('../documents/Select'));
 const BadgeDocument = loadable(() => import('../documents/Badge'));
+const AnchorDocument = loadable(() => import('../documents/Anchor'));
 
 const _home = {
   key: 'home',
@@ -218,6 +219,11 @@ const mapRouter = Object.freeze({
     title: 'Select',
     _href: '/document/select',
   }],
+  '/document/anchor': [_home, _overlay, {
+    key: 'anchor',
+    title: 'Anchor',
+    _href: '/document/anchor',
+  }],
 });
 
 require('./Dashboard.scss');
@@ -276,6 +282,7 @@ const Dashboard = ({}) => {
               <Route path="/document/input-number" component={InputNumberDocument} />
               <Route path="/document/select" component={SelectDocument} />
               <Route path="/document/badge" component={BadgeDocument} />
+              <Route path="/document/anchor" component={AnchorDocument} />
             </Switch>
           </div>
         </div>
