@@ -7,6 +7,7 @@ import { Icon, Menu } from '../../../components/core';
 require('./LeftSidebar.scss');
 
 const mapRouter = Object.freeze({
+  '/document/form': 'form',
   '/document/badge': 'badge',
   '/document/button': 'button',
   '/document/icon': 'icon',
@@ -61,6 +62,7 @@ const LeftSidebar = ({ isExpanded, ...otherProps }) => {
             <Menu.ItemGroup title="POPULAR" key="group-popular">
               <Menu.Item icon="icons" key="icon" title="Icon" />
               <Menu.Item icon="mouse" key="button" title="Button" />
+              <Menu.Item icon="keyboard" key="form" title="Form" />
               <Menu.Item icon="table" key="table" title="Table" />
               <Menu.Item icon="scroll" key="drawer" title="Drawer" />
               <Menu.Item icon="browser" key="modal" title="Modal" />

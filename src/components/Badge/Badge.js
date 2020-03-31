@@ -2,15 +2,32 @@ import React, { useMemo, useRef, useLayoutEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
+import Icon from '../Icon';
+
 import useSemanticProp from '../../hooks/useSemanticProp';
 import { omit } from '../../utils/helpers';
 import mPlacements from '../placements';
 
 require('./Badge.scss');
 
+const renderCount = (icon, displayCount) =>{
+  if (!icon) {
+    return displayCount;
+  }
+
+  if (typeof icon === 'string') {
+    return (
+      <Icon name={icon} />
+    )
+  }
+
+  return icon;
+};
+
 const Badge = ({
   className,
   children,
+  icon,
   dot,
   count,
   overflowCount,
@@ -41,14 +58,14 @@ const Badge = ({
     if (invisible) {
       return true;
     }
-    if (dot) {
+    if (dot || icon) {
       return false;
     }
 
     if (!count || count < 1) {
       return true;
     }
-  }, [dot, invisible, count]);
+  }, [dot, invisible, count, icon]);
 
   const displayCount = useMemo(() => {
     if (!count) {
@@ -68,6 +85,7 @@ const Badge = ({
         {
           '--dot': dot,
           '--overlap': overlap,
+          '--icon': icon,
         },
         mPlacements[placement] || '--top-right',
         className
@@ -82,7 +100,7 @@ const Badge = ({
         }}
         className={cn('rc-badge-count', { '--hidden': isHidden })}
       >
-        <b>{displayCount}</b>
+        <b>{renderCount(icon, displayCount)}</b>
       </sub>
     </span>
   );

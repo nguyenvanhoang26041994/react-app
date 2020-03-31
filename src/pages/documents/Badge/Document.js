@@ -10,6 +10,7 @@ import CustomColor from './demo/CustomColor';
 import OverflowCount from './demo/OverflowCount';
 import Invisible from './demo/Invisible';
 import SemanticProps from './demo/SemanticProps';
+import IconBadge from './demo/Icon';
 
 export default () => {
   return (
@@ -17,6 +18,9 @@ export default () => {
       <div className="w-1/3 pr-2">
         <Codebox className="mb-2" header="BASIC" href="badge-basic" code={Basic.code}>
           <Basic />
+        </Codebox>
+        <Codebox className="mb-2" header="ICON BADGE" href="badge-icon" code={IconBadge.code}>
+          <IconBadge />
         </Codebox>
         <Codebox className="mb-2" header="CUSTOM COLOR" href="badge-color" code={CustomColor.code}>
           <CustomColor />

@@ -43,3 +43,4 @@ export { default as PureConfirm } from './PureConfirm';
 export { default as PureNotification } from './PureNotification';
 export { default as PureDrawer } from './PureDrawer';
 export { default as Notification } from './Notification';
+export { default as Form } from './Form';

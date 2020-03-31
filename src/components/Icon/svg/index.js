@@ -40,6 +40,8 @@ const icons = {
   'pager': require('./pager').default,
   'minus': require('./minus').default,
   'eye': require('./eye').default,
+  'exclamation-triangle': require('./exclamation-triangle').default,
+  'exclamation': require('./exclamation').default,
   'eye-slash': require('./eye-slash').default,
 };
 

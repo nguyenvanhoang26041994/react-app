@@ -25,30 +25,24 @@
   display: flex;
   flex-direction: column;
   user-select: none;
-  box-shadow: var(--rc-neu-flat--500);
+  // box-shadow: var(--rc-neu-flat--500);
   overflow: hidden;
 }
 
 .rc-select-up,
 .rc-select-down {
-  height: $input-height / 2 - 0.25rem;
+  height: $input-height / 2;
   outline: 0 !important;
   background-color: transparent;
   border: none;
 
   &:hover:not(:disabled) {
     background-color: $primary-color--500;
+    color: $dark-text-color;
     box-shadow: none;
   }
 
   &:disabled {
     cursor: not-allowed;
   }
-}
-.rc-select-up {
-  border-top-right-radius: $border-radius;
-}
-
-.rc-select-down {
-  border-bottom-right-radius: $border-radius;
 }

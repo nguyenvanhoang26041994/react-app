@@ -41,7 +41,7 @@ const Select = ({ className, children, placement, placeholder, ...otherProps }) 
 
     return (
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        {_shape.icon && <Icon name={_shape.icon} style={{ marginRight: '1rem' }} />}
+        {_shape.icon && <Icon name={_shape.icon} style={{ marginRight: '0.75rem' }} />}
         <span>{_shape.title}</span>
       </div>
     )

@@ -38,6 +38,7 @@ const InputNumberDocument = loadable(() => import('../documents/InputNumber'));
 const SelectDocument = loadable(() => import('../documents/Select'));
 const BadgeDocument = loadable(() => import('../documents/Badge'));
 const AnchorDocument = loadable(() => import('../documents/Anchor'));
+const FormDocument = loadable(() => import('../documents/Form'));
 
 const _home = {
   key: 'home',
@@ -64,6 +65,11 @@ const _forms = {
 };
 
 const mapRouter = Object.freeze({
+  '/document/form': [_home, {
+    key: 'form',
+    title: 'Form',
+    _href: '/document/form',
+  }],
   '/document/badge': [_home, {
     key: 'badge',
     title: 'Badge',
@@ -283,6 +289,7 @@ const Dashboard = ({}) => {
               <Route path="/document/select" component={SelectDocument} />
               <Route path="/document/badge" component={BadgeDocument} />
               <Route path="/document/anchor" component={AnchorDocument} />
+              <Route path="/document/form" component={FormDocument} />
             </Switch>
           </div>
         </div>
