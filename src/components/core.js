@@ -35,6 +35,7 @@ export { default as Switch } from './Switch';
 export { default as Overlay } from './Overlay';
 export { default as Pagination } from './Pagination';
 export { default as Portal } from './Portal';
+export { default as Popover } from './Popover';
 export { default as Progress } from './Progress';
 export { default as Password } from './Password';
 export { default as PureAlert } from './PureAlert';

@@ -18,7 +18,7 @@ const getStatus = (activeStep, idx) => {
   return '';
 };
 
-const Stepper = ({ className, children, vertical, ...otherProps }) => {
+const Stepper = ({ className, children, vertical, style, ...otherProps }) => {
   const injectProps = useCallback((idx) => {
     const props = {
       stepNumber: idx + 1,
@@ -36,7 +36,7 @@ const Stepper = ({ className, children, vertical, ...otherProps }) => {
   }));
 
   return (
-    <div className={cn('rc-stepper', { '--vertical': vertical }, className)}>
+    <div className={cn('rc-stepper', { '--vertical': vertical }, className)} style={style}>
       {vertical ? _customChildren.reverse() : _customChildren}
     </div>
   );
@@ -52,6 +52,7 @@ Stepper.propTypes = {
   activeStep: PropTypes.number,
   children: PropTypes.any,
   vertical: PropTypes.bool,
+  style: PropTypes.object,
 };
 Stepper.defaultProps = {};
 
