@@ -50,9 +50,9 @@ class Anchor extends PureComponent {
     });
 
     const activeElementId =
-        activeElements.length > 0
-            ? activeElements[activeElements.length - 1].getAttribute('id')
-            : '';
+      activeElements.length > 0
+        ? activeElements[activeElements.length - 1].getAttribute('id')
+        : '';
 
     this.setState({ activeElm: `#${activeElementId}` });
   }
@@ -69,7 +69,7 @@ class Anchor extends PureComponent {
 
     window.scroll({
       top: offsetTop - offset,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
 
     this.setState({
@@ -85,31 +85,31 @@ class Anchor extends PureComponent {
     const { children, ...rest } = this.props;
 
     return (
-        <div className="rc-anchor">
-          <div className="rc-anchor-border-left">{''}</div>
-          {React.Children.map(children, elm => {
-            return React.cloneElement(elm, {
-              active: elm.props.href === this.state.activeElm,
-              handleScrollTo: target => {
-                this.smoothScrollTo(target);
-              },
-              ...rest,
-            });
-          })}
-        </div>
+      <div className="rc-anchor">
+        <div className="rc-anchor-border-left">{''}</div>
+        {React.Children.map(children, elm => {
+          return React.cloneElement(elm, {
+            active: elm.props.href === this.state.activeElm,
+            handleScrollTo: target => {
+              this.smoothScrollTo(target);
+            },
+            ...rest,
+          });
+        })}
+      </div>
     );
   }
 
   render() {
     const { hasAffix, offset } = this.props;
     return (
-        <>
-          {hasAffix ? (
-              <Affix top={offset}>{this.renderElement()}</Affix>
-          ) : (
-              this.renderElement()
-          )}
-        </>
+      <>
+        {hasAffix ? (
+          <Affix top={offset}>{this.renderElement()}</Affix>
+        ) : (
+          this.renderElement()
+        )}
+      </>
     );
   }
 }
