@@ -56,7 +56,7 @@ const Affix = ({ children, className, ...otherProps }) => {
   useEffect(() => {
     setBoxModel({
       clientHeight: affixRef.current.clientHeight,
-      clientWidth: Math.ceil(affixRef.current.clientWidth + 0.1),
+      clientWidth: affixRef.current.clientWidth,
     });
   }, []);
 
