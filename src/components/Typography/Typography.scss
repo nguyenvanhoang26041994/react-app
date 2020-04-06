@@ -1,0 +1,77 @@
+@import '../../scss/vars.scss';
+
+.rc-typography.--h1,
+.rc-typography.--h2,
+.rc-typography.--h3,
+.rc-typography.--h4 {
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+
+.rc-typography.--h1 {
+  font-size: 38px;
+  line-height: 1.23;
+}
+
+.rc-typography.--h2 {
+  font-size: 30px;
+  line-height: 1.35;
+}
+
+.rc-typography.--h3 {
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.rc-typography.--h4 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.rc-typography.--p {
+  color: $light--700;
+  margin-bottom: 1em;
+}
+
+.rc-typography.--disabled {
+  user-select: none;
+  cursor: not-allowed;
+  color: rgba(0,0,0,.25);
+}
+
+.rc-typography.--underline {
+  text-decoration: underline;
+}
+
+.rc-typography.--lineTrough {
+  text-decoration: line-through;
+}
+
+.rc-typography.--strong {
+  font-weight: 600;
+}
+
+.rc-typography.--info {
+  color: $primary-color--500;
+}
+
+.rc-typography.--success {
+  color: $green-color--500;
+}
+
+.rc-typography.--warning {
+  color: $orange-color--500;
+}
+
+.rc-typography.--error {
+  color: $red-color--500;
+}
+
+.rc-typography.--code {
+  margin: 0 .2em;
+  padding: .2em .4em .1em;
+  font-size: 85%;
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 3px;
+}

@@ -43,6 +43,7 @@ const icons = {
   'exclamation-triangle': require('./exclamation-triangle').default,
   'exclamation': require('./exclamation').default,
   'eye-slash': require('./eye-slash').default,
+  'heading': require('./heading').default,
 };
 
 export default icons;
