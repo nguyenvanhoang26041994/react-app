@@ -40,22 +40,9 @@ const Typography = ({ children, className, ...otherProps }) => {
   const type = useSemanticProp('type', otherProps, Object.keys(mTypes));
 
   const passedProps = useMemo(() => omit(otherProps, [
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'div',
-    'p',
-    'span',
-    'disabled',
-    'underline',
-    'lineTrough',
-    'strong',
-    'info',
-    'success',
-    'error',
-    'warning',
-    'code',
+      ...Object.keys(mTags),
+      ...Object.keys(mStyles),
+      ...Object.keys(mTypes),
   ]), [otherProps]);
 
   return (

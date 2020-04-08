@@ -1,0 +1,95 @@
+@import '../../scss/vars.scss';
+
+@keyframes flow {
+  from {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: .20;
+    transform: scale(.75);
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-size: 200% 100%;
+    background-position: left -31.25% top 0%;
+  }
+  50% {
+    background-size: 800% 100%;
+    background-position: left -49% top 0%;
+  }
+  100% {
+    background-size: 400% 100%;
+    background-position: left -102% top 0%;
+  }
+}
+
+/* DOT */
+.rc-loader-container {
+  display: flex;
+  align-items: center;
+}
+
+.rc-loader-dot {
+  margin: 0 0.2rem;
+  width: 0.8em;
+  height: 0.8em;
+  background-color: $primary-color--500;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.rc-loader-dot.--small {
+  font-size: 10px;
+}
+
+.rc-loader-dot.--large {
+  font-size: 19px;
+}
+
+.rc-loader-dot.--dot-1 {
+  animation: flow .4s ease 0s infinite alternate;
+}
+
+.rc-loader-dot.--dot-2 {
+  animation: flow .4s ease .1s infinite alternate;
+}
+
+.rc-loader-dot.--dot-3 {
+  animation: flow .4s ease .2s infinite alternate;
+}
+
+/* LINEAR */
+.rc-linear {
+  -webkit-appearance: none;
+  border: none;
+  width: 100%;
+  height: 0.25em;
+  font-size: 16px;
+  color: $primary-color--600;
+  background-color: $primary-bg-color;
+}
+
+.rc-linear.--secondary {
+  color: $red-color--300;
+  background-color: $red-color--200;
+}
+
+.rc-linear::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+/* Indeterminate */
+.rc-linear:indeterminate {
+  background-image: linear-gradient(to right, transparent 50%, currentColor 50%, currentColor 60%, transparent 60%, transparent 71.5%, currentColor 71.5%, currentColor 84%, transparent 84%);
+  animation: progress 2s infinite linear;
+}
+
+/* Determinate */
+.rc-linear::-webkit-progress-value {
+  background-color: currentColor;
+  transition: all 0.2s;
+}
