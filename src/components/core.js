@@ -33,6 +33,7 @@ export { default as Stepper } from './Stepper';
 export { default as Radio } from './Radio';
 export { default as Rater } from './Rater';
 export { default as Switch } from './Switch';
+export { default as Slider } from './Slider';
 export { default as Overlay } from './Overlay';
 export { default as Pagination } from './Pagination';
 export { default as Portal } from './Portal';

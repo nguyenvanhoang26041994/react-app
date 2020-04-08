@@ -1,0 +1,12 @@
+@import '../../scss/vars.scss';
+
+.rc-slider-handler {
+  height: 1.25em;
+  width: 1.25em;
+  border-radius: 100rem;
+  background-color: #ffffff;
+  position: absolute;
+  right: -0.625em;
+  top: -0.5em;
+  cursor: pointer;
+}
