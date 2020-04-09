@@ -18,6 +18,11 @@ $zindex-overlay: 1010;
 $primary-color--500--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
 $placeholder-text-color: #a0aebf;
 
+// Only for skeleton
+$base-color: #ddd;
+$shine-color: #e8e8e8;
+$bg-color: linear-gradient(90deg,$base-color 25%,$shine-color 37%,$base-color 63%);
+
 $primary-color--600: #0089e4;
 $primary-color--500: #0099ff;
 $primary-bg-color: #0099ff33;

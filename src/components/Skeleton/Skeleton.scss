@@ -1,0 +1,47 @@
+@import '../../scss/vars.scss';
+
+@keyframes skeleton-loading {
+  0% {
+    background-size: 400% 100%;
+    background-position: left -31.25% top 0%;
+  }
+  40%, 100% {
+    background-size: 400% 100%;
+    background-position: left -130% top 0%;
+  }
+}
+
+.rc-skeleton,
+.rc-skeleton-content {
+  width: 100%;
+}
+
+.rc-skeleton-title {
+  width: 38%;
+}
+
+.rc-skeleton-title,
+.rc-skeleton-paragraph,
+.rc-skeleton-paragraph>li {
+  background: $base-color;
+  height: 16px;
+  margin-top: 16px;
+}
+
+.rc-skeleton-title.--active,
+.rc-skeleton-paragraph.--active,
+.rc-skeleton-paragraph.--active>li {
+  background: $bg-color;
+  height: 16px;
+  margin-top: 16px;
+  animation: skeleton-loading 1.6s infinite linear;
+}
+
+.rc-skeleton-paragraph,
+.rc-skeleton-paragraph.--active {
+  margin-top: 24px;
+}
+
+.rc-skeleton-paragraph>li:last-child {
+  width: 61%;
+}
