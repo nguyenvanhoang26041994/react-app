@@ -1,37 +1,25 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import useSemanticProp from '../../hooks/useSemanticProp';
-import { omit } from '../../utils/helpers';
-
-require('./Loader.scss');
-
-const mSizes = Object.freeze({
-  small: '--small',
-  large: '--large',
-});
-
-const Dot = ({ className, ...otherProps }) => {
-  const size = useSemanticProp('size', otherProps, Object.keys(mSizes));
-
-  const passedProps = useMemo(() => omit(otherProps, [
-    ...Object.keys(mSizes),
-  ]), [otherProps]);
-
+const Dot = ({ color, size, className }) => {
   return (
-    <div {...passedProps} className="rc-loader-container">
-      <div className={cn('rc-loader-dot', '--dot-1', mSizes[size], className)}>{''}</div>
-      <div className={cn('rc-loader-dot', '--dot-2', mSizes[size], className)}>{''}</div>
-      <div className={cn('rc-loader-dot', '--dot-3', mSizes[size], className)}>{''}</div>
+    <div style={{ fontSize: size }} className="rc-loader-container">
+      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-1', className)}>{''}</div>
+      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-2', className)}>{''}</div>
+      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-3', className)}>{''}</div>
     </div>
   );
 };
 
 Dot.displayName = 'Dot';
 Dot.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.string,
   className: PropTypes.string,
 };
-Dot.defaultProps = {};
+Dot.defaultProps = {
+  size: '1.125rem',
+};
 
 export default Dot;

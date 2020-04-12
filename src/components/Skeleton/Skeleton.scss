@@ -23,16 +23,16 @@
 .rc-skeleton-title,
 .rc-skeleton-paragraph,
 .rc-skeleton-paragraph>li {
-  background: $base-color;
-  height: 16px;
+  background: #ddd;
+  height: 1.3em;
   margin-top: 16px;
 }
 
 .rc-skeleton-title.--active,
 .rc-skeleton-paragraph.--active,
 .rc-skeleton-paragraph.--active>li {
-  background: $bg-color;
-  height: 16px;
+  background: #e8e8e8;
+  height: 1.3em;
   margin-top: 16px;
   animation: skeleton-loading 1.6s infinite linear;
 }

@@ -4,8 +4,6 @@ import cn from 'classnames';
 import useSemanticProp from '../../hooks/useSemanticProp';
 import { omit } from '../../utils/helpers';
 
-require('./Typography.scss');
-
 const mTags = Object.freeze({
   h1: '--h1',
   h2: '--h2',
@@ -16,37 +14,51 @@ const mTags = Object.freeze({
   span: '--span',
 });
 
-const mStyles = Object.freeze({
-  disabled: '--disabled',
+const fStyles = Object.freeze({
+  italic: '--italic',
+  oblique: '--oblique',
+});
+
+const tDecoration = Object.freeze({
+  strong: '--strong',
   underline: '--underline',
   lineTrough: '--lineTrough',
-  strong: '--strong',
 });
 
-const mTypes = Object.freeze({
-  info: '--info',
-  success: '--success',
-  error: '--error',
-  warning: '--warning',
-  code: '--code',
-});
-
-const Typography = ({ children, className, ...otherProps }) => {
+const Typography = ({ children, className, disabled, ...otherProps }) => {
   const tag = useSemanticProp('tag', otherProps, Object.keys(mTags));
-  const Component = tag || 'h1'; // we only have support a valid HTML element tag.
-                                // If not valid, the default tag is h1.
+  const Component = tag || 'p'; // we only have support a valid HTML element tag.
+                                // If not valid, the default tag is <p>.
 
-  const styles = useSemanticProp('styles', otherProps, Object.keys(mStyles));
-  const type = useSemanticProp('type', otherProps, Object.keys(mTypes));
+  const fStyle = useSemanticProp('fStyle', otherProps, Object.keys(fStyles));
+  const textDecoration = useSemanticProp(
+    'tDecoration',
+    otherProps,
+    Object.keys(tDecoration)
+  );
 
-  const passedProps = useMemo(() => omit(otherProps, [
-      ...Object.keys(mTags),
-      ...Object.keys(mStyles),
-      ...Object.keys(mTypes),
-  ]), [otherProps]);
+  const passedProps = useMemo(
+    () =>
+      omit(otherProps, [
+        ...Object.keys(mTags),
+        ...Object.keys(fStyles),
+        ...Object.keys(tDecoration)
+      ]),
+    [otherProps]
+  );
 
   return (
-    <Component className={cn('rc-typo', mTags[tag], mStyles[styles], mTypes[type], className )} {...passedProps}>
+    <Component
+      className={cn(
+        'rc-typo',
+        { '--disabled': disabled },
+        mTags[tag],
+        fStyles[fStyle],
+        tDecoration[textDecoration],
+        className
+      )}
+      {...passedProps}
+    >
       {children}
     </Component>
   );
@@ -56,9 +68,8 @@ Typography.displayName = 'Typo';
 Typography.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
-Typography.defaultProps = {
-
-};
+Typography.defaultProps = {};
 
 export default Typography;

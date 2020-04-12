@@ -18,11 +18,6 @@ $zindex-overlay: 1010;
 $primary-color--500--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
 $placeholder-text-color: #a0aebf;
 
-// Only for skeleton
-$base-color: #ddd;
-$shine-color: #e8e8e8;
-$bg-color: linear-gradient(90deg,$base-color 25%,$shine-color 37%,$base-color 63%);
-
 $primary-color--600: #0089e4;
 $primary-color--500: #0099ff;
 $primary-bg-color: #0099ff33;
@@ -43,8 +38,8 @@ $dark-text-color: #e4e6eb;
 
 $dark--700: #000000;
 $dark--600: #242424;
-$dark--500: #393939; // MAIN COLOR
-$dark--450: #3c3c3c; // SUPPORT MAIN COLOR
+$dark--500: #393939; /* MAIN COLOR */
+$dark--450: #3c3c3c; /* SUPPORT MAIN COLOR */
 $dark--400: #474747;
 $dark--300: #535353;
 $dark--200: #616161;
@@ -90,8 +85,8 @@ $light-text-color: #2f2f2f;
 
 $light--700: #bfc0c7;
 $light--600: #cdced5;
-$light--500: #ecedf5; // MAIN COLOR
-$light--450: #edf0f8; // MAIN COLOR
+$light--500: #ecedf5; /* MAIN COLOR */
+$light--450: #edf0f8; /* MAIN COLOR */
 $light--400: #f0f2fa;
 $light--300: #f2f5fd;
 $light--200: #ffffff;

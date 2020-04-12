@@ -2,8 +2,6 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-require('./Skeleton.scss');
-
 const Skeleton = ({ active, className, ...otherProps}) => {
   return (
     <div {...otherProps} className={cn('rc-skeleton', className)}>

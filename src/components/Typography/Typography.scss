@@ -9,27 +9,27 @@
 }
 
 .rc-typo.--h1 {
-  font-size: 38px;
+  font-size: 3rem;
   line-height: 1.23;
 }
 
 .rc-typo.--h2 {
-  font-size: 30px;
+  font-size: 2.5rem;
   line-height: 1.35;
 }
 
 .rc-typo.--h3 {
-  font-size: 24px;
+  font-size: 2rem;
   line-height: 1.35;
 }
 
 .rc-typo.--h4 {
-  font-size: 20px;
+  font-size: 1.5rem;
   line-height: 1.4;
 }
 
 .rc-typo.--p {
-  color: $light--700;
+  color: currentColor;
   margin-bottom: 1em;
 }
 
@@ -47,31 +47,14 @@
   text-decoration: line-through;
 }
 
+.rc-typo.--italic {
+  font-style: italic;
+}
+
+.rc-typo.--oblique {
+  font-style: oblique;
+}
+
 .rc-typo.--strong {
   font-weight: 600;
-}
-
-.rc-typo.--info {
-  color: $primary-color--500;
-}
-
-.rc-typo.--success {
-  color: $green-color--500;
-}
-
-.rc-typo.--warning {
-  color: $orange-color--500;
-}
-
-.rc-typo.--error {
-  color: $red-color--500;
-}
-
-.rc-typo.--code {
-  margin: 0 .2em;
-  padding: .2em .4em .1em;
-  font-size: 85%;
-  background: rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 3px;
 }
