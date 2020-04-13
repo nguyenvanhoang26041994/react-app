@@ -51,7 +51,7 @@ Anchor.propTypes = {
   className: PropTypes.string,
 };
 Anchor.defaultProps = {
-  affix: false,
+  affix: true,
   top: 0,
 };
 

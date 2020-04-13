@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Spinner = ({ color, size, className }) => {
   return (
-    <div style={{ borderLeftColor: color, width: size, height: size }} className={cn('rc-loader-spinner', className)}>{''}</div>
+    <div style={{ borderLeftColor: color, fontSize: size }} className={cn('rc-loader-spinner', className)}>{''}</div>
   );
 };
 

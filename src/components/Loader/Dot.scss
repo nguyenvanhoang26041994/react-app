@@ -30,13 +30,14 @@
 .rc-loader-container {
   display: flex;
   align-items: center;
+  font-size: 1.125rem;
 }
 
 .rc-loader-dot {
   margin: 0 0.2rem;
   width: 0.8em;
   height: 0.8em;
-  background-color: $primary-color--500;
+  background-color: currentColor;
   border: 1px solid transparent;
   border-radius: 50%;
 }

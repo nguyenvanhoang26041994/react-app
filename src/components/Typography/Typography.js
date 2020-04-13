@@ -19,30 +19,34 @@ const fStyles = Object.freeze({
   oblique: '--oblique',
 });
 
-const tDecoration = Object.freeze({
+const mTDecoration = Object.freeze({
   strong: '--strong',
   underline: '--underline',
   lineTrough: '--lineTrough',
 });
 
+const lTags = Object.keys(mTags);
+const lFStyles = Object.keys(fStyles);
+const lTDecoration = Object.keys(mTDecoration);
+
 const Typography = ({ children, className, disabled, ...otherProps }) => {
-  const tag = useSemanticProp('tag', otherProps, Object.keys(mTags));
+  const tag = useSemanticProp('tag', otherProps, lTags);
   const Component = tag || 'p'; // we only have support a valid HTML element tag.
                                 // If not valid, the default tag is <p>.
 
-  const fStyle = useSemanticProp('fStyle', otherProps, Object.keys(fStyles));
+  const lFStyle = useSemanticProp('fStyle', otherProps, lFStyles);
   const textDecoration = useSemanticProp(
-    'tDecoration',
+    'mTDecoration',
     otherProps,
-    Object.keys(tDecoration)
+    lTDecoration
   );
 
   const passedProps = useMemo(
     () =>
       omit(otherProps, [
-        ...Object.keys(mTags),
-        ...Object.keys(fStyles),
-        ...Object.keys(tDecoration)
+        ...lTags,
+        ...lFStyles,
+        ...lTDecoration
       ]),
     [otherProps]
   );
@@ -53,8 +57,8 @@ const Typography = ({ children, className, disabled, ...otherProps }) => {
         'rc-typo',
         { '--disabled': disabled },
         mTags[tag],
-        fStyles[fStyle],
-        tDecoration[textDecoration],
+        fStyles[lFStyle],
+        mTDecoration[textDecoration],
         className
       )}
       {...passedProps}

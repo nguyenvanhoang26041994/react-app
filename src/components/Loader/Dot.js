@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 const Dot = ({ color, size, className }) => {
   return (
-    <div style={{ fontSize: size }} className="rc-loader-container">
-      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-1', className)}>{''}</div>
-      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-2', className)}>{''}</div>
-      <div style={{ backgroundColor: color }} className={cn('rc-loader-dot', '--dot-3', className)}>{''}</div>
+    <div style={{ fontSize: size, color }} className={cn('rc-loader-container', className)}>
+      <div className={cn('rc-loader-dot', '--dot-1')}>{''}</div>
+      <div className={cn('rc-loader-dot', '--dot-2')}>{''}</div>
+      <div className={cn('rc-loader-dot', '--dot-3')}>{''}</div>
     </div>
   );
 };
@@ -18,8 +18,6 @@ Dot.propTypes = {
   size: PropTypes.string,
   className: PropTypes.string,
 };
-Dot.defaultProps = {
-  size: '1.125rem',
-};
+Dot.defaultProps = {};
 
 export default Dot;
