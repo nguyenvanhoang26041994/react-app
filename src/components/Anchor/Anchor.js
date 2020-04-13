@@ -1,131 +1,58 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Affix from '../Affix';
 import Link from './Link';
+import Affix from '../Affix';
 
-require('./Anchor.scss');
+import { pick } from '../../utils/helpers';
 
-class Anchor extends PureComponent {
-  constructor(props) {
-    super(props);
+const Anchor = ({ className, affix, children, ...otherProps }) => {
+  const [activeKey, setActiveKey] = useState(false);
 
-    this.state = {
-      activeElm: '',
-      scrollItems: [],
-    };
+  const affixProps = pick(otherProps, [
+    'top',
+    'bottom',
+  ]);
 
-    this.handleScroll = this.handleScroll.bind(this);
+  const _onTriggered = useCallback(key => setActiveKey(key), [setActiveKey]);
+
+  const customChildren = useMemo(() => (
+    <ul className={cn('rc-anchor', className)}>
+      {React.Children.map(children, (elm) => {
+        return React.cloneElement(elm, {
+          _onTriggered: _onTriggered,
+          _key: elm.key,
+          _top: otherProps.top,
+          _affix: affix,
+          active: elm.key === activeKey,
+        });
+      })}
+    </ul>
+  ), [children, activeKey, _onTriggered]);
+
+  if (!affix) {
+    return customChildren;
   }
 
-  componentDidMount() {
-    this.setInitScrollItems();
-
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  getElementById(id) {
-    return document.getElementById(id);
-  }
-
-  setInitScrollItems() {
-    const scrollItems = [];
-
-    React.Children.map(this.props.children, elm => {
-      return scrollItems.push(this.getElementById(elm.props.href.slice(1)));
-    });
-
-    this.setState({ scrollItems });
-  }
-
-  handleScroll() {
-    const { scrollItems } = this.state;
-    const { offset } = this.props;
-    const activeElements = scrollItems.filter(item => {
-      return item.getBoundingClientRect().top < offset;
-    });
-
-    const activeElementId =
-      activeElements.length > 0
-        ? activeElements[activeElements.length - 1].getAttribute('id')
-        : '';
-
-    this.setState({ activeElm: `#${activeElementId}` });
-  }
-
-  smoothScrollTo(target) {
-    target.preventDefault();
-
-    const { onClick, offset } = this.props;
-
-    const href = target.currentTarget.getAttribute('href');
-    const id = href.slice(1);
-    const anchor = this.getElementById(id);
-    const offsetTop = anchor.getBoundingClientRect().top + window.pageYOffset;
-
-    window.scroll({
-      top: offsetTop - offset,
-      behavior: 'smooth',
-    });
-
-    this.setState({
-      activeElm: href,
-    });
-
-    if (onClick) {
-      onClick(target);
-    }
-  }
-
-  renderElement() {
-    const { children, ...rest } = this.props;
-
-    return (
-      <div className="rc-anchor">
-        <div className="rc-anchor-border-left">{''}</div>
-        {React.Children.map(children, elm => {
-          return React.cloneElement(elm, {
-            active: elm.props.href === this.state.activeElm,
-            handleScrollTo: target => {
-              this.smoothScrollTo(target);
-            },
-            ...rest,
-          });
-        })}
-      </div>
-    );
-  }
-
-  render() {
-    const { hasAffix, offset } = this.props;
-    return (
-      <>
-        {hasAffix ? (
-          <Affix top={offset}>{this.renderElement()}</Affix>
-        ) : (
-          this.renderElement()
-        )}
-      </>
-    );
-  }
-}
+  return (
+    <Affix {...affixProps}>
+      {customChildren}
+    </Affix>
+  );
+};
 
 Anchor.Link = Link;
 
 Anchor.displayName = 'Anchor';
 Anchor.propTypes = {
-  hasAffix: PropTypes.bool,
-  offset: PropTypes.number,
+  affix: PropTypes.bool,
   children: PropTypes.any,
-  onClick: PropTypes.func
+  className: PropTypes.string,
 };
 Anchor.defaultProps = {
-  hasAffix: false,
-  offset: 0,
+  affix: false,
+  top: 0,
 };
 
 export default Anchor;

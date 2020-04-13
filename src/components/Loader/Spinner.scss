@@ -1,0 +1,27 @@
+@import '../../style/vars.scss';
+
+$spinner-bg-color: rgba(255, 255, 255, 0.2);
+$spinner-border-radius: 0.2em;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rc-loader-spinner {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.rc-loader-spinner {
+  border-top: $spinner-border-radius solid $spinner-bg-color;
+  border-right: $spinner-border-radius solid $spinner-bg-color;
+  border-bottom: $spinner-border-radius solid $spinner-bg-color;
+  border-left: $spinner-border-radius solid $light--200;
+  animation: spin .4s linear infinite;
+}

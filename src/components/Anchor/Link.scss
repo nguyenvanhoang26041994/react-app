@@ -1,15 +1,14 @@
 @import '../../style/vars.scss';
 
 .rc-anchor-link {
-  padding: 7px 0 7px 16px;
+  height: 2em;
+  padding: 0 1rem;
+  border-left: 1px solid currentColor;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.rc-anchor-title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-  &.--active {
-    color: $primary-color--500;
-  }
+.rc-anchor-link.--active {
+  color: $primary-color--500;
 }
