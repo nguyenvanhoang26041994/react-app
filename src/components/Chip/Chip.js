@@ -30,7 +30,7 @@ const Chip = ({
     <div className={cn('rc-chip', { '--custom': backgroundColor }, className)} style={{ ...style, backgroundColor, color, fontSize }} onClick={_onClick} {...otherProps}>
       {avatar}
       <span className="rc-chip-label">{label}</span>
-      {closable && <div ref={closeRef} className="rc-chip-close" onClick={onRemove}><Icon name="times" /></div>}
+      {closable && <div ref={closeRef} className="rc-chip-close" onClick={onRemove}><Icon name="x" /></div>}
     </div>
   );
 };

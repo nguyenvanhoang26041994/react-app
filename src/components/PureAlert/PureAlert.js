@@ -27,7 +27,7 @@ const PureAlert = ({ alertRef, children, title, onCloseClick, className, closabl
     <div className={cn('rc-pure-alert', mTypes[type], className)} ref={alertRef} {...passedProps}>
       <div className="rc-pure-alert-title">
         <span>{title}</span>
-        {closable && <Button icon="times" circle className="rc-pure-alert-close" fontSize="0.75em" onClick={onCloseClick} />}
+        {closable && <Button icon="x" circle className="rc-pure-alert-close" fontSize="0.75em" onClick={onCloseClick} />}
       </div>
       {children && (<div className="rc-pure-alert-content">{children}</div>)}
     </div>

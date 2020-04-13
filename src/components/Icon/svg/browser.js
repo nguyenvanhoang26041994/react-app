@@ -1,7 +1,10 @@
 import React from 'react';
 
 export default props => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <path d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM32 80c0-8.8 7.2-16 16-16h48v64H32V80zm448 352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V160h448v272zm0-304H128V64h336c8.8 0 16 7.2 16 16v48z"></path>
-  </svg>
+<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="4" y="4" width="16" height="16" rx="1" />
+  <line x1="4" y1="8" x2="20" y2="8" />
+  <line x1="8" y1="4" x2="8" y2="8" />
+</svg>
 );

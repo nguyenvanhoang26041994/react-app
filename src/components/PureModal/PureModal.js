@@ -9,7 +9,7 @@ const PureModal = ({ modalRef, children, title, onCloseClick, className, closabl
     <div className={cn('rc-pure-modal', className)} ref={modalRef} {...otherProps}>
       <div className="rc-pure-modal-title">
         <span>{title}</span>
-        {closable && <Button icon="times" glassed circle className="rc-pure-modal-close" fontSize="0.75em" onClick={onCloseClick} />}
+        {closable && <Button icon="x" glassed circle className="rc-pure-modal-close" fontSize="0.75em" onClick={onCloseClick} />}
       </div>
       <div className="rc-pure-modal-content">
         {children}

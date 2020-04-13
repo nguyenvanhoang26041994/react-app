@@ -11,7 +11,8 @@ body {
   color: var(--rc-text-color);
 }
 
-body {
+body,
+.light-mode {
   --rc-text-color: #{$light-text-color};
 
   --rc-color--700: #{$light--700};
@@ -39,7 +40,8 @@ body {
   --rc-neu-pressed--200: #{$neu-light-pressed--200};
 }
 
-body.dark-mode {
+body.dark-mode,
+.dark-mode {
   --rc-text-color: #{$dark-text-color};
 
   --rc-color--700: #{$dark--700};

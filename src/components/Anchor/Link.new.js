@@ -5,7 +5,7 @@ import Anchor from './Anchor.new';
 
 import getPosition from '../../utils/getPosition';
 
-const Link = ({ className, active, _onTriggered, _key, title, ...otherProps }) => {
+const Link = ({ className, active, _onTriggered, _key, _top, _affix, title, ...otherProps }) => {
   const ref = useRef();
 
   const onScroll = useCallback(() => {
@@ -26,13 +26,28 @@ const Link = ({ className, active, _onTriggered, _key, title, ...otherProps }) =
     }
 
     const { pageY } = getPosition(target);
-    const { top } = ref.current.getBoundingClientRect();
+    const { top: topAnchorLink } = ref.current.getBoundingClientRect();
+    const { top: topAnchor } = ref.current.parentElement.getBoundingClientRect();
+
+    if (!_affix) {
+      return window.scrollTo({
+        top: pageY,
+        behavior: 'smooth',
+      });
+    }
+  
+    if (topAnchor > _top) {
+      return window.scrollTo({
+        top: pageY - _top - (topAnchorLink - topAnchor),
+        behavior: 'smooth',
+      });
+    }
 
     return window.scrollTo({
-      top: pageY - top,
+      top: pageY - topAnchorLink,
       behavior: 'smooth',
     });
-  }, [_key, ref]);
+  }, [_key, _top, _affix, ref]);
 
   useLayoutEffect(() => {
     window.addEventListener('scroll', onScroll);

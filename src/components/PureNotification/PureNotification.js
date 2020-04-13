@@ -14,7 +14,7 @@ const PureNotification = ({ notificationRef, children, title, className, onClose
             <Icon name="bell" style={{ marginRight: '0.5em' }} />
             {title}
           </span>
-          <Icon name="times" className="rc-pure-modnotificational-close" onClick={onCloseClick} />
+          <Icon name="x" className="rc-pure-modnotificational-close" onClick={onCloseClick} />
         </div>
       )}
       <div className="rc-pure-notification-content" onClick={onContentClick}>

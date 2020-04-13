@@ -1,7 +1,11 @@
 .rc-icon {
   display: inline-block;
   cursor: pointer;
-  height: 1.25em;
-  width: 1.25em;
-  fill: currentColor;
+  height: 1.35em;
+  width: 1.35em;
+  stroke-width: 1;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

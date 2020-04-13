@@ -8,6 +8,7 @@ The native button with css
 | **color** | Can be `red` `green` `yellow`, `#2f2f2f` `rgb(123, 123, 123)` and so on | `string` |||
 | **size** | Can be `px`, `rem`, `em` | `string` |||
 | **rounded** | Rounded Button| `boolean` |||
+| **circle** | Circle Button| `boolean` |||
 | **pressed** | Pressed Button | `boolean` |||
 | **glassed** | Transparent Button | `boolean` |||
 | **primary** | PRIMARY Button | `boolean` || `type="primary"` |

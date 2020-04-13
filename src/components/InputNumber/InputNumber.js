@@ -54,10 +54,10 @@ const InputNumber = React.forwardRef(({
       />
       <div className="rc-input-number-handler">
         <button className="rc-select-up" disabled={disabled} ref={stepUpRef}>
-          <Icon name="angle-up" />
+          <Icon name="caret-up" />
         </button>
         <button className="rc-select-down" disabled={disabled} ref={stepDownRef}>
-          <Icon name="angle-down" />
+          <Icon name="caret-down" />
         </button>
       </div>
     </div>
