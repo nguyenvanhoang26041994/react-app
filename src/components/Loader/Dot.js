@@ -2,11 +2,12 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-const Dot = ({ color, size, className }) => {
+const Dot = ({ color, size, className, ...otherProps }) => {
   return (
     <div
       style={{ fontSize: size, color }}
       className={cn('rc-loader-dots', className)}
+      {...otherProps}
     >
       <div className="rc-loader-dot --dot-1" />
       <div className="rc-loader-dot --dot-2" />

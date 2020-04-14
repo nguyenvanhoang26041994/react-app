@@ -3,6 +3,8 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
+import Loader from '../Loader';
+
 import useSemanticProp from '../../hooks/useSemanticProp';
 import { omit } from '../../utils/helpers';
 
@@ -25,6 +27,8 @@ const Button = React.forwardRef(({
   style,
   glassed,
   children,
+  loading,
+  disabled,
   ...otherProps
 }, ref) => {
   const type = useSemanticProp('type', otherProps, lTypes);
@@ -56,8 +60,10 @@ const Button = React.forwardRef(({
         fontSize: size,
         ...style
       }}
+      disabled={loading || disabled}
       {...passedProps}
     >
+      {loading && <Loader.Spinner style={{ marginRight: '.5rem' }} />}
       {icon ? <Icon name={icon} /> : children}
     </button>
   );
@@ -76,6 +82,8 @@ Button.propTypes = {
   primary: PropTypes.bool,
   type: PropTypes.string,
   danger: PropTypes.bool,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 Button.defaultProps = {};
 
