@@ -11,7 +11,7 @@
 
 .rc-skeleton {
   background-color: var(--rc-color--200);
-  animation: skeletonLoading 1.5s infinite;
+  animation: skeletonLoading .8s linear infinite alternate;
 }
 
 .rc-skeleton.--circle {
