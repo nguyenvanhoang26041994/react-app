@@ -9,7 +9,7 @@ import useSemanticProp from '../../hooks/useSemanticProp';
 import { omit } from '../../utils/helpers';
 
 const mTypes = Object.freeze({
-  primary: '--primary', // good for submit button
+  primary: '--primary',
   danger: '--danger',
 });
 
@@ -50,6 +50,7 @@ const Button = React.forwardRef(({
           '--pressed': pressed,
           '--glassed': glassed,
           '--colored': color,
+          '--loading': loading,
         },
         mTypes[type],
         className,
@@ -76,12 +77,15 @@ Button.propTypes = {
   size: PropTypes.string,
   circle: PropTypes.bool,
   rounded: PropTypes.bool,
+  icon: PropTypes.any,
+  textColor: PropTypes.string,
   pressed: PropTypes.bool,
   glassed: PropTypes.bool,
   style: PropTypes.object,
   primary: PropTypes.bool,
   type: PropTypes.string,
   danger: PropTypes.bool,
+  children: PropTypes.object,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
 };
