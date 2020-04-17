@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import MenuContext from './MenuContext';
 
-const ItemGroup = ({ className, children, title, iconOnly, selectedKeys, _onItemClick }) => {
+const ItemGroup = ({ className, children, title, _key }) => {
+  const { iconOnly, selectedGroupKeys } = useContext(MenuContext);
+  const selected = useMemo(() => selectedGroupKeys.indexOf(_key) >= 0, [selectedGroupKeys, _key]);
+
   return (
-    <li className={cn('rc-menu-item-group', { '--icon-only': iconOnly }, className)}>
+    <li className={cn('rc-menu-item-group', { '--icon-only': iconOnly, '--selected': selected }, className)}>
       <div className="rc-menu-item-group-title"><span>{title}</span></div>
       <ul className="rc-menu-item-group-list">
         {React.Children.map(children, elm => React.cloneElement(elm, {
-          iconOnly,
-          selected: selectedKeys.indexOf(elm.key) >= 0,
-          selectedKeys,
           _key: elm.key,
-          _onItemClick,
+          _groupKey: _key,
         }))}
       </ul>
     </li>
@@ -23,13 +24,8 @@ ItemGroup.displayName = 'Menu.ItemGroup';
 ItemGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  selectedKeys: PropTypes.array,
-  _onItemClick: PropTypes.func,
-  iconOnly: PropTypes.bool,
   title: PropTypes.string,
 };
-ItemGroup.defaultProps = {
-  selectedKeys: [],
-};
+ItemGroup.defaultProps = {};
 
 export default ItemGroup;

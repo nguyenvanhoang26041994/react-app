@@ -1,28 +1,20 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
+import MenuContext from './MenuContext';
 
-const Item = ({ className, selected, disabled, title, icon, iconOnly, titleOnly, _key, _onItemClick, onItemClick }) => {
+const Item = ({ className, disabled, title, icon, titleOnly, _key, _groupKey, _subKey, onItemClick }) => {
+  const { iconOnly, selectedKeys, onItemClick: contextOnItemClick } = useContext(MenuContext);
+  const selected = useMemo(() => selectedKeys.indexOf(_key) >= 0, [selectedKeys, _key]);
+
   const _onClick = useCallback(() => {
-    if (disabled) {
-      return;
-    }
+    if (disabled) { return; }
+    if (onItemClick) { return onItemClick(); }
 
-    if (onItemClick) {
-      return onItemClick();
-    }
-
-    return _onItemClick(_key, { selected, title, disabled, icon });
-  }, [
-    _key,
-    disabled,
-    title,
-    onItemClick,
-    selected,
-    icon,
-  ]);
+    return contextOnItemClick(_key, { selected, title, disabled, icon, title, titleOnly, _groupKey, _subKey });
+  }, [_key, disabled, title, onItemClick, selected, icon, titleOnly, _groupKey, _subKey]);
 
   return (
     <li
@@ -48,16 +40,15 @@ const Item = ({ className, selected, disabled, title, icon, iconOnly, titleOnly,
 Item.displayName = 'Menu.Item';
 Item.propTypes = {
   className: PropTypes.string,
-  _onItemClick: PropTypes.func, // do not set default, this function will be passed throught from parent
   onItemClick: PropTypes.func, // not set default
-  selected: PropTypes.bool,
   disabled: PropTypes.bool,
   titleOnly: PropTypes.bool,
-  iconOnly: PropTypes.bool,
   children: PropTypes.any,
   icon: PropTypes.string,
   title: PropTypes.string.isRequired, // when Item in iconOnly mode, titleOnly will overide icon by first lettter of this value
   _key: PropTypes.string,
+  _groupKey: PropTypes.string,
+  _subKey: PropTypes.string,
 };
 Item.defaultProps = {};
 

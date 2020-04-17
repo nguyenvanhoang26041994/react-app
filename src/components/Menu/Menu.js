@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -6,26 +6,34 @@ import Item from './Item';
 import ItemGroup from './ItemGroup';
 import Sub from './Sub';
 
-import useUncontrolled from '../../hooks/useUncontrolled';
+import MenuContext from './MenuContext';
 import { omit } from '../../utils/helpers';
 
-const Menu = ({ className, children, defaultSelectedKeys, onSelectedKeysChange, onItemClick, iconOnly, multiple, ...otherProps }) => {
-  const [selectedKeys, setSelectedKeys, isControlled] = useUncontrolled('selectedKeys', otherProps, {
-    defaultState: defaultSelectedKeys,
-    onChangeState: onSelectedKeysChange,
-  });
+const Menu = ({ className, children, onSelectedKeysChange, onItemClick, iconOnly, multiple, ...otherProps }) => {
+  const isControlled = useMemo(() => otherProps.hasOwnProperty('selectedKeys'), [otherProps]);
+  const [selectedKeys, setSelectedKeys] = useState(isControlled ? otherProps.selectedKeys : otherProps.defaultSelectedKeys);
+  const [selectedSubKeys, setSelectedSubKeys] = useState([]);
+  const [selectedGroupKeys, setSelectedGroupKeys] = useState([]);
+
+  useMemo(() => {
+    if (isControlled) {
+      return setSelectedKeys(otherProps.selectedKeys);
+    }
+  }, [isControlled, otherProps.selectedKeys, setSelectedKeys]);
+
+  useEffect(() => {
+    onSelectedKeysChange(selectedKeys);
+  }, [selectedKeys]);
 
   const _onItemClick = useCallback((key, itemProps) => {
     if (isControlled) {
       return onItemClick(key, itemProps);
     }
 
-    onItemClick(key, itemProps);
     setSelectedKeys((prev) => {
       if (multiple) {
         const next = new Set(prev);
 
-         // toggle selectedKeys with key
         if (next.has(key)) {
           next.delete(key);
         } else {
@@ -36,20 +44,26 @@ const Menu = ({ className, children, defaultSelectedKeys, onSelectedKeysChange, 
 
       return [key];
     });
-  }, []);
+  }, [onItemClick, isControlled, setSelectedKeys]);
 
-  const passedProps = useMemo(() => omit(otherProps, ['selectedKeys']), [otherProps]);
+  const passedProps = useMemo(() => omit(otherProps, ['selectedKeys', 'defaultSelectedKeys']), [otherProps]);
+
+  const menuValue = useMemo(() => ({
+    iconOnly,
+    selectedKeys,
+    selectedSubKeys,
+    selectedGroupKeys,
+    onItemClick: _onItemClick,
+  }), [iconOnly, selectedKeys, _onItemClick, selectedSubKeys, selectedGroupKeys]);
 
   return (
-    <ul className={cn('rc-menu',{ '--icon-only': iconOnly }, className)} {...passedProps}>
-      {React.Children.map(children, elm => React.cloneElement(elm, {
-        _onItemClick,
-        iconOnly,
-        selectedKeys,
-        selected: selectedKeys.indexOf(elm.key) >= 0,
-        _key: elm.key,
-      }))}
-    </ul>
+    <MenuContext.Provider value={menuValue}>
+      <ul className={cn('rc-menu',{ '--icon-only': iconOnly }, className)} {...passedProps}>
+        {React.Children.map(children, elm => React.cloneElement(elm, {
+          _key: elm.key,
+        }))}
+      </ul>
+    </MenuContext.Provider>
   );
 };
 

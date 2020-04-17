@@ -1,15 +1,18 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
+import MenuContext from './MenuContext';
 
-const Sub = ({ className, children, title, icon, iconOnly, selectedKeys, _onItemClick }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Sub = ({ defaultExpanded, className, children, title, icon, _key }) => {
+  const { iconOnly, selectedSubKeys } = useContext(MenuContext);
+  const selected = useMemo(() => selectedSubKeys.indexOf(_key) >= 0, [selectedSubKeys, _key]);
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const toggleExpanded = useCallback(() => setIsExpanded(prev => !prev), []);
 
   return (
-    <li className={cn('rc-menu-sub', { '--expanded': isExpanded, '--icon-only': iconOnly }, className)}>
+    <li className={cn('rc-menu-sub', { '--expanded': isExpanded, '--icon-only': iconOnly,'--selected': selected }, className)}>
       <div className="rc-menu-sub-title" onClick={toggleExpanded}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {icon && <Icon name={icon} className="rc-menu-sub-title-icon" />}
@@ -20,11 +23,8 @@ const Sub = ({ className, children, title, icon, iconOnly, selectedKeys, _onItem
       </div>
       <ul className="rc-menu-sub-list">
         {React.Children.map(children, elm => React.cloneElement(elm, {
-          iconOnly,
-          selected: selectedKeys.indexOf(elm.key) >= 0,
-          selectedKeys,
           _key: elm.key,
-          _onItemClick,
+          _subKey: _key,
         }))}
       </ul>
     </li>
@@ -35,13 +35,9 @@ Sub.displayName = 'Menu.Sub';
 Sub.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  selectedKeys: PropTypes.array,
   title: PropTypes.string,
-  iconOnly: PropTypes.bool,
-  _onItemClick: PropTypes.func,
+  defaultExpanded: PropTypes.bool,
 };
-Sub.defaultProps = {
-  selectedKeys: [],
-};
+Sub.defaultProps = {};
 
 export default Sub;

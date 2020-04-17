@@ -93,9 +93,9 @@
   }
 }
 
-.rc-button.--icon-button.--loading > .rc-loader-spinner {
-  width: 2.25em;
-  height: 2.25em;
-  z-index: 10;
+.rc-button.--circle.--loading > .rc-loader-spinner {
+  width: 2em;
+  height: 2em;
+  z-index: 1;
   position: absolute;
 }

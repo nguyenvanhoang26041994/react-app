@@ -36,8 +36,7 @@
   justify-content: space-between;
   background-color: var(--rc-color--300);
 
-  &:hover,
-  &.--selected {
+  &:hover {
     background-color: $primary-color--500;
     color: $light--500;
   }
