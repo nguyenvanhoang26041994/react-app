@@ -85,7 +85,7 @@ Button.propTypes = {
   primary: PropTypes.bool,
   type: PropTypes.string,
   danger: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.any,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
 };

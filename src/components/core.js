@@ -4,6 +4,7 @@ export { default as Alert } from './Alert';
 export { default as Affix } from './Affix';
 export { default as Anchor } from './Anchor';
 export { default as Avatar } from './Avatar';
+export { default as Box } from './Box';
 export { default as BaseInput } from './BaseInput';
 export { default as Button } from './Button';
 export { default as Badge } from './Badge';
