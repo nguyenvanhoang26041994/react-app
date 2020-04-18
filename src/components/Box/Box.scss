@@ -25,7 +25,8 @@
 
 .rc-box.--loading.--dots {
   .rc-box-content {
-    filter: blur(0.5px);
+    opacity: 0.3;
+    filter: blur(3px);
   }
 }
 
