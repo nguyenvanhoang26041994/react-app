@@ -59,8 +59,8 @@ const Menu = ({ className, children, onSelectedKeysChange, onItemClick, iconOnly
   return (
     <MenuContext.Provider value={menuValue}>
       <ul className={cn('rc-menu',{ '--icon-only': iconOnly }, className)} {...passedProps}>
-        {React.Children.map(children, elm => React.cloneElement(elm, {
-          _key: elm.key,
+        {React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
+          _key: elm.key || idx,
         }))}
       </ul>
     </MenuContext.Provider>

@@ -11,9 +11,9 @@ const ItemGroup = ({ className, children, title, _key }) => {
     <li className={cn('rc-menu-item-group', { '--icon-only': iconOnly, '--selected': selected }, className)}>
       <div className="rc-menu-item-group-title"><span>{title}</span></div>
       <ul className="rc-menu-item-group-list">
-        {React.Children.map(children, elm => React.cloneElement(elm, {
-          _key: elm.key,
+        {React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
           _groupKey: _key,
+          _key: elm.hasOwnProperty('key') ? elm.key : idx,
         }))}
       </ul>
     </li>
@@ -25,6 +25,7 @@ ItemGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   title: PropTypes.string,
+  _key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 ItemGroup.defaultProps = {};
 

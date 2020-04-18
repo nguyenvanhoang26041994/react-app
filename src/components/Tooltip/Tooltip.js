@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Overlay from '../Overlay';
 import { omit } from '../../utils/helpers';
 
-const Tooltip = ({ className, children, title, ...otherProps }) => {
+const Tooltip = ({ className, overlayClass, children, title, ...otherProps }) => {
   const passedProps = useMemo(() => omit(otherProps, [
     'overlay',
     'className',
@@ -17,7 +17,8 @@ const Tooltip = ({ className, children, title, ...otherProps }) => {
       arrow
       trigger={['hover']}
       overlay={title}
-      className={cn('rc-tooltip', className)}
+      className={className}
+      overlayClass={cn('rc-tooltip', overlayClass)}
       gap={10}
       {...passedProps}
     >
@@ -31,6 +32,7 @@ Tooltip.propTypes = {
   title: PropTypes.string,
   children: PropTypes.any,
   className: PropTypes.string,
+  overlayClass: PropTypes.string,
 };
 Tooltip.defaultProps = {
   gap: 15,

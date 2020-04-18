@@ -20,18 +20,6 @@
 
   > span {
     padding-right: 0.5em;
-    padding-left: 0.5em;
-  }
-
-  &:after,
-  &:before {
-    flex-grow: 1;
-    content: " ";
-    border-bottom: 1px dashed var(--rc-color--500);
-  }
-
-  &:before {
-    width: $content-spacing - 0.5em;
-    flex-grow: unset;
+    padding-left: 1em;
   }
 }

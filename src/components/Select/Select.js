@@ -24,11 +24,7 @@ const Select = ({ className, children, placement, placeholder, ...otherProps }) 
     setIsDrop(false);
   }, []);
 
-  const onVisibleChange = useCallback(visible => {
-    if (!visible) {
-      setIsDrop(false);
-    }
-  }, []);
+  const onVisibleChange = useCallback(visible => setIsDrop(visible), []);
 
   const renderValue = useCallback(() => {
     if (!value) {
@@ -50,8 +46,8 @@ const Select = ({ className, children, placement, placeholder, ...otherProps }) 
       visible={isDrop}
       onVisibleChange={onVisibleChange}
       canOutsideClickClose
-      placement={placement}
       trigger={[]}
+      bottomLeft
       overlay={(
         <Menu
           selectedKeys={[value]}

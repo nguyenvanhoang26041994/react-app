@@ -22,9 +22,9 @@ const Sub = ({ defaultExpanded, className, children, title, icon, _key }) => {
         <Icon name="caret-down" className="rc-menu-sub-icon" />
       </div>
       <ul className="rc-menu-sub-list">
-        {React.Children.map(children, elm => React.cloneElement(elm, {
-          _key: elm.key,
+        {React.Children.map(children, (elm, idx) => React.cloneElement(elm, {
           _subKey: _key,
+          _key: elm.hasOwnProperty('key') ? elm.key : idx,
         }))}
       </ul>
     </li>
@@ -36,6 +36,7 @@ Sub.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   title: PropTypes.string,
+  _key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultExpanded: PropTypes.bool,
 };
 Sub.defaultProps = {};

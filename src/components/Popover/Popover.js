@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 
 import Overlay from '../Overlay';
 
-const Popover = ({ className, children, trigger, gap, ...otherProps }) => {
+const Popover = ({ className, overlayClass, children, trigger, gap, ...otherProps }) => {
   return (
    <Overlay
       arrow
-      className={cn('rc-popover', className)}
+      className={className}
+      overlayClass={cn('rc-popover', overlayClass)}
       trigger={trigger}
       gap={gap}
       canOutsideClickClose
@@ -22,6 +23,7 @@ const Popover = ({ className, children, trigger, gap, ...otherProps }) => {
 Popover.displayName = 'Popover';
 Popover.propTypes = {
   className: PropTypes.string,
+  overlayClass: PropTypes.string,
   trigger: PropTypes.array,
   gap: PropTypes.number,
 };

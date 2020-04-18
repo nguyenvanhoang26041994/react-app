@@ -9,11 +9,6 @@
   }
 }
 
-.rc-breadcrumb > .rc-breadcrumb-item:nth-child(1) {
-  border-top-left-radius: $border-radius;
-  border-bottom-left-radius: $border-radius;
-}
-
 .rc-breadcrumb-item {
   height: $basic-height;
   display: flex;
@@ -38,7 +33,6 @@
     height: 1.75em;
     width: 1.75em;
     background-color: inherit;
-    border-top-right-radius: 0.25em;
     z-index: 1;
   }
 }

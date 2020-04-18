@@ -46,9 +46,9 @@ Item.propTypes = {
   children: PropTypes.any,
   icon: PropTypes.string,
   title: PropTypes.string.isRequired, // when Item in iconOnly mode, titleOnly will overide icon by first lettter of this value
-  _key: PropTypes.string,
-  _groupKey: PropTypes.string,
-  _subKey: PropTypes.string,
+  _key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  _groupKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  _subKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 Item.defaultProps = {};
 
