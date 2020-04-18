@@ -14,7 +14,7 @@ const mTextDecoration = Object.freeze({
   through: '--line-through',
 });
 
-const lTags = ['h1', 'h2', 'h3', 'h4', 'div', 'p', 'span'];
+const lTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'p', 'span'];
 const lFontStyles = Object.keys(mFontStyles);
 const lTextDecoration = Object.keys(mTextDecoration);
 

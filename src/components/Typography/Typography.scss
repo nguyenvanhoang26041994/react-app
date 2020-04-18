@@ -9,23 +9,27 @@ h4.rc-typo {
 }
 
 h1.rc-typo {
-  font-size: 3rem;
-  line-height: 1.23;
+  font-size: 2em;
 }
 
 h2.rc-typo {
-  font-size: 2.5rem;
-  line-height: 1.35;
+  font-size: 1.5em;
 }
 
 h3.rc-typo {
-  font-size: 2rem;
-  line-height: 1.35;
+  font-size: 1.17em;
 }
 
 h4.rc-typo {
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1em;
+}
+
+h5.rc-typo {
+  font-size: .83em;
+}
+
+h6.rc-typo {
+  font-size: .67em;
 }
 
 .rc-typo.--disabled {
