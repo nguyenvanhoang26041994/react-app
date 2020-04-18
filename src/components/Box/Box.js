@@ -4,16 +4,20 @@ import PropTypes from 'prop-types';
 
 import Loader from '../Loader';
 
-const Box = ({ children, loading, skeleton, className, ...otherProps }) => {
+const Box = ({ className, children, loading, skeleton, ...otherProps }) => {
   return (
     <div
-      className={cn('rc-box', {
-        '--loading': loading,
-        '--skeleton': skeleton,
-        '--not-skeleton': !skeleton
-      })}
+      className={cn(
+        'rc-box',
+        {
+          '--loading': loading,
+          '--skeleton': skeleton,
+          '--dots': !skeleton
+        },
+        className
+      )}
     >
-      <div className={cn('rc-box-content', className)} {...otherProps}>
+      <div className='rc-box-content' {...otherProps}>
         {children}
       </div>
       {loading && (
@@ -27,9 +31,9 @@ const Box = ({ children, loading, skeleton, className, ...otherProps }) => {
 
 Box.displayName = 'Box';
 Box.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.any,
   loading: PropTypes.bool,
-  skeleton: PropTypes.object,
+  skeleton: PropTypes.any,
   className: PropTypes.string
 };
 Box.defaultProps = {};
