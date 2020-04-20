@@ -1,37 +1,39 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import PureConfirm from '../PureConfirm';
 import Popover from '../Popover';
 
 const Popconfirm = ({ className, onOk, onCancel, children, ...otherProps }) => {
   const [visible, seVisible] = useState(false);
 
-  const closePopConfirm = () => seVisible(false);
+  const close = () => seVisible(false);
 
   const handleOk = useCallback(() => {
-    closePopConfirm();
+    close();
     onOk();
   }, []);
 
   const handleCancel = useCallback(() => {
-    closePopConfirm();
+    close();
     onCancel();
   }, []);
 
-  const handleVisibleChange = useCallback(_visible => seVisible(_visible),[]);
+  const onVisibleChange = useCallback(_visible => seVisible(_visible), []);
 
   return (
     <Popover
       visible={visible}
-      onVisibleChange={handleVisibleChange}
+      onVisibleChange={onVisibleChange}
       overlayClass="rc-pop-confirm"
+      className={className}
       overlay={
         <PureConfirm
           onOk={handleOk}
           onCancel={handleCancel}
+          {...otherProps}
         />
       }
-      className={className}
       {...otherProps}
     >
       {children}
