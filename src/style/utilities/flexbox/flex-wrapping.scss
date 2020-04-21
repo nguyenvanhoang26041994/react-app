@@ -1,0 +1,69 @@
+@import '../../vars.scss';
+
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+@media (min-width: $query-sm) {
+  .sm\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .sm\:flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .sm\:flex-no-wrap {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: $query-md) {
+  .md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .md\:flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .md\:flex-no-wrap {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: $query-lg) {
+  .lg\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .lg\:flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .lg\:flex-no-wrap {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: $query-xl) {
+  .xl\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .xl\:flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .xl\:flex-no-wrap {
+    flex-wrap: nowrap;
+  }
+}

@@ -17,6 +17,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as Carousel } from './Carousel';
 export { default as Divider } from './Divider';
 export { default as Droplet } from './Droplet';
+export { default as Flex } from './Flex';
 export { default as Drawer } from './Drawer';
 export { default as Icon } from './Icon';
 export { default as InputNumber } from './InputNumber';

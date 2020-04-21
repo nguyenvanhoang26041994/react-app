@@ -3,6 +3,10 @@
 @import './animation/index.scss';
 @import './common.scss';
 
+@import './utilities/flexbox/index.scss';
+@import './utilities/spacing.scss';
+@import './utilities/width.scss';
+
 @import '../components/Affix/Affix.scss';
 @import '../components/Alert/Alert.scss';
 @import '../components/Anchor/Anchor.scss';
@@ -21,6 +25,7 @@
 @import '../components/Confirm/Confirm.scss';
 @import '../components/Divider/Divider.scss';
 @import '../components/Droplet/Droplet.scss';
+@import '../components/Flex/Flex';
 @import '../components/Drawer/Drawer.scss';
 @import '../components/Form/Form.scss';
 @import '../components/Icon/Icon.scss';
