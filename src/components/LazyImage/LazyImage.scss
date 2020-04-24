@@ -1,0 +1,10 @@
+.rc-lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+}
+
+.rc-lazy-image.--loaded {
+  opacity: 1;
+}
