@@ -72,6 +72,8 @@ Typography.propTypes = {
   h2: PropTypes.bool,
   h3: PropTypes.bool,
   h4: PropTypes.bool,
+  h5: PropTypes.bool,
+  h6: PropTypes.bool,
   span: PropTypes.bool,
   oblique: PropTypes.bool,
   color: PropTypes.string,
