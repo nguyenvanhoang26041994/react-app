@@ -1,7 +1,3 @@
-@import '../../style/vars.scss';
-
-@import '../../style/vars.scss';
-
 .rc-divider {
   width: 100%;
   position: relative;
@@ -13,7 +9,7 @@
   &:after,
   &:before {
     content: " ";
-    border-bottom: 1px solid var(--rc-text-color);
+    border-bottom: 1px solid currentColor;
   }
 
   &:before {

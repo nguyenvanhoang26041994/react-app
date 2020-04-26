@@ -3,12 +3,12 @@
 .rc-menu-item {
   display: flex;
   align-items: center;
-  padding: 0 $content-spacing;
+  padding: 0 var(--content-spacing);
   height: 3em;
   cursor: pointer;
 
   &:hover {
-    color: $primary-color--500;
+    color: var(--primary--500);
   }
 
   // anti --icon-only
@@ -18,7 +18,7 @@
 
   &.--selected,
   &.--selected:hover {
-    background-color: $primary-color--500;
+    background-color: var(--primary--500);
     color: #ffffff;
   }
 

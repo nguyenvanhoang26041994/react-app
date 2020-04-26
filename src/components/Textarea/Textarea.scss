@@ -1,17 +1,29 @@
-@import '../../style/vars.scss';
-
 .rc-textarea {
-  min-height: $input-height;
+  min-height: var(--input-height);
   outline: 0 !important;
   border: 0;
   width: 100%;
-  border-radius: $border-radius;
-  padding: $input-spacing;
-  transition: box-shadow 0.25s;
-  background-color: var(--rc-color--450);
-  box-shadow: var(--rc-neu-pressed--450);
+  border-radius: var(--border-radius);
+  padding: var(--input-spacing);
+  transition: box-shadow 0.25s, border-color 0.25s;
+  background-color: var(--input--bg);
+  border: 1px solid transparent;
 
-  &:disabled {
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
     cursor: not-allowed;
+    border-color: transparent;
+    background-color: var(--input--disabled-bg);
+    color: var(--input--disabled-color);
   }
+
+  &:hover,
+  &:focus {
+    border-color: var(--primary--500);
+  }
+}
+
+.rc-textarea.--rounded {
+  border-radius: var(--input-height);
 }

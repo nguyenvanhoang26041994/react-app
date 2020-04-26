@@ -8,15 +8,21 @@ const ButtonGroup = ({ className, fluid, size, style, children, ...otherProps })
     'glassed',
     'primary',
     'danger',
+    'transparent',
     'disabled',
     'color',
+    'textColor',
   ]), [otherProps]);
 
   const passedProps = useMemo(() => omit(otherProps, [
     'glassed',
     'primary',
     'danger',
+    'transparent',
     'disabled',
+    'size',
+    'color',
+    'textColor',
   ]), [otherProps]);
 
   return (

@@ -11,7 +11,7 @@
 }
 
 .rc-form-field-label {
-  height: $basic-height;
+  height: var(--basic-height);
   display: flex;
   align-items: center;
 }
@@ -19,7 +19,7 @@
 .rc-form-field-label.--required {
   &:after {
     content: "*";
-    color: $red-color--400;
+    color: var(--red--400);
     font-size: 1.25em;
     margin: 0 0.125em;
   }
@@ -33,5 +33,5 @@
 }
 
 .rc-form-field-message.--error {
-  color: $red-color--300;
+  color: var(--red--300);
 }

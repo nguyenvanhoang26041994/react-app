@@ -1,5 +1,3 @@
-@import '../../style/vars.scss';
-
 .rc-menu-sub {
   &.--expanded {
     .rc-menu-sub-icon {
@@ -33,16 +31,16 @@
 }
 
 .rc-menu-sub-title {
-  padding: 0 $content-spacing;
+  padding: 0 var(--content-spacing);
   height: 3em;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--rc-color--300);
+  background-color: var(--menu--bg);
 
   &:hover {
-    color: $primary-color--500;
+    color: var(--primary--500);
   }
 }
 
@@ -52,5 +50,5 @@
 
 .rc-menu-sub-list {
   display: none;
-  background-color: var(--rc-color--600);
+  background-color: var(--sub-menu--bg);
 }

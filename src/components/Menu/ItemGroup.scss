@@ -1,9 +1,6 @@
 @import '../../style/vars.scss';
 
 .rc-menu-item-group {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-
   // anti --icon-only
   &.--hidden.--hidden {
     display: none;

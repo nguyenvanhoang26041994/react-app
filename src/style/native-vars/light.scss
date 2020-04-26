@@ -1,0 +1,70 @@
+@import '../vars.scss';
+
+body {
+  --text-color: #050505;
+  --body-bg: #f0f2f5;
+  --bg: #ffffff;
+  --secondary-bg: #f0f2f5;
+
+  --primary--900: #001d33;
+  --primary--800: #003a66;
+  --primary--700: #015899;
+  --primary--600: #0175cc;
+  --primary--500: #0293ff;
+  --primary--400: #34a8ff;
+  --primary--300: #67beff;
+  --primary--200: #99d3ff;
+  --primary--100: #cce9ff;
+
+  --flat: 1px 1px 1px #bfc0c6, -1px -1px 1px #ffffff;
+  --pressed: inset 1px 1px 1px #bfc0c6, inset -1px -1px 1px #ffffff;
+}
+
+/* BUTTON */
+body {
+  --button--bg: #f0f2f5;
+  --button--hover-bg: rgba(0, 0, 0, 0.05);
+  --button--disabled-bg: #f0f2f5;
+  --button--disabled-color: #d3d6dc;
+}
+
+/* BASE INPUT */
+body {
+  --input--bg: #f0f2f5;
+  --input--disabled-bg: #f0f2f5;
+  --input--disabled-color: #d3d6dc;
+}
+
+/* Popup */
+body {
+  --popup--title-bg: #f0f2f5;
+  --popup--shadow:  3px 3px 15px #f0f0f0, -3px -3px 15px #f0f0f0;
+}
+
+/* Collapse */
+body {
+  --panel--bg: #f0f2f5;
+}
+
+/* Menu */
+body {
+  --menu--bg: #fff;
+  --sub-menu--bg: #f0f0f0;
+  --menu--shadow:  3px 3px 15px #f0f0f0, -3px -3px 15px #f0f0f0;
+}
+
+/* Avatar */
+body {
+  --avatar--bg: #f0f2f5;
+}
+
+/* Slider */
+body {
+  --slider-handler--shadow: 5px 5px 20px var(--primary--100), -5px -5px 20px #fff;
+  --slider-rail--box-shadow: none;
+}
+
+/* Switch */
+body {
+  --switch-inner--bg: #fff;
+}

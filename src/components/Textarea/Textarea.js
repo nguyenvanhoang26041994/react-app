@@ -2,12 +2,12 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-const Textarea = React.forwardRef(({ className, ...otherProps }, ref) => {
+const Textarea = React.forwardRef(({ className, rounded, ...otherProps }, ref) => {
   return (
     <textarea
       {...otherProps}
       ref={ref}
-      className={cn('rc-textarea', className)}
+      className={cn('rc-textarea', { '--rounded': rounded }, className)}
     />
   );
 });
@@ -15,6 +15,7 @@ const Textarea = React.forwardRef(({ className, ...otherProps }, ref) => {
 Textarea.displayName = 'Textarea';
 Textarea.propTypes = {
   className: PropTypes.string,
+  rounded: PropTypes.bool,
 };
 Textarea.defaultProps = {};
 

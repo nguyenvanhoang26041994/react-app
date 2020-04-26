@@ -1,10 +1,9 @@
-@import '../../style/vars.scss';
-
 .rc-slider-handler {
   height: 1.25em;
   width: 1.25em;
   border-radius: 100rem;
-  background-color: #ffffff;
+  background-color: #fff;
+  box-shadow: var(--slider-handler--shadow);
   position: absolute;
   right: -0.625em;
   top: -0.5em;

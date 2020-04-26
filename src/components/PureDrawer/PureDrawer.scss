@@ -1,20 +1,22 @@
-@import '../../style/vars.scss';
-
 .rc-pure-drawer {
   position: relative;
   min-width: 30em;
-  background-color: var(--rc-color--500);
-  border-radius: $border-radius;
+  background-color: var(--bg);
+  box-shadow: var(--popup--shadow);
+  border-radius: var(--border-radius);
 }
 
 .rc-pure-drawer-title {
-  padding: 0.5em 1em;
+  padding: 0 1em;
+  height: 3.5em;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
-  background-color: var(--rc-color--450);
+  background-color: var(--popup--title-bg);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .rc-pure-drawer-content {

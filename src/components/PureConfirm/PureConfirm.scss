@@ -4,20 +4,22 @@
   position: relative;
   width: 33em;
   max-width: 100vw;
-  background-color: var(--rc-color--500);
-  box-shadow: var(--rc-neu-flat--500);
-  border-radius: $border-radius;
-  overflow: hidden;
+  background-color: var(--bg);
+  box-shadow: var(--popup--shadow);
+  border-radius: var(--border-radius);
 }
 
 .rc-pure-confirm-title {
-  padding: 0.5em 1em;
+  padding: 0 1em;
+  height: 3.5em;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
-  background-color: var(--rc-color--450);
+  background-color: var(--popup--title-bg);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .rc-pure-confirm-content {
@@ -29,6 +31,10 @@
   align-items: center;
   justify-content: flex-end;
   padding: 1em;
+
+  > .rc-button {
+    margin-left: 0.5em;
+  }
 }
 
 .pure-confirm--no-boxshadow {

@@ -12,6 +12,7 @@ const mColors = Object.freeze({
   primary: '--primary',
   danger: '--danger',
   glassed: '--glassed',
+  transparent: '--transparent',
 });
 
 const mShapes = Object.freeze({
@@ -70,7 +71,7 @@ const Button = React.forwardRef(({
       disabled={loading || disabled}
       {...passedProps}
     >
-      {loading && <Loader.Spinner style={{ marginRight: '.5rem' }} />}
+      {loading && <Loader.Spinner />}
       {(function() {
         if (icon && isString(icon)) {
           return (
@@ -101,6 +102,7 @@ Button.propTypes = {
   glassed: PropTypes.bool,
   style: PropTypes.object,
   primary: PropTypes.bool,
+  transparent: PropTypes.bool,
   shape: PropTypes.string,
   danger: PropTypes.bool,
   children: PropTypes.any,

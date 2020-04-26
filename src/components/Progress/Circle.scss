@@ -4,8 +4,8 @@
   position: relative;
   border-radius: 100em;
   user-select: none;
-  box-shadow: var(--rc-neu-pressed--500);
-  background-color: var(--rc-color--500);
+  box-shadow: var(--pressed);
+  background-color: var(--bg);
 }
 
 .rc-circle-progress-inner {
@@ -13,7 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: var(--rc-neu-flat--500);
+  box-shadow: var(--flat);
   border-radius: 100em;
 }
 
@@ -30,7 +30,7 @@ circle.rc-circle-progress-percent {
   transition: stroke-dashoffset 0.5s;
   transform: translate(10px, 10px);
   stroke-linecap: round;
-  stroke: $primary-color--500;
+  stroke: var(--primary--500);
 }
 
 .rc-circle-progress-number {

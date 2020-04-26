@@ -26,8 +26,8 @@ const PureConfirm = ({ confirmRef, children, title, onCancel, onOk, className, .
         {children}
       </div>
       <div className="rc-pure-confirm-handler">
-        <Button className="mr-2" onClick={onCancel}>{_text.cancel}</Button>
-        <Button className="mr-2" onClick={onOk}>{_text.ok}</Button>
+        <Button onClick={onCancel}>{_text.cancel}</Button>
+        <Button onClick={onOk}>{_text.ok}</Button>
       </div>
     </div>
   );

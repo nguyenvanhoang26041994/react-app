@@ -14,19 +14,18 @@ const renderIcon = (icon, right) => {
     return (
       <Icon
         name={icon}
-        style={right ? {
-          marginLeft: '1em',
-        } : {
-          marginRight: '1em',
-        }}
+        className={cn({
+          '--icon-left': !right,
+          '--icon-right': right,
+        })}
       />
-    )
+    );
   }
 
   return icon;
 };
 
-const Tabs = ({ className, children, onChange, fluid, underline, ...otherProps }) => {
+const Tabs = ({ className, children, onChange, fluid, underline, uppercase, ...otherProps }) => {
   const tabs = useMemo(() => React.Children.map(children, tab => ({
     key: tab.key,
     title: tab.props.title,
@@ -65,7 +64,17 @@ const Tabs = ({ className, children, onChange, fluid, underline, ...otherProps }
   } ,[activeTab, isControlled]);
 
   return (
-    <div className={cn('rc-tabs', { '--fluid': fluid, '--underline': underline }, className)}>
+    <div
+      className={cn(
+        'rc-tabs',
+        {
+          '--fluid': fluid,
+          '--underline': underline,
+          '--uppercase': uppercase
+        },
+        className
+      )}
+    >
       <div className="rc-tabs-nav">
         {tabs.map(tab => (
           <button
@@ -91,7 +100,7 @@ const Tabs = ({ className, children, onChange, fluid, underline, ...otherProps }
       </div>
     </div>
   );
-}
+};
 
 Tabs.Item = Item;
 
@@ -102,9 +111,11 @@ Tabs.propTypes = {
   onChange: PropTypes.func,
   fluid: PropTypes.bool,
   underline: PropTypes.bool,
+  uppercase: PropTypes.bool,
 };
 Tabs.defaultProps = {
   onChange: f => f,
+  uppercase: true,
 };
 
 export default Tabs;

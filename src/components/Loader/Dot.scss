@@ -15,7 +15,7 @@
 .rc-loader-dots {
   display: flex;
   align-items: center;
-  color: $primary-color--500;
+  color: var(--primary--500);
 }
 
 .rc-loader-dot {

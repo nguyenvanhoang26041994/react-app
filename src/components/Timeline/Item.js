@@ -8,7 +8,11 @@ const Item = ({ className, children, icon, ...otherProps }) => {
   return (
     <div className={cn('rc-timeline-item', className)} {...otherProps}>
       <div className="rc-timeline-item-rail" />
-      <Icon name={icon} className="rc-timeline-item-stone-icon"/>
+      <Icon
+        name={icon}
+        className="rc-timeline-item-stone-icon"
+        size="1.25em"
+      />
       <div className="rc-timeline-item-content">
         {children}
       </div>

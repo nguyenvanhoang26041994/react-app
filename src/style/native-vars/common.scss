@@ -1,0 +1,56 @@
+body {
+  --red--900: #290507;
+  --red--800: #520a0e;
+  --red--700: #7b0f15;
+  --red--600: #a4141c;
+  --red--500: #ce1a23;
+  --red--400: #d7474e;
+  --red--300: #e1757b;
+  --red--200: #eba3a7;
+  --red--100: #f5d1d3;
+
+  --green--900: #0e2204;
+  --green--800: #1d4409;
+  --green--700: #2b660e;
+  --green--600: #3a8813;
+  --green--500: #49aa18;
+  --green--400: #6dbb46;
+  --green--300: #91cc74;
+  --green--200: #b6dda2;
+  --green--100: #daeed0;
+
+  --blue--900: #001a33;
+  --blue--800: #003466;
+  --blue--700: #004e99;
+  --blue--600: #0068cc;
+  --blue--500: #0183ff;
+  --blue--400: #339bff;
+  --blue--300: #66b4ff;
+  --blue--200: #99cdff;
+  --blue--100: #cce6ff;
+
+  --orange--900: #2a1209;
+  --orange--800: #552413;
+  --orange--700: #80361d;
+  --orange--600: #ab4827;
+  --orange--500: #d65a31;
+  --orange--400: #de7a5a;
+  --orange--300: #e69c83;
+  --orange--200: #eebdac;
+  --orange--100: #f6ded5;
+
+  --input-height: 3rem;
+  --input-spacing: 1.25em;
+  --content-spacing: 1em;
+  --basic-height: 2.5em;
+  --border-radius: 0.25em;
+  --border-radius-medium: 1em;
+
+  --zindex-notification: 1000;
+  --zindex-alert: 1000;
+  --zindex-modal: 1000;
+  --zindex-confirm: 1000;
+  --zindex-tooltip: 1001;
+  --zindex-drawer: 1000;
+  --zindex-overlay: 1010;
+}

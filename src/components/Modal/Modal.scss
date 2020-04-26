@@ -1,12 +1,10 @@
-@import '../../style/vars.scss';
-
 .rc-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: $zindex-drawer;
+  z-index: var(--zindex-drawer);
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;

@@ -1,5 +1,3 @@
-@import '../../style/vars.scss';
-
 .rc-alert.rc-alert {
   animation: zoomIn 0.25s;
   background-color: rgba(0, 0, 0, 0.9);
@@ -16,7 +14,7 @@
   right: 0;
   display: flex;
   flex-direction: column-reverse;
-  z-index: $zindex-alert;
+  z-index: var(--zindex-alert);
 }
 
 #root-alert {

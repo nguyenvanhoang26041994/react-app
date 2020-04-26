@@ -1,135 +1,25 @@
-/***********************************************************************************************************************/
-/***************** COMMON VARIABLE *****************************/
-$input-height: 3rem;
-$input-spacing: 1.25em;
-$content-spacing: 1em;
-$basic-height: 2.5em;
-$border-radius: 0.25em;
-$border-radius-medium: 1em;
+$black--900: #14181d;
+$black--800: #171c22;
+$black--700: #1b2027;
+$black--600: #1e242c;
+$black--500: #222831;
+$black--400: #383d45;
+$black--300: #4e525a;
+$black--200: #64686e;
+$black--100: #7a7e83;
 
-$zindex-notification: 1000;
-$zindex-alert: 1000;
-$zindex-modal: 1000;
-$zindex-confirm: 1000;
-$zindex-tooltip: 1001;
-$zindex-drawer: 1000;
-$zindex-overlay: 1010;
-
-$primary-color--500--gradient: linear-gradient(145deg, #008ae6, #00a4ff);
-$placeholder-text-color: #a0aebf;
-
-$primary-color--600: #0089e4;
-$primary-color--500: #0099ff;
-$primary-color--400: #1d8dd8;
-$primary-bg-color: #0099ff33;
-
-$green-color--600: #3c8d15;
-$green-color--500: #49aa18;
-$orange-color--500: #e29118;
-
-$red-color--600: #82161c;
-$red-color--500: #a61c23;
-$red-color--400: #ce1a23;
-$red-color--300: #d6555b;
-$red-color--200: #de7f84;
+$white--900: #8d8e93;
+$white--800: #a5a5ab;
+$white--700: #bcbdc4;
+$white--600: #d4d5dc;
+$white--500: #ecedf5;
+$white--400: #fdfdfe;
+$white--300: #ffffff;
+$white--200: #ffffff;
+$white--100: #ffffff;
 
 $query-sm: 576px;
 $query-md: 768px;
 $query-lg: 992px;
 $query-xl: 1200px;
 $query-xxl: 1600px;
-
-/***********************************************************************************************************************/
-/***************** DARK VARIABLE *****************************/
-$dark-text-color: #e4e6eb;
-
-$dark--700: #000000;
-$dark--600: #242424;
-$dark--500: #393939; /* MAIN COLOR */
-$dark--450: #3c3c3c; /* SUPPORT MAIN COLOR */
-$dark--400: #474747;
-$dark--300: #535353;
-$dark--200: #616161;
-
-$dark-from--700: #000000;
-$dark-to--700: #000000;
-$neu-dark-flat--700: 1px 1px 1px $dark-from--700, -1px -1px 1px $dark-to--700;
-$neu-dark-pressed--700: inset 1px 1px 1px $dark-from--700, inset -1px -1px 1px $dark-to--700;
-
-$dark-from--600: #0e0e0e;
-$dark-to--600: #3a3a3a;
-$neu-dark-flat--600: 1px 1px 1px $dark-from--600, -1px -1px 1px $dark-to--600;
-$neu-dark-pressed--600: inset 1px 1px 1px $dark-from--600, inset -1px -1px 1px $dark-to--600;
-
-$dark-from--500: #171717;
-$dark-to--500: #5b5b5b;
-$neu-dark-flat--500: 1px 1px 1px $dark-from--500, -1px -1px 1px $dark-to--500;
-$neu-dark-pressed--500: inset 1px 1px 1px $dark-from--500, inset -1px -1px 1px $dark-to--500;
-
-$dark-from--450: #181818;
-$dark-to--450: #606060;
-$neu-dark-flat--450: 1px 1px 1px $dark-from--450, -1px -1px 1px $dark-to--450;
-$neu-dark-pressed--450: inset 1px 1px 1px $dark-from--450, inset -1px -1px 1px $dark-to--450;
-
-$dark-from--400: #1c1c1c;
-$dark-to--400: #727272;
-$neu-dark-flat--400: 1px 1px 1px $dark-from--400, -1px -1px 1px $dark-to--400;
-$neu-dark-pressed--400: inset 1px 1px 1px $dark-from--400, inset -1px -1px 1px $dark-to--400;
-
-$dark-from--300: #212121;
-$dark-to--300: #858585;
-$neu-dark-flat--300: 1px 1px 1px $dark-from--300, -1px -1px 1px $dark-to--300;
-$neu-dark-pressed--300: inset 1px 1px 1px $dark-from--300, inset -1px -1px 1px $dark-to--300;
-
-$dark-from--200: #272727;
-$dark-to--200: #9b9b9b;
-$neu-dark-flat--200: 1px 1px 1px $dark-from--200, -1px -1px 1px $dark-to--200;
-$neu-dark-pressed--200: inset 1px 1px 1px $dark-from--200, inset -1px -1px 1px $dark-to--200;
-
-/***********************************************************************************************************************/
-/***************** LIGHT VARIABLE *****************************/
-$light-text-color: #2f2f2f;
-
-$light--700: #bfc0c7;
-$light--600: #cdced5;
-$light--500: #ecedf5; /* MAIN COLOR */
-$light--450: #edf0f8; /* MAIN COLOR */
-$light--400: #f0f2fa;
-$light--300: #f2f5fd;
-$light--200: #ffffff;
-
-$light-from--700: #9b9ca1;
-$light-to--700: #e3e4ed;
-$neu-light-flat--700: 1px 1px 1px $light-from--700, -1px -1px 1px $light-to--700;
-$neu-light-pressed--700: inset 1px 1px 1px $light-from--700, inset -1px -1px 1px $light-to--700;
-
-$light-from--600: #a6a7ad;
-$light-to--600: #f4f5fd;
-$neu-light-flat--600: 1px 1px 1px $light-from--600, -1px -1px 1px $light-to--600;
-$neu-light-pressed--600: inset 1px 1px 1px $light-from--600, inset -1px -1px 1px $light-to--600;
-
-$light-from--500: #bfc0c6;
-$light-to--500: #ffffff;
-$neu-light-flat--500: 1px 1px 1px $light-from--500, -1px -1px 1px $light-to--500;
-$neu-light-pressed--500: inset 1px 1px 1px $light-from--500, inset -1px -1px 1px $light-to--500;
-
-$light-from--450: #bec0c6;
-$light-to--450: #ffffff;
-$neu-light-flat--450: 1px 1px 1px $light-from--450, -1px -1px 1px $light-to--450;
-$neu-light-pressed--450: inset 1px 1px 1px $light-from--450, inset -1px -1px 1px $light-to--450;
-
-$light-from--400: #c2c4cb;
-$light-to--400: #ffffff;
-$neu-light-flat--400: 1px 1px 1px $light-from--400, -1px -1px 1px $light-to--400;
-$neu-light-pressed--400: inset 1px 1px 1px $light-from--400, inset -1px -1px 1px $light-to--400;
-
-$light-from--300: #c4c6cd;
-$light-to--300: #ffffff;
-$neu-light-flat--300: 1px 1px 1px $light-from--300, -1px -1px 1px $light-to--300;
-$neu-light-pressed--300: inset 1px 1px 1px $light-from--300, inset -1px -1px 1px $light-to--300;
-
-$light-from--200: #cfcfcf;
-$light-to--200: #ffffff;
-$neu-light-flat--200: 1px 1px 1px $light-from--200, -1px -1px 1px $light-to--200;
-$neu-light-pressed--200: inset 1px 1px 1px $light-from--200, inset -1px -1px 1px $light-to--200;
-

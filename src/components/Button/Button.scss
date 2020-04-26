@@ -1,12 +1,11 @@
-@import '../../style/vars.scss';
-
 .rc-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $basic-height;
-  min-width: $basic-height;
-  border-radius: $border-radius;
+  height: var(--basic-height);
+  min-width: var(--basic-height);
+  border-radius: var(--border-radius);
+  background-color: var(--button--bg);
   padding-left: 1.25em;
   padding-right: 1.25em;
   outline: 0 !important;
@@ -14,16 +13,22 @@
   user-select: none;
   touch-action: manipulation;
   cursor: pointer;
-  background-color: var(--rc-color--450);
-  box-shadow: var(--rc-neu-flat--450);
 
-  &:focus,
-  &.--pressed {
-    box-shadow: var(--rc-neu-pressed--450);
+  &:hover,
+  &:focus {
+    background-color: var(--button--hover-bg);
   }
 
-  &:disabled {
+  &:hover {
+    color: var(--primary--500);
+  }
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
     cursor: not-allowed;
+    background-color: var(--button--disabled-bg);
+    color: #fff;
   }
 }
 
@@ -38,65 +43,117 @@
   padding-right: 0;
 }
 
+.rc-button:not(.--icon-button) > .rc-icon:nth-child(1) {
+  margin-right: 0.5em;
+}
+
+.rc-button:not(.--icon-button) > .rc-icon:last-child {
+  margin-left: 0.5em;
+}
+
 .rc-button.--rounded {
   border-radius: 100em;
 }
 
 .rc-button.--primary {
-  background-color: $primary-color--500;
-  color: $dark-text-color;
+  background-color: var(--primary--500);
+  color: #fff;
   box-shadow: none;
 
-  &:hover {
-    background-color: $primary-color--600;
+  &:hover,
+  &:focus {
+    background-color: var(--primary--600);
+  }
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: var(--primary--200);
   }
 }
 
 .rc-button.--colored {
+  color: #ffffff;
+  opacity: 0.8;
   box-shadow: none;
-  color: $dark-text-color;
 
+  &:hover,
   &:focus {
-    box-shadow: none;
+    opacity: 1;
   }
 
-  &:hover {
-    opacity: 0.9;
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    opacity: 0.8;
   }
 }
 
 .rc-button.--danger {
-  background-color: $red-color--500;
-  color: $dark-text-color;
+  background-color: var(--red--500);
+  color: #fff;
   box-shadow: none;
 
-  &:hover {
-    background-color: $red-color--600;
+  &:hover,
+  &:focus {
+    background-color: var(--red--600);
   }
 
-  &:focus {
-    box-shadow: none;
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: var(--red--200);
   }
 }
 
 .rc-button.--glassed {
   background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: #ffffff;
   box-shadow: none;
 
+  &:hover,
   &:focus {
-    box-shadow: none;
+    background-color: var(--primary--500);
   }
 
-  &:hover {
-    opacity: 0.9;
-    background-color: $primary-color--500;
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.rc-button.--transparent {
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--button--bg);
+  }
+
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
+    background-color: transparent;
+    color: var(--text-color);
+  }
+}
+
+.rc-button.--loading {
+  &:disabled {
+    color: var(--text-color);
+  }
+
+  > .rc-loader-spinner {
+    margin-right: 0.5em;
   }
 }
 
 .rc-button.--circle.--loading > .rc-loader-spinner {
   width: 2em;
   height: 2em;
+  margin: 0;
   z-index: 1;
   position: absolute;
 }

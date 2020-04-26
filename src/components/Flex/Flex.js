@@ -3,6 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 
 import getLatestProp from '../../utils/getLatestProp';
+import { omit } from '../../utils/helpers';
 
 export const getDirection = (direction, reverse) => {
   if (!direction) {
@@ -128,6 +129,7 @@ export const getResponsive = (
     noShrink,
     flex,
     span,
+    style,
     ...otherParams
   },
   query,
@@ -218,6 +220,7 @@ const Flex = ({
         },
         className
       )}
+      {...otherProps}
     >
       {children}
     </div>
@@ -237,6 +240,7 @@ const responsivePropTypes = Object.freeze({
   justify: PropTypes.oneOf(Object.keys(justifies)),
   items: PropTypes.oneOf(Object.keys(listItems)),
   span: PropTypes.oneOf(Object.keys(spans)),
+  style: PropTypes.object,
 });
 
 Flex.displayName = 'Flex';

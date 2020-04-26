@@ -37,7 +37,6 @@ const Popconfirm = ({
       {...otherProps}
       overlay={
         <PureConfirm
-          className="pure-confirm--no-boxshadow"
           onOk={handleOk}
           onCancel={handleCancel}
           title={title}

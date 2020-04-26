@@ -1,0 +1,70 @@
+@import '../vars.scss';
+
+.dark-mode {
+  --text-color: #e4e6eb;
+  --body-bg: #14181d;
+  --bg: #222831;
+  --secondary-bg: #171c22;
+
+  --primary--900: #2a1209;
+  --primary--800: #552413;
+  --primary--700: #80361d;
+  --primary--600: #ab4827;
+  --primary--500: #d65a31;
+  --primary--400: #de7a5a;
+  --primary--300: #e69c83;
+  --primary--200: #eebdac;
+  --primary--100: #f6ded5;
+
+  --flat: 1px 1px 1px #0e1014, -1px -1px 1px #36404e;
+  --pressed: inset 1px 1px 1px #0e1014, inset -1px -1px 1px #36404e;
+}
+
+/* BUTTON */
+.dark-mode {
+  --button--bg: #383d45;
+  --button--hover-bg: #4e525a;
+  --button--disabled-bg: #7a7e83;
+  --button--disabled-color: #171c22;
+}
+
+/* BASE INPUT */
+.dark-mode {
+  --input--bg: #1e242c;
+  --input--disabled-bg: #222831;
+  --input--disabled-color: #d3d6dc;
+}
+
+/* Popup */
+.dark-mode {
+  --popup--title-bg: #1e242c;
+  --popup--shadow: 1px 1px 1px #0e1014, -1px -1px 1px #36404e;
+}
+
+/* Collapse */
+.dark-mode {
+  --panel--bg: #1e242c;
+}
+
+/* Menu */
+.dark-mode {
+  --menu--bg: #383d45;
+  --sub-menu--bg: #4e525a;
+  --menu--shadow:  none;
+}
+
+/* Avatar */
+.dark-mode {
+  --avatar--bg: #1e242c;
+}
+
+/* Slider */
+.dark-mode {
+  --slider-handler--shadow: none;
+  --slider-rail--box-shadow: var(--pressed);
+}
+
+/* Switch */
+.dark-mode {
+  --switch-inner--bg: #383d45;
+}

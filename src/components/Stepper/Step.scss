@@ -1,7 +1,4 @@
-@import '../../style/vars.scss';
-
-$avatar-size: 2.5em;
-$rail-size: 1px;
+$step-avatar--size: 2.5em;
 
 .rc-step {
   flex: 1;
@@ -13,18 +10,18 @@ $rail-size: 1px;
 
 .rc-step-rail {
   position: absolute;
-  top: $avatar-size / 2;
+  top: $step-avatar--size / 2;
   left: -50%;
-  height: $rail-size;
+  height: 1px;
   width: 100%;
   border-bottom: 1px dashed currentColor;
 }
 
 .rc-step-avatar {
-  height: $avatar-size;
-  width: $avatar-size;
+  height: $step-avatar--size;
+  width: $step-avatar--size;
   border-radius: 100em;
-  background-color: var(--rc-color--600);
+  background-color: var(--secondary-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,18 +47,18 @@ $rail-size: 1px;
 // COMPLETED
 .rc-step.--completed {
   .rc-step-rail {
-    color: $primary-color--500;
+    color: var(--primary--500);
   }
 
   .rc-step-avatar {
-    background-color: $primary-color--500;
+    background-color: var(--primary--500);
     color: rgb(228, 230, 235);
     box-shadow: none;
     border: none;
   }
 
   .rc-step-title {
-    color: $primary-color--500;
+    color: var(--primary--500);
   }
 
   .rc-step-description {
@@ -72,12 +69,12 @@ $rail-size: 1px;
 // PROCESSING
 .rc-step.--processing {
   .rc-step-rail {
-    color: $primary-color--500;
+    color: var(--primary--500);
   }
 
   .rc-step-avatar {
-    background-color: $primary-color--500;
-    color: rgb(228, 230, 235);
+    background-color: var(--primary--500);
+    color: #fff;
     box-shadow: none;
   }
 
@@ -89,18 +86,18 @@ $rail-size: 1px;
 // CANCELED
 .rc-step.--canceled {
   .rc-step-rail {
-    color: $red-color--500;
+    color: var(--red--500);
   }
 
   .rc-step-avatar {
-    background-color: $red-color--500;
-    color: rgb(228, 230, 235);
+    background-color: var(--red--500);
+    color: #fff;
     box-shadow: none;
     border: none;
   }
 
   .rc-step-title {
-    color: $red-color--500;
+    color: var(--red--500);
   }
 
   .rc-step-description {
@@ -120,7 +117,7 @@ $rail-size: 1px;
 
   .rc-step-rail {
     border-bottom: none;
-    border-left: 1px dashed var(--rc-text-color);
+    border-left: 1px dashed var(--text-color);
   }
 
   .rc-step {
@@ -132,7 +129,7 @@ $rail-size: 1px;
     &.--completed {
       + .rc-step {
         .rc-step-rail {
-          color: $primary-color--500;
+          color: var(--primary--500);
           border-left: 1px dashed currentColor;
         }
       }
@@ -141,7 +138,7 @@ $rail-size: 1px;
     &.--canceled {
       + .rc-step {
         .rc-step-rail {
-          color: $red-color--500;
+          color: var(--red--500);
           border-left: 1px dashed currentColor;
         }
       }
@@ -152,8 +149,8 @@ $rail-size: 1px;
     background-color: transparent;
     background: transparent;
     height: 100%;
-    width: $rail-size;
-    left: $avatar-size / 2;
+    width: 1px;
+    left: $step-avatar--size / 2;
     top: calc(0 + 1.75em);
   }
 

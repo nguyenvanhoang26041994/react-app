@@ -1,17 +1,18 @@
-@import '../../style/vars.scss';
+$skeleton-loading--0: rgba(0, 0, 0, 0.1);
+$skeleton-loading--100: rgba(0, 0, 0, 0.2);
 
-@keyframes skeletonLoading {
+@keyframes skeleton-loading {
   0% {
-    background-color: var(--rc-color--200);
+    background-color: $skeleton-loading--0;
   }
   100% {
-    background-color: var(--rc-color--300);
+    background-color: $skeleton-loading--100;
   }
 }
 
 .rc-skeleton {
-  background-color: var(--rc-color--200);
-  animation: skeletonLoading .8s linear infinite alternate;
+  background-color: $skeleton-loading--0;
+  animation: skeleton-loading .8s linear infinite alternate;
 }
 
 .rc-skeleton.--circle {

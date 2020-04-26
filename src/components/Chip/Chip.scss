@@ -1,24 +1,16 @@
-@import '../../style/vars.scss';
-
 .rc-chip {
   height: 2.125em;
   padding-left: 0.35em;
   padding-right: 0.35em;
   display: flex;
   align-items: center;
-  border-radius: $border-radius;
+  border-radius: var(--border-radius);
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  background-color: var(--rc-color--400);
-  box-shadow: var(--rc-neu-flat--450);
+  background-color: var(--secondary-bg);
 
-  &:hover {
-    background-color: var(--rc-color--300);
-  }
-
-  // anti dark-mode
-  .rc-avatar.rc-avatar {
+  .rc-avatar {
     height: 1.65em;
     width: 1.65em;
     box-shadow: none;

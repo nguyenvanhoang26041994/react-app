@@ -1,17 +1,16 @@
-@import '../../style/vars.scss';
-
 .rc-tooltip {
   min-width: 5em;
   max-width: 20em;
   min-height: 2.5em;
-  padding: 0.5em $content-spacing;
+  padding: 0.5em var(--content-spacing);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba($color: $dark--600, $alpha: 0.8);
-  color: $dark-text-color;
+  box-shadow: var(--popup--shadow);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
 
   &.--arrow:after{
-    border-color: rgba($color: $dark--600, $alpha: 0.8);
+    border-color: rgba(0, 0, 0, 0.6);
   }
 }

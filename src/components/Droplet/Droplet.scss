@@ -1,13 +1,11 @@
-@import '../../style/vars.scss';
-
 .rc-droplet {
-  background-color: $primary-color--500;
+  background-color: var(--primary--600);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   border-radius: 100rem;
-  color: $dark-text-color;
+  color: #fff;
   width: 2.5rem;
   height: 2.5rem;
 

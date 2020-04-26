@@ -1,5 +1,3 @@
-@import '../../style/vars.scss';
-
 .rc-notification.rc-notification {
   animation: zoomIn 0.25s;
   color: #fff;
@@ -17,7 +15,7 @@
   left: 0;
   display: flex;
   flex-direction: column-reverse;
-  z-index: $zindex-notification;
+  z-index: var(--zindex-notification);
 }
 
 #root-notification {
