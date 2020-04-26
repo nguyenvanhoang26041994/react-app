@@ -36,20 +36,18 @@ const Image = ({ className, lazyLoad, w, h, src, clientElement, ...otherProps })
   useEffect(() => {
     if (lazyLoad) {
       window.addEventListener('scroll', handleScroll);
-    }
 
-    return () => window.removeEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, [handleScroll, lazyLoad]);
 
   return (
-    <div className={cn('rc-image-wrapper', className)}>
+    <div className={cn('rc-image', className)} style={{ width: w, height: h }}>
       {!isLoaded && <Skeleton w={w || '100%'} h={h || '100%'} />}
       <img
         data-src={src}
-        className={cn('rc-image', { '--loaded': isLoaded })}
+        className={cn({ '--loaded': isLoaded })}
         ref={ref}
-        width={w}
-        height={h}
         {...injectSrc}
         {...otherProps}
       />
@@ -61,8 +59,8 @@ Image.displayName = 'Image';
 Image.propTypes = {
   className: PropTypes.string,
   lazyLoad: PropTypes.bool,
-  w: PropTypes.number,
-  h: PropTypes.number,
+  w: PropTypes.string,
+  h: PropTypes.string,
   src: PropTypes.string,
   clientElement: PropTypes.any,
 };
