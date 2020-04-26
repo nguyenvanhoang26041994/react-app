@@ -14,7 +14,7 @@ const lShape = Object.keys(mShape);
 
 const Skeleton = ({ className, w, h, style, size, ...otherProps }) => {
   const shape = useSemanticProp('shape', otherProps, lShape);
-  const passedProps = useMemo(() => omit(otherProps, [...lShape, 'shape']), otherProps);
+  const passedProps = useMemo(() => omit(otherProps, [...lShape, 'shape']), [otherProps]);
 
   return (
     <div

@@ -21,7 +21,7 @@ export { default as Flex } from './Flex';
 export { default as Drawer } from './Drawer';
 export { default as Icon } from './Icon';
 export { default as InputNumber } from './InputNumber';
-export { default as LazyImage } from './LazyImage';
+export { default as Image } from './Image';
 export { default as Menu } from './Menu';
 export { default as Memo } from './Memo';
 export { default as Textbox } from './Textbox';
