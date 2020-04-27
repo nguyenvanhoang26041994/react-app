@@ -11,7 +11,6 @@
   }
 }
 
-/* DOT */
 .rc-loader-dots {
   display: flex;
   align-items: center;
@@ -25,16 +24,14 @@
   height: 1em;
   background-color: currentColor;
   border-radius: 100rem;
+  animation: flow .4s ease infinite alternate;
 }
 
-.rc-loader-dot.--dot-1 {
-  animation: flow .4s ease 0s infinite alternate;
-}
 
 .rc-loader-dot.--dot-2 {
-  animation: flow .4s ease .1s infinite alternate;
+  animation-delay: .1s;
 }
 
 .rc-loader-dot.--dot-3 {
-  animation: flow .4s ease .2s infinite alternate;
+  animation-delay: .2s;
 }

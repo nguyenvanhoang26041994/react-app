@@ -1,0 +1,40 @@
+@import '../../style/vars.scss';
+
+@keyframes wave {
+  0%, 100% {
+    transform: initial;
+  }
+
+  45% {
+    transform: translateY(-25px);
+  }
+}
+
+.rc-loader-dots-wave {
+  display: flex;
+  align-items: center;
+  color: var(--primary--500);
+}
+
+.rc-loader-dot-wave {
+  display: inline-block;
+  margin: 0 0.2em;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  border-radius: 100rem;
+  animation: wave 1s ease-out infinite;
+}
+
+.rc-loader-dot-wave.--dot-2 {
+  animation-delay: -0.8s
+}
+
+.rc-loader-dot-wave.--dot-3 {
+  animation-delay: -0.6s
+}
+
+.rc-loader-dot-wave.--dot-4 {
+  animation-delay: -0.4s
+}
+
