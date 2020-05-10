@@ -35,6 +35,7 @@ export { default as Typo } from './Typography';
 export { default as Modal } from './Modal';
 export { default as Select } from './Select';
 export { default as Stepper } from './Stepper';
+export { default as SpeedDial } from './SpeedDial';
 export { default as Radio } from './Radio';
 export { default as Rater } from './Rater';
 export { default as Switch } from './Switch';

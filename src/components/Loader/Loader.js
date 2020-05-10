@@ -1,12 +1,12 @@
-import Dot from './Dot';
+import Dots from './Dots';
 import Spinner from './Spinner';
 
 export {
-  Dot,
+  Dots,
   Spinner,
 };
 
 export default {
-  Dot,
+  Dots,
   Spinner,
 };

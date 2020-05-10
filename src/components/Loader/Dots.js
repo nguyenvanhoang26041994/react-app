@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-const Dot = ({ color, size, className, wave, ...otherProps }) => {
+const Dots = ({ color, size, className, wave, ...otherProps }) => {
   return (
     <div
       style={{ fontSize: size, color }}
@@ -16,13 +16,13 @@ const Dot = ({ color, size, className, wave, ...otherProps }) => {
   );
 };
 
-Dot.displayName = 'Loader.Dot';
-Dot.propTypes = {
+Dots.displayName = 'Loader.Dots';
+Dots.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
   wave: PropTypes.bool,
 };
-Dot.defaultProps = {};
+Dots.defaultProps = {};
 
-export default Dot;
+export default Dots;

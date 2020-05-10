@@ -1,0 +1,31 @@
+.rc-speed-dial.--top,
+.rc-speed-dial.--top-right,
+.rc-speed-dial.--right-top,
+.rc-speed-dial.--right,
+.rc-speed-dial.--right-bottom,
+.rc-speed-dial.--bottom-right,
+.rc-speed-dial.--bottom,
+.rc-speed-dial.--bottom-left,
+.rc-speed-dial.--left,
+.rc-speed-dial.--left-bottom,
+.rc-speed-dial.--left-top,
+.rc-speed-dial.--top-left {
+  &.--horizontal > .rc-speed-dial-buttons {
+    flex-direction: column;
+
+    > .rc-button:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+  &.--vertical > .rc-speed-dial-buttons {
+    flex-direction: row;
+
+    > .rc-button:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+
+  .rc-speed-dial-buttons {
+    display: flex;
+  }
+}

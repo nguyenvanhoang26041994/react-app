@@ -22,7 +22,7 @@ const Box = ({ className, children, loading, skeleton, ...otherProps }) => {
       </div>
       {loading && (
         <div className="rc-box-loader">
-          {skeleton ? skeleton : <Loader.Dot />}
+          {skeleton ? skeleton : <Loader.Dots />}
         </div>
       )}
     </div>

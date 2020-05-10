@@ -12,9 +12,9 @@ const Popconfirm = ({
   title,
   ...otherProps
 }) => {
-  const [visible, seVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  const close = () => seVisible(false);
+  const close = () => setVisible(false);
 
   const handleOk = useCallback(() => {
     close();
@@ -26,7 +26,7 @@ const Popconfirm = ({
     onCancel();
   }, []);
 
-  const onVisibleChange = useCallback(_visible => seVisible(_visible), []);
+  const onVisibleChange = useCallback(_visible => setVisible(_visible), []);
 
   return (
     <Popover
