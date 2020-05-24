@@ -10,9 +10,10 @@ const Popconfirm = ({
   onCancel,
   children,
   title,
+  defaultVisible,
   ...otherProps
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(!!defaultVisible);
 
   const close = () => setVisible(false);
 
@@ -54,6 +55,8 @@ Popconfirm.propTypes = {
   onOk: PropTypes.func,
   onCancel: PropTypes.func,
   children: PropTypes.any,
+  title: PropTypes.string,
+  defaultVisible: PropTypes.bool,
 };
 Popconfirm.defaultProps = {
   onCancel: f => f,

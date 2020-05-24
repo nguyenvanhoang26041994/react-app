@@ -1,0 +1,20 @@
+.rc-guide-spotlight {
+  position: absolute;
+  background-color: gray;
+}
+
+.rc-guide {
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: hard-light;
+  position: absolute;
+  z-index: 999;
+}
+
+.rc-guide.--open {
+  display: block;
+}
