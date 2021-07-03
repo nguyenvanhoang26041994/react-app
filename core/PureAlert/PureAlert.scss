@@ -1,0 +1,31 @@
+.fpure-alert {
+  box-shadow: none;
+  min-width: 30rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.fpure-alert-info {
+  .fdlg-header {
+    color: var(--blue--500);
+  }
+}
+
+.fpure-alert-success {
+  .fdlg-header {
+    color: var(--green--500);
+  }
+}
+
+.fpure-alert-warn {
+  .fdlg-header {
+    color: var(--orange--500);
+  }
+}
+
+.fpure-alert-err {
+  .fdlg-header {
+    color: var(--red--500);
+  }
+}

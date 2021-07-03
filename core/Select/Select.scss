@@ -1,0 +1,17 @@
+@import './Option';
+
+.fselect {
+  min-width: 200px;
+}
+
+.fselect-overlay {
+  background-color: var(--bg);
+  box-shadow: var(--popover-box-shadow);
+  border-radius: 3px;
+  overflow: hidden;
+
+  .tippy-content {
+    padding: 8px 0;
+  }
+}
+

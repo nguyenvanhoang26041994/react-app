@@ -1,0 +1,45 @@
+.fsearchbox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.fsearchbox-textbox {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+.fsearchbox-search-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  right: auto;
+  transform: translateY(-50%);
+  margin-left: 0.75em;
+}
+
+.fsearchbox-x-icon {
+  position: absolute;
+  left: auto;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.75em;
+  color: var(--white);
+  border-radius: 999px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .ficon {
+    font-size: 0.7em;
+  }
+
+  &:hover {
+    background-color: var(--btn-bg);
+  }
+}
