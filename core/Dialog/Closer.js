@@ -15,12 +15,11 @@ Closer.displayName = 'Dialog.Closer';
 Closer.propTypes = {
   className: PropTypes.string,
   color: Button.propTypes.color,
-  shape: Button.propTypes.shape,
   icon: Button.propTypes.icon,
 };
 Closer.defaultProps = {
   color: 'transparent',
-  shape: 'rounded',
+  rounded: true,
   icon: <X />,
 };
 

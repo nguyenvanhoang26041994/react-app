@@ -7,6 +7,9 @@
   border: 2px solid var(--bg);
   position: absolute;
 }
+.fbadge-ui-rounded {
+  border-radius: 999px;
+}
 
 // PLACEMENT SUPPORT
 .fbadge-top-end .fbadge-ui,

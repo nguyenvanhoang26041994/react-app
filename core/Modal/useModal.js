@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react';
+import useRefresh from '../../hooks/useRefresh';
 
 const useModal = (defaultIsOpen) => {
   const [isOpen, setIsOpen] = useState(defaultIsOpen);
+  const { isOpenFresh, setIsOpenFresh, doRefresh } = useRefresh();
 
   const doOpen = useCallback(() => setIsOpen(true), [setIsOpen]);
   const doClose = useCallback(() => setIsOpen(false), [setIsOpen]);
@@ -13,6 +15,9 @@ const useModal = (defaultIsOpen) => {
     doOpen,
     doClose,
     doToggle,
+    isOpenFresh,
+    setIsOpenFresh,
+    doRefresh,
   };
 };
 

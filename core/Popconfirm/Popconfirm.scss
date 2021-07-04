@@ -4,7 +4,7 @@
   }
 
   .tippy-content {
-    border-radius: 3px;
+    border-radius: var(--border-radius-medium);
     background-color: var(--bg);
     box-shadow: var(--popover-box-shadow);
   }
