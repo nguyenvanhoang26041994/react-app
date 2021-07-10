@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { root } from './portalNode';
+import { rootPortal } from './register';
 
 class Portal extends React.Component {
   render() {
+    if (typeof window === 'undefined') {
+      return null;
+    }
     return ReactDOM.createPortal(
       this.props.children,
       this.props.node,
@@ -19,7 +22,7 @@ Portal.propTypes = {
   node: PropTypes.any,
 };
 Portal.defaultProps = {
-  node: root,
+  node: rootPortal,
 };
 
 export default Portal;

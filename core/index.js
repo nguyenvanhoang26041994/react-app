@@ -15,6 +15,7 @@ export { default as Flex } from './Flex';
 export { default as Loader } from './Loader';
 export { default as Memo } from './Memo';
 export { default as Modal } from './Modal';
+export { default as Notification } from './Notification';
 export { default as Overlay } from './Overlay';
 export { default as Pagination } from './Pagination';
 export { default as Password } from './Password';

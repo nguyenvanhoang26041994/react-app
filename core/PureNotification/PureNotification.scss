@@ -8,7 +8,7 @@
   align-items: flex-start;
 
   &:hover {
-    background-color: var(--btn-bg);
+    background-color: var(--skeleton-color);
   }
 }
 
@@ -16,7 +16,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 4px;
   left: auto;
   transform: translateY(-50%);
   width: 12px;
