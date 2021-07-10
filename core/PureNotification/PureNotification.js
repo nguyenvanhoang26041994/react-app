@@ -2,20 +2,21 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import Dialog from '../Dialog';
+import BadgeAvatar from './BadgeAvatar';
 
-const PureNotification = React.forwardRef(({ children, className, ...otherProps }, ref) => {
+const PureNotification = React.forwardRef(({ children, className, hasDot, ...otherProps }, ref) => {
   return (
-    <Dialog
+    <div
       ref={ref}
-      className={cn('fpure-notification', className)}
+      className={cn('fpure-notification', { 'fpure-notification-has-dot': hasDot }, className)}
       {...otherProps}
     >
       {children}
-    </Dialog>
+    </div>
   );
 });
 
+PureNotification.BadgeAvatar = BadgeAvatar
 PureNotification.displayName = 'PureNotification';
 PureNotification.propTypes = {
   children: PropTypes.any,

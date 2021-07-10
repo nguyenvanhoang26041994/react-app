@@ -8,15 +8,11 @@ import Body from './Body';
 import Footer from './Footer';
 import Closer from './Closer';
 
-const Dialog = React.forwardRef(({ className, style, w, ...otherProps }, ref) => {
+const Dialog = React.forwardRef(({ className, ...otherProps }, ref) => {
   return (
     <div
       ref={ref}
       className={cn('fdialog', className)}
-      style={{
-        ...style,
-        width: w,
-      }}
       {...otherProps}
     />
   );
