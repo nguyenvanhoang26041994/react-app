@@ -22,7 +22,6 @@ export { default as Password } from './Password';
 export { default as Popover } from './Popover';
 export { default as Portal } from './Portal';
 export { default as Progress } from './Progress';
-export { default as PureAlert } from './PureAlert';
 export { default as PureConfirm } from './PureConfirm';
 export { default as Popconfirm } from './Popconfirm';
 export { default as Radio } from './Radio';
