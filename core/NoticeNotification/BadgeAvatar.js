@@ -8,7 +8,7 @@ const PureBadge = Badge.PureBadge;
 const BadgeAvatar = ({ className, badge, ...otherProps }) => {
   return (
     <PureBadge
-      className={cn('fbadge-avatar', className)}
+      className={cn('fnotice-badge-avatar', className)}
       badge={(
         <div className="fbadge-ui">
           {badge}
@@ -19,7 +19,7 @@ const BadgeAvatar = ({ className, badge, ...otherProps }) => {
   );
 };
 
-BadgeAvatar.displayName = 'PureNotification.BadgeAvatar';
+BadgeAvatar.displayName = 'NoticeNotification.BadgeAvatar';
 BadgeAvatar.propTypes = {
   className: PropTypes.string,
 };

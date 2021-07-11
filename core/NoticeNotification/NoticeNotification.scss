@@ -1,4 +1,4 @@
-.fpure-notification {
+.fnotice-notification {
   position: relative;
   width: 100%;
   cursor: pointer;
@@ -12,7 +12,7 @@
   }
 }
 
-.fpure-notification-has-dot:before {
+.fnotice-notification-has-dot:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -25,7 +25,7 @@
   background-color: var(--primary);
 }
 
-.fbadge-avatar {
+.fnotice-badge-avatar {
   --badge-avatar-width: 30px;
   .fbadge-ui {
     width: var(--badge-avatar-width);
