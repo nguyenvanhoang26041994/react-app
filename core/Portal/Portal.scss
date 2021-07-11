@@ -1,0 +1,33 @@
+.fportal-bottom-left,
+.fportal-bottom-right,
+.fportal-top-left,
+.fportal-top-right {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.fportal-bottom-left {
+  left: 0px;
+  top: auto;
+  bottom: 0px;
+  
+}
+
+.fportal-bottom-right {
+  right: 0px;
+  top: auto;
+  bottom: 0px;
+}
+
+.fportal-top-left {
+  left: 0px;
+  top: 0px;
+  bottom: auto;
+}
+
+.fportal-top-right {
+  right: 0px;
+  top: 0px;
+  bottom: auto;
+}

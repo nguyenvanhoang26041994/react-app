@@ -19,7 +19,7 @@ const Notification = ({
 
 Notification.push = notificationRef.push;
 Notification.closeAll = notificationRef.closeAll;
-Notification.updateConfig = notificationRef.update;
+Notification.update = notificationRef.update;
 Notification.Header = Dialog.Header;
 Notification.Body = Dialog.Body;
 Notification.Header = Dialog.Header;
