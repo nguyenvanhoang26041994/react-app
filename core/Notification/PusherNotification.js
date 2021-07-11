@@ -14,21 +14,21 @@ const mapDefaultNode = {
 };
 
 const notificationRef = {
-  maxNoti: 3,
-  update: ({ maxNoti }) => {
-    notificationRef.maxNoti = maxNoti || notificationRef.maxNoti;
+  max: 3,
+  update: ({ max }) => {
+    notificationRef.max = max || notificationRef.max;
   },
   nodes: [],
   instances: new Map(),
   isDuplicate: (id) => {
     return id && notificationRef.instances.has(id);
   },
-  keepMaxNoti: () => {
-    if (notificationRef.instances.size > notificationRef.maxNoti - 1) {
+  keepMax: () => {
+    if (notificationRef.instances.size > notificationRef.max - 1) {
       let counter = 0;
       const willClose = [];
       for (const [key, { doClose }] of notificationRef.instances) {
-        if (counter <= notificationRef.instances.size - notificationRef.maxNoti) {
+        if (counter <= notificationRef.instances.size - notificationRef.max) {
           willClose.push({
             key,
             doClose,
@@ -60,10 +60,7 @@ const notificationRef = {
 const PusherNotification = ({ id, renderFunc, autoClose, onUnmounted, placement, ...otherProps }) => {
   const ref = useRef();
   const [isOpen, setIsOpen] = useState(true);
-  const doClose = useCallback(() => {
-    setIsOpen(false);
-    notificationRef.instances.delete(id);
-  }, [setIsOpen, id]);
+  const doClose = useCallback(() => setIsOpen(false), [setIsOpen]);
 
   useEffect(() => {
     if (autoClose) {
@@ -127,7 +124,7 @@ notificationRef.push = (renderFunc, { id, ...otherProps }) => {
     notificationRef.instances.delete(_id);
   }
   
-  notificationRef.keepMaxNoti();
+  notificationRef.keepMax();
   notificationRef.nodes[_id] = node;
   ReactDOM.render((
     <PusherNotification
