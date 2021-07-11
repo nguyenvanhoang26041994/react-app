@@ -2,33 +2,31 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
+import Avatar from './Avatar';
 import { notificationRef } from './PusherNotification';
-import Dialog from '../Dialog';
 
 const Notification = ({
   className,
+  hasDot,
   ...otherProps
 }) => {
   return (
-      <Dialog
-        className={cn('fnotification', className)}
-        {...otherProps}
-      />
+    <div
+      className={cn('fnotification', { 'fnotification-has-dot': hasDot }, className)}
+      {...otherProps}
+    />
   );
 };
 
 Notification.ref = notificationRef;
-Notification.Header = Dialog.Header;
-Notification.Body = Dialog.Body;
-Notification.Header = Dialog.Header;
-Notification.Closer = Dialog.Closer;
-
+Notification.Avatar = Avatar;
 Notification.displayName = 'Notification';
 Notification.propTypes = {
   className: PropTypes.string,
-  isOpen: PropTypes.bool,
+  hasDot: PropTypes.bool,
 };
 Notification.defaultProps = {
+  hasDot: true,
 };
 
 export default Notification;

@@ -5,10 +5,10 @@ import Badge from '../Badge';
 
 const PureBadge = Badge.PureBadge;
 
-const BadgeAvatar = ({ className, badge, ...otherProps }) => {
+const Avatar = ({ className, badge, ...otherProps }) => {
   return (
     <PureBadge
-      className={cn('fnotice-badge-avatar', className)}
+      className={cn('fnotification-avatar', className)}
       badge={(
         <div className="fbadge-ui">
           {badge}
@@ -19,13 +19,13 @@ const BadgeAvatar = ({ className, badge, ...otherProps }) => {
   );
 };
 
-BadgeAvatar.displayName = 'NoticeNotification.BadgeAvatar';
-BadgeAvatar.propTypes = {
+Avatar.displayName = 'Notification.Avatar';
+Avatar.propTypes = {
   className: PropTypes.string,
 };
-BadgeAvatar.defaultProps = {
+Avatar.defaultProps = {
   placement: 'bottom-end',
   overlap: true,
 };
 
-export default BadgeAvatar;
+export default Avatar;
