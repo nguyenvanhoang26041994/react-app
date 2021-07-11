@@ -1,10 +1,10 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Portal from '../Portal';
 import { bottomLeftNode, bottomRightNode, topLeftNode, topRightNode } from '../Portal/register';
-import useUniqueId from '../../hooks/useUniqueId';
+import { uniqueId } from '../../utils/helpers';
 
 const mapDefaultNode = {
   'bottom-left': bottomLeftNode,
@@ -18,7 +18,11 @@ const notificationRef = {
   update: ({ maxNoti }) => {
     notificationRef.maxNoti = maxNoti || notificationRef.maxNoti;
   },
+  nodes: [],
   instances: new Map(),
+  isDuplicate: (id) => {
+    return id && notificationRef.instances.has(id);
+  },
   keepMaxNoti: () => {
     if (notificationRef.instances.size > notificationRef.maxNoti - 1) {
       let counter = 0;
@@ -51,48 +55,36 @@ const notificationRef = {
       notiInstance.doClose();
     }
   },
-  updateById: (id, param) => {
-    const notiInstance = notificationRef.instances.get(id);
-    if (notiInstance) {
-      notiInstance.setState(param);
-    }
-  },
 };
 
-const useLocalUniqueId = (id) => {
-  return id || useUniqueId();
-};
-
-const PusherNotification = ({ id, renderFunc, autoClose, initState, onUnmounted, placement, ...otherProps }) => {
-  const uniqueId = useLocalUniqueId(id);
-  const [state, setState] = useState(initState);
+const PusherNotification = ({ id, renderFunc, autoClose, onUnmounted, placement, ...otherProps }) => {
+  const ref = useRef();
   const [isOpen, setIsOpen] = useState(true);
   const doClose = useCallback(() => {
     setIsOpen(false);
-    notificationRef.instances.delete(uniqueId);
-  }, [setIsOpen, uniqueId]);
+    notificationRef.instances.delete(id);
+  }, [setIsOpen, id]);
 
   useEffect(() => {
     if (autoClose) {
-      const timmer = setTimeout(() => doClose(), autoClose);
-      return () => clearTimeout(timmer);
+      ref.current = setTimeout(() => doClose(), autoClose);
+      return () => clearTimeout(ref.current);
     }
-  }, [autoClose, doClose]);
+  }, [autoClose, doClose, ref]);
 
   useEffect(() => {
     if (isOpen) {
-      notificationRef.instances.set(uniqueId, {
+      notificationRef.instances.set(id, {
         doClose,
-        setState,
       });
     }
-  }, [uniqueId, isOpen, doClose, setState]);
+  }, [id, isOpen, doClose]);
 
   useEffect(() => {
     if (!isOpen) {
-      notificationRef.instances.delete(uniqueId);
+      notificationRef.instances.delete(id);
     }
-    return () => notificationRef.instances.delete(uniqueId);
+    return () => notificationRef.instances.delete(id);
   }, []);
 
   useEffect(() => {
@@ -104,7 +96,7 @@ const PusherNotification = ({ id, renderFunc, autoClose, initState, onUnmounted,
   if (isOpen) {
     return (
       <Portal {...otherProps} node={mapDefaultNode[placement]}>
-        {renderFunc({ doClose, state, setState })}
+        {renderFunc({ doClose })}
       </Portal>
     );
   }
@@ -112,7 +104,7 @@ const PusherNotification = ({ id, renderFunc, autoClose, initState, onUnmounted,
 };
 
 PusherNotification.propTypes = {
-  initState: PropTypes.object,
+  id: PropTypes.string.isRequired,
   renderFunc: PropTypes.func.isRequired,
   autoClose: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   onUnmounted: PropTypes.func,
@@ -121,20 +113,28 @@ PusherNotification.propTypes = {
 PusherNotification.defaultProps = {
   autoClose: 9000,
   onUnmounted: f => f,
-  initState: {},
   placement: 'bottom-left',
 };
 
-notificationRef.push = (renderFunc, props) => {
-  notificationRef.keepMaxNoti();
+notificationRef.push = (renderFunc, { id, ...otherProps }) => {
+  const _id = id || uniqueId();
+  const isDuplicate = notificationRef.isDuplicate(_id);
   const node = window.document.createElement('div');
   const onUnmounted = () => ReactDOM.unmountComponentAtNode(node);
 
+  if (isDuplicate) {
+    ReactDOM.unmountComponentAtNode(notificationRef.nodes[_id]);
+    notificationRef.instances.delete(_id);
+  }
+  
+  notificationRef.keepMaxNoti();
+  notificationRef.nodes[_id] = node;
   ReactDOM.render((
     <PusherNotification
       renderFunc={renderFunc}
       onUnmounted={onUnmounted}
-      {...props}
+      id={_id}
+      {...otherProps}
     />
   ), node);
 };

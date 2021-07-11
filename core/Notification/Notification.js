@@ -17,9 +17,7 @@ const Notification = ({
   );
 };
 
-Notification.push = notificationRef.push;
-Notification.closeAll = notificationRef.closeAll;
-Notification.update = notificationRef.update;
+Notification.ref = notificationRef;
 Notification.Header = Dialog.Header;
 Notification.Body = Dialog.Body;
 Notification.Header = Dialog.Header;
