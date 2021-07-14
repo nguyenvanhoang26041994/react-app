@@ -64,6 +64,7 @@ const alertRef = {
     }
   },
 };
+
 const PusherAlert = ({ id, renderFunc, placement, onUnmounted, autoClose, ...otherProps }) => {
   const ref = useRef();
   const [isOpen, setIsOpen] = useState(true);
