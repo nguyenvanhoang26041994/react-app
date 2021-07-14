@@ -1,3 +1,4 @@
+export { default as Alert } from './Alert';
 export { default as Animated } from './Animated';
 export { default as Autocomplete } from './Autocomplete';
 export { default as Avatar } from './Avatar';

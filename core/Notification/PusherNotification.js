@@ -18,7 +18,7 @@ const notificationRef = {
   update: ({ max }) => {
     notificationRef.max = max || notificationRef.max;
   },
-  nodes: [],
+  nodes: {},
   instances: new Map(),
   isDuplicate: (id) => {
     return id && notificationRef.instances.has(id);
@@ -113,7 +113,8 @@ PusherNotification.defaultProps = {
   placement: 'bottom-left',
 };
 
-notificationRef.push = (renderFunc, { id, ...otherProps }) => {
+notificationRef.push = (renderFunc, params) => {
+  const { id, ...otherProps } = params || {};
   const _id = id || uniqueId();
   const isDuplicate = notificationRef.isDuplicate(_id);
   const node = window.document.createElement('div');

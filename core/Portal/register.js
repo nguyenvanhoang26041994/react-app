@@ -28,12 +28,28 @@ const registerBottomRight = () => {
   return node;
 };
 
+const registerTopCenter = () => {
+  const node = window.document.createElement('div');
+  node.classList.add('fportal-top-center');
+  window.document.body.appendChild(node);
+  return node;
+};
+
+const registerBottomCenter = () => {
+  const node = window.document.createElement('div');
+  node.classList.add('fportal-bottom-center');
+  window.document.body.appendChild(node);
+  return node;
+};
+
 const {
   rootPortal,
   topLeftNode,
   topRightNode,
   bottomLeftNode,
   bottomRightNode,
+  topCenterNode,
+  bottomCenterNode,
 } = (() => {
   if (!isBrowser) {
     return null;
@@ -51,6 +67,8 @@ const {
   const topRightNode = registerTopRight();
   const bottomLeftNode = registerBottomLeft();
   const bottomRightNode = registerBottomRight();
+  const topCenterNode = registerTopCenter();
+  const bottomCenterNode = registerBottomCenter();
 
   window.document.body.appendChild(rootPortal);
 
@@ -60,6 +78,8 @@ const {
     topRightNode,
     bottomLeftNode,
     bottomRightNode,
+    topCenterNode,
+    bottomCenterNode,
   };
 })();
 
@@ -70,4 +90,6 @@ export {
   topRightNode,
   bottomLeftNode,
   bottomRightNode,
+  topCenterNode,
+  bottomCenterNode,
 };

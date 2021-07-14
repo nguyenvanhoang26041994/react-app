@@ -1,7 +1,9 @@
 .fportal-bottom-left,
 .fportal-bottom-right,
 .fportal-top-left,
-.fportal-top-right {
+.fportal-top-right,
+.fportal-top-center,
+.fportal-bottom-center {
   position: fixed;
   display: flex;
   flex-direction: column-reverse;
@@ -30,4 +32,17 @@
   right: 0px;
   top: 0px;
   bottom: auto;
+}
+
+.fportal-top-center,
+.fportal-bottom-center {
+  width: 100vw;
+}
+.fportal-top-center {
+  top: 0px;
+  bottom: auto;
+}
+.fportal-bottom-center {
+  bottom: 0px;
+  top: auto;
 }
